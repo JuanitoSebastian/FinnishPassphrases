@@ -58,4 +58,7 @@ extension AppState {
         DefaultsStore.shared.numberOfWordsInPassphrase += 1
     }
 
+    func setCurrentSeparator(_ separator: SeparatorSymbol) {
+        DefaultsStore.shared.separatorSymbol = separator
+    }
 }

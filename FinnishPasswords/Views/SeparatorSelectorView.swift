@@ -10,17 +10,36 @@ import SwiftUI
 struct SeparatorSelectorView: View {
 
     @EnvironmentObject var appState: AppState
+    @State var currentSeparator: SeparatorSymbol = DefaultsStore.shared.separatorSymbol
 
+}
+
+// MARK: - Views
+extension SeparatorSelectorView {
     var body: some View {
         HStack(spacing: 10) {
             ForEach(fPasswordSeparators, id: \.self) { separator in
                 Text(String(separator.symbol))
                     .font(fPasswordFontMedium)
+                    .foregroundColor(separator == currentSeparator ? .blue : .black)
+                    .onTapGesture {
+                        setCurrentSeparator(separator)
+                    }
             }
         }
     }
 }
 
+// MARK: - Functions
+extension SeparatorSelectorView {
+    func setCurrentSeparator(_ separator: SeparatorSymbol) {
+        appState.setCurrentSeparator(separator)
+        appState.generatePassphrase()
+        currentSeparator = separator
+    }
+}
+
+// MARK: - Preview
 #if DEBUG
 struct SeparatorSelectorView_Previews: PreviewProvider {
     static var previews: some View {

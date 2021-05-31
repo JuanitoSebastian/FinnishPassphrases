@@ -20,6 +20,7 @@ extension WordDisplayerView {
             content
             .padding(.horizontal, 15)
             .padding(.vertical, 10)
+            .animation(.spring())
         }
         .background(
             RoundedRectangle(cornerSize: CGSize(width: 10, height: 10))

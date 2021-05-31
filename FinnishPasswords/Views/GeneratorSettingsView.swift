@@ -32,10 +32,12 @@ extension GeneratorSettingsView {
     func incrementNumbOfWords() {
         appState.incrementNumberOfWordsInPassphrase()
         numOfWords = DefaultsStore.shared.numberOfWordsInPassphrase
+        appState.generatePassphrase()
     }
 
     func decrementNumOfWords() {
         appState.decrementNumberOfWordsInPassphrase()
         numOfWords = DefaultsStore.shared.numberOfWordsInPassphrase
+        appState.generatePassphrase()
     }
 }
