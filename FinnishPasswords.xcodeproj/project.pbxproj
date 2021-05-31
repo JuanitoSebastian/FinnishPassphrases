@@ -7,13 +7,55 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		280A1CFB2662356F00301A4C /* Log.swift in Sources */ = {isa = PBXBuildFile; fileRef = 280A1CFA2662356F00301A4C /* Log.swift */; };
+		280A1CFD2662357A00301A4C /* kotus-sanalista_v1.xml in Resources */ = {isa = PBXBuildFile; fileRef = 280A1CFC2662357A00301A4C /* kotus-sanalista_v1.xml */; };
+		280A1D012662359900301A4C /* PassphraseGeneratorService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 280A1CFF2662359800301A4C /* PassphraseGeneratorService.swift */; };
+		280A1D022662359900301A4C /* KotusWordService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 280A1D002662359900301A4C /* KotusWordService.swift */; };
+		280A1D052662416300301A4C /* AppState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 280A1D042662416300301A4C /* AppState.swift */; };
+		280A1D072662434300301A4C /* WordDisplayerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 280A1D062662434300301A4C /* WordDisplayerView.swift */; };
+		280A1D092662477F00301A4C /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 280A1D082662477F00301A4C /* Constants.swift */; };
+		281666FC2664C53A00DDCCC3 /* Passphrase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 281666FB2664C53A00DDCCC3 /* Passphrase.swift */; };
+		281666FE2664C6B600DDCCC3 /* SeparatorSymbol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 281666FD2664C6B600DDCCC3 /* SeparatorSymbol.swift */; };
+		281667062664CD6D00DDCCC3 /* PassphraseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 281667052664CD6D00DDCCC3 /* PassphraseTests.swift */; };
+		2816670D2664CD8E00DDCCC3 /* Passphrase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 281666FB2664C53A00DDCCC3 /* Passphrase.swift */; };
+		2816670E2664CD9100DDCCC3 /* SeparatorSymbol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 281666FD2664C6B600DDCCC3 /* SeparatorSymbol.swift */; };
+		281667102664CED800DDCCC3 /* SeparatorSymbolTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2816670F2664CED800DDCCC3 /* SeparatorSymbolTests.swift */; };
+		281667132664D26500DDCCC3 /* DefaultsStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 281667122664D26500DDCCC3 /* DefaultsStore.swift */; };
+		281667152664ED2300DDCCC3 /* SeparatorSelectorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 281667142664ED2300DDCCC3 /* SeparatorSelectorView.swift */; };
 		282874DD2662337500ADC11E /* FinnishPasswordsApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 282874DC2662337500ADC11E /* FinnishPasswordsApp.swift */; };
 		282874DF2662337500ADC11E /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 282874DE2662337500ADC11E /* ContentView.swift */; };
 		282874E12662337800ADC11E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 282874E02662337800ADC11E /* Assets.xcassets */; };
 		282874E42662337800ADC11E /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 282874E32662337800ADC11E /* Preview Assets.xcassets */; };
+		282874ED266234F000ADC11E /* .swiftlint.yml in Resources */ = {isa = PBXBuildFile; fileRef = 282874EC266234F000ADC11E /* .swiftlint.yml */; };
+		28F7F8E32662654900C75979 /* GeneratorSettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28F7F8E22662654900C75979 /* GeneratorSettingsView.swift */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		281667082664CD6D00DDCCC3 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 282874D12662337500ADC11E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 282874D82662337500ADC11E;
+			remoteInfo = FinnishPasswords;
+		};
+/* End PBXContainerItemProxy section */
+
 /* Begin PBXFileReference section */
+		280A1CFA2662356F00301A4C /* Log.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Log.swift; sourceTree = "<group>"; };
+		280A1CFC2662357A00301A4C /* kotus-sanalista_v1.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = "kotus-sanalista_v1.xml"; sourceTree = "<group>"; };
+		280A1CFF2662359800301A4C /* PassphraseGeneratorService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PassphraseGeneratorService.swift; sourceTree = "<group>"; };
+		280A1D002662359900301A4C /* KotusWordService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KotusWordService.swift; sourceTree = "<group>"; };
+		280A1D042662416300301A4C /* AppState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppState.swift; sourceTree = "<group>"; };
+		280A1D062662434300301A4C /* WordDisplayerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WordDisplayerView.swift; sourceTree = "<group>"; };
+		280A1D082662477F00301A4C /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		281666FB2664C53A00DDCCC3 /* Passphrase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Passphrase.swift; sourceTree = "<group>"; };
+		281666FD2664C6B600DDCCC3 /* SeparatorSymbol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeparatorSymbol.swift; sourceTree = "<group>"; };
+		281667032664CD6D00DDCCC3 /* FinnishPasswordsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FinnishPasswordsTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		281667052664CD6D00DDCCC3 /* PassphraseTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PassphraseTests.swift; sourceTree = "<group>"; };
+		281667072664CD6D00DDCCC3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		2816670F2664CED800DDCCC3 /* SeparatorSymbolTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeparatorSymbolTests.swift; sourceTree = "<group>"; };
+		281667122664D26500DDCCC3 /* DefaultsStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultsStore.swift; sourceTree = "<group>"; };
+		281667142664ED2300DDCCC3 /* SeparatorSelectorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeparatorSelectorView.swift; sourceTree = "<group>"; };
 		282874D92662337500ADC11E /* FinnishPasswords.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FinnishPasswords.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		282874DC2662337500ADC11E /* FinnishPasswordsApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinnishPasswordsApp.swift; sourceTree = "<group>"; };
 		282874DE2662337500ADC11E /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -21,9 +63,18 @@
 		282874E32662337800ADC11E /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		282874E52662337800ADC11E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		282874E62662337800ADC11E /* FinnishPasswords.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = FinnishPasswords.entitlements; sourceTree = "<group>"; };
+		282874EC266234F000ADC11E /* .swiftlint.yml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.yaml; path = .swiftlint.yml; sourceTree = "<group>"; };
+		28F7F8E22662654900C75979 /* GeneratorSettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeneratorSettingsView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		281667002664CD6D00DDCCC3 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		282874D62662337500ADC11E /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -34,10 +85,68 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		280A1CF92662355900301A4C /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				280A1CFC2662357A00301A4C /* kotus-sanalista_v1.xml */,
+				280A1CFA2662356F00301A4C /* Log.swift */,
+				280A1D082662477F00301A4C /* Constants.swift */,
+			);
+			path = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		280A1CFE2662358B00301A4C /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				280A1D002662359900301A4C /* KotusWordService.swift */,
+				280A1CFF2662359800301A4C /* PassphraseGeneratorService.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		280A1D03266240FF00301A4C /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				282874DE2662337500ADC11E /* ContentView.swift */,
+				280A1D062662434300301A4C /* WordDisplayerView.swift */,
+				28F7F8E22662654900C75979 /* GeneratorSettingsView.swift */,
+				281667142664ED2300DDCCC3 /* SeparatorSelectorView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		281666FA2664C50600DDCCC3 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				281666FB2664C53A00DDCCC3 /* Passphrase.swift */,
+				281666FD2664C6B600DDCCC3 /* SeparatorSymbol.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		281667042664CD6D00DDCCC3 /* FinnishPasswordsTests */ = {
+			isa = PBXGroup;
+			children = (
+				2816670F2664CED800DDCCC3 /* SeparatorSymbolTests.swift */,
+				281667052664CD6D00DDCCC3 /* PassphraseTests.swift */,
+				281667072664CD6D00DDCCC3 /* Info.plist */,
+			);
+			path = FinnishPasswordsTests;
+			sourceTree = "<group>";
+		};
+		281667112664D23F00DDCCC3 /* Stores */ = {
+			isa = PBXGroup;
+			children = (
+				281667122664D26500DDCCC3 /* DefaultsStore.swift */,
+			);
+			path = Stores;
+			sourceTree = "<group>";
+		};
 		282874D02662337500ADC11E = {
 			isa = PBXGroup;
 			children = (
 				282874DB2662337500ADC11E /* FinnishPasswords */,
+				281667042664CD6D00DDCCC3 /* FinnishPasswordsTests */,
 				282874DA2662337500ADC11E /* Products */,
 			);
 			sourceTree = "<group>";
@@ -46,6 +155,7 @@
 			isa = PBXGroup;
 			children = (
 				282874D92662337500ADC11E /* FinnishPasswords.app */,
+				281667032664CD6D00DDCCC3 /* FinnishPasswordsTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -53,8 +163,14 @@
 		282874DB2662337500ADC11E /* FinnishPasswords */ = {
 			isa = PBXGroup;
 			children = (
+				280A1D03266240FF00301A4C /* Views */,
+				280A1CFE2662358B00301A4C /* Services */,
+				281666FA2664C50600DDCCC3 /* Models */,
+				280A1CF92662355900301A4C /* Supporting Files */,
+				281667112664D23F00DDCCC3 /* Stores */,
+				282874EC266234F000ADC11E /* .swiftlint.yml */,
+				280A1D042662416300301A4C /* AppState.swift */,
 				282874DC2662337500ADC11E /* FinnishPasswordsApp.swift */,
-				282874DE2662337500ADC11E /* ContentView.swift */,
 				282874E02662337800ADC11E /* Assets.xcassets */,
 				282874E52662337800ADC11E /* Info.plist */,
 				282874E62662337800ADC11E /* FinnishPasswords.entitlements */,
@@ -74,10 +190,29 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		281667022664CD6D00DDCCC3 /* FinnishPasswordsTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 2816670A2664CD6D00DDCCC3 /* Build configuration list for PBXNativeTarget "FinnishPasswordsTests" */;
+			buildPhases = (
+				281666FF2664CD6D00DDCCC3 /* Sources */,
+				281667002664CD6D00DDCCC3 /* Frameworks */,
+				281667012664CD6D00DDCCC3 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				281667092664CD6D00DDCCC3 /* PBXTargetDependency */,
+			);
+			name = FinnishPasswordsTests;
+			productName = FinnishPasswordsTests;
+			productReference = 281667032664CD6D00DDCCC3 /* FinnishPasswordsTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 		282874D82662337500ADC11E /* FinnishPasswords */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 282874E92662337800ADC11E /* Build configuration list for PBXNativeTarget "FinnishPasswords" */;
 			buildPhases = (
+				280A1CF82662353900301A4C /* SwiftLint */,
 				282874D52662337500ADC11E /* Sources */,
 				282874D62662337500ADC11E /* Frameworks */,
 				282874D72662337500ADC11E /* Resources */,
@@ -100,6 +235,9 @@
 				LastSwiftUpdateCheck = 1250;
 				LastUpgradeCheck = 1250;
 				TargetAttributes = {
+					281667022664CD6D00DDCCC3 = {
+						CreatedOnToolsVersion = 12.5;
+					};
 					282874D82662337500ADC11E = {
 						CreatedOnToolsVersion = 12.5;
 					};
@@ -119,35 +257,132 @@
 			projectRoot = "";
 			targets = (
 				282874D82662337500ADC11E /* FinnishPasswords */,
+				281667022664CD6D00DDCCC3 /* FinnishPasswordsTests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		281667012664CD6D00DDCCC3 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		282874D72662337500ADC11E /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				282874ED266234F000ADC11E /* .swiftlint.yml in Resources */,
 				282874E42662337800ADC11E /* Preview Assets.xcassets in Resources */,
+				280A1CFD2662357A00301A4C /* kotus-sanalista_v1.xml in Resources */,
 				282874E12662337800ADC11E /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		280A1CF82662353900301A4C /* SwiftLint */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = SwiftLint;
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "if which swiftlint >/dev/null; then\n  swiftlint autocorrect && swiftlint\nelse\n  echo \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi\n\n";
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
+		281666FF2664CD6D00DDCCC3 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				281667062664CD6D00DDCCC3 /* PassphraseTests.swift in Sources */,
+				2816670D2664CD8E00DDCCC3 /* Passphrase.swift in Sources */,
+				2816670E2664CD9100DDCCC3 /* SeparatorSymbol.swift in Sources */,
+				281667102664CED800DDCCC3 /* SeparatorSymbolTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		282874D52662337500ADC11E /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				280A1D022662359900301A4C /* KotusWordService.swift in Sources */,
+				281666FC2664C53A00DDCCC3 /* Passphrase.swift in Sources */,
+				281666FE2664C6B600DDCCC3 /* SeparatorSymbol.swift in Sources */,
+				281667132664D26500DDCCC3 /* DefaultsStore.swift in Sources */,
+				280A1D012662359900301A4C /* PassphraseGeneratorService.swift in Sources */,
 				282874DF2662337500ADC11E /* ContentView.swift in Sources */,
+				280A1D072662434300301A4C /* WordDisplayerView.swift in Sources */,
+				280A1D052662416300301A4C /* AppState.swift in Sources */,
 				282874DD2662337500ADC11E /* FinnishPasswordsApp.swift in Sources */,
+				28F7F8E32662654900C75979 /* GeneratorSettingsView.swift in Sources */,
+				281667152664ED2300DDCCC3 /* SeparatorSelectorView.swift in Sources */,
+				280A1CFB2662356F00301A4C /* Log.swift in Sources */,
+				280A1D092662477F00301A4C /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
+/* Begin PBXTargetDependency section */
+		281667092664CD6D00DDCCC3 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 282874D82662337500ADC11E /* FinnishPasswords */;
+			targetProxy = 281667082664CD6D00DDCCC3 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
 /* Begin XCBuildConfiguration section */
+		2816670B2664CD6D00DDCCC3 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_TEAM = H9XF3442XB;
+				INFOPLIST_FILE = FinnishPasswordsTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.juanito.FinnishPasswordsTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+			};
+			name = Debug;
+		};
+		2816670C2664CD6D00DDCCC3 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_TEAM = H9XF3442XB;
+				INFOPLIST_FILE = FinnishPasswordsTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.juanito.FinnishPasswordsTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+			};
+			name = Release;
+		};
 		282874E72662337800ADC11E /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -314,6 +549,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		2816670A2664CD6D00DDCCC3 /* Build configuration list for PBXNativeTarget "FinnishPasswordsTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				2816670B2664CD6D00DDCCC3 /* Debug */,
+				2816670C2664CD6D00DDCCC3 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		282874D42662337500ADC11E /* Build configuration list for PBXProject "FinnishPasswords" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
