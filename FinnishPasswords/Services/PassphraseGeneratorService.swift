@@ -34,14 +34,8 @@ extension PassphraseGeneratorService {
     }
 
     private func randomizeStringCase(_ word: String) -> String {
-        var randomized = Array(word)
-
-        for index in 0..<randomized.count {
-            if Double.random(in: 0...1) > 0.7 {
-                randomized[index] = Character(randomized[index].uppercased())
-            }
-        }
-
-        return String(randomized)
+        var newWord = word
+        if Double.random(in: 0...1) > 0.7 { newWord = newWord.uppercased() }
+        return newWord
     }
 }

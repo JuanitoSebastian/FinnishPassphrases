@@ -9,21 +9,17 @@ import SwiftUI
 
 struct ContentView: View {
 
-    @EnvironmentObject var appState: AppState
+    @ObservedObject var appState: AppState = AppState()
 
     var body: some View {
         VStack {
             WordDisplayerView(passphrase: $appState.passphrase)
-            .onTapGesture {
-                appState.copyToPasteboard()
-            }
+                .environmentObject(appState)
+                .onTapGesture {
+                    appState.copyToPasteboard()
+                }
             GeneratorSettingsView()
-            Button {
-                appState.generatePassphrase()
-
-            } label: {
-                Text("Go!")
-            }
+                .environmentObject(appState)
         }
         .padding()
         .frame(width: 400)

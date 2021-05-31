@@ -18,15 +18,17 @@ struct SeparatorSelectorView: View {
 extension SeparatorSelectorView {
     var body: some View {
         HStack(spacing: 10) {
-            ForEach(fPasswordSeparators, id: \.self) { separator in
-                Text(String(separator.symbol))
-                    .font(fPasswordFontMedium)
-                    .foregroundColor(separator == currentSeparator ? .blue : .black)
-                    .onTapGesture {
-                        setCurrentSeparator(separator)
-                    }
+            Picker(selection: $currentSeparator, label: EmptyView()) {
+                ForEach(SeparatorSymbol.allCases) { separator in
+                    Text(String(separator.symbol))
+                        .font(fPasswordFontMedium)
+                        .bold()
+                        .tag(separator)
+                }
             }
+            .pickerStyle(SegmentedPickerStyle())
         }
+        .onChange(of: currentSeparator, perform: { newValue in setCurrentSeparator(newValue)})
     }
 }
 

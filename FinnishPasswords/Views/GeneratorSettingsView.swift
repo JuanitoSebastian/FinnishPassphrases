@@ -13,15 +13,27 @@ struct GeneratorSettingsView: View {
     @State var numOfWords: Int = DefaultsStore.shared.numberOfWordsInPassphrase
 
     var body: some View {
-        HStack(alignment: .center, spacing: 10) {
+        HStack(spacing: 10) {
 
             Stepper(
                 onIncrement: { incrementNumbOfWords() },
                 onDecrement: { decrementNumOfWords() },
-                label: { return Text("\(numOfWords) words") }
+                label: { return Text("\(numOfWords)").font(fPasswordFontMedium) }
             )
 
             SeparatorSelectorView()
+
+            Spacer()
+
+            Menu {
+                Button { appState.quitApplication() } label: {
+                    Text("Quit application")
+                }
+            } label: {
+                Text("⚙️")
+            }
+            .menuStyle(BorderlessButtonMenuStyle(showsMenuIndicator: false))
+            .frame(width: 50)
         }
     }
 }

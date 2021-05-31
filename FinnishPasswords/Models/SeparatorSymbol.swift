@@ -7,7 +7,7 @@
 
 import Foundation
 
-enum SeparatorSymbol: Int {
+enum SeparatorSymbol: Int, CaseIterable, Identifiable {
 
     case asterisk
     case hyphen
@@ -30,5 +30,9 @@ enum SeparatorSymbol: Int {
         case .slash: return "/"
         case .hash: return "#"
         }
+    }
+
+    var id: Int {
+        self.rawValue
     }
 }

@@ -9,17 +9,11 @@ import SwiftUI
 
 @main
 struct FinnishPasswordsApp: App {
-
-    let appState: AppState
-
-    init() {
-        self.appState = AppState()
-    }
+    @NSApplicationDelegateAdaptor(AppDelegate.self) var appDelegate
 
     var body: some Scene {
         WindowGroup {
             ContentView()
-                .environmentObject(appState)
         }
     }
 }

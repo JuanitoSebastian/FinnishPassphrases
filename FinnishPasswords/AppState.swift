@@ -61,4 +61,8 @@ extension AppState {
     func setCurrentSeparator(_ separator: SeparatorSymbol) {
         DefaultsStore.shared.separatorSymbol = separator
     }
+
+    func quitApplication() {
+        NSApplication.shared.terminate(self)
+    }
 }

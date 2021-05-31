@@ -23,9 +23,9 @@ extension WordDisplayerView {
             .animation(.spring())
         }
         .background(
-            RoundedRectangle(cornerSize: CGSize(width: 10, height: 10))
+            RoundedRectangle(cornerSize: fRoundedCornerSize)
                 .frame(maxWidth: .infinity, maxHeight: .infinity)
-                .foregroundColor(Color("WordDisplayerBg"))
+                .foregroundColor(contentBackgroundColor)
         )
     }
 

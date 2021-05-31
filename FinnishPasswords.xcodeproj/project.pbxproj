@@ -27,6 +27,7 @@
 		282874E12662337800ADC11E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 282874E02662337800ADC11E /* Assets.xcassets */; };
 		282874E42662337800ADC11E /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 282874E32662337800ADC11E /* Preview Assets.xcassets */; };
 		282874ED266234F000ADC11E /* .swiftlint.yml in Resources */ = {isa = PBXBuildFile; fileRef = 282874EC266234F000ADC11E /* .swiftlint.yml */; };
+		28B7FE3E2665006B007A891B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28B7FE3D2665006B007A891B /* AppDelegate.swift */; };
 		28F7F8E32662654900C75979 /* GeneratorSettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28F7F8E22662654900C75979 /* GeneratorSettingsView.swift */; };
 /* End PBXBuildFile section */
 
@@ -65,6 +66,7 @@
 		282874E52662337800ADC11E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		282874E62662337800ADC11E /* FinnishPasswords.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = FinnishPasswords.entitlements; sourceTree = "<group>"; };
 		282874EC266234F000ADC11E /* .swiftlint.yml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.yaml; path = .swiftlint.yml; sourceTree = "<group>"; };
+		28B7FE3D2665006B007A891B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		28F7F8E22662654900C75979 /* GeneratorSettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeneratorSettingsView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -177,6 +179,7 @@
 				282874E52662337800ADC11E /* Info.plist */,
 				282874E62662337800ADC11E /* FinnishPasswords.entitlements */,
 				282874E22662337800ADC11E /* Preview Content */,
+				28B7FE3D2665006B007A891B /* AppDelegate.swift */,
 			);
 			path = FinnishPasswords;
 			sourceTree = "<group>";
@@ -302,7 +305,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "if which swiftlint >/dev/null; then\n  swiftlint autocorrect && swiftlint\nelse\n  echo \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi\n\n";
+			shellScript = "if which swiftlint >/dev/null; then\n  swiftlint\nelse\n  echo \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi\n\n";
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -326,6 +329,7 @@
 				281666FC2664C53A00DDCCC3 /* Passphrase.swift in Sources */,
 				281666FE2664C6B600DDCCC3 /* SeparatorSymbol.swift in Sources */,
 				281667132664D26500DDCCC3 /* DefaultsStore.swift in Sources */,
+				28B7FE3E2665006B007A891B /* AppDelegate.swift in Sources */,
 				280A1D012662359900301A4C /* PassphraseGeneratorService.swift in Sources */,
 				282874DF2662337500ADC11E /* ContentView.swift in Sources */,
 				280A1D072662434300301A4C /* WordDisplayerView.swift in Sources */,
