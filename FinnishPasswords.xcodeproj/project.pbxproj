@@ -12,8 +12,9 @@
 		280A1D012662359900301A4C /* PassphraseGeneratorService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 280A1CFF2662359800301A4C /* PassphraseGeneratorService.swift */; };
 		280A1D022662359900301A4C /* KotusWordService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 280A1D002662359900301A4C /* KotusWordService.swift */; };
 		280A1D052662416300301A4C /* AppState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 280A1D042662416300301A4C /* AppState.swift */; };
-		280A1D072662434300301A4C /* WordDisplayerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 280A1D062662434300301A4C /* WordDisplayerView.swift */; };
+		280A1D072662434300301A4C /* PassphraseDispalyerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 280A1D062662434300301A4C /* PassphraseDispalyerView.swift */; };
 		280A1D092662477F00301A4C /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 280A1D082662477F00301A4C /* Constants.swift */; };
+		280E0F30266AB5E6001F24F9 /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = 280E0F2F266AB5E6001F24F9 /* String.swift */; };
 		281666FC2664C53A00DDCCC3 /* Passphrase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 281666FB2664C53A00DDCCC3 /* Passphrase.swift */; };
 		281666FE2664C6B600DDCCC3 /* SeparatorSymbol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 281666FD2664C6B600DDCCC3 /* SeparatorSymbol.swift */; };
 		281667062664CD6D00DDCCC3 /* PassphraseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 281667052664CD6D00DDCCC3 /* PassphraseTests.swift */; };
@@ -27,6 +28,8 @@
 		282874E12662337800ADC11E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 282874E02662337800ADC11E /* Assets.xcassets */; };
 		282874E42662337800ADC11E /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 282874E32662337800ADC11E /* Preview Assets.xcassets */; };
 		282874ED266234F000ADC11E /* .swiftlint.yml in Resources */ = {isa = PBXBuildFile; fileRef = 282874EC266234F000ADC11E /* .swiftlint.yml */; };
+		283D3E02267F3E9B005C8BD9 /* Character.swift in Sources */ = {isa = PBXBuildFile; fileRef = 283D3E01267F3E9B005C8BD9 /* Character.swift */; };
+		284DA5BD267E4FE500CAF5A4 /* MonospacedTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 284DA5BC267E4FE500CAF5A4 /* MonospacedTextView.swift */; };
 		28B7FE3E2665006B007A891B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28B7FE3D2665006B007A891B /* AppDelegate.swift */; };
 		28F7F8E32662654900C75979 /* GeneratorSettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28F7F8E22662654900C75979 /* GeneratorSettingsView.swift */; };
 /* End PBXBuildFile section */
@@ -47,8 +50,9 @@
 		280A1CFF2662359800301A4C /* PassphraseGeneratorService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PassphraseGeneratorService.swift; sourceTree = "<group>"; };
 		280A1D002662359900301A4C /* KotusWordService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KotusWordService.swift; sourceTree = "<group>"; };
 		280A1D042662416300301A4C /* AppState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppState.swift; sourceTree = "<group>"; };
-		280A1D062662434300301A4C /* WordDisplayerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WordDisplayerView.swift; sourceTree = "<group>"; };
+		280A1D062662434300301A4C /* PassphraseDispalyerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PassphraseDispalyerView.swift; sourceTree = "<group>"; };
 		280A1D082662477F00301A4C /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		280E0F2F266AB5E6001F24F9 /* String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = String.swift; sourceTree = "<group>"; };
 		281666FB2664C53A00DDCCC3 /* Passphrase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Passphrase.swift; sourceTree = "<group>"; };
 		281666FD2664C6B600DDCCC3 /* SeparatorSymbol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeparatorSymbol.swift; sourceTree = "<group>"; };
 		281667032664CD6D00DDCCC3 /* FinnishPasswordsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FinnishPasswordsTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -66,6 +70,8 @@
 		282874E52662337800ADC11E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		282874E62662337800ADC11E /* FinnishPasswords.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = FinnishPasswords.entitlements; sourceTree = "<group>"; };
 		282874EC266234F000ADC11E /* .swiftlint.yml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.yaml; path = .swiftlint.yml; sourceTree = "<group>"; };
+		283D3E01267F3E9B005C8BD9 /* Character.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Character.swift; sourceTree = "<group>"; };
+		284DA5BC267E4FE500CAF5A4 /* MonospacedTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonospacedTextView.swift; sourceTree = "<group>"; };
 		28B7FE3D2665006B007A891B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		28F7F8E22662654900C75979 /* GeneratorSettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeneratorSettingsView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -91,6 +97,7 @@
 		280A1CF92662355900301A4C /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				280E0F2E266AB5DA001F24F9 /* Extensions */,
 				280A1CFC2662357A00301A4C /* kotus-sanalista_v1.xml */,
 				280A1CFA2662356F00301A4C /* Log.swift */,
 				280A1D082662477F00301A4C /* Constants.swift */,
@@ -111,11 +118,21 @@
 			isa = PBXGroup;
 			children = (
 				282874DE2662337500ADC11E /* ContentView.swift */,
-				280A1D062662434300301A4C /* WordDisplayerView.swift */,
+				280A1D062662434300301A4C /* PassphraseDispalyerView.swift */,
 				28F7F8E22662654900C75979 /* GeneratorSettingsView.swift */,
 				281667142664ED2300DDCCC3 /* SeparatorSelectorView.swift */,
+				284DA5BC267E4FE500CAF5A4 /* MonospacedTextView.swift */,
 			);
 			path = Views;
+			sourceTree = "<group>";
+		};
+		280E0F2E266AB5DA001F24F9 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				280E0F2F266AB5E6001F24F9 /* String.swift */,
+				283D3E01267F3E9B005C8BD9 /* Character.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 		281666FA2664C50600DDCCC3 /* Models */ = {
@@ -329,14 +346,17 @@
 				281666FC2664C53A00DDCCC3 /* Passphrase.swift in Sources */,
 				281666FE2664C6B600DDCCC3 /* SeparatorSymbol.swift in Sources */,
 				281667132664D26500DDCCC3 /* DefaultsStore.swift in Sources */,
+				284DA5BD267E4FE500CAF5A4 /* MonospacedTextView.swift in Sources */,
 				28B7FE3E2665006B007A891B /* AppDelegate.swift in Sources */,
 				280A1D012662359900301A4C /* PassphraseGeneratorService.swift in Sources */,
 				282874DF2662337500ADC11E /* ContentView.swift in Sources */,
-				280A1D072662434300301A4C /* WordDisplayerView.swift in Sources */,
+				283D3E02267F3E9B005C8BD9 /* Character.swift in Sources */,
+				280A1D072662434300301A4C /* PassphraseDispalyerView.swift in Sources */,
 				280A1D052662416300301A4C /* AppState.swift in Sources */,
 				282874DD2662337500ADC11E /* FinnishPasswordsApp.swift in Sources */,
 				28F7F8E32662654900C75979 /* GeneratorSettingsView.swift in Sources */,
 				281667152664ED2300DDCCC3 /* SeparatorSelectorView.swift in Sources */,
+				280E0F30266AB5E6001F24F9 /* String.swift in Sources */,
 				280A1CFB2662356F00301A4C /* Log.swift in Sources */,
 				280A1D092662477F00301A4C /* Constants.swift in Sources */,
 			);

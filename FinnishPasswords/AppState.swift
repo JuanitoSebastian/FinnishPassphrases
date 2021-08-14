@@ -65,4 +65,16 @@ extension AppState {
     func quitApplication() {
         NSApplication.shared.terminate(self)
     }
+
+    func replaceWordAtIndex(_ index: Int) {
+        passphraseGeneratorService.replaceWordAtIndex(index)
+    }
+
+    func flipCaseOfWordAtIndex(_ index: Int) {
+        passphraseGeneratorService.flipCaseOfWordAtIndex(index)
+    }
+
+    func flipCaseOfCharAtIndex(word: Int, index: Int) {
+        passphraseGeneratorService.flipCaseOfCharAtIndex(wordIndex: word, index: index)
+    }
 }

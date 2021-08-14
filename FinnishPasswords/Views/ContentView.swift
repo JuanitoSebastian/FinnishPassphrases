@@ -13,11 +13,19 @@ struct ContentView: View {
 
     var body: some View {
         VStack {
-            WordDisplayerView(passphrase: $appState.passphrase)
-                .environmentObject(appState)
-                .onTapGesture {
-                    appState.copyToPasteboard()
-                }
+
+            VStack(spacing: 2) {
+                PassphraseDispalyerView(passphrase: $appState.passphrase)
+                    .environmentObject(appState)
+                    .padding(.horizontal, 5)
+                    .padding(.vertical, 5)
+            }
+            .background(
+                RoundedRectangle(cornerSize: fRoundedCornerSize)
+                    .frame(maxWidth: .infinity, maxHeight: .infinity)
+                    .foregroundColor(contentBackgroundColor)
+            )
+
             GeneratorSettingsView()
                 .environmentObject(appState)
         }
