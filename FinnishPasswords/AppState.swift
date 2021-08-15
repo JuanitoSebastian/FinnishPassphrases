@@ -58,6 +58,11 @@ extension AppState {
         DefaultsStore.shared.numberOfWordsInPassphrase += 1
     }
 
+    func setNumberOfWordsInPassphrase(_ to: Int) {
+        guard to >= fMinimumNumberOfWordsInPassphrase && to <= fMaximumNumberOfWordsInPassphrase else { return }
+        DefaultsStore.shared.numberOfWordsInPassphrase = to
+    }
+
     func setCurrentSeparator(_ separator: SeparatorSymbol) {
         DefaultsStore.shared.separatorSymbol = separator
     }

@@ -13,18 +13,15 @@ struct ContentView: View {
 
     var body: some View {
         VStack {
-
-            VStack(spacing: 2) {
-                PassphraseDispalyerView(passphrase: $appState.passphrase)
-                    .environmentObject(appState)
-                    .padding(.horizontal, 5)
-                    .padding(.vertical, 5)
-            }
-            .background(
-                RoundedRectangle(cornerSize: fRoundedCornerSize)
-                    .frame(maxWidth: .infinity, maxHeight: .infinity)
-                    .foregroundColor(contentBackgroundColor)
-            )
+            PassphraseDispalyerView(passphrase: $appState.passphrase)
+                .environmentObject(appState)
+                .padding(.horizontal, 10)
+                .padding(.vertical, 5)
+                .background(
+                    RoundedRectangle(cornerSize: fRoundedCornerSize)
+                        .frame(maxWidth: .infinity, maxHeight: .infinity)
+                        .foregroundColor(contentBackgroundColor)
+                )
 
             GeneratorSettingsView()
                 .environmentObject(appState)

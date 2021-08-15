@@ -24,7 +24,7 @@ struct MonospacedTextView: View {
         HStack(spacing: spacing) {
             ForEach(0..<stringToDisplay.count, id: \.self) { index in
                 Text(String(stringToDisplay[stringToDisplay.index(stringToDisplay.startIndex, offsetBy: index)]))
-                    .font(fPasswordFontLarge)
+                    .font(fPasswordFontMain)
                     .fixedSize(horizontal: true, vertical: false) // Fixes issues with geometry reader
 
             }

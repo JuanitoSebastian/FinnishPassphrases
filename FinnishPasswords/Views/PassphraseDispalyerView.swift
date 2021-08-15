@@ -34,7 +34,7 @@ extension PassphraseDispalyerView {
             return AnyView(
                 HStack(alignment: .center, spacing: 2) {
                     Text("-")
-                        .font(fPasswordFontLarge)
+                        .font(fPasswordFontMain)
                 }
             )
         }
@@ -46,12 +46,15 @@ extension PassphraseDispalyerView {
     func generatePassphraseView(passphraseUnwrapped: Passphrase) -> some View {
         HStack(alignment: .center, spacing: 2) {
             ForEach(0..<passphraseUnwrapped.words.count, id: \.self) { index in
-                MonospacedTextView(stringToDisplay: passphraseUnwrapped.words[index])
+                Text(passphraseUnwrapped.words[index])
+                    .font(fPasswordFontMain)
+                    .fontWeight(.medium)
                 if index < (passphraseUnwrapped.numOfWords - 1) {
                     Text(String(passphraseUnwrapped.separator.symbol))
-                        .font(fPasswordFontLarge)
+                        .font(fPasswordFontMain)
+                        .fontWeight(.medium)
                         .foregroundColor(.blue)
-                        .fixedSize(horizontal: true, vertical: false)
+                        .padding(.horizontal, 5)
                 }
             }
         }
