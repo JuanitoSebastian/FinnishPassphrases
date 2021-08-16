@@ -13,6 +13,8 @@ let fPasswordFontMedium = Font.system(.headline, design: .monospaced)
 
 // Colors
 let contentBackgroundColor = Color("ContentBg")
+let passphraseBackgroundColor = Color("PassphraseDisplayBg")
+let passphraseSeparatorColor = Color("PassphraseSeparatorColor")
 
 // Constants
 let fRoundedCornerSize = CGSize(width: 5, height: 5)

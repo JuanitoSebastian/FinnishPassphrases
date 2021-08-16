@@ -12,21 +12,18 @@ struct ContentView: View {
     @ObservedObject var appState: AppState = AppState()
 
     var body: some View {
-        VStack {
-            PassphraseDispalyerView(passphrase: $appState.passphrase)
+        ZStack {
+            GeneratorView()
                 .environmentObject(appState)
-                .padding(.horizontal, 10)
-                .padding(.vertical, 5)
+                .padding()
                 .background(
                     RoundedRectangle(cornerSize: fRoundedCornerSize)
                         .frame(maxWidth: .infinity, maxHeight: .infinity)
                         .foregroundColor(contentBackgroundColor)
                 )
-
-            GeneratorSettingsView()
-                .environmentObject(appState)
         }
         .padding()
+        .background(Color.white)
         .frame(width: 400)
     }
 }

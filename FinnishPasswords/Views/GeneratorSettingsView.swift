@@ -17,32 +17,34 @@ struct GeneratorSettingsView: View {
 extension GeneratorSettingsView {
     var body: some View {
         VStack {
+
+            Divider()
+
             HStack(spacing: 10) {
                 Spacer()
-                Slider(value: $numOfWords,
-                       in: Double(fMinimumNumberOfWordsInPassphrase)...Double(fMaximumNumberOfWordsInPassphrase),
-                       step: 1,
-                       onEditingChanged: { editing in setNumberOfWords(editing: editing) },
-                       minimumValueLabel: Text(""),
-                       maximumValueLabel: Text(""),
-                       label: { Text("\(numOfWords.cleanValue) sanaa") })
+                WordAmountSlider()
+                    .environmentObject(appState)
                 Spacer()
             }
 
+            Divider()
+
             HStack(spacing: 10) {
+                Spacer()
+
                 SeparatorSelectorView()
 
                 Spacer()
 
-                Menu {
-                    Button { appState.quitApplication() } label: {
-                        Text("Quit application")
-                    }
-                } label: {
-                    Text("⚙️")
-                }
-                .menuStyle(BorderlessButtonMenuStyle(showsMenuIndicator: false))
-                .frame(width: 50)
+//                Menu {
+//                    Button { appState.quitApplication() } label: {
+//                        Text("Quit application")
+//                    }
+//                } label: {
+//                    Text("⚙️")
+//                }
+//                .menuStyle(BorderlessButtonMenuStyle(showsMenuIndicator: false))
+//                .frame(width: 50)
             }
 
         }
@@ -52,9 +54,4 @@ extension GeneratorSettingsView {
 // MARK: - Functions
 extension GeneratorSettingsView {
 
-    func setNumberOfWords(editing: Bool) {
-        guard !editing else { return }
-        appState.setNumberOfWordsInPassphrase(Int(numOfWords))
-        appState.generatePassphrase()
-    }
 }

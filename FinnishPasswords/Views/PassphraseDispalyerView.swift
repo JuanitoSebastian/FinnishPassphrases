@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct PassphraseDispalyerView: View {
-    /// Variables
+
     @Binding var passphrase: Passphrase?
     @EnvironmentObject var appState: AppState
 }
@@ -17,14 +17,19 @@ struct PassphraseDispalyerView: View {
 extension PassphraseDispalyerView {
 
     var body: some View {
-        ScrollView(.horizontal, showsIndicators: false) {
-            ZStack {
-                passprhaseAreaContent
-                    .animation(.spring())
-                    .contentShape(Rectangle())
+        VStack {
+            ScrollView(.horizontal, showsIndicators: false) {
+                ZStack {
+                    passprhaseAreaContent
+                        .animation(.spring())
+                        .contentShape(Rectangle())
+                        .onTapGesture {
+                            appState.copyToPasteboard()
+                        }
+                }
             }
+            .coordinateSpace(name: "scroll")
         }
-        .coordinateSpace(name: "scroll")
     }
 
     /// Determines what content to display.
@@ -53,8 +58,8 @@ extension PassphraseDispalyerView {
                     Text(String(passphraseUnwrapped.separator.symbol))
                         .font(fPasswordFontMain)
                         .fontWeight(.medium)
-                        .foregroundColor(.blue)
-                        .padding(.horizontal, 5)
+                        .foregroundColor(passphraseSeparatorColor)
+                        .padding(.horizontal, 2)
                 }
             }
         }
