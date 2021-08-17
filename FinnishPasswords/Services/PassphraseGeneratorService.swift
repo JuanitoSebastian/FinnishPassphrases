@@ -33,6 +33,13 @@ extension PassphraseGeneratorService {
 
     }
 
+    func updatePassphraseSeparatorSymbol() {
+        guard let passphraseUpdated = passphrase else { return }
+        guard passphraseUpdated.separator != DefaultsStore.shared.separatorSymbol else { return }
+        passphraseUpdated.separator = DefaultsStore.shared.separatorSymbol
+        passphrase = passphraseUpdated
+    }
+
     func replaceWordAtIndex(_ index: Int) {
         guard let passphrase = passphrase else { return }
         var words = passphrase.words

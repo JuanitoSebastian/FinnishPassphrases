@@ -33,7 +33,6 @@
 		28B7FE3E2665006B007A891B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28B7FE3D2665006B007A891B /* AppDelegate.swift */; };
 		28DD8DFF26CAF0B40087C842 /* GeneratorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28DD8DFE26CAF0B40087C842 /* GeneratorView.swift */; };
 		28DD8E0226CAF8B80087C842 /* WordAmountSlider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28DD8E0126CAF8B80087C842 /* WordAmountSlider.swift */; };
-		28F7F8E32662654900C75979 /* GeneratorSettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28F7F8E22662654900C75979 /* GeneratorSettingsView.swift */; };
 		28FBFC8526C9B187004A12A2 /* Double.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28FBFC8426C9B187004A12A2 /* Double.swift */; };
 /* End PBXBuildFile section */
 
@@ -78,7 +77,6 @@
 		28B7FE3D2665006B007A891B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		28DD8DFE26CAF0B40087C842 /* GeneratorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeneratorView.swift; sourceTree = "<group>"; };
 		28DD8E0126CAF8B80087C842 /* WordAmountSlider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WordAmountSlider.swift; sourceTree = "<group>"; };
-		28F7F8E22662654900C75979 /* GeneratorSettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeneratorSettingsView.swift; sourceTree = "<group>"; };
 		28FBFC8426C9B187004A12A2 /* Double.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Double.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -126,7 +124,6 @@
 				28DD8E0026CAF8830087C842 /* Components */,
 				282874DE2662337500ADC11E /* ContentView.swift */,
 				280A1D062662434300301A4C /* PassphraseDispalyerView.swift */,
-				28F7F8E22662654900C75979 /* GeneratorSettingsView.swift */,
 				281667142664ED2300DDCCC3 /* SeparatorSelectorView.swift */,
 				284DA5BC267E4FE500CAF5A4 /* MonospacedTextView.swift */,
 				28DD8DFE26CAF0B40087C842 /* GeneratorView.swift */,
@@ -373,7 +370,6 @@
 				280A1D072662434300301A4C /* PassphraseDispalyerView.swift in Sources */,
 				280A1D052662416300301A4C /* AppState.swift in Sources */,
 				282874DD2662337500ADC11E /* FinnishPasswordsApp.swift in Sources */,
-				28F7F8E32662654900C75979 /* GeneratorSettingsView.swift in Sources */,
 				281667152664ED2300DDCCC3 /* SeparatorSelectorView.swift in Sources */,
 				280E0F30266AB5E6001F24F9 /* String.swift in Sources */,
 				280A1CFB2662356F00301A4C /* Log.swift in Sources */,

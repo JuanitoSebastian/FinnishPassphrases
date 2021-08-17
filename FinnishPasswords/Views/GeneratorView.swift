@@ -16,29 +16,22 @@ struct GeneratorView: View {
 // MARK: Views
 extension GeneratorView {
     var body: some View {
-        VStack {
-            HStack {
-                PassphraseDispalyerView(passphrase: $appState.passphrase)
-                    .environmentObject(appState)
-                    .padding(.horizontal, 10)
-                    .padding(.vertical, 5)
-                    .background(
-                        RoundedRectangle(cornerSize: fRoundedCornerSize)
-                            .frame(maxWidth: .infinity, maxHeight: .infinity)
-                            .foregroundColor(passphraseBackgroundColor)
-                    )
-
-                Button {
-                    appState.generatePassphrase()
-                } label: {
-                    Image(systemName: "arrow.counterclockwise")
-                }
-                .buttonStyle(PlainButtonStyle())
-            }
-
-
-            GeneratorSettingsView()
+        VStack(alignment: .center) {
+            PassphraseDispalyerView(passphrase: $appState.passphrase)
                 .environmentObject(appState)
+                .padding(.vertical, 1)
+
+            Divider()
+
+            WordAmountSlider()
+                .environmentObject(appState)
+                .padding(.vertical, 1)
+
+            Divider()
+
+            SeparatorSelectorView()
+                .environmentObject(appState)
+                .padding(.vertical, 1)
         }
     }
 }
@@ -49,6 +42,7 @@ struct GeneratorView_Previews: PreviewProvider {
     static var previews: some View {
         GeneratorView()
             .environmentObject(AppState())
+            .frame(width: 400)
     }
 }
 #endif

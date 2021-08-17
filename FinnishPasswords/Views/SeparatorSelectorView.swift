@@ -36,7 +36,6 @@ extension SeparatorSelectorView {
 extension SeparatorSelectorView {
     func setCurrentSeparator(_ separator: SeparatorSymbol) {
         appState.setCurrentSeparator(separator)
-        appState.generatePassphrase()
         currentSeparator = separator
     }
 }

@@ -17,19 +17,32 @@ struct PassphraseDispalyerView: View {
 extension PassphraseDispalyerView {
 
     var body: some View {
-        VStack {
+        HStack {
             ScrollView(.horizontal, showsIndicators: false) {
-                ZStack {
-                    passprhaseAreaContent
-                        .animation(.spring())
-                        .contentShape(Rectangle())
-                        .onTapGesture {
-                            appState.copyToPasteboard()
-                        }
-                }
+                passprhaseAreaContent
+                    .animation(.spring())
+                    .contentShape(Rectangle())
+                    .onTapGesture {
+                        appState.copyToPasteboard()
+                    }
             }
-            .coordinateSpace(name: "scroll")
+            .environmentObject(appState)
+            .padding(.horizontal, 10)
+            .padding(.vertical, 5)
+            .background(
+                RoundedRectangle(cornerSize: fRoundedCornerSize)
+                    .frame(maxWidth: .infinity, maxHeight: .infinity)
+                    .foregroundColor(passphraseBackgroundColor)
+            )
+
+            Button {
+                appState.generatePassphrase()
+            } label: {
+                Image(systemName: "arrow.counterclockwise")
+            }
+            .buttonStyle(PlainButtonStyle())
         }
+
     }
 
     /// Determines what content to display.

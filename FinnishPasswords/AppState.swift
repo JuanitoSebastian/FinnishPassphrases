@@ -65,6 +65,7 @@ extension AppState {
 
     func setCurrentSeparator(_ separator: SeparatorSymbol) {
         DefaultsStore.shared.separatorSymbol = separator
+        passphraseGeneratorService.updatePassphraseSeparatorSymbol()
     }
 
     func quitApplication() {
