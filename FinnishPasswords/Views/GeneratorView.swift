@@ -32,6 +32,11 @@ extension GeneratorView {
             SeparatorSelectorView()
                 .environmentObject(appState)
                 .padding(.vertical, 1)
+
+            Divider()
+
+            WordCapitalizationCheckboxes()
+                .padding(.vertical, 1)
         }
     }
 }

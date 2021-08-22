@@ -78,7 +78,6 @@ extension PassphraseGeneratorService {
                 break
             }
         }
-        
     }
 
     private func randomizeStringCase(_ word: String) -> String {
