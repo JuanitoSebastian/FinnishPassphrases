@@ -9,11 +9,11 @@ import SwiftUI
 
 struct WordCapitalizationCheckboxes: View {
 
-    @State var bool: Bool = true
+    @EnvironmentObject var appState: AppState
 
     var body: some View {
         HStack {
-            Checkbox(checked: $bool, description: "Vaihteleva kirjainkoko")
+            Checkbox(checked: $appState.capitalization, description: "Vaihteleva kirjainkoko")
         }
     }
 }

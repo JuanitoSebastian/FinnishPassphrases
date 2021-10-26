@@ -12,6 +12,11 @@ import AppKit
 class AppState: ObservableObject {
 
     @Published var passphrase: Passphrase?
+    @Published var capitalization: Bool = DefaultsStore.shared.wordCapitalization {
+        didSet {
+            handleChangeOfCapitalization(capitalization)
+        }
+    }
     private var passphraseGeneratorService: PassphraseGeneratorService
     private let pasteboard: NSPasteboard
     private var cancellablePassphrase: AnyCancellable?
@@ -58,9 +63,12 @@ extension AppState {
         DefaultsStore.shared.numberOfWordsInPassphrase += 1
     }
 
-    func setNumberOfWordsInPassphrase(_ to: Int) {
-        guard to >= fMinimumNumberOfWordsInPassphrase && to <= fMaximumNumberOfWordsInPassphrase else { return }
-        DefaultsStore.shared.numberOfWordsInPassphrase = to
+    func setNumberOfWordsInPassphrase(_ numberOfWordToSet: Int) {
+        guard numberOfWordToSet >= fMinimumNumberOfWordsInPassphrase
+                && numberOfWordToSet <= fMaximumNumberOfWordsInPassphrase else {
+            return
+        }
+        DefaultsStore.shared.numberOfWordsInPassphrase = numberOfWordToSet
     }
 
     func setCurrentSeparator(_ separator: SeparatorSymbol) {
@@ -71,16 +79,12 @@ extension AppState {
     func quitApplication() {
         NSApplication.shared.terminate(self)
     }
+}
 
-    func replaceWordAtIndex(_ index: Int) {
-        passphraseGeneratorService.replaceWordAtIndex(index)
-    }
-
-    func flipCaseOfWordAtIndex(_ index: Int) {
-        passphraseGeneratorService.flipCaseOfWordAtIndex(index)
-    }
-
-    func flipCaseOfCharAtIndex(word: Int, index: Int) {
-        passphraseGeneratorService.flipCaseOfCharAtIndex(wordIndex: word, index: index)
+// MARK: - Private Functions
+extension AppState {
+    private func handleChangeOfCapitalization(_ valueToSet: Bool) {
+        DefaultsStore.shared.wordCapitalization = valueToSet
+        passphraseGeneratorService.updatePassphraseWordCapitalization()
     }
 }

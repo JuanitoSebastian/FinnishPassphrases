@@ -21,3 +21,4 @@ let fRoundedCornerSize = CGSize(width: 5, height: 5)
 let fPasswordSeparators: [SeparatorSymbol] = [.asterisk, .hyphen, .slash, .hash]
 let fMinimumNumberOfWordsInPassphrase = 3
 let fMaximumNumberOfWordsInPassphrase = 10
+let fProbabilityOfCapitalizedString: Double = 0.5
