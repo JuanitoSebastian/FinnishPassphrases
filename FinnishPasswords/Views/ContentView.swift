@@ -15,11 +15,10 @@ struct ContentView: View {
         ZStack {
             GeneratorView()
                 .environmentObject(appState)
-                .padding()
                 .background(
                     RoundedRectangle(cornerSize: fRoundedCornerSize)
                         .frame(maxWidth: .infinity, maxHeight: .infinity)
-                        .foregroundColor(contentBackgroundColor)
+                        .foregroundColor(backdropColor)
                 )
         }
         .padding()

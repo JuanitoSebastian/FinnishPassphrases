@@ -10,18 +10,16 @@ import SwiftUI
 struct Checkbox: View {
 
     @Binding var checked: Bool
-    var description: String?
+    let description: LocalizedStringKey
 
     var body: some View {
         HStack(spacing: 3) {
 
             Image(systemName: checked ? "checkmark.square.fill" : "square")
 
-            if description != nil {
-                Text(description!)
-                    .font(.callout)
-                    .fontWeight(/*@START_MENU_TOKEN@*/.bold/*@END_MENU_TOKEN@*/)
-            }
+
+            Text(description)
+                .font(fUiFontSmall)
 
         }
         .onTapGesture {

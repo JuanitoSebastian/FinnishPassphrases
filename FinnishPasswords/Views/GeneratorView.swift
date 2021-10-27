@@ -13,30 +13,46 @@ struct GeneratorView: View {
 
 }
 
-// MARK: Views
+// MARK: - Views
 extension GeneratorView {
     var body: some View {
         VStack(alignment: .center) {
-            PassphraseDispalyerView(passphrase: $appState.passphrase)
-                .environmentObject(appState)
-                .padding(.vertical, 1)
+            HStack {
+                PassphraseDispalyerView(passphrase: $appState.passphrase)
+                    .environmentObject(appState)
+                    .padding(fGeneratorViewColumnPadding)
+
+                Button {
+                    appState.generatePassphrase()
+                } label: {
+                    Image(systemName: "arrow.counterclockwise")
+                }
+                .buttonStyle(PlainButtonStyle())
+                .padding(fGeneratorViewColumnPadding)
+            }
+            .padding(fGeneratorViewRowPadding)
 
             Divider()
 
             WordAmountSlider()
                 .environmentObject(appState)
-                .padding(.vertical, 1)
+                .padding(fGeneratorViewRowPadding)
 
             Divider()
 
-            SeparatorSelectorView()
-                .environmentObject(appState)
-                .padding(.vertical, 1)
+            HStack {
+                SeparatorSelectorView()
+                    .environmentObject(appState)
+                    .padding(fGeneratorViewColumnPadding)
 
-            Divider()
+                Checkbox(
+                    checked: $appState.capitalization,
+                    description: LocalizedStringKey("generatorViewCapitalizationCheckbox")
+                )
+                .padding(fGeneratorViewColumnPadding)
+            }
+            .padding(fGeneratorViewRowPadding)
 
-            WordCapitalizationCheckboxes()
-                .padding(.vertical, 1)
         }
     }
 }

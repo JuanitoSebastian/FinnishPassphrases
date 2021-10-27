@@ -25,8 +25,8 @@ extension WordAmountSlider {
     }
 
     var wordAmountLabel: some View {
-        Text("\(numOfWords.cleanValue) sanaa")
-            .fontWeight(.bold)
+        Text(LocalizedStringKey("generatorViewWordCount \(numOfWords.cleanValue)"))
+            .font(fUiFontMedium)
     }
 }
 
