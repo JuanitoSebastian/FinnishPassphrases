@@ -21,7 +21,7 @@ extension SeparatorSelectorView {
             Picker(selection: $currentSeparator, label: EmptyView()) {
                 ForEach(SeparatorSymbol.allCases) { separator in
                     Text(String(separator.symbol))
-                        .font(fPasswordFontMedium)
+                        .font(cPasswordFontMedium)
                         .bold()
                         .tag(separator)
                 }

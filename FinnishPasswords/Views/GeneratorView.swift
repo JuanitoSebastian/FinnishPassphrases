@@ -20,7 +20,7 @@ extension GeneratorView {
             HStack {
                 PassphraseDispalyerView(passphrase: $appState.passphrase)
                     .environmentObject(appState)
-                    .padding(fGeneratorViewColumnPadding)
+                    .padding(cGeneratorViewColumnPadding)
 
                 Button {
                     appState.generatePassphrase()
@@ -28,30 +28,30 @@ extension GeneratorView {
                     Image(systemName: "arrow.counterclockwise")
                 }
                 .buttonStyle(PlainButtonStyle())
-                .padding(fGeneratorViewColumnPadding)
+                .padding(cGeneratorViewColumnPadding)
             }
-            .padding(fGeneratorViewRowPadding)
+            .padding(cGeneratorViewRowPadding)
 
             Divider()
 
             WordAmountSlider()
                 .environmentObject(appState)
-                .padding(fGeneratorViewRowPadding)
+                .padding(cGeneratorViewRowPadding)
 
             Divider()
 
             HStack {
                 SeparatorSelectorView()
                     .environmentObject(appState)
-                    .padding(fGeneratorViewColumnPadding)
+                    .padding(cGeneratorViewColumnPadding)
 
                 Checkbox(
                     checked: $appState.capitalization,
                     description: LocalizedStringKey("generatorViewCapitalizationCheckbox")
                 )
-                .padding(fGeneratorViewColumnPadding)
+                .padding(cGeneratorViewColumnPadding)
             }
-            .padding(fGeneratorViewRowPadding)
+            .padding(cGeneratorViewRowPadding)
 
         }
     }

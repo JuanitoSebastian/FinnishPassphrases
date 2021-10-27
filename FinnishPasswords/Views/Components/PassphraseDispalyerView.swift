@@ -11,10 +11,13 @@ struct PassphraseDispalyerView: View {
 
     @Binding var passphrase: Passphrase?
     @EnvironmentObject var appState: AppState
-    @State var hover: Bool = false
+
     @State var textScale: CGSize = CGSize(width: 1, height: 1)
     @State var rectangleScale: CGSize = CGSize(width: 1, height: 1)
-    @State var backgroundColor: Color = passphraseBackgroundColor
+
+    @State var borderColor: Color = cPpassphraseBorderColor
+    @State var backgroundColor: Color = cPassphraseBackgroundColor
+
 }
 
 // MARK: - Views
@@ -27,30 +30,35 @@ extension PassphraseDispalyerView {
                     .contentShape(Rectangle())
                     .scaleEffect(textScale)
             }
-            .padding(fPassphraseAreaPadding)
-            .overlay(
-                RoundedRectangle(cornerSize: fRoundedCornerSize)
-                    .stroke(backgroundColor, lineWidth: 2)
-                    .frame(maxWidth: .infinity, maxHeight: .infinity)
-
-            )
+            .padding(cPassphraseAreaPadding)
+            .background(passphraseBackground)
+            .overlay(passphraseOverlay)
             .scaleEffect(rectangleScale)
             .onHover(perform: { hovering in
-                withAnimation(fPassphraseAreaHoverAnimation) {
-                    if hovering {
-                        backgroundColor = passphraseBackgroundColorHover
-                        return
-                    }
-                    backgroundColor = passphraseBackgroundColor
-                }
+                handleOnHover(hovering: hovering)
             })
-            .onTapGesture {
-                appState.copyToPasteboard()
-                onClickAnimation()
-            }
+            .onTapGesture { handleOnClick() }
             .scaleEffect(rectangleScale)
         }
 
+    }
+
+    // Background color
+    var passphraseBackground: AnyView {
+        return AnyView(
+            RoundedRectangle(cornerSize: cRoundedCornerSize)
+                .foregroundColor(backgroundColor)
+                .frame(maxWidth: .infinity, maxHeight: .infinity)
+        )
+    }
+
+    // Border
+    var passphraseOverlay: AnyView {
+        AnyView(
+            RoundedRectangle(cornerSize: cRoundedCornerSize)
+                .stroke(borderColor, lineWidth: 1)
+                .frame(maxWidth: .infinity, maxHeight: .infinity)
+        )
     }
 
     /// Determines what content to display.
@@ -60,26 +68,26 @@ extension PassphraseDispalyerView {
             return AnyView(
                 HStack(alignment: .center, spacing: 2) {
                     Text("-")
-                        .font(fPasswordFontMain)
+                        .font(cPasswordFontMain)
                 }
             )
         }
         return AnyView(generatePassphraseView(passphraseUnwrapped: passphrase))
     }
 
-    /// Generates the passphrase texts and displayes them in a ScrollView
+    /// Generates the passphrase texts
     @ViewBuilder
     func generatePassphraseView(passphraseUnwrapped: Passphrase) -> some View {
         HStack(alignment: .center, spacing: 2) {
             ForEach(0..<passphraseUnwrapped.words.count, id: \.self) { index in
                 Text(passphraseUnwrapped.words[index])
-                    .font(fPasswordFontMain)
+                    .font(cPasswordFontMain)
                     .fontWeight(.medium)
                 if index < (passphraseUnwrapped.numOfWords - 1) {
                     Text(String(passphraseUnwrapped.separator.symbol))
-                        .font(fPasswordFontMain)
+                        .font(cPasswordFontMain)
                         .fontWeight(.medium)
-                        .foregroundColor(passphraseSeparatorColor)
+                        .foregroundColor(cPassphraseSeparatorColor)
                         .padding(.horizontal, 2)
                 }
             }
@@ -89,19 +97,36 @@ extension PassphraseDispalyerView {
 
 // MARK: - Functions
 extension PassphraseDispalyerView {
+    private func handleOnClick() {
+        appState.copyToPasteboard()
+        onClickAnimation()
+    }
+
     private func onClickAnimation() {
-        withAnimation(fPassphraseAreaClickAnimation) {
-            backgroundColor = passphraseBackgroundColorClick
+        withAnimation(cPassphraseAreaClickAnimation) {
+            borderColor = cPassphraseBorderColorClick
             textScale = CGSize(width: 1.05, height: 1.025)
             rectangleScale = CGSize(width: 1.01, height: 1.01)
+            backgroundColor = cPassphraseBackgroundColorHover
         }
 
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.2) {
-            withAnimation(fPassphraseAreaClickAnimation) {
-                backgroundColor = passphraseBackgroundColor
+            withAnimation(cPassphraseAreaClickAnimation) {
+                borderColor = cPpassphraseBorderColor
                 textScale = CGSize(width: 1.0, height: 1.0)
                 rectangleScale = CGSize(width: 1.0, height: 1.0)
+                backgroundColor = cPassphraseBackgroundColor
             }
+        }
+    }
+
+    private func handleOnHover(hovering: Bool) {
+        withAnimation(cPassphraseAreaHoverAnimation) {
+            if hovering {
+                borderColor = cPassphraseBorderColorHover
+                return
+            }
+            borderColor = cPpassphraseBorderColor
         }
     }
 }

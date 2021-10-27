@@ -55,7 +55,7 @@ extension AppState {
     }
 
     func decrementNumberOfWordsInPassphrase() {
-        guard DefaultsStore.shared.numberOfWordsInPassphrase > fMinimumNumberOfWordsInPassphrase else { return }
+        guard DefaultsStore.shared.numberOfWordsInPassphrase > cMinimumNumberOfWordsInPassphrase else { return }
         DefaultsStore.shared.numberOfWordsInPassphrase -= 1
     }
 
@@ -64,8 +64,8 @@ extension AppState {
     }
 
     func setNumberOfWordsInPassphrase(_ numberOfWordToSet: Int) {
-        guard numberOfWordToSet >= fMinimumNumberOfWordsInPassphrase
-                && numberOfWordToSet <= fMaximumNumberOfWordsInPassphrase else {
+        guard numberOfWordToSet >= cMinimumNumberOfWordsInPassphrase
+                && numberOfWordToSet <= cMaximumNumberOfWordsInPassphrase else {
             return
         }
         DefaultsStore.shared.numberOfWordsInPassphrase = numberOfWordToSet

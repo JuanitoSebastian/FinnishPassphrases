@@ -16,13 +16,13 @@ struct ContentView: View {
             GeneratorView()
                 .environmentObject(appState)
                 .background(
-                    RoundedRectangle(cornerSize: fRoundedCornerSize)
+                    RoundedRectangle(cornerSize: cRoundedCornerSize)
                         .frame(maxWidth: .infinity, maxHeight: .infinity)
-                        .foregroundColor(backdropColor)
+                        .foregroundColor(cBackdropColor)
                 )
         }
         .padding()
-        .background(Color.white)
+        .background(cBackdropColor)
         .frame(width: 400)
     }
 }
