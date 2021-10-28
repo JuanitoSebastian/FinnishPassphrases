@@ -24,23 +24,26 @@ struct PassphraseDispalyerView: View {
 extension PassphraseDispalyerView {
 
     var body: some View {
-        HStack {
+        ZStack(alignment: .trailing) {
             ScrollView(.horizontal, showsIndicators: false) {
                 passprhaseAreaContent
                     .contentShape(Rectangle())
                     .scaleEffect(textScale)
             }
-            .padding(cPassphraseAreaPadding)
-            .background(passphraseBackground)
-            .overlay(passphraseOverlay)
             .scaleEffect(rectangleScale)
-            .onHover(perform: { hovering in
-                handleOnHover(hovering: hovering)
-            })
+            .onHover(perform: { hovering in handleOnHover(hovering: hovering) })
             .onTapGesture { handleOnClick() }
-            .scaleEffect(rectangleScale)
-        }
 
+            gradientFade
+                .allowsHitTesting(false) // Enables interaction with the ScrollView underneath
+
+            IconButton(icon: Image(systemName: "arrow.counterclockwise"), action: { appState.generatePassphrase() })
+        }
+        .padding(cPassphraseAreaPadding)
+        .background(passphraseBackground)
+        .overlay(passphraseOverlay)
+        .scaleEffect(rectangleScale)
+        .frame(maxHeight: 50)
     }
 
     // Background color
@@ -58,6 +61,15 @@ extension PassphraseDispalyerView {
             RoundedRectangle(cornerSize: cRoundedCornerSize)
                 .stroke(borderColor, lineWidth: 1)
                 .frame(maxWidth: .infinity, maxHeight: .infinity)
+        )
+    }
+
+    // Gradient fade
+    var gradientFade: LinearGradient {
+        LinearGradient(
+            gradient: Gradient(colors: [backgroundColor.opacity(0), backgroundColor]),
+            startPoint: .init(x: 0.87, y: 0.5),
+            endPoint: .init(x: 0.92, y: 0.5)
         )
     }
 
@@ -82,11 +94,9 @@ extension PassphraseDispalyerView {
             ForEach(0..<passphraseUnwrapped.words.count, id: \.self) { index in
                 Text(passphraseUnwrapped.words[index])
                     .font(cPasswordFontMain)
-                    .fontWeight(.medium)
                 if index < (passphraseUnwrapped.numOfWords - 1) {
                     Text(String(passphraseUnwrapped.separator.symbol))
                         .font(cPasswordFontMain)
-                        .fontWeight(.medium)
                         .foregroundColor(cPassphraseSeparatorColor)
                         .padding(.horizontal, 2)
                 }
@@ -121,7 +131,7 @@ extension PassphraseDispalyerView {
     }
 
     private func handleOnHover(hovering: Bool) {
-        withAnimation(cPassphraseAreaHoverAnimation) {
+        withAnimation(cHoverAnimation) {
             if hovering {
                 borderColor = cPassphraseBorderColorHover
                 return

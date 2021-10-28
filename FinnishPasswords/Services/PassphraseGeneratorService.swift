@@ -44,7 +44,7 @@ extension PassphraseGeneratorService {
         guard let passphraseUpdated = passphrase else { return }
 
         let wordsToSet = DefaultsStore.shared.wordCapitalization ?
-        randomizeWordCase(passphraseUpdated.words) : removeRandomizedWordCase(passphraseUpdated.words)
+            randomizeWordCase(passphraseUpdated.words) : removeRandomizedWordCase(passphraseUpdated.words)
 
         passphraseUpdated.words = wordsToSet
         passphrase = passphraseUpdated
@@ -93,10 +93,8 @@ extension PassphraseGeneratorService {
 
     private func removeRandomizedWordCase(_ words: [String]) -> [String] {
         var wordsNonRadomized: [String] = words
-        for index in 0..<wordsNonRadomized.count {
-            if wordsNonRadomized[index].first?.isUppercase == true {
-                wordsNonRadomized[index] = wordsNonRadomized[index].flipCase()
-            }
+        for index in 0..<wordsNonRadomized.count where wordsNonRadomized[index].first?.isUppercase == true  {
+            wordsNonRadomized[index] = wordsNonRadomized[index].flipCase()
         }
         return wordsNonRadomized
     }

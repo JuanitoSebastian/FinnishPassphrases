@@ -20,10 +20,10 @@ extension Checkbox {
         HStack(spacing: 3) {
 
             ZStack(alignment: .center) {
-                RoundedRectangle(cornerSize: CGSize(width: 5, height: 5))
-                    .stroke(cCheckboxBorderColor, lineWidth: 1)
+                RoundedRectangle(cornerSize: CGSize(width: 3, height: 3))
+                    .stroke(cCheckboxBorderColor, lineWidth: 2)
 
-                RoundedRectangle(cornerSize: CGSize(width: 5, height: 5))
+                RoundedRectangle(cornerSize: CGSize(width: 3, height: 3))
                     .fill(checkboxFill)
 
                 if checked {
@@ -34,8 +34,6 @@ extension Checkbox {
             }
             .frame(width: 16, height: 16)
             .padding(.trailing, 2)
-
-            // Image(systemName: checked ? "checkmark.square.fill" : "square")
 
             Text(description)
                 .font(cUiFontSmall)
@@ -49,8 +47,8 @@ extension Checkbox {
     var checkboxFill: LinearGradient {
         LinearGradient(
             gradient: Gradient(colors: [cCheckboxTopColor, cCheckboxBottomColor]),
-            startPoint: .top,
-            endPoint: .bottom
+            startPoint: checked ? .top : .bottom,
+            endPoint: checked ? .bottom: .top
         )
     }
 }
@@ -63,3 +61,5 @@ struct Checkbox_Previews: PreviewProvider {
     }
 }
 #endif
+
+

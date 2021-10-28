@@ -8,10 +8,11 @@
 import SwiftUI
 
 // MARK: - Fonts
-let cPasswordFontMain = Font.system(.body, design: .monospaced)
+let cPasswordFontMain = Font.system(.body, design: .monospaced).weight(.medium)
 let cPasswordFontMedium = Font.system(.headline, design: .monospaced)
 let cUiFontMedium = Font.system(size: 16, design: .default)
 let cUiFontSmall = Font.system(size: 12, design: .default).weight(.semibold)
+let cUiTitleFont = Font.system(.title, design: .default)
 
 // MARK: - Colors
 let cBackdropColor = Color("backdrop")
@@ -27,6 +28,11 @@ let cPassphraseSeparatorColor = Color("passphrase-separator")
 let cCheckboxTopColor = Color("checkbox-top")
 let cCheckboxBottomColor = Color("checkbox-bottom")
 let cCheckboxBorderColor = Color("checkbox-border")
+
+let cIconButtonBackgroundColor = Color("icon-button")
+let cIconButtonBackgroundColorHover = Color("icon-button-hover")
+
+let cTitleColor = Color("text-title")
 
 // MARK: - Padding
 let cPassphraseAreaPadding = EdgeInsets(top: 10, leading: 15, bottom: 10, trailing: 15)
@@ -47,4 +53,5 @@ let cPassphraseAreaClickAnimation = Animation.interpolatingSpring(
     damping: 4,
     initialVelocity: 0.5
 )
-let cPassphraseAreaHoverAnimation = Animation.easeInOut(duration: 0.2)
+let cHoverAnimation = Animation.easeInOut(duration: 0.2)
+let cIconClickAnimation = Animation.spring()

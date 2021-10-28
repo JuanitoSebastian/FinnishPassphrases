@@ -17,20 +17,9 @@ struct GeneratorView: View {
 extension GeneratorView {
     var body: some View {
         VStack(alignment: .center) {
-            HStack {
-                PassphraseDispalyerView(passphrase: $appState.passphrase)
-                    .environmentObject(appState)
-                    .padding(cGeneratorViewColumnPadding)
-
-                Button {
-                    appState.generatePassphrase()
-                } label: {
-                    Image(systemName: "arrow.counterclockwise")
-                }
-                .buttonStyle(PlainButtonStyle())
-                .padding(cGeneratorViewColumnPadding)
-            }
-            .padding(cGeneratorViewRowPadding)
+            PassphraseDispalyerView(passphrase: $appState.passphrase)
+                .environmentObject(appState)
+                .padding(cGeneratorViewRowPadding)
 
             Divider()
 

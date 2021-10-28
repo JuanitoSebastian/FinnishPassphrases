@@ -35,6 +35,7 @@
 		28B7FE3E2665006B007A891B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28B7FE3D2665006B007A891B /* AppDelegate.swift */; };
 		28DD8DFF26CAF0B40087C842 /* GeneratorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28DD8DFE26CAF0B40087C842 /* GeneratorView.swift */; };
 		28DD8E0226CAF8B80087C842 /* WordAmountSlider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28DD8E0126CAF8B80087C842 /* WordAmountSlider.swift */; };
+		28F7C57427299BE5008D16CB /* IconButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28F7C57327299BE5008D16CB /* IconButton.swift */; };
 		28FBFC8526C9B187004A12A2 /* Double.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28FBFC8426C9B187004A12A2 /* Double.swift */; };
 /* End PBXBuildFile section */
 
@@ -81,6 +82,7 @@
 		28B7FE3D2665006B007A891B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		28DD8DFE26CAF0B40087C842 /* GeneratorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeneratorView.swift; sourceTree = "<group>"; };
 		28DD8E0126CAF8B80087C842 /* WordAmountSlider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WordAmountSlider.swift; sourceTree = "<group>"; };
+		28F7C57327299BE5008D16CB /* IconButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IconButton.swift; sourceTree = "<group>"; };
 		28FBFC8426C9B187004A12A2 /* Double.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Double.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -233,6 +235,7 @@
 				28DD8E0126CAF8B80087C842 /* WordAmountSlider.swift */,
 				280A1D062662434300301A4C /* PassphraseDispalyerView.swift */,
 				285D302E26CD967500724593 /* Checkbox.swift */,
+				28F7C57327299BE5008D16CB /* IconButton.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -380,6 +383,7 @@
 				280A1D012662359900301A4C /* PassphraseGeneratorService.swift in Sources */,
 				28DD8DFF26CAF0B40087C842 /* GeneratorView.swift in Sources */,
 				28DD8E0226CAF8B80087C842 /* WordAmountSlider.swift in Sources */,
+				28F7C57427299BE5008D16CB /* IconButton.swift in Sources */,
 				285D302F26CD967500724593 /* Checkbox.swift in Sources */,
 				282874DF2662337500ADC11E /* ContentView.swift in Sources */,
 				283D3E02267F3E9B005C8BD9 /* Character.swift in Sources */,

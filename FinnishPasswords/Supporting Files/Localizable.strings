@@ -5,6 +5,10 @@
   Created by Juan Covarrubias on 26.10.2021.
   
 */
+
+// Titles
+"contentViewTitle" = "Passphrases 🇫🇮";
+
 // Generator View
 "generatorViewWordCount %@" = "%@ sanaa";
 "generatorViewCapitalizationCheckbox" = "Vaihteleva kirjainkoko";

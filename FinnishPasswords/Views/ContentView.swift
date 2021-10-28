@@ -12,7 +12,14 @@ struct ContentView: View {
     @ObservedObject var appState: AppState = AppState()
 
     var body: some View {
-        ZStack {
+        VStack {
+            HStack {
+                Text(LocalizedStringKey("contentViewTitle"))
+                    .font(cUiTitleFont)
+                    .foregroundColor(cTitleColor)
+                Spacer()
+                IconButton(icon: Image(systemName: "multiply"), action: { appState.quitApplication() })
+            }
             GeneratorView()
                 .environmentObject(appState)
                 .background(
