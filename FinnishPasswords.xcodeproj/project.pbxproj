@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2803EFDC2769B76E00B0F1B7 /* FooterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2803EFDB2769B76E00B0F1B7 /* FooterView.swift */; };
+		2803EFDE2769B78100B0F1B7 /* WordView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2803EFDD2769B78100B0F1B7 /* WordView.swift */; };
+		2803EFE02769B78A00B0F1B7 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2803EFDF2769B78A00B0F1B7 /* SettingsView.swift */; };
+		2803EFE22769B79E00B0F1B7 /* IconButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2803EFE12769B79E00B0F1B7 /* IconButton.swift */; };
 		280A1CFB2662356F00301A4C /* Log.swift in Sources */ = {isa = PBXBuildFile; fileRef = 280A1CFA2662356F00301A4C /* Log.swift */; };
 		280A1CFD2662357A00301A4C /* kotus-sanalista_v1.xml in Resources */ = {isa = PBXBuildFile; fileRef = 280A1CFC2662357A00301A4C /* kotus-sanalista_v1.xml */; };
 		280A1D012662359900301A4C /* PassphraseGeneratorService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 280A1CFF2662359800301A4C /* PassphraseGeneratorService.swift */; };
@@ -29,6 +33,7 @@
 		282874E42662337800ADC11E /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 282874E32662337800ADC11E /* Preview Assets.xcassets */; };
 		282874ED266234F000ADC11E /* .swiftlint.yml in Resources */ = {isa = PBXBuildFile; fileRef = 282874EC266234F000ADC11E /* .swiftlint.yml */; };
 		283D3E02267F3E9B005C8BD9 /* Character.swift in Sources */ = {isa = PBXBuildFile; fileRef = 283D3E01267F3E9B005C8BD9 /* Character.swift */; };
+		284B09E92769B969004D3DFF /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 284B09E82769B969004D3DFF /* Localizable.strings */; };
 		285D302F26CD967500724593 /* Checkbox.swift in Sources */ = {isa = PBXBuildFile; fileRef = 285D302E26CD967500724593 /* Checkbox.swift */; };
 		285D303126CD992500724593 /* WordCapitalizationCheckboxes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 285D303026CD992500724593 /* WordCapitalizationCheckboxes.swift */; };
 		28B7FE3E2665006B007A891B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28B7FE3D2665006B007A891B /* AppDelegate.swift */; };
@@ -48,6 +53,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		2803EFDB2769B76E00B0F1B7 /* FooterView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FooterView.swift; path = "../../../../../../../../../Volumes/GoogleDrive/My Drive/Coding/Projects/SalasanaGenerator/FinnishPasswords/FinnishPasswords/Views/FooterView.swift"; sourceTree = "<group>"; };
+		2803EFDD2769B78100B0F1B7 /* WordView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = WordView.swift; path = "../../../../../../../../../Volumes/GoogleDrive/My Drive/Coding/Projects/SalasanaGenerator/FinnishPasswords/FinnishPasswords/Views/WordView.swift"; sourceTree = "<group>"; };
+		2803EFDF2769B78A00B0F1B7 /* SettingsView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SettingsView.swift; path = "../../../../../../../../../Volumes/GoogleDrive/My Drive/Coding/Projects/SalasanaGenerator/FinnishPasswords/FinnishPasswords/Views/SettingsView.swift"; sourceTree = "<group>"; };
+		2803EFE12769B79E00B0F1B7 /* IconButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = IconButton.swift; path = "../../../../../../../../../../Volumes/GoogleDrive/My Drive/Coding/Projects/SalasanaGenerator/FinnishPasswords/FinnishPasswords/Views/Components/IconButton.swift"; sourceTree = "<group>"; };
 		280A1CFA2662356F00301A4C /* Log.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Log.swift; sourceTree = "<group>"; };
 		280A1CFC2662357A00301A4C /* kotus-sanalista_v1.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = "kotus-sanalista_v1.xml"; sourceTree = "<group>"; };
 		280A1CFF2662359800301A4C /* PassphraseGeneratorService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PassphraseGeneratorService.swift; sourceTree = "<group>"; };
@@ -74,6 +83,7 @@
 		282874E62662337800ADC11E /* FinnishPasswords.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = FinnishPasswords.entitlements; sourceTree = "<group>"; };
 		282874EC266234F000ADC11E /* .swiftlint.yml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.yaml; path = .swiftlint.yml; sourceTree = "<group>"; };
 		283D3E01267F3E9B005C8BD9 /* Character.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Character.swift; sourceTree = "<group>"; };
+		284B09E82769B969004D3DFF /* Localizable.strings */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
 		285D302E26CD967500724593 /* Checkbox.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Checkbox.swift; sourceTree = "<group>"; };
 		285D303026CD992500724593 /* WordCapitalizationCheckboxes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WordCapitalizationCheckboxes.swift; sourceTree = "<group>"; };
 		28B7FE3D2665006B007A891B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -103,6 +113,7 @@
 		280A1CF92662355900301A4C /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				284B09E82769B969004D3DFF /* Localizable.strings */,
 				280E0F2E266AB5DA001F24F9 /* Extensions */,
 				280A1CFC2662357A00301A4C /* kotus-sanalista_v1.xml */,
 				280A1CFA2662356F00301A4C /* Log.swift */,
@@ -123,6 +134,9 @@
 		280A1D03266240FF00301A4C /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				2803EFDB2769B76E00B0F1B7 /* FooterView.swift */,
+				2803EFDF2769B78A00B0F1B7 /* SettingsView.swift */,
+				2803EFDD2769B78100B0F1B7 /* WordView.swift */,
 				28DD8E0026CAF8830087C842 /* Components */,
 				282874DE2662337500ADC11E /* ContentView.swift */,
 				28DD8DFE26CAF0B40087C842 /* GeneratorView.swift */,
@@ -219,6 +233,7 @@
 			children = (
 				281667142664ED2300DDCCC3 /* SeparatorSelectorView.swift */,
 				28DD8E0126CAF8B80087C842 /* WordAmountSlider.swift */,
+				2803EFE12769B79E00B0F1B7 /* IconButton.swift */,
 				280A1D062662434300301A4C /* PassphraseDispalyerView.swift */,
 				285D302E26CD967500724593 /* Checkbox.swift */,
 				285D303026CD992500724593 /* WordCapitalizationCheckboxes.swift */,
@@ -313,6 +328,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				284B09E92769B969004D3DFF /* Localizable.strings in Resources */,
 				282874ED266234F000ADC11E /* .swiftlint.yml in Resources */,
 				282874E42662337800ADC11E /* Preview Assets.xcassets in Resources */,
 				280A1CFD2662357A00301A4C /* kotus-sanalista_v1.xml in Resources */,
@@ -359,7 +375,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2803EFE22769B79E00B0F1B7 /* IconButton.swift in Sources */,
 				280A1D022662359900301A4C /* KotusWordService.swift in Sources */,
+				2803EFE02769B78A00B0F1B7 /* SettingsView.swift in Sources */,
 				281666FC2664C53A00DDCCC3 /* Passphrase.swift in Sources */,
 				281666FE2664C6B600DDCCC3 /* SeparatorSymbol.swift in Sources */,
 				281667132664D26500DDCCC3 /* DefaultsStore.swift in Sources */,
@@ -374,10 +392,12 @@
 				280A1D072662434300301A4C /* PassphraseDispalyerView.swift in Sources */,
 				280A1D052662416300301A4C /* AppState.swift in Sources */,
 				282874DD2662337500ADC11E /* FinnishPasswordsApp.swift in Sources */,
+				2803EFDC2769B76E00B0F1B7 /* FooterView.swift in Sources */,
 				281667152664ED2300DDCCC3 /* SeparatorSelectorView.swift in Sources */,
 				280E0F30266AB5E6001F24F9 /* String.swift in Sources */,
 				280A1CFB2662356F00301A4C /* Log.swift in Sources */,
 				28FBFC8526C9B187004A12A2 /* Double.swift in Sources */,
+				2803EFDE2769B78100B0F1B7 /* WordView.swift in Sources */,
 				280A1D092662477F00301A4C /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -35,4 +35,13 @@ class DefaultsStore {
             userDefaults.set(newValue.rawValue, forKey: "separatorSymbol")
         }
     }
+
+    var wordCapitalization: Bool {
+        get {
+            return userDefaults.bool(forKey: "wordCapitalization")
+        }
+        set(newValue) {
+            userDefaults.setValue(newValue, forKey: "wordCapitalization")
+        }
+    }
 }

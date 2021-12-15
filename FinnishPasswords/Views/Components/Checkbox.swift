@@ -10,28 +10,50 @@ import SwiftUI
 struct Checkbox: View {
 
     @Binding var checked: Bool
-    var description: String?
+    let description: LocalizedStringKey
 
+}
+
+// MARK: - Views
+extension Checkbox {
     var body: some View {
         HStack(spacing: 3) {
 
-            Image(systemName: checked ? "checkmark.square.fill" : "square")
+            ZStack(alignment: .center) {
+                RoundedRectangle(cornerSize: CGSize(width: 3, height: 3))
+                    .stroke(cCheckboxBorderColor, lineWidth: 2)
 
-            if description != nil {
-                Text(description!)
-                    .font(.callout)
-                    .fontWeight(/*@START_MENU_TOKEN@*/.bold/*@END_MENU_TOKEN@*/)
+                RoundedRectangle(cornerSize: CGSize(width: 3, height: 3))
+                    .fill(checkboxFill)
+
+                if checked {
+                    Image(systemName: "checkmark")
+                        .font((.system(size: 12, weight: .bold)))
+                        .foregroundColor(.purple)
+                }
             }
+            .frame(width: 16, height: 16)
+            .padding(.trailing, 2)
+
+            Text(description)
+                .font(cUiFontSmall)
 
         }
         .onTapGesture {
             checked.toggle()
         }
-        .padding(1)
+    }
 
+    var checkboxFill: LinearGradient {
+        LinearGradient(
+            gradient: Gradient(colors: [cCheckboxTopColor, cCheckboxBottomColor]),
+            startPoint: checked ? .top : .bottom,
+            endPoint: checked ? .bottom: .top
+        )
     }
 }
 
+// MARK: - Preview
 #if DEBUG
 struct Checkbox_Previews: PreviewProvider {
     static var previews: some View {
@@ -39,3 +61,5 @@ struct Checkbox_Previews: PreviewProvider {
     }
 }
 #endif
+
+

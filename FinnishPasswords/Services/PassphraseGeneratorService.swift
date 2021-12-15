@@ -22,15 +22,15 @@ class PassphraseGeneratorService: ObservableObject {
 // MARK: - Functions
 extension PassphraseGeneratorService {
 
+    /// Generates a new passphrase. Old passphrase is replaced with new one.
     func generatePassphrase() {
-        var words: [String] = []
+        var words = generateWords(numberOfWords: DefaultsStore.shared.numberOfWordsInPassphrase)
 
-        for _ in 0..<DefaultsStore.shared.numberOfWordsInPassphrase {
-            words.append(randomizeStringCase(kotusWordService.randomWord()))
+        if DefaultsStore.shared.wordCapitalization {
+            words = randomizeWordCase(words)
         }
 
         passphrase = Passphrase(words: words, separator: DefaultsStore.shared.separatorSymbol)
-
     }
 
     func updatePassphraseSeparatorSymbol() {
@@ -40,49 +40,62 @@ extension PassphraseGeneratorService {
         passphrase = passphraseUpdated
     }
 
-    func replaceWordAtIndex(_ index: Int) {
-        guard let passphrase = passphrase else { return }
-        var words = passphrase.words
-        words[index] = randomizeStringCase(kotusWordService.randomWord())
-        self.passphrase = Passphrase(words: words, separator: passphrase.separator)
+    func updatePassphraseWordCapitalization() {
+        guard let passphraseUpdated = passphrase else { return }
+
+        let wordsToSet = DefaultsStore.shared.wordCapitalization ?
+            randomizeWordCase(passphraseUpdated.words) : removeRandomizedWordCase(passphraseUpdated.words)
+
+        passphraseUpdated.words = wordsToSet
+        passphrase = passphraseUpdated
     }
 
-    func flipCaseOfWordAtIndex(_ index: Int) {
-        guard let passphrase = passphrase else { return }
-        var words = passphrase.words
-        words[index] = words[index].flipCase()
-        self.passphrase = Passphrase(words: words, separator: passphrase.separator)
-    }
+}
 
-    func flipCaseOfCharAtIndex(wordIndex: Int, index: Int) {
-        guard let passphrase = passphrase else { return }
-        var stringArray = passphrase.words
-        var wordArray = Array(stringArray[wordIndex])
-        wordArray[index] = wordArray[index].flipCase()
-        stringArray[wordIndex] = String(wordArray)
-        self.passphrase = Passphrase(words: stringArray, separator: passphrase.separator)
-    }
+// MARK: - Private functions
+extension PassphraseGeneratorService {
 
-    func flipCaseOfCharAtIndex(_ index: Int) {
-        guard let passphrase = passphrase else { return }
-        guard index < passphrase.numOfCharacters else { return }
-
-        var charactersSoFar = 0
-        var wordIndex = -1
-        for word in passphrase.words {
-            charactersSoFar += word.count
-            wordIndex += 1
-
-            if index < charactersSoFar {
-
-                break
-            }
+    /// Generates a [String] with random words that are fetched from KotusWordService
+    /// - Parameter numberOfWords: The number of words that will be generated
+    private func generateWords(numberOfWords: Int) -> [String] {
+        var words: [String] = []
+        for _ in 0..<numberOfWords {
+            words.append(kotusWordService.randomWord())
         }
+        return words
     }
 
-    private func randomizeStringCase(_ word: String) -> String {
-        var newWord = word
-        if Double.random(in: 0...1) > 0.7 { newWord = newWord.uppercased() }
-        return newWord
+    /// Capitalizes random words in the array. The function make sure that the array includes both capitalized
+    /// and non capitalized words.
+    /// - Parameter words: A [String] that will be worked on
+    private func randomizeWordCase(_ words: [String]) -> [String] {
+        var wordsRanomizedCase = words
+
+        var capitalized: Bool = false
+        var nonCapitalized: Bool = false
+        for index in 0..<words.count {
+            if Bool.random() {
+                wordsRanomizedCase[index] = wordsRanomizedCase[index].flipCase()
+                capitalized = true
+                continue
+            }
+
+            nonCapitalized = true
+        }
+
+        if !capitalized || !nonCapitalized {
+            let randomIndex = Int.random(in: 0..<wordsRanomizedCase.count)
+            wordsRanomizedCase[randomIndex] = wordsRanomizedCase[randomIndex].flipCase()
+        }
+
+        return wordsRanomizedCase
+    }
+
+    private func removeRandomizedWordCase(_ words: [String]) -> [String] {
+        var wordsNonRadomized: [String] = words
+        for index in 0..<wordsNonRadomized.count where wordsNonRadomized[index].first?.isUppercase == true  {
+            wordsNonRadomized[index] = wordsNonRadomized[index].flipCase()
+        }
+        return wordsNonRadomized
     }
 }

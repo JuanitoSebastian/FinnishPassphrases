@@ -12,18 +12,29 @@ struct ContentView: View {
     @ObservedObject var appState: AppState = AppState()
 
     var body: some View {
-        ZStack {
-            GeneratorView()
-                .environmentObject(appState)
-                .padding()
-                .background(
-                    RoundedRectangle(cornerSize: fRoundedCornerSize)
-                        .frame(maxWidth: .infinity, maxHeight: .infinity)
-                        .foregroundColor(contentBackgroundColor)
-                )
+        VStack {
+            VStack {
+                HStack {
+                    Text(LocalizedStringKey("contentViewTitle"))
+                        .font(cUiTitleFont)
+                        .foregroundColor(cTitleColor)
+                    Spacer()
+                    IconButton(icon: Image(systemName: "gearshape"), action: { appState.quitApplication() })
+                }
+
+                GeneratorView()
+                    .environmentObject(appState)
+                    .background(
+                        RoundedRectangle(cornerSize: cRoundedCornerSize)
+                            .frame(maxWidth: .infinity, maxHeight: .infinity)
+                            .foregroundColor(cBackdropColor)
+                    )
+            }
+            .padding(cMainContentPadding)
+
+            FooterView()
         }
-        .padding()
-        .background(Color.white)
+        .background(cBackdropColor)
         .frame(width: 400)
     }
 }

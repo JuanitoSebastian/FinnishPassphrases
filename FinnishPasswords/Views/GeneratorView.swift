@@ -13,30 +13,35 @@ struct GeneratorView: View {
 
 }
 
-// MARK: Views
+// MARK: - Views
 extension GeneratorView {
     var body: some View {
         VStack(alignment: .center) {
             PassphraseDispalyerView(passphrase: $appState.passphrase)
                 .environmentObject(appState)
-                .padding(.vertical, 1)
+                .padding(cGeneratorViewRowPadding)
 
             Divider()
 
             WordAmountSlider()
                 .environmentObject(appState)
-                .padding(.vertical, 1)
+                .padding(cGeneratorViewRowPadding)
 
             Divider()
 
-            SeparatorSelectorView()
-                .environmentObject(appState)
-                .padding(.vertical, 1)
+            HStack {
+                SeparatorSelectorView()
+                    .environmentObject(appState)
+                    .padding(cGeneratorViewColumnPadding)
 
-            Divider()
+                Checkbox(
+                    checked: $appState.capitalization,
+                    description: LocalizedStringKey("generatorViewCapitalizationCheckbox")
+                )
+                .padding(cGeneratorViewColumnPadding)
+            }
+            .padding(cGeneratorViewRowPadding)
 
-            WordCapitalizationCheckboxes()
-                .padding(.vertical, 1)
         }
     }
 }

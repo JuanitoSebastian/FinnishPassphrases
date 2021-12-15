@@ -12,6 +12,11 @@ import AppKit
 class AppState: ObservableObject {
 
     @Published var passphrase: Passphrase?
+    @Published var capitalization: Bool = DefaultsStore.shared.wordCapitalization {
+        didSet {
+            handleChangeOfCapitalization(capitalization)
+        }
+    }
     private var passphraseGeneratorService: PassphraseGeneratorService
     private let pasteboard: NSPasteboard
     private var cancellablePassphrase: AnyCancellable?
@@ -19,18 +24,12 @@ class AppState: ObservableObject {
     init() {
         let kotusWordService = KotusWordService()
         kotusWordService.readFileToMemory()
-        self.passphraseGeneratorService = PassphraseGeneratorService(kotusWordService: kotusWordService)
-        self.pasteboard = NSPasteboard.general
+        passphraseGeneratorService = PassphraseGeneratorService(kotusWordService: kotusWordService)
+        pasteboard = NSPasteboard.general
         pasteboard.declareTypes([.string], owner: nil)
         subscribeToPassphraseGeneratorService()
     }
 
-    private func subscribeToPassphraseGeneratorService() {
-        self.cancellablePassphrase =
-            passphraseGeneratorService.$passphrase.eraseToAnyPublisher().sink { receivedValue in
-            self.passphrase = receivedValue
-        }
-    }
 }
 
 // MARK: - Computed properties
@@ -50,7 +49,7 @@ extension AppState {
     }
 
     func decrementNumberOfWordsInPassphrase() {
-        guard DefaultsStore.shared.numberOfWordsInPassphrase > fMinimumNumberOfWordsInPassphrase else { return }
+        guard DefaultsStore.shared.numberOfWordsInPassphrase > cMinimumNumberOfWordsInPassphrase else { return }
         DefaultsStore.shared.numberOfWordsInPassphrase -= 1
     }
 
@@ -58,9 +57,12 @@ extension AppState {
         DefaultsStore.shared.numberOfWordsInPassphrase += 1
     }
 
-    func setNumberOfWordsInPassphrase(_ to: Int) {
-        guard to >= fMinimumNumberOfWordsInPassphrase && to <= fMaximumNumberOfWordsInPassphrase else { return }
-        DefaultsStore.shared.numberOfWordsInPassphrase = to
+    func setNumberOfWordsInPassphrase(_ numberOfWordToSet: Int) {
+        guard numberOfWordToSet >= cMinimumNumberOfWordsInPassphrase
+                && numberOfWordToSet <= cMaximumNumberOfWordsInPassphrase else {
+            return
+        }
+        DefaultsStore.shared.numberOfWordsInPassphrase = numberOfWordToSet
     }
 
     func setCurrentSeparator(_ separator: SeparatorSymbol) {
@@ -71,16 +73,24 @@ extension AppState {
     func quitApplication() {
         NSApplication.shared.terminate(self)
     }
+}
 
-    func replaceWordAtIndex(_ index: Int) {
-        passphraseGeneratorService.replaceWordAtIndex(index)
+// MARK: - Private Functions
+extension AppState {
+
+    /// This function is called whenever the UI changes the value of the capitalization variable here in the AppState.
+    /// This function stores the user preference of capitalization in DefaultsStore and calls the PaspshraseGeneratorService to update the passphrase
+    private func handleChangeOfCapitalization(_ valueToSet: Bool) {
+        DefaultsStore.shared.wordCapitalization = valueToSet
+        passphraseGeneratorService.updatePassphraseWordCapitalization()
     }
 
-    func flipCaseOfWordAtIndex(_ index: Int) {
-        passphraseGeneratorService.flipCaseOfWordAtIndex(index)
-    }
-
-    func flipCaseOfCharAtIndex(word: Int, index: Int) {
-        passphraseGeneratorService.flipCaseOfCharAtIndex(wordIndex: word, index: index)
+    /// Subscribes to the PassphraseGeneratorServices passphrase publisher.
+    /// Whenever the passphrase is updated the new passphrase is fetched to AppState.
+    private func subscribeToPassphraseGeneratorService() {
+        self.cancellablePassphrase =
+            passphraseGeneratorService.$passphrase.eraseToAnyPublisher().sink { receivedValue in
+            self.passphrase = receivedValue
+        }
     }
 }

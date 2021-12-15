@@ -16,7 +16,7 @@ struct WordAmountSlider: View {
 extension WordAmountSlider {
     var body: some View {
         Slider(value: $numOfWords,
-               in: Double(fMinimumNumberOfWordsInPassphrase)...Double(fMaximumNumberOfWordsInPassphrase),
+               in: Double(cMinimumNumberOfWordsInPassphrase)...Double(cMaximumNumberOfWordsInPassphrase),
                step: 1,
                onEditingChanged: { editing in setNumberOfWords(editing: editing) },
                minimumValueLabel: Text(""),
@@ -25,8 +25,8 @@ extension WordAmountSlider {
     }
 
     var wordAmountLabel: some View {
-        Text("\(numOfWords.cleanValue) sanaa")
-            .fontWeight(.bold)
+        Text(LocalizedStringKey("generatorViewWordCount \(numOfWords.cleanValue)"))
+            .font(cUiFontMedium)
     }
 }
 

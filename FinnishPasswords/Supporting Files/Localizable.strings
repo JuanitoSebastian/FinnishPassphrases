@@ -1,0 +1,17 @@
+/* 
+  Localizable.strings
+  FinnishPasswords
+
+  Created by Juan Covarrubias on 26.10.2021.
+  
+*/
+
+// Titles
+"contentViewTitle" = "Passphrases 🇫🇮";
+
+// Generator View
+"generatorViewWordCount %@" = "%@ sanaa";
+"generatorViewCapitalizationCheckbox" = "Vaihteleva kirjainkoko";
+
+// Footer
+"footerRow1" = "Sovellus käyttää Kotuksen [nykysuomen sanalistaa](https://kaino.kotus.fi/sanat/nykysuomi/).";
