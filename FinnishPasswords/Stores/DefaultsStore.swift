@@ -9,12 +9,10 @@ import Foundation
 
 class DefaultsStore {
 
-    public static let shared = DefaultsStore()
-
     private let userDefaults: UserDefaults
 
-    private init() {
-        self.userDefaults = UserDefaults()
+    init(userDetaults: UserDefaults = UserDefaults()) {
+        self.userDefaults = userDetaults
     }
 
     var numberOfWordsInPassphrase: Int {

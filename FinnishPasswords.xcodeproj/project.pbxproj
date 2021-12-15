@@ -18,6 +18,8 @@
 		280A1D052662416300301A4C /* AppState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 280A1D042662416300301A4C /* AppState.swift */; };
 		280A1D072662434300301A4C /* PassphraseDispalyerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 280A1D062662434300301A4C /* PassphraseDispalyerView.swift */; };
 		280A1D092662477F00301A4C /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 280A1D082662477F00301A4C /* Constants.swift */; };
+		280A5E622769DD3F0025ABCD /* KotusWordServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 280A5E612769DD3F0025ABCD /* KotusWordServiceTests.swift */; };
+		280A5E632769DD4C0025ABCD /* KotusWordService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 280A1D002662359900301A4C /* KotusWordService.swift */; };
 		280E0F30266AB5E6001F24F9 /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = 280E0F2F266AB5E6001F24F9 /* String.swift */; };
 		281666FC2664C53A00DDCCC3 /* Passphrase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 281666FB2664C53A00DDCCC3 /* Passphrase.swift */; };
 		281666FE2664C6B600DDCCC3 /* SeparatorSymbol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 281666FD2664C6B600DDCCC3 /* SeparatorSymbol.swift */; };
@@ -37,6 +39,7 @@
 		285D302F26CD967500724593 /* Checkbox.swift in Sources */ = {isa = PBXBuildFile; fileRef = 285D302E26CD967500724593 /* Checkbox.swift */; };
 		285D303126CD992500724593 /* WordCapitalizationCheckboxes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 285D303026CD992500724593 /* WordCapitalizationCheckboxes.swift */; };
 		28B7FE3E2665006B007A891B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28B7FE3D2665006B007A891B /* AppDelegate.swift */; };
+		28B8602D2769DFE4008C9A17 /* Log.swift in Sources */ = {isa = PBXBuildFile; fileRef = 280A1CFA2662356F00301A4C /* Log.swift */; };
 		28DD8DFF26CAF0B40087C842 /* GeneratorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28DD8DFE26CAF0B40087C842 /* GeneratorView.swift */; };
 		28DD8E0226CAF8B80087C842 /* WordAmountSlider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28DD8E0126CAF8B80087C842 /* WordAmountSlider.swift */; };
 		28FBFC8526C9B187004A12A2 /* Double.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28FBFC8426C9B187004A12A2 /* Double.swift */; };
@@ -64,6 +67,7 @@
 		280A1D042662416300301A4C /* AppState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppState.swift; sourceTree = "<group>"; };
 		280A1D062662434300301A4C /* PassphraseDispalyerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PassphraseDispalyerView.swift; sourceTree = "<group>"; };
 		280A1D082662477F00301A4C /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		280A5E612769DD3F0025ABCD /* KotusWordServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KotusWordServiceTests.swift; sourceTree = "<group>"; };
 		280E0F2F266AB5E6001F24F9 /* String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = String.swift; sourceTree = "<group>"; };
 		281666FB2664C53A00DDCCC3 /* Passphrase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Passphrase.swift; sourceTree = "<group>"; };
 		281666FD2664C6B600DDCCC3 /* SeparatorSymbol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeparatorSymbol.swift; sourceTree = "<group>"; };
@@ -166,6 +170,7 @@
 		281667042664CD6D00DDCCC3 /* FinnishPasswordsTests */ = {
 			isa = PBXGroup;
 			children = (
+				280A5E612769DD3F0025ABCD /* KotusWordServiceTests.swift */,
 				2816670F2664CED800DDCCC3 /* SeparatorSymbolTests.swift */,
 				281667052664CD6D00DDCCC3 /* PassphraseTests.swift */,
 				281667072664CD6D00DDCCC3 /* Info.plist */,
@@ -365,9 +370,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				281667062664CD6D00DDCCC3 /* PassphraseTests.swift in Sources */,
+				28B8602D2769DFE4008C9A17 /* Log.swift in Sources */,
 				2816670D2664CD8E00DDCCC3 /* Passphrase.swift in Sources */,
 				2816670E2664CD9100DDCCC3 /* SeparatorSymbol.swift in Sources */,
 				281667102664CED800DDCCC3 /* SeparatorSymbolTests.swift in Sources */,
+				280A5E632769DD4C0025ABCD /* KotusWordService.swift in Sources */,
+				280A5E622769DD3F0025ABCD /* KotusWordServiceTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

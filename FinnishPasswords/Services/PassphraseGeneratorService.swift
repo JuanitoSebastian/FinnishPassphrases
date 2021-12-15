@@ -10,11 +10,13 @@ import Foundation
 class PassphraseGeneratorService: ObservableObject {
 
     let kotusWordService: KotusWordService
+    let userDefaults: DefaultsStore
     @Published var passphrase: Passphrase?
 
-    init(kotusWordService: KotusWordService) {
+    init(kotusWordService: KotusWordService, defaultsStore: DefaultsStore) {
         self.kotusWordService = kotusWordService
         self.passphrase = nil
+        self.userDefaults = defaultsStore
         generatePassphrase()
     }
 }
@@ -24,26 +26,26 @@ extension PassphraseGeneratorService {
 
     /// Generates a new passphrase. Old passphrase is replaced with new one.
     func generatePassphrase() {
-        var words = generateWords(numberOfWords: DefaultsStore.shared.numberOfWordsInPassphrase)
+        var words = generateWords(numberOfWords: userDefaults.numberOfWordsInPassphrase)
 
-        if DefaultsStore.shared.wordCapitalization {
+        if userDefaults.wordCapitalization {
             words = randomizeWordCase(words)
         }
 
-        passphrase = Passphrase(words: words, separator: DefaultsStore.shared.separatorSymbol)
+        passphrase = Passphrase(words: words, separator: userDefaults.separatorSymbol)
     }
 
     func updatePassphraseSeparatorSymbol() {
         guard let passphraseUpdated = passphrase else { return }
-        guard passphraseUpdated.separator != DefaultsStore.shared.separatorSymbol else { return }
-        passphraseUpdated.separator = DefaultsStore.shared.separatorSymbol
+        guard passphraseUpdated.separator != userDefaults.separatorSymbol else { return }
+        passphraseUpdated.separator = userDefaults.separatorSymbol
         passphrase = passphraseUpdated
     }
 
     func updatePassphraseWordCapitalization() {
         guard let passphraseUpdated = passphrase else { return }
 
-        let wordsToSet = DefaultsStore.shared.wordCapitalization ?
+        let wordsToSet = userDefaults.wordCapitalization ?
             randomizeWordCase(passphraseUpdated.words) : removeRandomizedWordCase(passphraseUpdated.words)
 
         passphraseUpdated.words = wordsToSet

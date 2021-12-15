@@ -9,7 +9,7 @@ import SwiftUI
 
 struct WordAmountSlider: View {
     @EnvironmentObject var appState: AppState
-    @State var numOfWords: Double = Double(DefaultsStore.shared.numberOfWordsInPassphrase)
+    @State var numOfWords: Double = 3
 }
 
 // MARK: - Views
@@ -22,6 +22,7 @@ extension WordAmountSlider {
                minimumValueLabel: Text(""),
                maximumValueLabel: Text(""),
                label: { wordAmountLabel })
+        .onAppear { fetchNumOfWordsFromStore() }
     }
 
     var wordAmountLabel: some View {
@@ -36,6 +37,10 @@ extension WordAmountSlider {
         guard !editing else { return }
         appState.setNumberOfWordsInPassphrase(Int(numOfWords))
         appState.generatePassphrase()
+    }
+
+    private func fetchNumOfWordsFromStore() {
+        numOfWords = Double(appState.defaultsStore.numberOfWordsInPassphrase)
     }
 }
 

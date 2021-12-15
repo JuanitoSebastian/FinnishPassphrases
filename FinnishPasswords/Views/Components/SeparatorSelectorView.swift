@@ -10,7 +10,7 @@ import SwiftUI
 struct SeparatorSelectorView: View {
 
     @EnvironmentObject var appState: AppState
-    @State var currentSeparator: SeparatorSymbol = DefaultsStore.shared.separatorSymbol
+    @State var currentSeparator: SeparatorSymbol = SeparatorSymbol.asterisk
 
 }
 
@@ -29,6 +29,7 @@ extension SeparatorSelectorView {
             .pickerStyle(SegmentedPickerStyle())
         }
         .onChange(of: currentSeparator, perform: { newValue in setCurrentSeparator(newValue)})
+        .onAppear { fetchSeparatorSymbolFromStore() }
     }
 }
 
@@ -37,6 +38,10 @@ extension SeparatorSelectorView {
     func setCurrentSeparator(_ separator: SeparatorSymbol) {
         appState.setCurrentSeparator(separator)
         currentSeparator = separator
+    }
+
+    private func fetchSeparatorSymbolFromStore() {
+        currentSeparator = appState.defaultsStore.separatorSymbol
     }
 }
 
