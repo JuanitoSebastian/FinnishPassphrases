@@ -81,7 +81,6 @@ extension PassphraseGeneratorService {
                 capitalized = true
                 continue
             }
-
             nonCapitalized = true
         }
 

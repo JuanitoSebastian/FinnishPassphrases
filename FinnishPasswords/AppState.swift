@@ -39,10 +39,6 @@ class AppState: ObservableObject {
 
 }
 
-// MARK: - Computed properties
-extension AppState {
-
-}
 
 // MARK: - Functions
 extension AppState {
@@ -69,6 +65,7 @@ extension AppState {
                 && numberOfWordToSet <= cMaximumNumberOfWordsInPassphrase else {
             return
         }
+
         defaultsStore.numberOfWordsInPassphrase = numberOfWordToSet
     }
 
@@ -100,4 +97,5 @@ extension AppState {
             self.passphrase = receivedValue
         }
     }
+
 }

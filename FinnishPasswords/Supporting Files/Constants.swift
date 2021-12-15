@@ -15,6 +15,7 @@ let cUiFontSmall = Font.system(size: 12, design: .default).weight(.semibold)
 let cUiTitleFont = Font.system(.title, design: .default)
 let cFooterFont = Font.system(.footnote, design: .default)
 
+
 // MARK: - Colors
 let cBackdropColor = Color("backdrop")
 
@@ -34,7 +35,6 @@ let cIconButtonBackgroundColor = Color("icon-button")
 let cIconButtonBackgroundColorHover = Color("icon-button-hover")
 
 let cTitleColor = Color("text-title")
-
 let cFooterBackgroundColor = Color("footer")
 
 // MARK: - Padding
