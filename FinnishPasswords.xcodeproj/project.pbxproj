@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -36,6 +36,7 @@
 		282874ED266234F000ADC11E /* .swiftlint.yml in Resources */ = {isa = PBXBuildFile; fileRef = 282874EC266234F000ADC11E /* .swiftlint.yml */; };
 		283D3E02267F3E9B005C8BD9 /* Character.swift in Sources */ = {isa = PBXBuildFile; fileRef = 283D3E01267F3E9B005C8BD9 /* Character.swift */; };
 		284B09E92769B969004D3DFF /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 284B09E82769B969004D3DFF /* Localizable.strings */; };
+		28596E61276A9C1000957763 /* Mockingbird in Frameworks */ = {isa = PBXBuildFile; productRef = 28596E60276A9C1000957763 /* Mockingbird */; };
 		285D302F26CD967500724593 /* Checkbox.swift in Sources */ = {isa = PBXBuildFile; fileRef = 285D302E26CD967500724593 /* Checkbox.swift */; };
 		28B69F5C27296FAE00A4D080 /* ui_screenshot.png in Resources */ = {isa = PBXBuildFile; fileRef = 28B69F5B27296FAE00A4D080 /* ui_screenshot.png */; };
 		28B7FE3E2665006B007A891B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28B7FE3D2665006B007A891B /* AppDelegate.swift */; };
@@ -101,6 +102,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				28596E61276A9C1000957763 /* Mockingbird in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -271,6 +273,9 @@
 				281667092664CD6D00DDCCC3 /* PBXTargetDependency */,
 			);
 			name = FinnishPasswordsTests;
+			packageProductDependencies = (
+				28596E60276A9C1000957763 /* Mockingbird */,
+			);
 			productName = FinnishPasswordsTests;
 			productReference = 281667032664CD6D00DDCCC3 /* FinnishPasswordsTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
@@ -319,6 +324,9 @@
 				Base,
 			);
 			mainGroup = 282874D02662337500ADC11E;
+			packageReferences = (
+				28596E5F276A9C1000957763 /* XCRemoteSwiftPackageReference "mockingbird" */,
+			);
 			productRefGroup = 282874DA2662337500ADC11E /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -659,6 +667,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		28596E5F276A9C1000957763 /* XCRemoteSwiftPackageReference "mockingbird" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/birdrides/mockingbird";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 0.18.1;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		28596E60276A9C1000957763 /* Mockingbird */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 28596E5F276A9C1000957763 /* XCRemoteSwiftPackageReference "mockingbird" */;
+			productName = Mockingbird;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 282874D12662337500ADC11E /* Project object */;
 }
