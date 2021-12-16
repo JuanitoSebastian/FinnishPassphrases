@@ -11,8 +11,8 @@ class DefaultsStore {
 
     private let userDefaults: UserDefaults
 
-    init(userDetaults: UserDefaults = UserDefaults()) {
-        self.userDefaults = userDetaults
+    init(userDefaults: UserDefaults = UserDefaults()) {
+        self.userDefaults = userDefaults
     }
 
     var numberOfWordsInPassphrase: Int {

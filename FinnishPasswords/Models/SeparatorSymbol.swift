@@ -9,8 +9,8 @@ import Foundation
 
 enum SeparatorSymbol: Int, CaseIterable, Identifiable {
 
-    case asterisk
     case hyphen
+    case asterisk
     case slash
     case hash
 

@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 52;
+	objectVersion = 50;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -36,8 +36,9 @@
 		282874ED266234F000ADC11E /* .swiftlint.yml in Resources */ = {isa = PBXBuildFile; fileRef = 282874EC266234F000ADC11E /* .swiftlint.yml */; };
 		283D3E02267F3E9B005C8BD9 /* Character.swift in Sources */ = {isa = PBXBuildFile; fileRef = 283D3E01267F3E9B005C8BD9 /* Character.swift */; };
 		284B09E92769B969004D3DFF /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 284B09E82769B969004D3DFF /* Localizable.strings */; };
-		28596E61276A9C1000957763 /* Mockingbird in Frameworks */ = {isa = PBXBuildFile; productRef = 28596E60276A9C1000957763 /* Mockingbird */; };
 		285D302F26CD967500724593 /* Checkbox.swift in Sources */ = {isa = PBXBuildFile; fileRef = 285D302E26CD967500724593 /* Checkbox.swift */; };
+		2885D39A276B4BEA007E5695 /* DefaultsStoreTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2885D399276B4BEA007E5695 /* DefaultsStoreTests.swift */; };
+		2885D39B276B4BFD007E5695 /* DefaultsStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 281667122664D26500DDCCC3 /* DefaultsStore.swift */; };
 		28B69F5C27296FAE00A4D080 /* ui_screenshot.png in Resources */ = {isa = PBXBuildFile; fileRef = 28B69F5B27296FAE00A4D080 /* ui_screenshot.png */; };
 		28B7FE3E2665006B007A891B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28B7FE3D2665006B007A891B /* AppDelegate.swift */; };
 		28B8602D2769DFE4008C9A17 /* Log.swift in Sources */ = {isa = PBXBuildFile; fileRef = 280A1CFA2662356F00301A4C /* Log.swift */; };
@@ -90,6 +91,8 @@
 		283D3E01267F3E9B005C8BD9 /* Character.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Character.swift; sourceTree = "<group>"; };
 		284B09E82769B969004D3DFF /* Localizable.strings */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
 		285D302E26CD967500724593 /* Checkbox.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Checkbox.swift; sourceTree = "<group>"; };
+		2885D399276B4BEA007E5695 /* DefaultsStoreTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultsStoreTests.swift; sourceTree = "<group>"; };
+		2885D39C276BBE18007E5695 /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
 		28B69F5B27296FAE00A4D080 /* ui_screenshot.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ui_screenshot.png; sourceTree = "<group>"; };
 		28B7FE3D2665006B007A891B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		28DD8DFE26CAF0B40087C842 /* GeneratorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeneratorView.swift; sourceTree = "<group>"; };
@@ -102,7 +105,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				28596E61276A9C1000957763 /* Mockingbird in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -172,6 +174,7 @@
 		281667042664CD6D00DDCCC3 /* FinnishPasswordsTests */ = {
 			isa = PBXGroup;
 			children = (
+				2885D399276B4BEA007E5695 /* DefaultsStoreTests.swift */,
 				280A5E612769DD3F0025ABCD /* KotusWordServiceTests.swift */,
 				2816670F2664CED800DDCCC3 /* SeparatorSymbolTests.swift */,
 				281667052664CD6D00DDCCC3 /* PassphraseTests.swift */,
@@ -191,6 +194,7 @@
 		282874D02662337500ADC11E = {
 			isa = PBXGroup;
 			children = (
+				2885D39C276BBE18007E5695 /* .gitignore */,
 				28B69F5827294AA400A4D080 /* Documentation */,
 				281667162664F50B00DDCCC3 /* README.md */,
 				282874DB2662337500ADC11E /* FinnishPasswords */,
@@ -273,9 +277,6 @@
 				281667092664CD6D00DDCCC3 /* PBXTargetDependency */,
 			);
 			name = FinnishPasswordsTests;
-			packageProductDependencies = (
-				28596E60276A9C1000957763 /* Mockingbird */,
-			);
 			productName = FinnishPasswordsTests;
 			productReference = 281667032664CD6D00DDCCC3 /* FinnishPasswordsTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
@@ -324,9 +325,6 @@
 				Base,
 			);
 			mainGroup = 282874D02662337500ADC11E;
-			packageReferences = (
-				28596E5F276A9C1000957763 /* XCRemoteSwiftPackageReference "mockingbird" */,
-			);
 			productRefGroup = 282874DA2662337500ADC11E /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -389,8 +387,10 @@
 				281667062664CD6D00DDCCC3 /* PassphraseTests.swift in Sources */,
 				28B8602D2769DFE4008C9A17 /* Log.swift in Sources */,
 				2816670D2664CD8E00DDCCC3 /* Passphrase.swift in Sources */,
+				2885D39A276B4BEA007E5695 /* DefaultsStoreTests.swift in Sources */,
 				2816670E2664CD9100DDCCC3 /* SeparatorSymbol.swift in Sources */,
 				281667102664CED800DDCCC3 /* SeparatorSymbolTests.swift in Sources */,
+				2885D39B276B4BFD007E5695 /* DefaultsStore.swift in Sources */,
 				280A5E632769DD4C0025ABCD /* KotusWordService.swift in Sources */,
 				280A5E622769DD3F0025ABCD /* KotusWordServiceTests.swift in Sources */,
 			);
@@ -667,25 +667,6 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
-
-/* Begin XCRemoteSwiftPackageReference section */
-		28596E5F276A9C1000957763 /* XCRemoteSwiftPackageReference "mockingbird" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/birdrides/mockingbird";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 0.18.1;
-			};
-		};
-/* End XCRemoteSwiftPackageReference section */
-
-/* Begin XCSwiftPackageProductDependency section */
-		28596E60276A9C1000957763 /* Mockingbird */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 28596E5F276A9C1000957763 /* XCRemoteSwiftPackageReference "mockingbird" */;
-			productName = Mockingbird;
-		};
-/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 282874D12662337500ADC11E /* Project object */;
 }
