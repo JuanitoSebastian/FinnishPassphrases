@@ -31,6 +31,7 @@ class AppState: ObservableObject {
             kotusWordService: kotusWordService,
             defaultsStore: self.defaultsStore
         )
+        self.passphraseGeneratorService.generatePassphrase()
         self.capitalization = defaultsStore.wordCapitalization
         self.pasteboard = NSPasteboard.general
         self.pasteboard.declareTypes([.string], owner: nil)

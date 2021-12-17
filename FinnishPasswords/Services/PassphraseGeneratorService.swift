@@ -17,7 +17,6 @@ class PassphraseGeneratorService: ObservableObject {
         self.kotusWordService = kotusWordService
         self.passphrase = nil
         self.userDefaults = defaultsStore
-        generatePassphrase()
     }
 }
 
