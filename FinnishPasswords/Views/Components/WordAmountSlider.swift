@@ -40,7 +40,7 @@ extension WordAmountSlider {
     }
 
     private func fetchNumOfWordsFromStore() {
-        numOfWords = Double(appState.defaultsStore.numberOfWordsInPassphrase)
+        numOfWords = Double(appState.numberOfWordsInPassphrase)
     }
 }
 

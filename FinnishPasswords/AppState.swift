@@ -11,43 +11,58 @@ import AppKit
 
 class AppState: ObservableObject {
 
-    @Published var passphrase: Passphrase?
+    @Published var passphrase: Passphrase
     @Published var capitalization: Bool {
         didSet {
             handleChangeOfCapitalization(capitalization)
         }
     }
 
-    private var passphraseGeneratorService: PassphraseGeneratorService
+    private let defaultsStore: DefaultsStore
+    private let passphraseGeneratorService: PassphraseGeneratorService
     private let pasteboard: NSPasteboard
-    private var cancellablePassphrase: AnyCancellable?
-    let defaultsStore: DefaultsStore
 
     init() {
         let kotusWordService = KotusWordService()
         kotusWordService.readFileToMemory()
         self.defaultsStore = DefaultsStore()
         self.passphraseGeneratorService = PassphraseGeneratorService(
-            kotusWordService: kotusWordService,
-            defaultsStore: self.defaultsStore
+            kotusWordService: kotusWordService
         )
         self.capitalization = defaultsStore.wordCapitalization
         self.pasteboard = NSPasteboard.general
         self.pasteboard.declareTypes([.string], owner: nil)
-        self.subscribeToPassphraseGeneratorService()
+        self.passphrase = passphraseGeneratorService.generatePassphrase(
+            numOfWords: defaultsStore.numberOfWordsInPassphrase,
+            separatorSymbol: defaultsStore.separatorSymbol,
+            wordCapitalization: defaultsStore.wordCapitalization
+        )
     }
 
 }
 
+// MARK: - Computed varibales
+extension AppState {
+    var separatorSymbol: SeparatorSymbol {
+        defaultsStore.separatorSymbol
+    }
+
+    var numberOfWordsInPassphrase: Int {
+        defaultsStore.numberOfWordsInPassphrase
+    }
+}
 
 // MARK: - Functions
 extension AppState {
     func generatePassphrase() {
-        passphraseGeneratorService.generatePassphrase()
+        passphrase = passphraseGeneratorService.generatePassphrase(
+            numOfWords: defaultsStore.numberOfWordsInPassphrase,
+            separatorSymbol: defaultsStore.separatorSymbol,
+            wordCapitalization: defaultsStore.wordCapitalization
+        )
     }
 
     func copyToPasteboard() {
-        guard let passphrase = passphrase else { return }
         pasteboard.setString(passphrase.passphrase, forType: .string)
     }
 
@@ -71,7 +86,10 @@ extension AppState {
 
     func setCurrentSeparator(_ separator: SeparatorSymbol) {
         defaultsStore.separatorSymbol = separator
-        passphraseGeneratorService.updatePassphraseSeparatorSymbol()
+        passphrase = passphraseGeneratorService.updatePassphraseSeparatorSymbol(
+            passphrase: passphrase,
+            separatorSymbol: separator
+        )
     }
 
     func quitApplication() {
@@ -83,19 +101,14 @@ extension AppState {
 extension AppState {
 
     /// This function is called whenever the UI changes the value of the capitalization variable here in the AppState.
-    /// This function stores the user preference of capitalization in DefaultsStore and calls the PaspshraseGeneratorService to update the passphrase
+    /// This function stores the user preference of capitalization in DefaultsStore and
+    /// calls the PasssphraseGeneratorService to update the passphrase
     private func handleChangeOfCapitalization(_ valueToSet: Bool) {
         defaultsStore.wordCapitalization = valueToSet
-        passphraseGeneratorService.updatePassphraseWordCapitalization()
-    }
-
-    /// Subscribes to the PassphraseGeneratorServices passphrase publisher.
-    /// Whenever the passphrase is updated the new passphrase is fetched to AppState.
-    private func subscribeToPassphraseGeneratorService() {
-        self.cancellablePassphrase =
-            passphraseGeneratorService.$passphrase.eraseToAnyPublisher().sink { receivedValue in
-            self.passphrase = receivedValue
-        }
+        passphrase = passphraseGeneratorService.updatePassphraseWordCapitalization(
+            passphrase: passphrase,
+            wordCapitalization: valueToSet
+        )
     }
 
 }

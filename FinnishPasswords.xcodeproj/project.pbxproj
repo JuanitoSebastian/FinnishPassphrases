@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -19,13 +19,10 @@
 		280A1D072662434300301A4C /* PassphraseDispalyerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 280A1D062662434300301A4C /* PassphraseDispalyerView.swift */; };
 		280A1D092662477F00301A4C /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 280A1D082662477F00301A4C /* Constants.swift */; };
 		280A5E622769DD3F0025ABCD /* KotusWordServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 280A5E612769DD3F0025ABCD /* KotusWordServiceTests.swift */; };
-		280A5E632769DD4C0025ABCD /* KotusWordService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 280A1D002662359900301A4C /* KotusWordService.swift */; };
 		280E0F30266AB5E6001F24F9 /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = 280E0F2F266AB5E6001F24F9 /* String.swift */; };
 		281666FC2664C53A00DDCCC3 /* Passphrase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 281666FB2664C53A00DDCCC3 /* Passphrase.swift */; };
 		281666FE2664C6B600DDCCC3 /* SeparatorSymbol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 281666FD2664C6B600DDCCC3 /* SeparatorSymbol.swift */; };
 		281667062664CD6D00DDCCC3 /* PassphraseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 281667052664CD6D00DDCCC3 /* PassphraseTests.swift */; };
-		2816670D2664CD8E00DDCCC3 /* Passphrase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 281666FB2664C53A00DDCCC3 /* Passphrase.swift */; };
-		2816670E2664CD9100DDCCC3 /* SeparatorSymbol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 281666FD2664C6B600DDCCC3 /* SeparatorSymbol.swift */; };
 		281667102664CED800DDCCC3 /* SeparatorSymbolTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2816670F2664CED800DDCCC3 /* SeparatorSymbolTests.swift */; };
 		281667132664D26500DDCCC3 /* DefaultsStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 281667122664D26500DDCCC3 /* DefaultsStore.swift */; };
 		281667152664ED2300DDCCC3 /* SeparatorSelectorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 281667142664ED2300DDCCC3 /* SeparatorSelectorView.swift */; };
@@ -34,11 +31,13 @@
 		282874E12662337800ADC11E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 282874E02662337800ADC11E /* Assets.xcassets */; };
 		282874E42662337800ADC11E /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 282874E32662337800ADC11E /* Preview Assets.xcassets */; };
 		282874ED266234F000ADC11E /* .swiftlint.yml in Resources */ = {isa = PBXBuildFile; fileRef = 282874EC266234F000ADC11E /* .swiftlint.yml */; };
+		28321010276BF7E900E2C926 /* FinnishPasswordsTests-FinnishPasswordsMocks.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2832100F276BF7E900E2C926 /* FinnishPasswordsTests-FinnishPasswordsMocks.generated.swift */; };
 		283D3E02267F3E9B005C8BD9 /* Character.swift in Sources */ = {isa = PBXBuildFile; fileRef = 283D3E01267F3E9B005C8BD9 /* Character.swift */; };
 		284B09E92769B969004D3DFF /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 284B09E82769B969004D3DFF /* Localizable.strings */; };
 		285D302F26CD967500724593 /* Checkbox.swift in Sources */ = {isa = PBXBuildFile; fileRef = 285D302E26CD967500724593 /* Checkbox.swift */; };
 		2885D39A276B4BEA007E5695 /* DefaultsStoreTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2885D399276B4BEA007E5695 /* DefaultsStoreTests.swift */; };
-		2885D39B276B4BFD007E5695 /* DefaultsStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 281667122664D26500DDCCC3 /* DefaultsStore.swift */; };
+		2899C8C5276BECA600824754 /* PassphraseGeneratorServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2899C8C4276BECA600824754 /* PassphraseGeneratorServiceTests.swift */; };
+		2899C8C8276BECF300824754 /* Mockingbird in Frameworks */ = {isa = PBXBuildFile; productRef = 2899C8C7276BECF300824754 /* Mockingbird */; };
 		28B69F5C27296FAE00A4D080 /* ui_screenshot.png in Resources */ = {isa = PBXBuildFile; fileRef = 28B69F5B27296FAE00A4D080 /* ui_screenshot.png */; };
 		28B7FE3E2665006B007A891B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28B7FE3D2665006B007A891B /* AppDelegate.swift */; };
 		28B8602D2769DFE4008C9A17 /* Log.swift in Sources */ = {isa = PBXBuildFile; fileRef = 280A1CFA2662356F00301A4C /* Log.swift */; };
@@ -80,6 +79,7 @@
 		281667122664D26500DDCCC3 /* DefaultsStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultsStore.swift; sourceTree = "<group>"; };
 		281667142664ED2300DDCCC3 /* SeparatorSelectorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeparatorSelectorView.swift; sourceTree = "<group>"; };
 		281667162664F50B00DDCCC3 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		2823FBEE276D52D700D0B57B /* .mockingbird-ignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = ".mockingbird-ignore"; sourceTree = "<group>"; };
 		282874D92662337500ADC11E /* FinnishPasswords.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FinnishPasswords.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		282874DC2662337500ADC11E /* FinnishPasswordsApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinnishPasswordsApp.swift; sourceTree = "<group>"; };
 		282874DE2662337500ADC11E /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -88,11 +88,13 @@
 		282874E52662337800ADC11E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		282874E62662337800ADC11E /* FinnishPasswords.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = FinnishPasswords.entitlements; sourceTree = "<group>"; };
 		282874EC266234F000ADC11E /* .swiftlint.yml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.yaml; path = .swiftlint.yml; sourceTree = "<group>"; };
+		2832100F276BF7E900E2C926 /* FinnishPasswordsTests-FinnishPasswordsMocks.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "FinnishPasswordsTests-FinnishPasswordsMocks.generated.swift"; path = "MockingbirdMocks/FinnishPasswordsTests-FinnishPasswordsMocks.generated.swift"; sourceTree = "<group>"; };
 		283D3E01267F3E9B005C8BD9 /* Character.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Character.swift; sourceTree = "<group>"; };
 		284B09E82769B969004D3DFF /* Localizable.strings */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
 		285D302E26CD967500724593 /* Checkbox.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Checkbox.swift; sourceTree = "<group>"; };
 		2885D399276B4BEA007E5695 /* DefaultsStoreTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultsStoreTests.swift; sourceTree = "<group>"; };
 		2885D39C276BBE18007E5695 /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
+		2899C8C4276BECA600824754 /* PassphraseGeneratorServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PassphraseGeneratorServiceTests.swift; sourceTree = "<group>"; };
 		28B69F5B27296FAE00A4D080 /* ui_screenshot.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ui_screenshot.png; sourceTree = "<group>"; };
 		28B7FE3D2665006B007A891B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		28DD8DFE26CAF0B40087C842 /* GeneratorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeneratorView.swift; sourceTree = "<group>"; };
@@ -105,6 +107,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2899C8C8276BECF300824754 /* Mockingbird in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -174,6 +177,7 @@
 		281667042664CD6D00DDCCC3 /* FinnishPasswordsTests */ = {
 			isa = PBXGroup;
 			children = (
+				2899C8C4276BECA600824754 /* PassphraseGeneratorServiceTests.swift */,
 				2885D399276B4BEA007E5695 /* DefaultsStoreTests.swift */,
 				280A5E612769DD3F0025ABCD /* KotusWordServiceTests.swift */,
 				2816670F2664CED800DDCCC3 /* SeparatorSymbolTests.swift */,
@@ -194,12 +198,15 @@
 		282874D02662337500ADC11E = {
 			isa = PBXGroup;
 			children = (
+				2823FBEE276D52D700D0B57B /* .mockingbird-ignore */,
 				2885D39C276BBE18007E5695 /* .gitignore */,
+				282874EC266234F000ADC11E /* .swiftlint.yml */,
 				28B69F5827294AA400A4D080 /* Documentation */,
 				281667162664F50B00DDCCC3 /* README.md */,
 				282874DB2662337500ADC11E /* FinnishPasswords */,
 				281667042664CD6D00DDCCC3 /* FinnishPasswordsTests */,
 				282874DA2662337500ADC11E /* Products */,
+				B0D843842F2AE73D973EF9D6 /* Generated Mocks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -220,7 +227,6 @@
 				281666FA2664C50600DDCCC3 /* Models */,
 				280A1CF92662355900301A4C /* Supporting Files */,
 				281667112664D23F00DDCCC3 /* Stores */,
-				282874EC266234F000ADC11E /* .swiftlint.yml */,
 				280A1D042662416300301A4C /* AppState.swift */,
 				282874DC2662337500ADC11E /* FinnishPasswordsApp.swift */,
 				282874E02662337800ADC11E /* Assets.xcassets */,
@@ -260,6 +266,14 @@
 			path = Components;
 			sourceTree = "<group>";
 		};
+		B0D843842F2AE73D973EF9D6 /* Generated Mocks */ = {
+			isa = PBXGroup;
+			children = (
+				2832100F276BF7E900E2C926 /* FinnishPasswordsTests-FinnishPasswordsMocks.generated.swift */,
+			);
+			name = "Generated Mocks";
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -267,6 +281,8 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 2816670A2664CD6D00DDCCC3 /* Build configuration list for PBXNativeTarget "FinnishPasswordsTests" */;
 			buildPhases = (
+				E619EBAD5EED4A087725FB74 /* Clean Mockingbird Mocks */,
+				6FFA45FDB661609BA4E84F49 /* Generate Mockingbird Mocks */,
 				281666FF2664CD6D00DDCCC3 /* Sources */,
 				281667002664CD6D00DDCCC3 /* Frameworks */,
 				281667012664CD6D00DDCCC3 /* Resources */,
@@ -277,6 +293,9 @@
 				281667092664CD6D00DDCCC3 /* PBXTargetDependency */,
 			);
 			name = FinnishPasswordsTests;
+			packageProductDependencies = (
+				2899C8C7276BECF300824754 /* Mockingbird */,
+			);
 			productName = FinnishPasswordsTests;
 			productReference = 281667032664CD6D00DDCCC3 /* FinnishPasswordsTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
@@ -310,6 +329,7 @@
 				TargetAttributes = {
 					281667022664CD6D00DDCCC3 = {
 						CreatedOnToolsVersion = 12.5;
+						TestTargetID = 282874D82662337500ADC11E;
 					};
 					282874D82662337500ADC11E = {
 						CreatedOnToolsVersion = 12.5;
@@ -325,6 +345,9 @@
 				Base,
 			);
 			mainGroup = 282874D02662337500ADC11E;
+			packageReferences = (
+				2899C8C6276BECF300824754 /* XCRemoteSwiftPackageReference "mockingbird" */,
+			);
 			productRefGroup = 282874DA2662337500ADC11E /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -377,6 +400,37 @@
 			shellPath = /bin/sh;
 			shellScript = "if which swiftlint >/dev/null; then\n  swiftlint\nelse\n  echo \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi\n\n";
 		};
+		6FFA45FDB661609BA4E84F49 /* Generate Mockingbird Mocks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"/tmp/Mockingbird-878490D5-3DEA-4929-8D37-AACE782B0189",
+			);
+			name = "Generate Mockingbird Mocks";
+			outputPaths = (
+				"$(SRCROOT)/MockingbirdMocks/FinnishPasswordsTests-FinnishPasswordsMocks.generated.swift",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "set -eu\n\n# Ensure mocks are generated prior to running Compile Sources\nrm -f '/tmp/Mockingbird-878490D5-3DEA-4929-8D37-AACE782B0189'\n\nmockingbird generate \\\n  --targets 'FinnishPasswords' \\\n  --outputs \"${SRCROOT}/MockingbirdMocks/FinnishPasswordsTests-FinnishPasswordsMocks.generated.swift\" \\\n  --support \"${SRCROOT}/MockingbirdSupport\"";
+		};
+		E619EBAD5EED4A087725FB74 /* Clean Mockingbird Mocks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Clean Mockingbird Mocks";
+			outputPaths = (
+				"/tmp/Mockingbird-878490D5-3DEA-4929-8D37-AACE782B0189",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "echo $RANDOM > '/tmp/Mockingbird-878490D5-3DEA-4929-8D37-AACE782B0189'\n";
+		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -386,12 +440,10 @@
 			files = (
 				281667062664CD6D00DDCCC3 /* PassphraseTests.swift in Sources */,
 				28B8602D2769DFE4008C9A17 /* Log.swift in Sources */,
-				2816670D2664CD8E00DDCCC3 /* Passphrase.swift in Sources */,
+				28321010276BF7E900E2C926 /* FinnishPasswordsTests-FinnishPasswordsMocks.generated.swift in Sources */,
 				2885D39A276B4BEA007E5695 /* DefaultsStoreTests.swift in Sources */,
-				2816670E2664CD9100DDCCC3 /* SeparatorSymbol.swift in Sources */,
 				281667102664CED800DDCCC3 /* SeparatorSymbolTests.swift in Sources */,
-				2885D39B276B4BFD007E5695 /* DefaultsStore.swift in Sources */,
-				280A5E632769DD4C0025ABCD /* KotusWordService.swift in Sources */,
+				2899C8C5276BECA600824754 /* PassphraseGeneratorServiceTests.swift in Sources */,
 				280A5E622769DD3F0025ABCD /* KotusWordServiceTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -440,6 +492,7 @@
 		2816670B2664CD6D00DDCCC3 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_TEAM = H9XF3442XB;
@@ -452,12 +505,14 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.juanito.FinnishPasswordsTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/FinnishPasswords.app/Contents/MacOS/FinnishPasswords";
 			};
 			name = Debug;
 		};
 		2816670C2664CD6D00DDCCC3 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_TEAM = H9XF3442XB;
@@ -470,6 +525,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.juanito.FinnishPasswordsTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/FinnishPasswords.app/Contents/MacOS/FinnishPasswords";
 			};
 			name = Release;
 		};
@@ -600,6 +656,7 @@
 				DEVELOPMENT_TEAM = H9XF3442XB;
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
 				INFOPLIST_FILE = FinnishPasswords/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -624,6 +681,7 @@
 				DEVELOPMENT_TEAM = H9XF3442XB;
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
 				INFOPLIST_FILE = FinnishPasswords/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -667,6 +725,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		2899C8C6276BECF300824754 /* XCRemoteSwiftPackageReference "mockingbird" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/birdrides/mockingbird";
+			requirement = {
+				kind = upToNextMinorVersion;
+				minimumVersion = 0.18.1;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		2899C8C7276BECF300824754 /* Mockingbird */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 2899C8C6276BECF300824754 /* XCRemoteSwiftPackageReference "mockingbird" */;
+			productName = Mockingbird;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 282874D12662337500ADC11E /* Project object */;
 }

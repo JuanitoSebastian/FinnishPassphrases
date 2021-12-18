@@ -6,6 +6,12 @@
 
 ## User settings
 xcuserdata/
+FinnishPasswords.xcodeproj/project.xcworkspace/xcuserdata
+
+## MockingBird
+*.generated.swift
+*.xcodeproj/MockingbirdCache
+MockingbirdCache/
 
 ## compatibility with Xcode 8 and earlier (ignoring not required starting Xcode 9)
 *.xcscmblueprint

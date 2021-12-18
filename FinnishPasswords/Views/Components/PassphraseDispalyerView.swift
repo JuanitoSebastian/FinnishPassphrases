@@ -9,7 +9,7 @@ import SwiftUI
 
 struct PassphraseDispalyerView: View {
 
-    @Binding var passphrase: Passphrase?
+    @Binding var passphrase: Passphrase
     @EnvironmentObject var appState: AppState
 
     @State var textScale: CGSize = CGSize(width: 1, height: 1)
@@ -76,14 +76,6 @@ extension PassphraseDispalyerView {
     /// Determines what content to display.
     /// generatePassphraseView is only called if passphrase != nil
     var passprhaseAreaContent: AnyView {
-        guard let passphrase = passphrase else {
-            return AnyView(
-                HStack(alignment: .center, spacing: 2) {
-                    Text("-")
-                        .font(cPasswordFontMain)
-                }
-            )
-        }
         return AnyView(generatePassphraseView(passphraseUnwrapped: passphrase))
     }
 
