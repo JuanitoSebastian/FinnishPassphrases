@@ -34,6 +34,7 @@
 		28321010276BF7E900E2C926 /* FinnishPasswordsTests-FinnishPasswordsMocks.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2832100F276BF7E900E2C926 /* FinnishPasswordsTests-FinnishPasswordsMocks.generated.swift */; };
 		283D3E02267F3E9B005C8BD9 /* Character.swift in Sources */ = {isa = PBXBuildFile; fileRef = 283D3E01267F3E9B005C8BD9 /* Character.swift */; };
 		284B09E92769B969004D3DFF /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 284B09E82769B969004D3DFF /* Localizable.strings */; };
+		285738D1276E411700D0C35D /* AppStateTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 285738D0276E411700D0C35D /* AppStateTests.swift */; };
 		285D302F26CD967500724593 /* Checkbox.swift in Sources */ = {isa = PBXBuildFile; fileRef = 285D302E26CD967500724593 /* Checkbox.swift */; };
 		2885D39A276B4BEA007E5695 /* DefaultsStoreTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2885D399276B4BEA007E5695 /* DefaultsStoreTests.swift */; };
 		2899C8C5276BECA600824754 /* PassphraseGeneratorServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2899C8C4276BECA600824754 /* PassphraseGeneratorServiceTests.swift */; };
@@ -91,6 +92,7 @@
 		2832100F276BF7E900E2C926 /* FinnishPasswordsTests-FinnishPasswordsMocks.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "FinnishPasswordsTests-FinnishPasswordsMocks.generated.swift"; path = "MockingbirdMocks/FinnishPasswordsTests-FinnishPasswordsMocks.generated.swift"; sourceTree = "<group>"; };
 		283D3E01267F3E9B005C8BD9 /* Character.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Character.swift; sourceTree = "<group>"; };
 		284B09E82769B969004D3DFF /* Localizable.strings */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
+		285738D0276E411700D0C35D /* AppStateTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppStateTests.swift; sourceTree = "<group>"; };
 		285D302E26CD967500724593 /* Checkbox.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Checkbox.swift; sourceTree = "<group>"; };
 		2885D399276B4BEA007E5695 /* DefaultsStoreTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultsStoreTests.swift; sourceTree = "<group>"; };
 		2885D39C276BBE18007E5695 /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
@@ -177,6 +179,7 @@
 		281667042664CD6D00DDCCC3 /* FinnishPasswordsTests */ = {
 			isa = PBXGroup;
 			children = (
+				285738D0276E411700D0C35D /* AppStateTests.swift */,
 				2899C8C4276BECA600824754 /* PassphraseGeneratorServiceTests.swift */,
 				2885D399276B4BEA007E5695 /* DefaultsStoreTests.swift */,
 				280A5E612769DD3F0025ABCD /* KotusWordServiceTests.swift */,
@@ -441,6 +444,7 @@
 				281667062664CD6D00DDCCC3 /* PassphraseTests.swift in Sources */,
 				28B8602D2769DFE4008C9A17 /* Log.swift in Sources */,
 				28321010276BF7E900E2C926 /* FinnishPasswordsTests-FinnishPasswordsMocks.generated.swift in Sources */,
+				285738D1276E411700D0C35D /* AppStateTests.swift in Sources */,
 				2885D39A276B4BEA007E5695 /* DefaultsStoreTests.swift in Sources */,
 				281667102664CED800DDCCC3 /* SeparatorSymbolTests.swift in Sources */,
 				2899C8C5276BECA600824754 /* PassphraseGeneratorServiceTests.swift in Sources */,

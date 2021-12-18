@@ -40,3 +40,11 @@ extension Passphrase {
         passphrase.count
     }
 }
+
+// MARK: - Equatable
+extension Passphrase: Equatable {
+    static func == (lhs: Passphrase, rhs: Passphrase) -> Bool {
+        return lhs.separator == rhs.separator &&
+            lhs.words == rhs.words
+    }
+}

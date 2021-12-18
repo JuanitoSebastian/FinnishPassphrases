@@ -37,7 +37,7 @@ extension PassphraseDispalyerView {
             gradientFade
                 .allowsHitTesting(false) // Enables interaction with the ScrollView underneath
 
-            IconButton(icon: Image(systemName: "arrow.counterclockwise"), action: { appState.generatePassphrase() })
+            IconButton(icon: Image(systemName: "arrow.counterclockwise"), action: { appState.generateNewPassphrase() })
         }
         .padding(cPassphraseAreaPadding)
         .background(passphraseBackground)
@@ -100,7 +100,7 @@ extension PassphraseDispalyerView {
 // MARK: - Functions
 extension PassphraseDispalyerView {
     private func handleOnClick() {
-        appState.copyToPasteboard()
+        appState.copyPassphraseToPasteboard()
         onClickAnimation()
     }
 

@@ -36,7 +36,7 @@ extension WordAmountSlider {
     func setNumberOfWords(editing: Bool) {
         guard !editing else { return }
         appState.setNumberOfWordsInPassphrase(Int(numOfWords))
-        appState.generatePassphrase()
+        appState.generateNewPassphrase()
     }
 
     private func fetchNumOfWordsFromStore() {
@@ -49,7 +49,7 @@ extension WordAmountSlider {
 struct WordAmountSlider_Previews: PreviewProvider {
     static var previews: some View {
         WordAmountSlider()
-            .environmentObject(AppState())
+            .environmentObject(AppState.previewShared)
     }
 }
 #endif

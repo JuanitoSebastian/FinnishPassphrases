@@ -9,7 +9,17 @@ import SwiftUI
 
 struct ContentView: View {
 
-    @ObservedObject var appState: AppState = AppState()
+    @ObservedObject var appState: AppState
+
+    init() {
+        let kotusWordService = KotusWordService()
+        kotusWordService.readFileToMemory()
+        self.appState = AppState(
+            passphraseGeneratorService: PassphraseGeneratorService(
+                kotusWordService: kotusWordService
+            )
+        )
+    }
 
     var body: some View {
         VStack {
@@ -43,7 +53,7 @@ struct ContentView: View {
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
         ContentView()
-            .environmentObject(AppState())
+            .environmentObject(AppState.previewShared)
     }
 }
 #endif

@@ -51,7 +51,7 @@ extension GeneratorView {
 struct GeneratorView_Previews: PreviewProvider {
     static var previews: some View {
         GeneratorView()
-            .environmentObject(AppState())
+            .environmentObject(AppState.previewShared)
             .frame(width: 400)
     }
 }

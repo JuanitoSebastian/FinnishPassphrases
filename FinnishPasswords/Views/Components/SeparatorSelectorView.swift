@@ -50,7 +50,7 @@ extension SeparatorSelectorView {
 struct SeparatorSelectorView_Previews: PreviewProvider {
     static var previews: some View {
         SeparatorSelectorView()
-            .environmentObject(AppState())
+            .environmentObject(AppState.previewShared)
     }
 }
 #endif

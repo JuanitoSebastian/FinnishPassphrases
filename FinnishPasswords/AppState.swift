@@ -22,15 +22,15 @@ class AppState: ObservableObject {
     private let passphraseGeneratorService: PassphraseGeneratorService
     private let pasteboard: NSPasteboard
 
-    init() {
-        let kotusWordService = KotusWordService()
-        kotusWordService.readFileToMemory()
-        self.defaultsStore = DefaultsStore()
-        self.passphraseGeneratorService = PassphraseGeneratorService(
-            kotusWordService: kotusWordService
-        )
+    init(
+        passphraseGeneratorService: PassphraseGeneratorService,
+        defaultsStore: DefaultsStore = DefaultsStore(),
+        pasteboard: NSPasteboard = NSPasteboard.general
+    ) {
+        self.defaultsStore = defaultsStore
+        self.passphraseGeneratorService = passphraseGeneratorService
         self.capitalization = defaultsStore.wordCapitalization
-        self.pasteboard = NSPasteboard.general
+        self.pasteboard = pasteboard
         self.pasteboard.declareTypes([.string], owner: nil)
         self.passphrase = passphraseGeneratorService.generatePassphrase(
             numOfWords: defaultsStore.numberOfWordsInPassphrase,
@@ -54,7 +54,10 @@ extension AppState {
 
 // MARK: - Functions
 extension AppState {
-    func generatePassphrase() {
+
+    /// Generates a new Passphrase using the current settings
+    /// stored in DefaultsStore
+    func generateNewPassphrase() {
         passphrase = passphraseGeneratorService.generatePassphrase(
             numOfWords: defaultsStore.numberOfWordsInPassphrase,
             separatorSymbol: defaultsStore.separatorSymbol,
@@ -62,19 +65,15 @@ extension AppState {
         )
     }
 
-    func copyToPasteboard() {
+    /// Copies the currect Passphrase to the system pasteboard
+    func copyPassphraseToPasteboard() {
         pasteboard.setString(passphrase.passphrase, forType: .string)
     }
 
-    func decrementNumberOfWordsInPassphrase() {
-        guard defaultsStore.numberOfWordsInPassphrase > cMinimumNumberOfWordsInPassphrase else { return }
-        defaultsStore.numberOfWordsInPassphrase -= 1
-    }
-
-    func incrementNumberOfWordsInPassphrase() {
-        defaultsStore.numberOfWordsInPassphrase += 1
-    }
-
+    /// Sets the  number of words in a Passphrase. Function checks that
+    /// the given number is within accepted range. If number is not in range, nothing
+    /// is done.
+    /// - Parameter numberOfWordsToSet: The number of words in Passphrase
     func setNumberOfWordsInPassphrase(_ numberOfWordToSet: Int) {
         guard numberOfWordToSet >= cMinimumNumberOfWordsInPassphrase
                 && numberOfWordToSet <= cMaximumNumberOfWordsInPassphrase else {
@@ -84,6 +83,7 @@ extension AppState {
         defaultsStore.numberOfWordsInPassphrase = numberOfWordToSet
     }
 
+    /// Sets the SeparatorSymbol that will be used to generate Passphrase.
     func setCurrentSeparator(_ separator: SeparatorSymbol) {
         defaultsStore.separatorSymbol = separator
         passphrase = passphraseGeneratorService.updatePassphraseSeparatorSymbol(
@@ -111,4 +111,23 @@ extension AppState {
         )
     }
 
+}
+
+// MARK: - Singleton For Previews
+extension AppState {
+    static var previewShared: AppState {
+        let customData = """
+        <st><s>ahdasrajaisesti</s><t><tn>99</tn></t></st>
+        <st><s>ahdasrajaisuus</s><t><tn>40</tn></t></st>
+        <st><s>ahdata</s><t><tn>73</tn><av>F</av></t></st>
+        <st><s>ahde</s><t><tn>48</tn><av>F</av></t></st>
+        <st><s>ahdekaunokki</s></st>
+        """
+        let kotusWordServicePreview = KotusWordService(customData: customData)
+        return AppState(
+            passphraseGeneratorService: PassphraseGeneratorService(
+                kotusWordService: kotusWordServicePreview
+            )
+        )
+    }
 }
