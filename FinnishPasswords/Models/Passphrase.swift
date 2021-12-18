@@ -21,17 +21,13 @@ class Passphrase: ObservableObject {
 // MARK: - Computed properties
 extension Passphrase {
 
-    /// Generates passphrase string
+    /// Returns the current passphrase as a string
     var passphrase: String {
-        var passphraseString = ""
-        for (index, word) in words.enumerated() {
-            passphraseString.append(word)
-
-            if index < (words.count - 1) {
-                passphraseString.append(separator.symbol)
-            }
-        }
-        return passphraseString
+        words.enumerated().reduce("", { concatenation, word in
+            return word.offset < (words.count - 1) ?
+                "\(concatenation)\(word.element)\(separator.symbol)" :
+                "\(concatenation)\(word.element)" // No separator symbol added after last word
+        })
     }
 
     /// Number of words in passphrase
