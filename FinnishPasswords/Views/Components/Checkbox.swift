@@ -61,5 +61,3 @@ struct Checkbox_Previews: PreviewProvider {
     }
 }
 #endif
-
-

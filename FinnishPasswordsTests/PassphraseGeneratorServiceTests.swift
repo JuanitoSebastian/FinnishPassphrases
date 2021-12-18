@@ -12,45 +12,66 @@ import Mockingbird
 class PassphraseGeneratorServiceTests: XCTestCase {
 
     var passphraseGeneratorService: PassphraseGeneratorService!
-    var defaultsStoreMock: DefaultsStoreMock!
     var kotusWordServiceMock: KotusWordServiceMock!
 
     override func setUp() {
-        self.defaultsStoreMock = mock(DefaultsStore.self)
-            .initialize(userDefaults: UserDefaults(suiteName: #file)!)
         self.kotusWordServiceMock = mock(KotusWordService.self)
             .initialize(nameOfXmlFile: "", customData: "")
         self.passphraseGeneratorService = PassphraseGeneratorService(
-            kotusWordService: kotusWordServiceMock,
-            defaultsStore: defaultsStoreMock
+            kotusWordService: kotusWordServiceMock
         )
     }
 
-    func test_a_word_arrays_generated_correctly() {
+    func test_a_generate_passphrase_returns_valid_passphrase() {
         given(kotusWordServiceMock.randomWord())
             .willReturn("kirjolohi")
             .willReturn("kahvikuppi")
             .willReturn("kipinä")
 
-        given(defaultsStoreMock.separatorSymbol)
-            .willReturn(.hash)
-
-        given(defaultsStoreMock.wordCapitalization)
-            .willReturn(false)
-
-        given(defaultsStoreMock.numberOfWordsInPassphrase)
-            .willReturn(3)
-
-        passphraseGeneratorService.generatePassphrase()
+        let passphrase = passphraseGeneratorService.generatePassphrase(
+            numOfWords: 3, separatorSymbol: .hash, wordCapitalization: false
+        )
 
         verify(kotusWordServiceMock.randomWord()).wasCalled(3)
-        verify(defaultsStoreMock.separatorSymbol).wasCalled(1)
-        verify(defaultsStoreMock.wordCapitalization).wasCalled(1)
-        verify(defaultsStoreMock.numberOfWordsInPassphrase).wasCalled(1)
-
-        let passphrase = passphraseGeneratorService.passphrase!
 
         XCTAssertEqual(passphrase.numOfWords, 3)
         XCTAssertEqual(passphrase.passphrase, "kirjolohi#kahvikuppi#kipinä")
+    }
+
+    func test_b_updating_passphrase_separator_returns_valid_passphrase() {
+        var passphrase = Passphrase(
+            words: ["karpalo", "kukka", "tiekyltti"],
+            separator: .asterisk
+        )
+
+        passphrase = passphraseGeneratorService.updatePassphraseSeparatorSymbol(
+            passphrase: passphrase,
+            separatorSymbol: .slash
+        )
+
+        XCTAssertEqual(passphrase.separator, .slash)
+        XCTAssertEqual(passphrase.passphrase, "karpalo/kukka/tiekyltti")
+    }
+
+    func test_c_updating_passphrase_capitalization_returns_valid_passphrase() {
+        var passphrase = Passphrase(
+            words: ["karpalo", "kukka", "tiekyltti"],
+            separator: .asterisk
+        )
+
+        passphrase = passphraseGeneratorService.updatePassphraseWordCapitalization(
+            passphrase: passphrase,
+            wordCapitalization: true
+        )
+
+        XCTAssertEqual(passphrase.passphrase.lowercased(), "karpalo*kukka*tiekyltti")
+        XCTAssertNotEqual(passphrase.passphrase, "karpalo*kukka*tiekyltti")
+
+        passphrase = passphraseGeneratorService.updatePassphraseWordCapitalization(
+            passphrase: passphrase,
+            wordCapitalization: false
+        )
+
+        XCTAssertEqual(passphrase.passphrase, "karpalo*kukka*tiekyltti")
     }
 }

@@ -10,13 +10,9 @@ import Foundation
 class PassphraseGeneratorService: ObservableObject {
 
     let kotusWordService: KotusWordService
-    let userDefaults: DefaultsStore
-    @Published var passphrase: Passphrase?
 
-    init(kotusWordService: KotusWordService, defaultsStore: DefaultsStore) {
+    init(kotusWordService: KotusWordService) {
         self.kotusWordService = kotusWordService
-        self.passphrase = nil
-        self.userDefaults = defaultsStore
     }
 }
 
@@ -24,31 +20,37 @@ class PassphraseGeneratorService: ObservableObject {
 extension PassphraseGeneratorService {
 
     /// Generates a new passphrase. Old passphrase is replaced with new one.
-    func generatePassphrase() {
-        var words = generateWords(numberOfWords: userDefaults.numberOfWordsInPassphrase)
+    func generatePassphrase(
+        numOfWords: Int,
+        separatorSymbol: SeparatorSymbol,
+        wordCapitalization: Bool
+    ) -> Passphrase {
+        let words = generateWords(numberOfWords: numOfWords)
 
-        if userDefaults.wordCapitalization {
-            words = randomizeWordCase(words)
-        }
+        let passphraseToReturn = Passphrase(
+            words: wordCapitalization ? randomizeWordCase(words) : words,
+            separator: separatorSymbol
+        )
 
-        passphrase = Passphrase(words: words, separator: userDefaults.separatorSymbol)
+        return passphraseToReturn
     }
 
-    func updatePassphraseSeparatorSymbol() {
-        guard let passphraseUpdated = passphrase else { return }
-        guard passphraseUpdated.separator != userDefaults.separatorSymbol else { return }
-        passphraseUpdated.separator = userDefaults.separatorSymbol
-        passphrase = passphraseUpdated
+    func updatePassphraseSeparatorSymbol(
+        passphrase: Passphrase,
+        separatorSymbol: SeparatorSymbol
+    ) -> Passphrase {
+        guard passphrase.separator != separatorSymbol else { return passphrase }
+        return Passphrase(words: passphrase.words, separator: separatorSymbol)
     }
 
-    func updatePassphraseWordCapitalization() {
-        guard let passphraseUpdated = passphrase else { return }
+    func updatePassphraseWordCapitalization(
+        passphrase: Passphrase,
+        wordCapitalization: Bool
+    ) -> Passphrase {
+        let words = wordCapitalization ?
+            randomizeWordCase(passphrase.words) : removeRandomizedWordCase(passphrase.words)
 
-        let wordsToSet = userDefaults.wordCapitalization ?
-            randomizeWordCase(passphraseUpdated.words) : removeRandomizedWordCase(passphraseUpdated.words)
-
-        passphraseUpdated.words = wordsToSet
-        passphrase = passphraseUpdated
+        return Passphrase(words: words, separator: passphrase.separator)
     }
 
 }
@@ -93,7 +95,7 @@ extension PassphraseGeneratorService {
 
     private func removeRandomizedWordCase(_ words: [String]) -> [String] {
         var wordsNonRadomized: [String] = words
-        for index in 0..<wordsNonRadomized.count where wordsNonRadomized[index].first?.isUppercase == true  {
+        for index in 0..<wordsNonRadomized.count where wordsNonRadomized[index].first?.isUppercase == true {
             wordsNonRadomized[index] = wordsNonRadomized[index].flipCase()
         }
         return wordsNonRadomized

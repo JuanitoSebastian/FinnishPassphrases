@@ -41,7 +41,7 @@ extension SeparatorSelectorView {
     }
 
     private func fetchSeparatorSymbolFromStore() {
-        currentSeparator = appState.defaultsStore.separatorSymbol
+        currentSeparator = appState.separatorSymbol
     }
 }
 
