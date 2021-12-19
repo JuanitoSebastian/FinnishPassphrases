@@ -42,4 +42,13 @@ class DefaultsStore {
             userDefaults.setValue(newValue, forKey: "wordCapitalization")
         }
     }
+
+    var doNotShowInstructions: Bool {
+        get {
+            return userDefaults.bool(forKey: "doNotShowInstructions")
+        }
+        set(newValue) {
+            userDefaults.setValue(newValue, forKey: "doNotShowInstructions")
+        }
+    }
 }
