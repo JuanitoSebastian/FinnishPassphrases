@@ -11,16 +11,6 @@ struct ContentView: View {
 
     @ObservedObject var appState: AppState
 
-    init() {
-        let kotusWordService = KotusWordService()
-        kotusWordService.readFileToMemory()
-        self.appState = AppState(
-            passphraseGeneratorService: PassphraseGeneratorService(
-                kotusWordService: kotusWordService
-            )
-        )
-    }
-
     var body: some View {
         VStack {
             VStack {
@@ -30,6 +20,7 @@ struct ContentView: View {
                         .foregroundColor(cTitleColor)
                     Spacer()
                     IconButton(icon: Image(systemName: "gearshape"), action: { appState.quitApplication() })
+                        .environmentObject(appState)
                 }
 
                 GeneratorView()
@@ -43,6 +34,7 @@ struct ContentView: View {
             .padding(cMainContentPadding)
 
             FooterView()
+                .environmentObject(appState)
         }
         .background(cBackdropColor)
         .frame(width: 400)
@@ -52,8 +44,7 @@ struct ContentView: View {
 #if DEBUG
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView()
-            .environmentObject(AppState.previewShared)
+        ContentView(appState: AppState.previewShared)
     }
 }
 #endif

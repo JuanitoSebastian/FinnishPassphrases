@@ -16,7 +16,14 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     var popOver = NSPopover()
 
     func applicationDidFinishLaunching(_ notification: Notification) {
-        let contentView = ContentView()
+        let kotusWordService = KotusWordService()
+        kotusWordService.readFileToMemory()
+        let appState = AppState(
+        passphraseGeneratorService: PassphraseGeneratorService(
+            kotusWordService: kotusWordService
+        )
+    )
+        let contentView = ContentView(appState: appState)
 
         popOver.behavior = .transient
         popOver.animates = true
