@@ -20,28 +20,22 @@ extension GeneratorView {
             PassphraseDispalyerView(passphrase: $appState.passphrase)
                 .environmentObject(appState)
                 .padding(cGeneratorViewRowPadding)
-
-            Divider()
-
-            WordAmountSlider()
-                .environmentObject(appState)
-                .padding(cGeneratorViewRowPadding)
-
-            Divider()
-
-            HStack {
-                SeparatorSelectorView()
-                    .environmentObject(appState)
+            HStack(spacing: 2) {
+                SeparatorFlicker(current: $appState.separator, availableSeparators: cPasswordSeparators)
                     .padding(cGeneratorViewColumnPadding)
+
+                WordAmountFlicker(
+                    allowedRange: cPassphraseNumberOfWordsRangeInt,
+                    currentNumberOfWords: $appState.numOfWords
+                )
 
                 Checkbox(
                     checked: $appState.capitalization,
                     description: LocalizedStringKey("generatorViewCapitalizationCheckbox")
                 )
                 .padding(cGeneratorViewColumnPadding)
+                Spacer()
             }
-            .padding(cGeneratorViewRowPadding)
-
         }
     }
 }

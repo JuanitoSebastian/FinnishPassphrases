@@ -19,10 +19,11 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         let kotusWordService = KotusWordService()
         kotusWordService.readFileToMemory()
         let appState = AppState(
-        passphraseGeneratorService: PassphraseGeneratorService(
-            kotusWordService: kotusWordService
+            passphraseGeneratorService: PassphraseGeneratorService(
+                kotusWordService: kotusWordService
+            )
         )
-    )
+
         let contentView = ContentView(appState: appState)
 
         popOver.behavior = .transient

@@ -17,6 +17,17 @@ class AppState: ObservableObject {
             handleChangeOfCapitalization(capitalization)
         }
     }
+    @Published var separator: SeparatorSymbol {
+        didSet {
+            setCurrentSeparator(separator)
+        }
+    }
+    @Published var numOfWords: Int {
+        didSet {
+            setNumberOfWordsInPassphrase(numOfWords)
+            generateNewPassphrase()
+        }
+    }
 
     private let defaultsStore: DefaultsStore
     private let passphraseGeneratorService: PassphraseGeneratorService
@@ -30,6 +41,8 @@ class AppState: ObservableObject {
         self.defaultsStore = defaultsStore
         self.passphraseGeneratorService = passphraseGeneratorService
         self.capitalization = defaultsStore.wordCapitalization
+        self.separator = defaultsStore.separatorSymbol
+        self.numOfWords = defaultsStore.numberOfWordsInPassphrase
         self.pasteboard = pasteboard
         self.pasteboard.declareTypes([.string], owner: nil)
         self.passphrase = passphraseGeneratorService.generatePassphrase(
@@ -75,8 +88,7 @@ extension AppState {
     /// is done.
     /// - Parameter numberOfWordsToSet: The number of words in Passphrase
     func setNumberOfWordsInPassphrase(_ numberOfWordToSet: Int) {
-        guard numberOfWordToSet >= cMinimumNumberOfWordsInPassphrase
-                && numberOfWordToSet <= cMaximumNumberOfWordsInPassphrase else {
+        guard cPassphraseNumberOfWordsRangeInt.contains(numberOfWordToSet) else {
             return
         }
 

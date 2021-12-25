@@ -24,8 +24,8 @@ struct FinnishPasswordsApp: App {
     }
 
     var body: some Scene {
-        WindowGroup {
-            ContentView(appState: appState)
+        Settings {
+
         }
     }
 }

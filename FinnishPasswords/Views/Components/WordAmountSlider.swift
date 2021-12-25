@@ -16,7 +16,7 @@ struct WordAmountSlider: View {
 extension WordAmountSlider {
     var body: some View {
         Slider(value: $numOfWords,
-               in: Double(cMinimumNumberOfWordsInPassphrase)...Double(cMaximumNumberOfWordsInPassphrase),
+               in: cPassphraseNumberOfWordsRange,
                step: 1,
                onEditingChanged: { editing in setNumberOfWords(editing: editing) },
                minimumValueLabel: Text(""),

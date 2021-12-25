@@ -19,7 +19,11 @@ class PassphraseGeneratorService: ObservableObject {
 // MARK: - Functions
 extension PassphraseGeneratorService {
 
-    /// Generates a new passphrase. Old passphrase is replaced with new one.
+    /// Generates a new Passphrase object with given arguments
+    /// - Parameter numOfWords: Number of words in Passphrase
+    /// - Parameter separatorSymbol: SeparatorSymbol in Passphrase
+    /// - Parameter wordCapitaliation: Feature varying capitalization in Passphrase
+    /// - Returns: A new Passphrase object
     func generatePassphrase(
         numOfWords: Int,
         separatorSymbol: SeparatorSymbol,
@@ -35,6 +39,10 @@ extension PassphraseGeneratorService {
         return passphraseToReturn
     }
 
+    /// Updated Passsphrase to use given SeparatorSymbol
+    /// - Parameter passphrase: Passphrase object to update
+    /// - Parameter separatorSymbol : SeparatorSymbol to use
+    /// - Returns: A new Passphrase object
     func updatePassphraseSeparatorSymbol(
         passphrase: Passphrase,
         separatorSymbol: SeparatorSymbol
@@ -43,6 +51,10 @@ extension PassphraseGeneratorService {
         return Passphrase(words: passphrase.words, separator: separatorSymbol)
     }
 
+    /// Update Passphrase word capitalization
+    /// - Parameter passphrase : Passphrase to update
+    /// - Parameter wordCapitalization: To use varying capitalization or no
+    /// - Returns: A new Passphrase obejct
     func updatePassphraseWordCapitalization(
         passphrase: Passphrase,
         wordCapitalization: Bool
@@ -51,6 +63,15 @@ extension PassphraseGeneratorService {
             randomizeWordCase(passphrase.words) : removeRandomizedWordCase(passphrase.words)
 
         return Passphrase(words: words, separator: passphrase.separator)
+    }
+
+    /// Updates
+    func updatePassphraseNumOfWords(
+        passphrase: Passphrase,
+        numOfWords: Int
+    ) -> Passphrase {
+
+        return Passphrase(words: [], separator: .asterisk)
     }
 
 }

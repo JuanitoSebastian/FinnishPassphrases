@@ -10,6 +10,8 @@ import SwiftUI
 // MARK: - Fonts
 let cPasswordFontMain = Font.system(.body, design: .monospaced).weight(.medium)
 let cPasswordFontMedium = Font.system(.headline, design: .monospaced)
+let cSeparatorFlickerFontSeparator = Font.system(.title, design: .monospaced).weight(.medium)
+let cSeparatorFlickerFontDescription = Font.system(.title2, design: .default)
 let cUiFontMedium = Font.system(size: 16, design: .default)
 let cUiFontSmall = Font.system(size: 12, design: .default).weight(.semibold)
 let cUiTitleFont = Font.system(.title, design: .default)
@@ -41,12 +43,13 @@ let cPassphraseAreaPadding = EdgeInsets(top: 10, leading: 15, bottom: 10, traili
 let cGeneratorViewRowPadding = EdgeInsets(top: 2, leading: 0, bottom: 2, trailing: 0)
 let cGeneratorViewColumnPadding = EdgeInsets(top: 0, leading: 1, bottom: 0, trailing: 1)
 let cMainContentPadding = EdgeInsets(top: 10, leading: 15, bottom: 5, trailing: 15)
+let cModifierButtonPadding = EdgeInsets(top: 2, leading: 6, bottom: 2, trailing: 6)
 
 // MARK: - Constants
 let cRoundedCornerSize = CGSize(width: 5, height: 5)
 let cPasswordSeparators: [SeparatorSymbol] = [.asterisk, .hyphen, .slash, .hash]
-let cMinimumNumberOfWordsInPassphrase = 3
-let cMaximumNumberOfWordsInPassphrase = 10
+let cPassphraseNumberOfWordsRange: ClosedRange<Double> = 3...10
+let cPassphraseNumberOfWordsRangeInt: ClosedRange = 3...10
 let cProbabilityOfCapitalizedString: Double = 0.5
 
 // MARK: - Animations
@@ -57,4 +60,5 @@ let cPassphraseAreaClickAnimation = Animation.interpolatingSpring(
     initialVelocity: 0.5
 )
 let cHoverAnimation = Animation.easeInOut(duration: 0.2)
+let cFlickerButtonAnimation = Animation.easeOut(duration: 0.2)
 let cIconClickAnimation = Animation.spring()

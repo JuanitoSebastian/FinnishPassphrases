@@ -10,6 +10,7 @@ import SwiftUI
 struct ContentView: View {
 
     @ObservedObject var appState: AppState
+    @State var currentNumberOfWords: Int = 3
 
     var body: some View {
         VStack {
@@ -33,11 +34,11 @@ struct ContentView: View {
             }
             .padding(cMainContentPadding)
 
-            FooterView()
-                .environmentObject(appState)
+            Spacer()
+
         }
         .background(cBackdropColor)
-        .frame(width: 400)
+        .frame(width: 400, height: 200)
     }
 }
 
