@@ -48,3 +48,14 @@ extension Passphrase: Equatable {
             lhs.words == rhs.words
     }
 }
+
+// MARK: - Custom String Convertible
+extension Passphrase: CustomStringConvertible {
+    var description: String {
+        """
+        Passphrase: \(passphrase)
+        numOfWords: \(numOfWords)
+        separator: \(separator)
+        """
+    }
+}

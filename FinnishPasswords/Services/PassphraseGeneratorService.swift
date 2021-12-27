@@ -65,13 +65,34 @@ extension PassphraseGeneratorService {
         return Passphrase(words: words, separator: passphrase.separator)
     }
 
-    /// Updates
+    /// Updates the number of words in a given Passphrase
+    /// - Parameter passphrase: Passphrase to update
+    /// - Parameter numOfWords: The number of words
+    /// - Returns: A new Passphrase obejct
     func updatePassphraseNumOfWords(
         passphrase: Passphrase,
         numOfWords: Int
     ) -> Passphrase {
+        guard passphrase.numOfWords != numOfWords else { return passphrase }
 
-        return Passphrase(words: [], separator: .asterisk)
+        // TODO: Word Capitalization?
+
+        var words = passphrase.words
+        let difference = abs(numOfWords - passphrase.numOfWords)
+
+        if numOfWords > passphrase.numOfWords {
+            words = appendNewWordsToArray(
+                words: words,
+                numOfWordsToAppend: difference
+            )
+        }
+
+        if numOfWords < passphrase.numOfWords {
+            let range = (words.count - difference)...words.count - 1
+            words.removeSubrange(range)
+        }
+
+        return Passphrase(words: words, separator: passphrase.separator)
     }
 
 }
@@ -120,5 +141,14 @@ extension PassphraseGeneratorService {
             wordsNonRadomized[index] = wordsNonRadomized[index].flipCase()
         }
         return wordsNonRadomized
+    }
+
+    private func appendNewWordsToArray(
+        words: [String],
+        numOfWordsToAppend: Int
+    ) -> [String] {
+        var wordsToReturn = words
+        wordsToReturn.append(contentsOf: generateWords(numberOfWords: numOfWordsToAppend))
+        return wordsToReturn
     }
 }

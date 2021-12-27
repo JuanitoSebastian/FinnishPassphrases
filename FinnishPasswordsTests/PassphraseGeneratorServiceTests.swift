@@ -75,7 +75,21 @@ class PassphraseGeneratorServiceTests: XCTestCase {
         XCTAssertEqual(passphrase.passphrase, "karpalo*kukka*tiekyltti")
     }
 
-    func test_d_updating_passphrase_numofwords_returns_valid_passphrase() {
+    func test_d_updating_passphrase_numofwords_equal_returns_same_passphrase() {
+        let passphraseOriginal = Passphrase(
+            words: ["karpalo", "kukka", "tiekyltti"],
+            separator: .asterisk
+        )
+
+        let passphraseNew = passphraseGeneratorService.updatePassphraseNumOfWords(
+            passphrase: passphraseOriginal,
+            numOfWords: 3
+        )
+
+        XCTAssertEqual(passphraseOriginal, passphraseNew)
+    }
+
+    func test_d_updating_passphrase_numofwords_to_greater_returns_valid_passphrase() {
         var passphrase = Passphrase(
             words: ["karpalo", "kukka", "tiekyltti"],
             separator: .asterisk
@@ -91,6 +105,19 @@ class PassphraseGeneratorServiceTests: XCTestCase {
             numOfWords: 6
         )
 
+        verify(kotusWordServiceMock.randomWord()).wasCalled(3)
+
         XCTAssertEqual(passphrase.passphrase, "karpalo*kukka*tiekyltti*kirjolohi*kahvikuppi*kipinä")
+    }
+
+    func test_e_updating_passphrase_numofwords_to_lesser_returns_valid_passphrase() {
+        var passphrase = Passphrase(
+            words: ["karpalo", "kukka", "tiekyltti", "kirjolohi", "kahvikuppi", "kipinä"],
+            separator: .asterisk
+        )
+
+        passphrase = passphraseGeneratorService.updatePassphraseNumOfWords(passphrase: passphrase, numOfWords: 3)
+
+        XCTAssertEqual(passphrase.passphrase, "karpalo*kukka*tiekyltti")
     }
 }

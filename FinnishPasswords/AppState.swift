@@ -25,7 +25,6 @@ class AppState: ObservableObject {
     @Published var numOfWords: Int {
         didSet {
             setNumberOfWordsInPassphrase(numOfWords)
-            generateNewPassphrase()
         }
     }
 
@@ -93,6 +92,9 @@ extension AppState {
         }
 
         defaultsStore.numberOfWordsInPassphrase = numberOfWordToSet
+        passphrase = passphraseGeneratorService.updatePassphraseNumOfWords(
+            passphrase: passphrase, numOfWords: numberOfWordToSet
+        )
     }
 
     /// Sets the SeparatorSymbol that will be used to generate Passphrase.
