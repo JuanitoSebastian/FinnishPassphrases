@@ -84,7 +84,7 @@ extension PassphraseDispalyerView {
     func generatePassphraseView(passphraseUnwrapped: Passphrase) -> some View {
         HStack(alignment: .center, spacing: 2) {
             ForEach(0..<passphraseUnwrapped.words.count, id: \.self) { index in
-                Text(passphraseUnwrapped.words[index])
+            Text(passphraseUnwrapped.words[index])
                     .font(cPasswordFontMain)
                 if index < (passphraseUnwrapped.numOfWords - 1) {
                     Text(String(passphraseUnwrapped.separator.symbol))
