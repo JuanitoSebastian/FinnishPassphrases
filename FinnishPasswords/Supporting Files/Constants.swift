@@ -14,32 +14,14 @@ let cSeparatorFlickerFontSeparator = Font.system(.title, design: .monospaced).we
 let cSeparatorFlickerFontDescription = Font.system(.title2, design: .default)
 let cUiFontMedium = Font.system(size: 16, design: .default)
 let cUiFontSmall = Font.system(size: 12, design: .default).weight(.semibold)
-let cUiTitleFont = Font.system(.title, design: .default)
+let cUiTitleFont = Font.system(size: 40, design: .rounded).weight(.semibold)
+let cUiAppDescriptionFont = Font.system(size: 18, design: .default)
 let cFooterFont = Font.system(.footnote, design: .default)
 
 // MARK: - Colors
-let cBackdropColor = Color("backdrop")
 
-let cPpassphraseBorderColor = Color("passphrase-area-border")
-let cPassphraseBorderColorHover = Color("passphrase-area-border-hover")
-let cPassphraseBorderColorClick = Color("passphrase-area-border-onclick")
-let cPassphraseBackgroundColor = Color("passphrase-area-background")
-let cPassphraseBackgroundColorHover = Color("passphrase-area-background-hover")
-
-let cPassphraseSeparatorColor = Color("passphrase-separator")
-
-let cCheckboxTopColor = Color("checkbox-top")
-let cCheckboxBottomColor = Color("checkbox-bottom")
-let cCheckboxBorderColor = Color("checkbox-border")
-
-let cIconButtonBackgroundColor = Color("icon-button")
-let cIconButtonBackgroundColorHover = Color("icon-button-hover")
-
-let cTitleColor = Color("text-title")
-let cFooterBackgroundColor = Color("footer")
 
 // MARK: - Padding
-let cPassphraseAreaPadding = EdgeInsets(top: 10, leading: 15, bottom: 10, trailing: 15)
 let cGeneratorViewRowPadding = EdgeInsets(top: 2, leading: 0, bottom: 2, trailing: 0)
 let cGeneratorViewColumnPadding = EdgeInsets(top: 0, leading: 1, bottom: 0, trailing: 1)
 let cMainContentPadding = EdgeInsets(top: 10, leading: 15, bottom: 5, trailing: 15)
@@ -51,6 +33,8 @@ let cPasswordSeparators: [SeparatorSymbol] = [.asterisk, .hyphen, .slash, .hash]
 let cPassphraseNumberOfWordsRange: ClosedRange<Double> = 3...10
 let cPassphraseNumberOfWordsRangeInt: ClosedRange = 3...10
 let cProbabilityOfCapitalizedString: Double = 0.5
+let cAboutWindowWidth: CGFloat = 600
+let cAboutWindowHeight: CGFloat = 338
 
 // MARK: - Animations
 let cPassphraseAreaClickAnimation = Animation.interpolatingSpring(

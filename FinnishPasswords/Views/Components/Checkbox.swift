@@ -11,45 +11,38 @@ struct Checkbox: View {
 
     @Binding var checked: Bool
     let description: LocalizedStringKey
+    let checkmarkColor = Color("blue")
+    let textColor = Color("gray")
+    let textFont = Font.system(size: 14, design: .default).weight(.regular)
 
 }
 
 // MARK: - Views
 extension Checkbox {
     var body: some View {
-        HStack(spacing: 3) {
+        HStack(spacing: 8) {
 
             ZStack(alignment: .center) {
                 RoundedRectangle(cornerSize: CGSize(width: 3, height: 3))
-                    .stroke(cCheckboxBorderColor, lineWidth: 2)
-
-                RoundedRectangle(cornerSize: CGSize(width: 3, height: 3))
-                    .fill(checkboxFill)
+                    .fill(Color.white)
 
                 if checked {
                     Image(systemName: "checkmark")
-                        .font((.system(size: 12, weight: .bold)))
-                        .foregroundColor(.purple)
+                        .font((.system(size: 18, weight: .bold)))
+                        .foregroundColor(checkmarkColor)
                 }
             }
-            .frame(width: 16, height: 16)
+            .frame(width: 22, height: 22)
             .padding(.trailing, 2)
 
             Text(description)
-                .font(cUiFontSmall)
+                .font(textFont)
+                .foregroundColor(textColor)
 
         }
         .onTapGesture {
             checked.toggle()
         }
-    }
-
-    var checkboxFill: LinearGradient {
-        LinearGradient(
-            gradient: Gradient(colors: [cCheckboxTopColor, cCheckboxBottomColor]),
-            startPoint: checked ? .top : .bottom,
-            endPoint: checked ? .bottom: .top
-        )
     }
 }
 
@@ -57,7 +50,7 @@ extension Checkbox {
 #if DEBUG
 struct Checkbox_Previews: PreviewProvider {
     static var previews: some View {
-        Checkbox(checked: .constant(true), description: "Kirjainkoko")
+        Checkbox(checked: .constant(true), description: "Don't show this again")
     }
 }
 #endif

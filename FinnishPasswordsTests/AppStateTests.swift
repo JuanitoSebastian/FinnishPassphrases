@@ -52,18 +52,18 @@ class AppStateTests: XCTestCase {
     }
 
     func test_b_setting_number_of_words_works() {
-        appState.setNumberOfWordsInPassphrase(5)
+        appState.numOfWords = 5
         XCTAssertEqual(defaultStore.numberOfWordsInPassphrase, 5)
-        XCTAssertEqual(appState.numberOfWordsInPassphrase, 5)
+        XCTAssertEqual(appState.numOfWords, 5)
         appState.generateNewPassphrase()
 
         XCTAssertEqual(appState.passphrase.numOfWords, 5)
     }
 
     func test_c_setting_separator_works() {
-        appState.setCurrentSeparator(.slash)
+        appState.separator = .slash
         XCTAssertEqual(defaultStore.separatorSymbol, .slash)
-        XCTAssertEqual(appState.separatorSymbol, .slash)
+        XCTAssertEqual(appState.separator, .slash)
         appState.generateNewPassphrase()
 
         XCTAssertEqual(appState.passphrase.separator, .slash)

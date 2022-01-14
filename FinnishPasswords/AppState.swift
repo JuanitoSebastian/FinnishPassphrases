@@ -55,12 +55,8 @@ class AppState: ObservableObject {
 
 // MARK: - Computed varibales
 extension AppState {
-    var separatorSymbol: SeparatorSymbol {
-        defaultsStore.separatorSymbol
-    }
-
-    var numberOfWordsInPassphrase: Int {
-        defaultsStore.numberOfWordsInPassphrase
+    var doNotShowInstructions: Bool {
+        defaultsStore.doNotShowInstructions
     }
 }
 

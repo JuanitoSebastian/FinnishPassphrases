@@ -42,7 +42,7 @@ extension SeparatorFlicker {
             .padding(cModifierButtonPadding)
             .frame(width: 100, height: 30)
             .background(
-                createRectangle(color: cFooterBackgroundColor)
+                createRectangle(color: cSeparatorFlickerBg)
             )
             .mask(
                 createRectangle(color: .white)

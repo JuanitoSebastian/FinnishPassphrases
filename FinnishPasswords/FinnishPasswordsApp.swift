@@ -24,8 +24,7 @@ struct FinnishPasswordsApp: App {
     }
 
     var body: some Scene {
-        Settings {
-
-        }
+        Settings { }
     }
+
 }

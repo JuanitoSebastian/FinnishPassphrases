@@ -15,6 +15,8 @@ class AppDelegate: NSObject, NSApplicationDelegate {
 
     var popOver = NSPopover()
 
+    var window: NSWindow?
+
     func applicationDidFinishLaunching(_ notification: Notification) {
         let kotusWordService = KotusWordService()
         kotusWordService.readFileToMemory()
@@ -37,6 +39,21 @@ class AppDelegate: NSObject, NSApplicationDelegate {
             menuButton.image = NSImage(systemSymbolName: "lock.circle.fill", accessibilityDescription: nil)
             menuButton.action = #selector(menuButtonToggle)
         }
+
+        if !appState.doNotShowInstructions {
+            openAboutWindow()
+        }
+    }
+
+    func openAboutWindow() {
+        window = NSWindow(
+                contentRect: NSRect(x: 0, y: 0, width: cAboutWindowWidth, height: cAboutWindowHeight),
+                styleMask: [.miniaturizable, .closable, .titled],
+                backing: .buffered, defer: false)
+        window?.center()
+        window?.title = "Finnish Passphrases 🇫🇮"
+        window?.contentView = NSHostingView(rootView: AboutView())
+        window?.makeKeyAndOrderFront(nil)
     }
 
     @objc
