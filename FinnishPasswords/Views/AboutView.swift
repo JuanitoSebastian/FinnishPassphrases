@@ -10,7 +10,7 @@ import SwiftUI
 struct AboutView: View {
 
     private let contentPadding: EdgeInsets = EdgeInsets(
-        top: 25,
+        top: 15,
         leading: 25,
         bottom: 25,
         trailing: 25

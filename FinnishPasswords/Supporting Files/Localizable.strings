@@ -12,7 +12,7 @@
 "aboutWindowAppDescription" = "This simple application lives in the menu bar. It generates secure passphrases using words from the Finnish language. Passphrases are generated using a list of 90,000 words provided by the [Institute for the Languages of Finland](https://kaino.kotus.fi/sanat/nykysuomi/).";
 "aboutWindowCheckbox" = "Don’t show this again";
 
-// Generator
+// Menu Bar Pop-over
 "wordAmountLabel" = "Words";
 "separatorLabel" = "Separator";
 "capitalizationLabel" = "Mixed case";

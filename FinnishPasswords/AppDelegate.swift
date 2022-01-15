@@ -53,6 +53,13 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         window?.center()
         window?.title = NSLocalizedString("appNameTitle", comment: "")
         window?.contentView = NSHostingView(rootView: AboutView())
+
+        window?.titleVisibility = .hidden
+        window?.styleMask.insert(.fullSizeContentView)
+        window?.titlebarAppearsTransparent = true
+        window?.contentView?.wantsLayer = true
+        window?.backgroundColor = .white
+
         window?.makeKeyAndOrderFront(nil)
     }
 
