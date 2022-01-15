@@ -2,126 +2,114 @@
 //  SeparatorFlicker.swift
 //  FinnishPasswords
 //
-//  Created by Juan Covarrubias on 21.12.2021.
+//  Created by Juan Covarrubias on 14.1.2022.
 //
 
 import SwiftUI
 
 struct SeparatorFlicker: View {
+    @Binding var currentSeparator: SeparatorSymbol
+    @State private var index: Int
+    private let separators: [SeparatorSymbol]
+    private let numberFont: Font
+    private let numberColor: Color
+    private let circleStrokeColor: Color
+    private let circleSymbolColor: Color
+    private let circleSymbolFont: Font
 
-    @Binding var current: SeparatorSymbol
-    let availableSeparators: [SeparatorSymbol]
-
-    @State var midAnimation: Bool
-    @State var currentSeparatorOffset: CGSize
-    @State var nextSeparatorOffset: CGSize
-
-    init(current: Binding<SeparatorSymbol>, availableSeparators: [SeparatorSymbol]) {
-        self._current = current
-        self.availableSeparators = availableSeparators
-        self.midAnimation = false
-        self.currentSeparatorOffset = CGSize(width: 0, height: 0)
-        self.nextSeparatorOffset = CGSize(width: 0, height: 30)
+    init(
+        separators: [SeparatorSymbol],
+        currentSeparator: Binding<SeparatorSymbol>
+    ) {
+        self.separators = separators
+        self._currentSeparator = currentSeparator
+        self.index = separators.firstIndex(of: currentSeparator.wrappedValue)!
+        self.numberFont = Font.system(size: 20, design: .default)
+        self.numberColor = Color("black")
+        self.circleStrokeColor = Color("lighter-blue")
+        self.circleSymbolColor = Color("medium-blue")
+        self.circleSymbolFont = Font.system(size: 15, design: .rounded).weight(.bold)
     }
-
-}
-
-// MARK: - Views
-extension SeparatorFlicker {
 
     var body: some View {
+        ZStack(alignment: .center) {
+            square
+
+            number
+
+            HStack {
+                actionCircle(systemSymbolName: "chevron.left", action: { previous() })
+                Spacer()
+                actionCircle(systemSymbolName: "chevron.right", action: { next() })
+            }
+        }
+        .frame(maxWidth: 76)
+    }
+
+    private var square: some View {
+        RoundedRectangle(cornerRadius: 10)
+            .fill(Color.white)
+            .frame(width: 40, height: 40)
+    }
+
+    private var number: some View {
+        Text(String(currentSeparator.symbol))
+            .font(numberFont)
+            .foregroundColor(numberColor)
+    }
+
+    @ViewBuilder
+    private func actionCircle(systemSymbolName: String, action: @escaping () -> Void
+    ) -> some View {
         Button {
-            handleClick()
+            action()
         } label: {
             ZStack {
-                createSeparatorText(symbol: current.symbol, name: current.name)
-                    .offset(currentSeparatorOffset)
-                createSeparatorText(symbol: nextSeparator.symbol, name: nextSeparator.name)
-                    .offset(nextSeparatorOffset)
+                Circle()
+                    .fill(Color.white)
+                    .frame(width: 23, height: 23)
+
+                Circle()
+                    .stroke(circleStrokeColor, lineWidth: 2)
+                    .frame(width: 23, height: 23)
+
+                Image(systemName: systemSymbolName)
+                    .foregroundColor(circleSymbolColor)
+                    .font(circleSymbolFont)
+
             }
-            .padding(cModifierButtonPadding)
-            .frame(width: 100, height: 30)
-            .background(
-                createRectangle(color: cSeparatorFlickerBg)
-            )
-            .mask(
-                createRectangle(color: .white)
-            )
         }
         .buttonStyle(PlainButtonStyle())
-
     }
-
-    @ViewBuilder
-    private func createSeparatorText(
-        symbol: Character, name: String
-    ) -> some View {
-        AnyView(
-            HStack(alignment: .center) {
-                Text(String(symbol))
-                    .foregroundColor(cPassphraseSeparatorColor)
-                    .font(cSeparatorFlickerFontSeparator)
-
-                Text(name)
-                    .foregroundColor(cTitleColor)
-                    .font(cSeparatorFlickerFontDescription)
-            }
-        )
-    }
-
-    @ViewBuilder
-    private func createRectangle(color: Color) -> some View {
-        RoundedRectangle(cornerSize: cRoundedCornerSize)
-            .foregroundColor(color)
-            .frame(maxWidth: .infinity, maxHeight: .infinity)
-    }
-
 }
 
-// MARK: - Supporting
+// MARK: - Fucntions
 extension SeparatorFlicker {
-
-    private var currentIndex: Int {
-        for (index, separator) in availableSeparators.enumerated()
-        where current == separator {
-            return index
+    private func next() {
+        guard separators.indices.contains(index + 1) else {
+            index = 0
+            currentSeparator = separators[index]
+            return
         }
-        return 0
+        index += 1
+        currentSeparator = separators[index]
     }
 
-    private var nextSeparator: SeparatorSymbol {
-        return currentIndex < (availableSeparators.count - 1) ?
-            availableSeparators[currentIndex + 1] : availableSeparators[0]
-    }
-
-    private func handleClick() {
-        guard !midAnimation else { return }
-        midAnimation = true
-
-        withAnimation(cFlickerButtonAnimation) {
-            currentSeparatorOffset = CGSize(width: 0, height: -30)
-            nextSeparatorOffset = CGSize(width: 0, height: 0)
+    private func previous() {
+        guard separators.indices.contains(index - 1) else {
+            index = separators.indices.last!
+            currentSeparator = separators[index]
+            return
         }
-
-        DispatchQueue.main.asyncAfter(deadline: .now() + 0.2) {
-            current = nextSeparator
-            currentSeparatorOffset = CGSize(width: 0, height: 0)
-            nextSeparatorOffset = CGSize(width: 0, height: 30)
-            midAnimation = false
-        }
+        index -= 1
+        currentSeparator = separators[index]
     }
 }
 
-// MARK: - Preview
 #if DEBUG
 struct SeparatorFlicker_Previews: PreviewProvider {
     static var previews: some View {
-        Group {
-            SeparatorFlicker(
-                current: .constant(SeparatorSymbol.asterisk),
-                availableSeparators: cPasswordSeparators
-            )
-        }
+        SeparatorFlicker(separators: cPasswordSeparators, currentSeparator: .constant(.hash))
     }
 }
 #endif

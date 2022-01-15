@@ -51,7 +51,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
                 styleMask: [.miniaturizable, .closable, .titled],
                 backing: .buffered, defer: false)
         window?.center()
-        window?.title = "Finnish Passphrases 🇫🇮"
+        window?.title = NSLocalizedString("appNameTitle", comment: "")
         window?.contentView = NSHostingView(rootView: AboutView())
         window?.makeKeyAndOrderFront(nil)
     }

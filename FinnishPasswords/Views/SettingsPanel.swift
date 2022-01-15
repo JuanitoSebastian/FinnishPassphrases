@@ -19,7 +19,20 @@ struct SettingsPanel: View {
         VStack(alignment: .center, spacing: 10) {
             VStack(spacing: 6) {
                 WordAmountFlicker(wordCount: $appState.numOfWords)
-                Text("Words")
+                Text(LocalizedStringKey("wordAmountLabel"))
+                    .font(labelFont)
+                    .foregroundColor(labelColor)
+            }
+            VStack(spacing: 6) {
+                SeparatorFlicker(separators: cPasswordSeparators, currentSeparator: $appState.separator)
+                Text(LocalizedStringKey("separatorLabel"))
+                    .font(labelFont)
+                    .foregroundColor(labelColor)
+            }
+            VStack(spacing: 6) {
+                Toggle("", isOn: $appState.capitalization)
+                    .toggleStyle(SwitchToggleStyle())
+                Text(LocalizedStringKey("capitalizationLabel"))
                     .font(labelFont)
                     .foregroundColor(labelColor)
             }
