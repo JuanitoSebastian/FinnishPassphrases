@@ -1,6 +1,9 @@
 # Finnish Passphrases 🇫🇮
 ![Screenshot of the UI](https://raw.githubusercontent.com/JuanitoSebastian/FinnishPassphrases/main/Documentation/ui_screenshot.png)
-A simple menu bar application that generates finnish passphrases. The application uses a set of over 90 000 finnish words to generate passphrases ([nykysuomen sanalista](https://kaino.kotus.fi/sanat/nykysuomi/) put together by the Institute For The Languages Of Finland). 
+This simple application lives in the menu bar. It generates secure passphrases using words from the Finnish language. Passphrases are generated using a list of 90,000 words provided by the [Institute for the Languages of Finland](https://kaino.kotus.fi/sanat/nykysuomi/). 
 
 ## Running the application in development environment
 1. Clone the repository
+`git clone https://github.com/JuanitoSebastian/FinnishPassphrases.git`
+2. Open FinnishPassphrases.xcodeproj in Xcode
+3. Build and run the project with `⌘ + R`
