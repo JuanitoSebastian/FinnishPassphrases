@@ -12,16 +12,32 @@ struct ContentView: View {
     @ObservedObject var appState: AppState
 
     var body: some View {
-        HStack {
-            SettingsPanel()
-                .environmentObject(appState)
+        ZStack(alignment: .bottom) {
+            HStack {
+                SettingsPanel()
+                    .environmentObject(appState)
 
-            PassphraseDispalyerView(passphrase: $appState.passphrase)
-                .environmentObject(appState)
+                PassphraseDispalyerView(passphrase: $appState.passphrase)
+                    .environmentObject(appState)
 
-            Spacer()
+                Spacer()
+            }
+            .background(Color.white)
+
+            HStack(spacing: 10) {
+                Spacer()
+                IconButton(
+                    icon: Image(systemName: "doc.on.doc"),
+                    action: appState.copyPassphraseToPasteboard
+                )
+                IconButton(
+                    icon: Image(systemName: "arrow.counterclockwise"),
+                    action: appState.generateNewPassphrase,
+                    actionAnimated: true
+                )
+            }
+            .padding(20)
         }
-        .background(Color.white)
         .frame(width: 500, height: 250)
     }
 }

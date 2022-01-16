@@ -39,6 +39,7 @@
 		28B0534A2791B5B700174F5E /* SettingsPanel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28B053492791B5B700174F5E /* SettingsPanel.swift */; };
 		28B0534C2791B7AD00174F5E /* WordAmountFlicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28B0534B2791B7AD00174F5E /* WordAmountFlicker.swift */; };
 		28B0534E2791F47100174F5E /* SeparatorFlicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28B0534D2791F47100174F5E /* SeparatorFlicker.swift */; };
+		28B2F2FA279417DC00FFED56 /* CustomToggleStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28B2F2F9279417DC00FFED56 /* CustomToggleStyle.swift */; };
 		28B69F5C27296FAE00A4D080 /* ui_screenshot.png in Resources */ = {isa = PBXBuildFile; fileRef = 28B69F5B27296FAE00A4D080 /* ui_screenshot.png */; };
 		28B7FE3E2665006B007A891B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28B7FE3D2665006B007A891B /* AppDelegate.swift */; };
 		28B8602D2769DFE4008C9A17 /* Log.swift in Sources */ = {isa = PBXBuildFile; fileRef = 280A1CFA2662356F00301A4C /* Log.swift */; };
@@ -95,6 +96,7 @@
 		28B053492791B5B700174F5E /* SettingsPanel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsPanel.swift; sourceTree = "<group>"; };
 		28B0534B2791B7AD00174F5E /* WordAmountFlicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WordAmountFlicker.swift; sourceTree = "<group>"; };
 		28B0534D2791F47100174F5E /* SeparatorFlicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeparatorFlicker.swift; sourceTree = "<group>"; };
+		28B2F2F9279417DC00FFED56 /* CustomToggleStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomToggleStyle.swift; sourceTree = "<group>"; };
 		28B69F5B27296FAE00A4D080 /* ui_screenshot.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ui_screenshot.png; sourceTree = "<group>"; };
 		28B7FE3D2665006B007A891B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		28DD0EA2277F5BB800B3CA60 /* AboutView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutView.swift; sourceTree = "<group>"; };
@@ -246,6 +248,14 @@
 			path = "Preview Content";
 			sourceTree = "<group>";
 		};
+		28B2F2F82794179000FFED56 /* Toggles */ = {
+			isa = PBXGroup;
+			children = (
+				28B2F2F9279417DC00FFED56 /* CustomToggleStyle.swift */,
+			);
+			path = Toggles;
+			sourceTree = "<group>";
+		};
 		28B69F5827294AA400A4D080 /* Documentation */ = {
 			isa = PBXGroup;
 			children = (
@@ -257,6 +267,7 @@
 		28DD8E0026CAF8830087C842 /* Components */ = {
 			isa = PBXGroup;
 			children = (
+				28B2F2F82794179000FFED56 /* Toggles */,
 				2803EFE12769B79E00B0F1B7 /* IconButton.swift */,
 				285D302E26CD967500724593 /* Checkbox.swift */,
 				28B0534B2791B7AD00174F5E /* WordAmountFlicker.swift */,
@@ -470,6 +481,7 @@
 				285D302F26CD967500724593 /* Checkbox.swift in Sources */,
 				282874DF2662337500ADC11E /* ContentView.swift in Sources */,
 				283D3E02267F3E9B005C8BD9 /* Character.swift in Sources */,
+				28B2F2FA279417DC00FFED56 /* CustomToggleStyle.swift in Sources */,
 				280A1D072662434300301A4C /* PassphraseDispalyerView.swift in Sources */,
 				280A1D052662416300301A4C /* AppState.swift in Sources */,
 				282874DD2662337500ADC11E /* FinnishPasswordsApp.swift in Sources */,

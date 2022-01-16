@@ -31,7 +31,7 @@ struct SettingsPanel: View {
             }
             VStack(spacing: 6) {
                 Toggle("", isOn: $appState.capitalization)
-                    .toggleStyle(SwitchToggleStyle())
+                    .toggleStyle(CustomToggleStyle())
                 Text(LocalizedStringKey("capitalizationLabel"))
                     .font(labelFont)
                     .foregroundColor(labelColor)
