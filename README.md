@@ -13,4 +13,4 @@ git clone https://github.com/JuanitoSebastian/FinnishPassphrases.git
 If you do not have SwiftLint installed remove Swiftlint from the build phases.
 
 ## Testing
-Open FinnishPassphrases.xcodeproj to access the Xcode workspace and run the tests by pressing ⌘ + U
+Open FinnishPassphrases.xcodeproj to access the Xcode workspace and run the tests by pressing `⌘ + U`
