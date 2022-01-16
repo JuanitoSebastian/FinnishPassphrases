@@ -4,6 +4,13 @@ This simple application lives in the menu bar. It generates secure passphrases u
 
 ## Running the application in development environment
 1. Clone the repository
-`git clone https://github.com/JuanitoSebastian/FinnishPassphrases.git`
+```
+git clone https://github.com/JuanitoSebastian/FinnishPassphrases.git
+```
 2. Open FinnishPassphrases.xcodeproj in Xcode
 3. Build and run the project with `⌘ + R`
+
+If you do not have SwiftLint installed remove Swiftlint from the build phases.
+
+## Testing
+Open FinnishPassphrases.xcodeproj to access the Xcode workspace and run the tests by pressing ⌘ + U

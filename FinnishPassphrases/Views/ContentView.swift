@@ -27,7 +27,7 @@ struct ContentView: View {
             HStack(spacing: 10) {
                 Spacer()
                 IconButton(
-                    icon: Image(systemName: "doc.on.doc"),
+                    icon: Image(systemName: "square.and.arrow.up"),
                     action: appState.copyPassphraseToPasteboard
                 )
                 IconButton(
