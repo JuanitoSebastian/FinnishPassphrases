@@ -15,9 +15,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "282874D82662337500ADC11E"
-               BuildableName = "FinnishPasswords.app"
-               BlueprintName = "FinnishPasswords"
-               ReferencedContainer = "container:FinnishPasswords.xcodeproj">
+               BuildableName = "FinnishPassphrases.app"
+               BlueprintName = "FinnishPassphrases"
+               ReferencedContainer = "container:FinnishPassphrases.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -33,9 +33,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "282874D82662337500ADC11E"
-            BuildableName = "FinnishPasswords.app"
-            BlueprintName = "FinnishPasswords"
-            ReferencedContainer = "container:FinnishPasswords.xcodeproj">
+            BuildableName = "FinnishPassphrases.app"
+            BlueprintName = "FinnishPassphrases"
+            ReferencedContainer = "container:FinnishPassphrases.xcodeproj">
          </BuildableReference>
       </CodeCoverageTargets>
       <Testables>
@@ -44,9 +44,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "281667022664CD6D00DDCCC3"
-               BuildableName = "FinnishPasswordsTests.xctest"
-               BlueprintName = "FinnishPasswordsTests"
-               ReferencedContainer = "container:FinnishPasswords.xcodeproj">
+               BuildableName = "FinnishPassphrasesTests.xctest"
+               BlueprintName = "FinnishPassphrasesTests"
+               ReferencedContainer = "container:FinnishPassphrases.xcodeproj">
             </BuildableReference>
          </TestableReference>
       </Testables>
@@ -66,9 +66,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "282874D82662337500ADC11E"
-            BuildableName = "FinnishPasswords.app"
-            BlueprintName = "FinnishPasswords"
-            ReferencedContainer = "container:FinnishPasswords.xcodeproj">
+            BuildableName = "FinnishPassphrases.app"
+            BlueprintName = "FinnishPassphrases"
+            ReferencedContainer = "container:FinnishPassphrases.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </LaunchAction>
@@ -83,9 +83,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "282874D82662337500ADC11E"
-            BuildableName = "FinnishPasswords.app"
-            BlueprintName = "FinnishPasswords"
-            ReferencedContainer = "container:FinnishPasswords.xcodeproj">
+            BuildableName = "FinnishPassphrases.app"
+            BlueprintName = "FinnishPassphrases"
+            ReferencedContainer = "container:FinnishPassphrases.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>
