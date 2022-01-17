@@ -18,9 +18,6 @@ let cUiTitleFont = Font.system(size: 40, design: .rounded).weight(.semibold)
 let cUiAppDescriptionFont = Font.system(size: 18, design: .default)
 let cFooterFont = Font.system(.footnote, design: .default)
 
-// MARK: - Colors
-
-
 // MARK: - Padding
 let cGeneratorViewRowPadding = EdgeInsets(top: 2, leading: 0, bottom: 2, trailing: 0)
 let cGeneratorViewColumnPadding = EdgeInsets(top: 0, leading: 1, bottom: 0, trailing: 1)
