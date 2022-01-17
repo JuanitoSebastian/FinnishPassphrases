@@ -5,7 +5,7 @@
 //  Created by Juan Covarrubias on 16.12.2021.
 //
 
-@testable import FinnishPasswords
+@testable import FinnishPassphrases
 import XCTest
 import Mockingbird
 

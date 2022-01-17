@@ -426,7 +426,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "set -eu\n\n# Ensure mocks are generated prior to running Compile Sources\nrm -f '/tmp/Mockingbird-878490D5-3DEA-4929-8D37-AACE782B0189'\n\nmockingbird generate \\\n  --targets 'FinnishPasswords' \\\n  --outputs \"${SRCROOT}/MockingbirdMocks/FinnishPasswordsTests-FinnishPasswordsMocks.generated.swift\" \\\n  --support \"${SRCROOT}/MockingbirdSupport\"";
+			shellScript = "set -eu\n\n# Ensure mocks are generated prior to running Compile Sources\nrm -f '/tmp/Mockingbird-878490D5-3DEA-4929-8D37-AACE782B0189'\n\nmockingbird generate \\\n  --targets 'FinnishPassphrases' \\\n  --outputs \"${SRCROOT}/MockingbirdMocks/FinnishPasswordsTests-FinnishPasswordsMocks.generated.swift\" \\\n  --support \"${SRCROOT}/MockingbirdSupport\"\n";
 		};
 		E619EBAD5EED4A087725FB74 /* Clean Mockingbird Mocks */ = {
 			isa = PBXShellScriptBuildPhase;
