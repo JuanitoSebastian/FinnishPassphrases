@@ -71,10 +71,10 @@
 		281666FD2664C6B600DDCCC3 /* SeparatorSymbol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeparatorSymbol.swift; sourceTree = "<group>"; };
 		281667032664CD6D00DDCCC3 /* FinnishPassphrasesTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FinnishPassphrasesTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		281667052664CD6D00DDCCC3 /* PassphraseTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PassphraseTests.swift; sourceTree = "<group>"; };
-		281667072664CD6D00DDCCC3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = Info.plist; path = FinnishPasswordsTests/Info.plist; sourceTree = SOURCE_ROOT; };
 		2816670F2664CED800DDCCC3 /* SeparatorSymbolTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeparatorSymbolTests.swift; sourceTree = "<group>"; };
 		281667122664D26500DDCCC3 /* DefaultsStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultsStore.swift; sourceTree = "<group>"; };
 		281667162664F50B00DDCCC3 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		281E062927953C8C00B58EE0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2823FBEE276D52D700D0B57B /* .mockingbird-ignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = ".mockingbird-ignore"; sourceTree = "<group>"; };
 		282874D92662337500ADC11E /* FinnishPassphrases.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FinnishPassphrases.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		282874DC2662337500ADC11E /* FinnishPasswordsApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinnishPasswordsApp.swift; sourceTree = "<group>"; };
@@ -176,7 +176,7 @@
 			path = Models;
 			sourceTree = "<group>";
 		};
-		281667042664CD6D00DDCCC3 /* FinnishPasswordsTests */ = {
+		281667042664CD6D00DDCCC3 /* FinnishPassphrasesTests */ = {
 			isa = PBXGroup;
 			children = (
 				285738D0276E411700D0C35D /* AppStateTests.swift */,
@@ -185,9 +185,9 @@
 				280A5E612769DD3F0025ABCD /* KotusWordServiceTests.swift */,
 				2816670F2664CED800DDCCC3 /* SeparatorSymbolTests.swift */,
 				281667052664CD6D00DDCCC3 /* PassphraseTests.swift */,
-				281667072664CD6D00DDCCC3 /* Info.plist */,
+				281E062927953C8C00B58EE0 /* Info.plist */,
 			);
-			path = FinnishPasswordsTests;
+			path = FinnishPassphrasesTests;
 			sourceTree = "<group>";
 		};
 		281667112664D23F00DDCCC3 /* Stores */ = {
@@ -207,7 +207,7 @@
 				28B69F5827294AA400A4D080 /* Documentation */,
 				281667162664F50B00DDCCC3 /* README.md */,
 				282874DB2662337500ADC11E /* FinnishPassphrases */,
-				281667042664CD6D00DDCCC3 /* FinnishPasswordsTests */,
+				281667042664CD6D00DDCCC3 /* FinnishPassphrasesTests */,
 				282874DA2662337500ADC11E /* Products */,
 				B0D843842F2AE73D973EF9D6 /* Generated Mocks */,
 			);
@@ -508,13 +508,13 @@
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_TEAM = H9XF3442XB;
-				INFOPLIST_FILE = FinnishPasswordsTests/Info.plist;
+				INFOPLIST_FILE = FinnishPassphrasesTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 					"@loader_path/../Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.juanito.FinnishPasswordsTests;
+				PRODUCT_BUNDLE_IDENTIFIER = com.juanito.FinnishPassphrasesTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/FinnishPassphrases.app/Contents/MacOS/FinnishPassphrases";
@@ -528,13 +528,13 @@
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_TEAM = H9XF3442XB;
-				INFOPLIST_FILE = FinnishPasswordsTests/Info.plist;
+				INFOPLIST_FILE = FinnishPassphrasesTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 					"@loader_path/../Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.juanito.FinnishPasswordsTests;
+				PRODUCT_BUNDLE_IDENTIFIER = com.juanito.FinnishPassphrasesTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/FinnishPassphrases.app/Contents/MacOS/FinnishPassphrases";
