@@ -1,4 +1,3 @@
-# Finnish Passphrases 🇫🇮
 ![Screenshot of the UI](https://raw.githubusercontent.com/JuanitoSebastian/FinnishPassphrases/development/Documentation/GithubHeader.png)
 This simple application lives in the menu bar. It generates secure passphrases using words from the Finnish language. Passphrases are generated using a list of 90,000 words provided by the [Institute for the Languages of Finland](https://kaino.kotus.fi/sanat/nykysuomi/). 
 
