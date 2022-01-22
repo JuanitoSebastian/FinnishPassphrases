@@ -84,6 +84,7 @@
 		2832100F276BF7E900E2C926 /* FinnishPasswordsTests-FinnishPasswordsMocks.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "FinnishPasswordsTests-FinnishPasswordsMocks.generated.swift"; path = "MockingbirdMocks/FinnishPasswordsTests-FinnishPasswordsMocks.generated.swift"; sourceTree = "<group>"; };
 		283D3E01267F3E9B005C8BD9 /* Character.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Character.swift; sourceTree = "<group>"; };
 		284B09E82769B969004D3DFF /* Localizable.strings */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
+		2855632B279C2805006F9392 /* GithubHeader.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = GithubHeader.png; sourceTree = "<group>"; };
 		285738D0276E411700D0C35D /* AppStateTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppStateTests.swift; sourceTree = "<group>"; };
 		285D302E26CD967500724593 /* Checkbox.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Checkbox.swift; sourceTree = "<group>"; };
 		2885D399276B4BEA007E5695 /* DefaultsStoreTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultsStoreTests.swift; sourceTree = "<group>"; };
@@ -259,6 +260,7 @@
 			isa = PBXGroup;
 			children = (
 				28B69F5B27296FAE00A4D080 /* ui_screenshot.png */,
+				2855632B279C2805006F9392 /* GithubHeader.png */,
 			);
 			path = Documentation;
 			sourceTree = "<group>";
