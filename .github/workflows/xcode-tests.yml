@@ -1,0 +1,23 @@
+name: Xcode - Test
+
+on:
+  push:
+    branches: 
+      - main
+      - development
+  pull_request:
+    branches:
+      - main
+      - development
+
+jobs:
+  build:
+    name: Build and analyse default scheme using xcodebuild command
+    runs-on: macos-latest
+    steps:
+      - uses: actions/checkout@v2	
+      - name: install xcbeautify
+        run: brew install xcbeautify
+      - name: Run the xcode tests
+        run: xcodebuild -configuration "Debug" ARCHS="x86_64" -destination 'platform=macOS' -project "FinnishPasswords.xcodeproj" -scheme "FinnishPasswords" test clean | xcbeautify
+
