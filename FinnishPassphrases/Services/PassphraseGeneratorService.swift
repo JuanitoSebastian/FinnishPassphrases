@@ -7,10 +7,12 @@
 
 import Foundation
 
-class PassphraseGeneratorService: ObservableObject {
+/// A class that generates new Passphrase objects 🏭
+class PassphraseGeneratorService {
 
     let kotusWordService: KotusWordService
 
+    /// - Parameter kotusWordService: KotusWordService object to use for fetching random Finnish words
     init(kotusWordService: KotusWordService) {
         self.kotusWordService = kotusWordService
     }
