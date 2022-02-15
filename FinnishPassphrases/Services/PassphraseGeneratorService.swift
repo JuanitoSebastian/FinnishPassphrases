@@ -35,7 +35,8 @@ extension PassphraseGeneratorService {
 
         let passphraseToReturn = Passphrase(
             words: wordCapitalization ? randomizeWordCase(words) : words,
-            separator: separatorSymbol
+            separator: separatorSymbol,
+            wordCapitalization: wordCapitalization
         )
 
         return passphraseToReturn
@@ -50,7 +51,11 @@ extension PassphraseGeneratorService {
         separatorSymbol: SeparatorSymbol
     ) -> Passphrase {
         guard passphrase.separator != separatorSymbol else { return passphrase }
-        return Passphrase(words: passphrase.words, separator: separatorSymbol)
+        return Passphrase(
+            words: passphrase.words,
+            separator: separatorSymbol,
+            wordCapitalization: passphrase.wordCapitalization
+        )
     }
 
     /// Update Passphrase word capitalization
@@ -64,7 +69,7 @@ extension PassphraseGeneratorService {
         let words = wordCapitalization ?
             randomizeWordCase(passphrase.words) : removeRandomizedWordCase(passphrase.words)
 
-        return Passphrase(words: words, separator: passphrase.separator)
+        return Passphrase(words: words, separator: passphrase.separator, wordCapitalization: wordCapitalization)
     }
 
     /// Updates the number of words in a given Passphrase
@@ -94,7 +99,11 @@ extension PassphraseGeneratorService {
             words.removeSubrange(range)
         }
 
-        return Passphrase(words: words, separator: passphrase.separator)
+        return Passphrase(
+            words: words,
+            separator: passphrase.separator,
+            wordCapitalization: passphrase.wordCapitalization
+        )
     }
 
 }

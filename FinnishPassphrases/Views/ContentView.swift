@@ -19,6 +19,7 @@ struct ContentView: View {
 
                 PassphraseDispalyerView(passphrase: $appState.passphrase)
                     .environmentObject(appState)
+                    .onDrag { NSItemProvider(object: appState.passphrase.passphrase as NSString )}
 
                 Spacer()
             }

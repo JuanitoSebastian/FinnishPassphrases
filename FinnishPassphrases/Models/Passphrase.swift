@@ -18,6 +18,9 @@ struct Passphrase {
     /// The SeparatorSymbol used in the Passphrase
     var separator: SeparatorSymbol
 
+    /// Is this passphrase supposed to be mixed case
+    var wordCapitalization: Bool
+
 }
 
 // MARK: - Computed properties
