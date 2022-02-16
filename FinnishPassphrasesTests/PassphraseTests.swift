@@ -13,8 +13,7 @@ class PassphraseTests: XCTestCase {
     func test_passphrase_returns_correct_string() {
         let passphrase = Passphrase(
             words: ["yksi", "kaksi", "kolme"],
-            separator: .hash,
-            wordCapitalization: false
+            separator: .hash
         )
         XCTAssertEqual(passphrase.passphrase, "yksi#kaksi#kolme")
         XCTAssertEqual(passphrase.numOfCharacters, 16)

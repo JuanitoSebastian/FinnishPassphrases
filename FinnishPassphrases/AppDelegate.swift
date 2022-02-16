@@ -23,7 +23,8 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         let appState = AppState(
             passphraseGeneratorService: PassphraseGeneratorService(
                 kotusWordService: kotusWordService
-            )
+            ),
+            openAboutWindow: openAboutWindow
         )
 
         let contentView = ContentView(appState: appState)
@@ -61,6 +62,8 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         window?.backgroundColor = .white
 
         window?.makeKeyAndOrderFront(nil)
+        window?.isReleasedWhenClosed = false
+        NSApp.activate(ignoringOtherApps: true)
     }
 
     @objc

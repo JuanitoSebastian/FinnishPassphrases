@@ -31,11 +31,13 @@ class AppState: ObservableObject {
     private let defaultsStore: DefaultsStore
     private let passphraseGeneratorService: PassphraseGeneratorService
     private let pasteboard: NSPasteboard
+    private let openAboutWindow: (() -> Void)?
 
     init(
         passphraseGeneratorService: PassphraseGeneratorService,
         defaultsStore: DefaultsStore = DefaultsStore(),
-        pasteboard: NSPasteboard = NSPasteboard.general
+        pasteboard: NSPasteboard = NSPasteboard.general,
+        openAboutWindow: @escaping () -> Void
     ) {
         self.defaultsStore = defaultsStore
         self.passphraseGeneratorService = passphraseGeneratorService
@@ -49,6 +51,7 @@ class AppState: ObservableObject {
             separatorSymbol: defaultsStore.separatorSymbol,
             wordCapitalization: defaultsStore.wordCapitalization
         )
+        self.openAboutWindow = openAboutWindow
     }
 
 }
@@ -76,6 +79,10 @@ extension AppState {
     /// Copies the currect Passphrase to the system pasteboard
     func copyPassphraseToPasteboard() {
         pasteboard.setString(passphrase.passphrase, forType: .string)
+    }
+
+    func displayAboutWindow() {
+        openAboutWindow?()
     }
 
     /// Sets the  number of words in a Passphrase. Function checks that
@@ -137,7 +144,8 @@ extension AppState {
         return AppState(
             passphraseGeneratorService: PassphraseGeneratorService(
                 kotusWordService: kotusWordServicePreview
-            )
+            ),
+            openAboutWindow: {}
         )
     }
 }

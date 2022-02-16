@@ -18,9 +18,6 @@ struct Passphrase {
     /// The SeparatorSymbol used in the Passphrase
     var separator: SeparatorSymbol
 
-    /// Is this passphrase supposed to be mixed case
-    var wordCapitalization: Bool
-
 }
 
 // MARK: - Computed properties
@@ -43,6 +40,18 @@ extension Passphrase {
     /// Number of characters in passhrase
     var numOfCharacters: Int {
         passphrase.count
+    }
+
+    /// Does the Passphrase contain mixed case words?
+    var wordCapitalization: Bool {
+        var upperCaseFound = false
+        var lowerCaseFound = false
+        for word in words {
+            if word.first?.isUppercase != nil && word.first!.isUppercase { upperCaseFound = true }
+            if word.first?.isLowercase != nil && word.first!.isLowercase { lowerCaseFound = true }
+            if upperCaseFound && lowerCaseFound { return true }
+        }
+        return false
     }
 
 }
