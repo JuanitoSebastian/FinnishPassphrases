@@ -25,6 +25,6 @@ jobs:
       - name: install xcbeautify
         run: brew install xcbeautify
       - name: Run the xcode tests
-        run: xcodebuild test -configuration "Debug" ARCHS="x86_64" -destination 'platform=macOS' -project "FinnishPassphrases.xcodeproj" -scheme "FinnishPassphrases" -enableCodeCoverage YES test clean | xcbeautify
+        run: xcodebuild test -configuration "Debug" ARCHS="x86_64" -destination 'platform=macOS' -project "FinnishPassphrases.xcodeproj" -scheme "FinnishPassphrases" -enableCodeCoverage YES test | xcbeautify
       - name: Upload coverage to Codecov
         uses: codecov/codecov-action@v1.2.1
