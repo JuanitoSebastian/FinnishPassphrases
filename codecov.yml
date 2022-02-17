@@ -1,0 +1,3 @@
+ignore:
+  - "FinnishPassphrases/Views"  # ignore SwiftUI views
+  - "FinnishPassphrasesTests"   # ignore tests
