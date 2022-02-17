@@ -27,7 +27,7 @@ jobs:
       - name: print derived path
         run: echo "${{ env.DERIVED_DATA }}"
       - name: configure mockingbird
-        run: $ "${{DERIVED_DATA}}/SourcePackages/checkouts/mockingbird/mockingbird" configure FinnishPassphrasesTests -- --targets FinnishPassphrases
+        run: $ "${{ env.DERIVED_DATA }}/SourcePackages/checkouts/mockingbird/mockingbird" configure FinnishPassphrasesTests -- --targets FinnishPassphrases
       - name: Run the xcode tests
         run: xcodebuild -configuration "Debug" ARCHS="x86_64" -destination 'platform=macOS' -project "FinnishPassphrases.xcodeproj" -scheme "FinnishPassphrases" test clean | xcbeautify
 
