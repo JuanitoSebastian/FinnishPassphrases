@@ -427,11 +427,11 @@
 			outputFileListPaths = (
 			);
 			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Mockingbird/mockingbird",
+				"$(DERIVED_FILE_DIR)/mockingbird",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "curl -Lo Mockingbird.zip \"https://github.com/birdrides/mockingbird/releases/download/0.20.0/Mockingbird.zip\"\nunzip Mockingbird.zip\n";
+			shellScript = "curl -Lo Mockingbird.zip \"https://github.com/birdrides/mockingbird/releases/download/0.18.1/Mockingbird.zip\"\nunzip -o Mockingbird.zip mockingbird\n";
 		};
 		6FFA45FDB661609BA4E84F49 /* Generate Mockingbird Mocks */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -447,7 +447,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "set -eu\n\n# Ensure mocks are generated prior to running Compile Sources\nrm -f '/tmp/Mockingbird-878490D5-3DEA-4929-8D37-AACE782B0189'\n\nmockingbird generate \\\n  --targets 'FinnishPassphrases' \\\n  --outputs \"${SRCROOT}/MockingbirdMocks/FinnishPasswordsTests-FinnishPasswordsMocks.generated.swift\" \\\n  --support \"${SRCROOT}/MockingbirdSupport\"\n";
+			shellScript = "set -eu\n\nmockingbird generate \\\n  --targets 'FinnishPassphrases' \\\n  --outputs \"${SRCROOT}/MockingbirdMocks/FinnishPasswordsTests-FinnishPasswordsMocks.generated.swift\" \\\n  --support \"${SRCROOT}/MockingbirdSupport\"\n";
 		};
 /* End PBXShellScriptBuildPhase section */
 
