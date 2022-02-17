@@ -293,6 +293,7 @@
 			buildConfigurationList = 2816670A2664CD6D00DDCCC3 /* Build configuration list for PBXNativeTarget "FinnishPassphrasesTests" */;
 			buildPhases = (
 				E619EBAD5EED4A087725FB74 /* Clean Mockingbird Mocks */,
+				286D7B6227BE5A9400497B26 /* Download Mockingbird */,
 				6FFA45FDB661609BA4E84F49 /* Generate Mockingbird Mocks */,
 				281666FF2664CD6D00DDCCC3 /* Sources */,
 				281667002664CD6D00DDCCC3 /* Frameworks */,
@@ -414,13 +415,32 @@
 			shellPath = /bin/sh;
 			shellScript = "if which swiftlint >/dev/null; then\n  swiftlint\nelse\n  echo \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi\n";
 		};
+		286D7B6227BE5A9400497B26 /* Download Mockingbird */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = "Download Mockingbird";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Mockingbird/mockingbird",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "curl -Lo Mockingbird.zip https://github.com/birdrides/mockingbird/releases/download/0.20.0/Mockingbird.zip\nunzip Mockingbird.zip\n";
+		};
 		6FFA45FDB661609BA4E84F49 /* Generate Mockingbird Mocks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
-				"/tmp/Mockingbird-878490D5-3DEA-4929-8D37-AACE782B0189",
+				"$(DERIVED_FILE_DIR)/Mockingbird/mockingbird",
 			);
 			name = "Generate Mockingbird Mocks";
 			outputPaths = (
