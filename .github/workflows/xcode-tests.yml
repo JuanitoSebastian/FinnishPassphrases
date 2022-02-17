@@ -9,6 +9,7 @@ on:
     branches:
       - main
       - development
+      - actionsfix
 
 jobs:
   build:
