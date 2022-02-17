@@ -292,7 +292,6 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 2816670A2664CD6D00DDCCC3 /* Build configuration list for PBXNativeTarget "FinnishPassphrasesTests" */;
 			buildPhases = (
-				E619EBAD5EED4A087725FB74 /* Clean Mockingbird Mocks */,
 				286D7B6227BE5A9400497B26 /* Download Mockingbird */,
 				6FFA45FDB661609BA4E84F49 /* Generate Mockingbird Mocks */,
 				281666FF2664CD6D00DDCCC3 /* Sources */,
@@ -449,21 +448,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "set -eu\n\n# Ensure mocks are generated prior to running Compile Sources\nrm -f '/tmp/Mockingbird-878490D5-3DEA-4929-8D37-AACE782B0189'\n\nmockingbird generate \\\n  --targets 'FinnishPassphrases' \\\n  --outputs \"${SRCROOT}/MockingbirdMocks/FinnishPasswordsTests-FinnishPasswordsMocks.generated.swift\" \\\n  --support \"${SRCROOT}/MockingbirdSupport\"\n";
-		};
-		E619EBAD5EED4A087725FB74 /* Clean Mockingbird Mocks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "Clean Mockingbird Mocks";
-			outputPaths = (
-				"/tmp/Mockingbird-878490D5-3DEA-4929-8D37-AACE782B0189",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "echo $RANDOM > '/tmp/Mockingbird-878490D5-3DEA-4929-8D37-AACE782B0189'\nrm Mockingbird.zip\nrm -r Mockingbird\n";
 		};
 /* End PBXShellScriptBuildPhase section */
 
