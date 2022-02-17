@@ -23,7 +23,7 @@ jobs:
       - name: install xcbeautify
         run: brew install xcbeautify
       - name: resolve derived date path for mockingbird
-        run: echo "DERIVED_DATA=$(xcodebuild -showBuildSettings | sed -n 's|.*BUILD_ROOT = \(.*\)/Build/.*|\1|p')" >> $GITHUB_ENV
+        run: echo "DERIVED_DATA="$(xcodebuild -showBuildSettings | sed -n 's|.*BUILD_ROOT = \(.*\)/Build/.*|\1|p')"" >> $GITHUB_ENV
       - name: print derived path
         run: echo "${{ env.DERIVED_DATA }}"
       - name: configure mockingbird
