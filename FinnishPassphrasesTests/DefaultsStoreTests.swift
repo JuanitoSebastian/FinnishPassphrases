@@ -19,14 +19,7 @@ class DefaultsStoreTests: XCTestCase {
         defaultsStore = DefaultsStore(userDefaults: userDefaults)
     }
 
-    func test_a_store_return_correct_initial_values() {
-        XCTAssertEqual(defaultsStore.numberOfWordsInPassphrase, 4)
-        XCTAssertEqual(defaultsStore.separatorSymbol, .hyphen)
-        XCTAssertEqual(defaultsStore.wordCapitalization, false)
-        XCTAssertEqual(defaultsStore.doNotShowInstructions, false)
-    }
-
-    func test_b_editing_values_of_store_works() {
+    func test_a_editing_values_of_store_works() {
         defaultsStore.numberOfWordsInPassphrase = 8
         defaultsStore.separatorSymbol = .asterisk
         defaultsStore.wordCapitalization = true
@@ -37,4 +30,5 @@ class DefaultsStoreTests: XCTestCase {
         XCTAssertEqual(defaultsStore.wordCapitalization, true)
         XCTAssertEqual(defaultsStore.doNotShowInstructions, true)
     }
+
 }

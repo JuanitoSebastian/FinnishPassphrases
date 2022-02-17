@@ -5,10 +5,12 @@ on:
     branches: 
       - main
       - development
+      - actionsfix
   pull_request:
     branches:
       - main
       - development
+      - actionsfix
 
 jobs:
   build:
@@ -22,12 +24,6 @@ jobs:
           p12-password: ${{ secrets.CERTIFICATES_P12_PASSWORD }}
       - name: install xcbeautify
         run: brew install xcbeautify
-      - name: resolve derived date path for mockingbird
-        run: echo "DERIVED_DATA="$(xcodebuild -showBuildSettings | sed -n 's|.*BUILD_ROOT = \(.*\)/Build/.*|\1|p')"" >> $GITHUB_ENV
-      - name: print derived path
-        run: echo "${{ env.DERIVED_DATA }}"
-      - name: configure mockingbird
-        run: $ "${{ env.DERIVED_DATA }}/SourcePackages/checkouts/mockingbird/mockingbird" configure FinnishPassphrasesTests -- --targets FinnishPassphrases
       - name: Run the xcode tests
         run: xcodebuild -configuration "Debug" ARCHS="x86_64" -destination 'platform=macOS' -project "FinnishPassphrases.xcodeproj" -scheme "FinnishPassphrases" test clean | xcbeautify
 
