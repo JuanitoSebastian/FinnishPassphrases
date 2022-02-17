@@ -23,7 +23,7 @@ jobs:
       - name: install xcbeautify
         run: brew install xcbeautify
       - name: resolve derived date path for mockingbird
-        run: DERIVED_DATA="$(xcodebuild -showBuildSettings | sed -n 's|.*BUILD_ROOT = \(.*\)/Build/.*|\1|p')
+        run: DERIVED_DATA="$(xcodebuild -showBuildSettings | sed -n 's|.*BUILD_ROOT = \(.*\)/Build/.*|\1|p')"
       - name: configure mockingbird
         run: $ "${DERIVED_DATA}/SourcePackages/checkouts/mockingbird/mockingbird" configure FinnishPassphrasesTests -- --targets FinnishPassphrases
       - name: Run the xcode tests
