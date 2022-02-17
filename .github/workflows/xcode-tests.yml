@@ -5,19 +5,26 @@ on:
     branches: 
       - main
       - development
+      - actionsfix
   pull_request:
     branches:
       - main
       - development
+      - actionsfix
 
 jobs:
   build:
     name: Build and analyse default scheme using xcodebuild command
     runs-on: macos-latest
     steps:
-      - uses: actions/checkout@v2	
+      - uses: actions/checkout@v2
+      - uses: apple-actions/import-codesign-certs@v1
+        with: 
+          p12-file-base64: ${{ secrets.CERTIFICATES_P12 }}
+          p12-password: ${{ secrets.CERTIFICATES_P12_PASSWORD }}
       - name: install xcbeautify
         run: brew install xcbeautify
       - name: Run the xcode tests
-        run: xcodebuild -configuration "Debug" ARCHS="x86_64" -destination 'platform=macOS' -project "FinnishPasswords.xcodeproj" -scheme "FinnishPasswords" test clean | xcbeautify
-
+        run: xcodebuild test -configuration "Debug" ARCHS="x86_64" -destination 'platform=macOS' -project "FinnishPassphrases.xcodeproj" -scheme "FinnishPassphrases" -enableCodeCoverage YES test | xcbeautify
+      - name: Upload coverage to Codecov
+        uses: codecov/codecov-action@v1.2.1

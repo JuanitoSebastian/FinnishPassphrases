@@ -9,6 +9,8 @@ import SwiftUI
 
 struct AboutView: View {
 
+    @ObservedObject var appState: AppState
+
     private let contentPadding: EdgeInsets = EdgeInsets(
         top: 15,
         leading: 25,
@@ -20,8 +22,6 @@ struct AboutView: View {
     let bodyTextColor = Color("gray")
     let ballColor = Color("light-blue")
     let checkboxWrapperColor = Color("lighter-blue")
-
-    @State var displayView = false
 
     var body: some View {
         ZStack {
@@ -61,7 +61,10 @@ struct AboutView: View {
                     .lineSpacing(6)
             }
             ZStack {
-                Checkbox(checked: $displayView, description: LocalizedStringKey("aboutWindowCheckbox"))
+                Checkbox(
+                    checked: $appState.doNotShowAboutWindowOnStart,
+                    description: LocalizedStringKey("aboutWindowCheckbox")
+                )
                     .padding(.horizontal, 12)
                     .padding(.vertical, 8)
             }
@@ -83,7 +86,7 @@ struct AboutView: View {
 #if DEBUG
 struct AboutView_Previews: PreviewProvider {
     static var previews: some View {
-        AboutView()
+        AboutView(appState: AppState.previewShared)
     }
 }
 #endif

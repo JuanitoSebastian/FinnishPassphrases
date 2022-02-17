@@ -7,10 +7,12 @@
 
 import Foundation
 
-class PassphraseGeneratorService: ObservableObject {
+/// A class that generates new Passphrase objects 🏭
+class PassphraseGeneratorService {
 
     let kotusWordService: KotusWordService
 
+    /// - Parameter kotusWordService: KotusWordService object to use for fetching random Finnish words
     init(kotusWordService: KotusWordService) {
         self.kotusWordService = kotusWordService
     }
@@ -29,10 +31,10 @@ extension PassphraseGeneratorService {
         separatorSymbol: SeparatorSymbol,
         wordCapitalization: Bool
     ) -> Passphrase {
-        let words = generateWords(numberOfWords: numOfWords)
+        let words = generateWords(numberOfWords: numOfWords, mixedCase: wordCapitalization)
 
         let passphraseToReturn = Passphrase(
-            words: wordCapitalization ? randomizeWordCase(words) : words,
+            words: words,
             separator: separatorSymbol
         )
 
@@ -48,7 +50,10 @@ extension PassphraseGeneratorService {
         separatorSymbol: SeparatorSymbol
     ) -> Passphrase {
         guard passphrase.separator != separatorSymbol else { return passphrase }
-        return Passphrase(words: passphrase.words, separator: separatorSymbol)
+        return Passphrase(
+            words: passphrase.words,
+            separator: separatorSymbol
+        )
     }
 
     /// Update Passphrase word capitalization
@@ -59,8 +64,9 @@ extension PassphraseGeneratorService {
         passphrase: Passphrase,
         wordCapitalization: Bool
     ) -> Passphrase {
-        let words = wordCapitalization ?
-            randomizeWordCase(passphrase.words) : removeRandomizedWordCase(passphrase.words)
+        let words = wordCapitalization
+        ? randomizeWordCase(passphrase.words)
+        : removeRandomizedWordCase(passphrase.words)
 
         return Passphrase(words: words, separator: passphrase.separator)
     }
@@ -74,22 +80,23 @@ extension PassphraseGeneratorService {
         numOfWords: Int
     ) -> Passphrase {
         guard passphrase.numOfWords != numOfWords else { return passphrase }
-
-        // TODO: Word Capitalization?
+        // Best would be to write this method from scratch again
+        let shouldContainMixedCase = passphrase.wordCapitalization
 
         var words = passphrase.words
-        let difference = abs(numOfWords - passphrase.numOfWords)
+        let difference = numOfWords - passphrase.numOfWords
 
-        if numOfWords > passphrase.numOfWords {
-            words = appendNewWordsToArray(
-                words: words,
-                numOfWordsToAppend: difference
-            )
+        if difference > 0 {
+            words.append(contentsOf: generateWords(numberOfWords: difference, mixedCase: shouldContainMixedCase))
         }
 
-        if numOfWords < passphrase.numOfWords {
-            let range = (words.count - difference)...words.count - 1
+        if difference < 0 {
+            let range = (words.count - abs(difference))...words.count - 1
             words.removeSubrange(range)
+
+            if shouldContainMixedCase && !wordArrayContainsMixedCase(words) {
+                words = randomizeWordCase(words)
+            }
         }
 
         return Passphrase(words: words, separator: passphrase.separator)
@@ -102,12 +109,21 @@ extension PassphraseGeneratorService {
 
     /// Generates a [String] with random words that are fetched from KotusWordService
     /// - Parameter numberOfWords: The number of words that will be generated
-    private func generateWords(numberOfWords: Int) -> [String] {
+    private func generateWords(numberOfWords: Int, mixedCase: Bool = false) -> [String] {
         var words: [String] = []
         for _ in 0..<numberOfWords {
-            words.append(kotusWordService.randomWord())
+            words.append(generateWord(mixedCase))
         }
         return words
+    }
+
+    /// Returns a random word from KotusWordService.
+    /// - Parameter mixedCase: If set to true, the returned word might be capitalized
+    private func generateWord(_ mixedCase: Bool = false) -> String {
+        if !mixedCase { return kotusWordService.randomWord() }
+        return Bool.random()
+            ? kotusWordService.randomWord()
+            : kotusWordService.randomWord().flipCase()
     }
 
     /// Capitalizes random words in the array. The function make sure that the array includes both capitalized
@@ -150,5 +166,16 @@ extension PassphraseGeneratorService {
         var wordsToReturn = words
         wordsToReturn.append(contentsOf: generateWords(numberOfWords: numOfWordsToAppend))
         return wordsToReturn
+    }
+
+    private func wordArrayContainsMixedCase(_ words: [String]) -> Bool {
+        var upperCaseFound = false
+        var lowerCaseFound = false
+        for word in words {
+            if word.first?.isUppercase != nil && word.first!.isUppercase { upperCaseFound = true }
+            if word.first?.isLowercase != nil && word.first!.isLowercase { lowerCaseFound = true }
+            if upperCaseFound && lowerCaseFound { return true }
+        }
+        return false
     }
 }

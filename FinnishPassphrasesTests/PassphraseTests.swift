@@ -18,6 +18,7 @@ class PassphraseTests: XCTestCase {
         XCTAssertEqual(passphrase.passphrase, "yksi#kaksi#kolme")
         XCTAssertEqual(passphrase.numOfCharacters, 16)
         XCTAssertEqual(passphrase.numOfWords, 3)
+        XCTAssertEqual(passphrase.wordCapitalization, false)
     }
 
 }

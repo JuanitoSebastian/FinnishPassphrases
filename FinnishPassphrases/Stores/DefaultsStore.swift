@@ -7,10 +7,12 @@
 
 import Foundation
 
+/// A convenient wrapper for UserDefaults. The variables can be set and the change is saved automatically.
 class DefaultsStore {
 
     private let userDefaults: UserDefaults
 
+    /// - Parameter userDefaults: UserDefaults object to use. For testing you can use `UserDefaults(suiteName: #file)`
     init(userDefaults: UserDefaults = UserDefaults()) {
         self.userDefaults = userDefaults
     }

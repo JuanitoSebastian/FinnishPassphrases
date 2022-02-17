@@ -29,13 +29,14 @@ struct SettingsPanel: View {
                     .font(labelFont)
                     .foregroundColor(labelColor)
             }
-            VStack(spacing: 6) {
+            VStack(spacing: 10) {
                 Toggle("", isOn: $appState.capitalization)
                     .toggleStyle(CustomToggleStyle())
                 Text(LocalizedStringKey("capitalizationLabel"))
                     .font(labelFont)
                     .foregroundColor(labelColor)
             }
+            .padding(.top, 4)
             Spacer()
         }
         .padding(panelPadding)

@@ -27,10 +27,16 @@ class AppState: ObservableObject {
             setNumberOfWordsInPassphrase(numOfWords)
         }
     }
+    @Published var doNotShowAboutWindowOnStart: Bool {
+        didSet {
+            setDoNotDisplayAboutWindowOnStartUp(doNotShowAboutWindowOnStart)
+        }
+    }
 
     private let defaultsStore: DefaultsStore
     private let passphraseGeneratorService: PassphraseGeneratorService
     private let pasteboard: NSPasteboard
+    var openAboutWindow: (() -> Void)?
 
     init(
         passphraseGeneratorService: PassphraseGeneratorService,
@@ -42,6 +48,7 @@ class AppState: ObservableObject {
         self.capitalization = defaultsStore.wordCapitalization
         self.separator = defaultsStore.separatorSymbol
         self.numOfWords = defaultsStore.numberOfWordsInPassphrase
+        self.doNotShowAboutWindowOnStart = defaultsStore.doNotShowInstructions
         self.pasteboard = pasteboard
         self.pasteboard.declareTypes([.string], owner: nil)
         self.passphrase = passphraseGeneratorService.generatePassphrase(
@@ -51,13 +58,6 @@ class AppState: ObservableObject {
         )
     }
 
-}
-
-// MARK: - Computed varibales
-extension AppState {
-    var doNotShowInstructions: Bool {
-        defaultsStore.doNotShowInstructions
-    }
 }
 
 // MARK: - Functions
@@ -76,6 +76,10 @@ extension AppState {
     /// Copies the currect Passphrase to the system pasteboard
     func copyPassphraseToPasteboard() {
         pasteboard.setString(passphrase.passphrase, forType: .string)
+    }
+
+    func displayAboutWindow() {
+        openAboutWindow?()
     }
 
     /// Sets the  number of words in a Passphrase. Function checks that
@@ -100,6 +104,10 @@ extension AppState {
             passphrase: passphrase,
             separatorSymbol: separator
         )
+    }
+
+    func setDoNotDisplayAboutWindowOnStartUp(_ value: Bool) {
+        defaultsStore.doNotShowInstructions = value
     }
 
     func quitApplication() {

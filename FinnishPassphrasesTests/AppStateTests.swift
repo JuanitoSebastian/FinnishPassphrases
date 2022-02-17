@@ -27,8 +27,10 @@ class AppStateTests: XCTestCase {
             <st><s>ahdekaunokki</s></st>
             """
         self.pasteboard = NSPasteboard.general
+        let userDefaults = UserDefaults(suiteName: #file)!
+        userDefaults.removePersistentDomain(forName: #file)
         self.defaultStore = DefaultsStore(
-            userDefaults: UserDefaults(suiteName: #file)!
+            userDefaults: userDefaults
         )
         self.kotusWordService = KotusWordService(customData: customData)
         kotusWordService.readFileToMemory()
