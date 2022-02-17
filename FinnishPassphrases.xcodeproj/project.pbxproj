@@ -439,7 +439,7 @@
 			files = (
 			);
 			inputPaths = (
-				"$(DERIVED_FILE_DIR)/Mockingbird/mockingbird",
+				"$(DERIVED_FILE_DIR)/mockingbird",
 			);
 			name = "Generate Mockingbird Mocks";
 			outputPaths = (
@@ -447,7 +447,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "set -eu\n\nmockingbird generate \\\n  --targets 'FinnishPassphrases' \\\n  --outputs \"${SRCROOT}/MockingbirdMocks/FinnishPasswordsTests-FinnishPasswordsMocks.generated.swift\" \\\n  --support \"${SRCROOT}/MockingbirdSupport\"\n";
+			shellScript = "set -eu\n\n${SRCROOT}/mockingbird generate \\\n  --targets 'FinnishPassphrases' \\\n  --outputs \"${SRCROOT}/MockingbirdMocks/FinnishPasswordsTests-FinnishPasswordsMocks.generated.swift\" \\\n  --support \"${SRCROOT}/MockingbirdSupport\"\n";
 		};
 /* End PBXShellScriptBuildPhase section */
 
