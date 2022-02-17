@@ -5,6 +5,7 @@ on:
     branches: 
       - main
       - development
+      - actionsfix
   pull_request:
     branches:
       - main
