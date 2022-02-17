@@ -11,21 +11,28 @@ import SwiftUI
 
 class AppDelegate: NSObject, NSApplicationDelegate {
 
+    let appState: AppState
+
     var statusItem: NSStatusItem?
 
     var popOver = NSPopover()
 
     var window: NSWindow?
 
-    func applicationDidFinishLaunching(_ notification: Notification) {
+    override init() {
         let kotusWordService = KotusWordService()
         kotusWordService.readFileToMemory()
-        let appState = AppState(
+        self.appState = AppState(
             passphraseGeneratorService: PassphraseGeneratorService(
                 kotusWordService: kotusWordService
-            ),
-            openAboutWindow: openAboutWindow
+            )
         )
+
+        super.init()
+    }
+
+    func applicationDidFinishLaunching(_ notification: Notification) {
+        appState.openAboutWindow = openAboutWindow
 
         let contentView = ContentView(appState: appState)
 
@@ -41,7 +48,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
             menuButton.action = #selector(menuButtonToggle)
         }
 
-        if !appState.doNotShowInstructions {
+        if !appState.doNotShowAboutWindowOnStart {
             openAboutWindow()
         }
     }
@@ -53,7 +60,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
                 backing: .buffered, defer: false)
         window?.center()
         window?.title = NSLocalizedString("appNameTitle", comment: "")
-        window?.contentView = NSHostingView(rootView: AboutView())
+        window?.contentView = NSHostingView(rootView: AboutView(appState: appState))
 
         window?.titleVisibility = .hidden
         window?.styleMask.insert(.fullSizeContentView)

@@ -27,23 +27,28 @@ class AppState: ObservableObject {
             setNumberOfWordsInPassphrase(numOfWords)
         }
     }
+    @Published var doNotShowAboutWindowOnStart: Bool {
+        didSet {
+            setDoNotDisplayAboutWindowOnStartUp(doNotShowAboutWindowOnStart)
+        }
+    }
 
     private let defaultsStore: DefaultsStore
     private let passphraseGeneratorService: PassphraseGeneratorService
     private let pasteboard: NSPasteboard
-    private let openAboutWindow: (() -> Void)?
+    var openAboutWindow: (() -> Void)?
 
     init(
         passphraseGeneratorService: PassphraseGeneratorService,
         defaultsStore: DefaultsStore = DefaultsStore(),
-        pasteboard: NSPasteboard = NSPasteboard.general,
-        openAboutWindow: @escaping () -> Void
+        pasteboard: NSPasteboard = NSPasteboard.general
     ) {
         self.defaultsStore = defaultsStore
         self.passphraseGeneratorService = passphraseGeneratorService
         self.capitalization = defaultsStore.wordCapitalization
         self.separator = defaultsStore.separatorSymbol
         self.numOfWords = defaultsStore.numberOfWordsInPassphrase
+        self.doNotShowAboutWindowOnStart = defaultsStore.doNotShowInstructions
         self.pasteboard = pasteboard
         self.pasteboard.declareTypes([.string], owner: nil)
         self.passphrase = passphraseGeneratorService.generatePassphrase(
@@ -51,16 +56,8 @@ class AppState: ObservableObject {
             separatorSymbol: defaultsStore.separatorSymbol,
             wordCapitalization: defaultsStore.wordCapitalization
         )
-        self.openAboutWindow = openAboutWindow
     }
 
-}
-
-// MARK: - Computed varibales
-extension AppState {
-    var doNotShowInstructions: Bool {
-        defaultsStore.doNotShowInstructions
-    }
 }
 
 // MARK: - Functions
@@ -109,6 +106,10 @@ extension AppState {
         )
     }
 
+    func setDoNotDisplayAboutWindowOnStartUp(_ value: Bool) {
+        defaultsStore.doNotShowInstructions = value
+    }
+
     func quitApplication() {
         NSApplication.shared.terminate(self)
     }
@@ -144,8 +145,7 @@ extension AppState {
         return AppState(
             passphraseGeneratorService: PassphraseGeneratorService(
                 kotusWordService: kotusWordServicePreview
-            ),
-            openAboutWindow: {}
+            )
         )
     }
 }
