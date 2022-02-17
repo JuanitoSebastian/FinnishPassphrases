@@ -432,7 +432,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "curl -Lo Mockingbird.zip https://github.com/birdrides/mockingbird/releases/download/0.20.0/Mockingbird.zip\nunzip Mockingbird.zip\n";
+			shellScript = "curl -Lo Mockingbird.zip \"https://github.com/birdrides/mockingbird/releases/download/0.20.0/Mockingbird.zip\"\nunzip Mockingbird.zip\n";
 		};
 		6FFA45FDB661609BA4E84F49 /* Generate Mockingbird Mocks */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -463,7 +463,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "echo $RANDOM > '/tmp/Mockingbird-878490D5-3DEA-4929-8D37-AACE782B0189'\n";
+			shellScript = "echo $RANDOM > '/tmp/Mockingbird-878490D5-3DEA-4929-8D37-AACE782B0189'\nrm Mockingbird.zip\nrm -r Mockingbird\n";
 		};
 /* End PBXShellScriptBuildPhase section */
 
