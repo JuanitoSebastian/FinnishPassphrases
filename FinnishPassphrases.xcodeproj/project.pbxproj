@@ -67,6 +67,9 @@
 		280A1D082662477F00301A4C /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		280A5E612769DD3F0025ABCD /* KotusWordServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KotusWordServiceTests.swift; sourceTree = "<group>"; };
 		280E0F2F266AB5E6001F24F9 /* String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = String.swift; sourceTree = "<group>"; };
+		2815932F27BF694A00840475 /* download_mockingbird.sh */ = {isa = PBXFileReference; lastKnownFileType = text.script.sh; path = download_mockingbird.sh; sourceTree = "<group>"; };
+		2815933027BF6D0900840475 /* generate_mockingbird_mocks.sh */ = {isa = PBXFileReference; lastKnownFileType = text.script.sh; path = generate_mockingbird_mocks.sh; sourceTree = "<group>"; };
+		2815933127BF6E2E00840475 /* run_xcode_tests.sh */ = {isa = PBXFileReference; lastKnownFileType = text.script.sh; path = run_xcode_tests.sh; sourceTree = "<group>"; };
 		281666FB2664C53A00DDCCC3 /* Passphrase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Passphrase.swift; sourceTree = "<group>"; };
 		281666FD2664C6B600DDCCC3 /* SeparatorSymbol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeparatorSymbol.swift; sourceTree = "<group>"; };
 		281667032664CD6D00DDCCC3 /* FinnishPassphrasesTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FinnishPassphrasesTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -170,6 +173,16 @@
 			path = Extensions;
 			sourceTree = "<group>";
 		};
+		2815932E27BF68F400840475 /* Scripts */ = {
+			isa = PBXGroup;
+			children = (
+				2815932F27BF694A00840475 /* download_mockingbird.sh */,
+				2815933027BF6D0900840475 /* generate_mockingbird_mocks.sh */,
+				2815933127BF6E2E00840475 /* run_xcode_tests.sh */,
+			);
+			path = Scripts;
+			sourceTree = "<group>";
+		};
 		281666FA2664C50600DDCCC3 /* Models */ = {
 			isa = PBXGroup;
 			children = (
@@ -204,6 +217,7 @@
 		282874D02662337500ADC11E = {
 			isa = PBXGroup;
 			children = (
+				2815932E27BF68F400840475 /* Scripts */,
 				283B7FE227BE9B2C00814098 /* codecov.yml */,
 				28B15791279497B8007352E9 /* .swiftlint.yml */,
 				2823FBEE276D52D700D0B57B /* .mockingbird-ignore */,
@@ -295,7 +309,6 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 2816670A2664CD6D00DDCCC3 /* Build configuration list for PBXNativeTarget "FinnishPassphrasesTests" */;
 			buildPhases = (
-				285D399727BE7A7D0052D90C /* Remove old Mockingbird binary */,
 				286D7B6227BE5A9400497B26 /* Download Mockingbird */,
 				6FFA45FDB661609BA4E84F49 /* Generate Mockingbird Mocks */,
 				281666FF2664CD6D00DDCCC3 /* Sources */,
@@ -419,24 +432,6 @@
 			shellPath = /bin/sh;
 			shellScript = "if which swiftlint >/dev/null; then\n  swiftlint\nelse\n  echo \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi\n";
 		};
-		285D399727BE7A7D0052D90C /* Remove old Mockingbird binary */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-			);
-			name = "Remove old Mockingbird binary";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "rm -rf Mockingbird.zip\nrm -rf mockingbird\n";
-		};
 		286D7B6227BE5A9400497B26 /* Download Mockingbird */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -450,11 +445,11 @@
 			outputFileListPaths = (
 			);
 			outputPaths = (
-				"$(DERIVED_FILE_DIR)/mockingbird",
+				"$(SRCROOT)/MockingbirdSupport/mockingbird",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "curl -Lo Mockingbird.zip \"https://github.com/birdrides/mockingbird/releases/download/0.18.1/Mockingbird.zip\"\nunzip -o Mockingbird.zip mockingbird\n";
+			shellScript = "sh Scripts/download_mockingbird.sh\n";
 		};
 		6FFA45FDB661609BA4E84F49 /* Generate Mockingbird Mocks */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -462,7 +457,7 @@
 			files = (
 			);
 			inputPaths = (
-				"$(DERIVED_FILE_DIR)/mockingbird",
+				"$(SRCROOT)/MockingbirdSupport/mockingbird",
 			);
 			name = "Generate Mockingbird Mocks";
 			outputPaths = (
@@ -470,7 +465,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "set -eu\n\n${SRCROOT}/mockingbird generate \\\n  --targets 'FinnishPassphrases' \\\n  --outputs \"${SRCROOT}/MockingbirdMocks/FinnishPasswordsTests-FinnishPasswordsMocks.generated.swift\" \\\n  --support \"${SRCROOT}/MockingbirdSupport\"\n";
+			shellScript = "sh Scripts/generate_mockingbird_mocks.sh\n";
 		};
 /* End PBXShellScriptBuildPhase section */
 
