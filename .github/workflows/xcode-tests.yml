@@ -5,12 +5,12 @@ on:
     branches: 
       - main
       - development
-      - actionsfix
+      - build-scripts
   pull_request:
     branches:
       - main
       - development
-      - actionsfix
+      - build-scripts
 
 jobs:
   build:
