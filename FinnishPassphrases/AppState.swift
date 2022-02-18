@@ -19,17 +19,17 @@ class AppState: ObservableObject {
     }
     @Published var separator: SeparatorSymbol {
         didSet {
-            setCurrentSeparator(separator)
+            handleChangeOfSeparatorSymbol(separator)
         }
     }
     @Published var numOfWords: Int {
         didSet {
-            setNumberOfWordsInPassphrase(numOfWords)
+            handleChangeOfNumberOfWords(numOfWords)
         }
     }
     @Published var doNotShowAboutWindowOnStart: Bool {
         didSet {
-            setDoNotDisplayAboutWindowOnStartUp(doNotShowAboutWindowOnStart)
+            handleChangeOfDoNotShowAboutWindowOnStart(doNotShowAboutWindowOnStart)
         }
     }
 
@@ -82,34 +82,6 @@ extension AppState {
         openAboutWindow?()
     }
 
-    /// Sets the  number of words in a Passphrase. Function checks that
-    /// the given number is within accepted range. If number is not in range, nothing
-    /// is done.
-    /// - Parameter numberOfWordsToSet: The number of words in Passphrase
-    func setNumberOfWordsInPassphrase(_ numberOfWordToSet: Int) {
-        guard cPassphraseNumberOfWordsRangeInt.contains(numberOfWordToSet) else {
-            return
-        }
-
-        defaultsStore.numberOfWordsInPassphrase = numberOfWordToSet
-        passphrase = passphraseGeneratorService.updatePassphraseNumOfWords(
-            passphrase: passphrase, numOfWords: numberOfWordToSet
-        )
-    }
-
-    /// Sets the SeparatorSymbol that will be used to generate Passphrase.
-    func setCurrentSeparator(_ separator: SeparatorSymbol) {
-        defaultsStore.separatorSymbol = separator
-        passphrase = passphraseGeneratorService.updatePassphraseSeparatorSymbol(
-            passphrase: passphrase,
-            separatorSymbol: separator
-        )
-    }
-
-    func setDoNotDisplayAboutWindowOnStartUp(_ value: Bool) {
-        defaultsStore.doNotShowInstructions = value
-    }
-
     func quitApplication() {
         NSApplication.shared.terminate(self)
     }
@@ -127,6 +99,36 @@ extension AppState {
             passphrase: passphrase,
             wordCapitalization: valueToSet
         )
+    }
+
+    /// Sets the SeparatorSymbol that will be used to generate Passphrase.
+    private func handleChangeOfSeparatorSymbol(_ separator: SeparatorSymbol) {
+        defaultsStore.separatorSymbol = separator
+        passphrase = passphraseGeneratorService.updatePassphraseSeparatorSymbol(
+            passphrase: passphrase,
+            separatorSymbol: separator
+        )
+    }
+
+    /// Sets the  number of words in a Passphrase. Function checks that
+    /// the given number is within accepted range. If number is not in range, nothing
+    /// is done.
+    /// - Parameter numberOfWordsToSet: The number of words in Passphrase
+    private func handleChangeOfNumberOfWords(_ numberOfWordToSet: Int) {
+        guard cPassphraseNumberOfWordsRangeInt.contains(numberOfWordToSet) else {
+            return
+        }
+
+        defaultsStore.numberOfWordsInPassphrase = numberOfWordToSet
+        passphrase = passphraseGeneratorService.updatePassphraseNumOfWords(
+            passphrase: passphrase, numOfWords: numberOfWordToSet
+        )
+    }
+
+    /// Saves the given value (on if the About window should be shown) to DefaultsStore
+    /// - Parameter value: Value to save to DefaultsSTore
+    private func handleChangeOfDoNotShowAboutWindowOnStart(_ value: Bool) {
+        defaultsStore.doNotShowInstructions = value
     }
 
 }

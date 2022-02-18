@@ -43,7 +43,7 @@ extension Passphrase {
     }
 
     /// Does the Passphrase contain mixed case words?
-    var wordCapitalization: Bool {
+    var mixedCase: Bool {
         var upperCaseFound = false
         var lowerCaseFound = false
         for word in words {

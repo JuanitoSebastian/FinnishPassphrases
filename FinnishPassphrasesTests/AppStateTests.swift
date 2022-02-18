@@ -47,6 +47,8 @@ class AppStateTests: XCTestCase {
     func test_a_appstate_is_initialized_correctly() {
         XCTAssertEqual(appState.passphrase.separator, defaultStore.separatorSymbol)
         XCTAssertEqual(appState.passphrase.numOfWords, defaultStore.numberOfWordsInPassphrase)
+        XCTAssertFalse(appState.doNotShowAboutWindowOnStart)
+        XCTAssertFalse(appState.capitalization)
 
         for word in appState.passphrase.words {
             XCTAssertTrue(correctWords.contains(word))
@@ -62,7 +64,18 @@ class AppStateTests: XCTestCase {
         XCTAssertEqual(appState.passphrase.numOfWords, 5)
     }
 
-    func test_c_setting_separator_works() {
+    func test_c_setting_number_of_words_to_same_does_notghing() {
+        let currentNumber = appState.numOfWords
+        appState.numOfWords = currentNumber
+
+        XCTAssertEqual(defaultStore.numberOfWordsInPassphrase, currentNumber)
+
+        appState.generateNewPassphrase()
+
+        XCTAssertEqual(appState.passphrase.numOfWords, currentNumber)
+    }
+
+    func test_d_setting_separator_works() {
         appState.separator = .slash
         XCTAssertEqual(defaultStore.separatorSymbol, .slash)
         XCTAssertEqual(appState.separator, .slash)
@@ -71,13 +84,44 @@ class AppStateTests: XCTestCase {
         XCTAssertEqual(appState.passphrase.separator, .slash)
     }
 
-    func test_d_copying_to_pasteboard_works() {
+    func test_e_setting_separator_to_same_does_nothing() {
+        let currentSeparator = appState.separator
+        appState.separator = currentSeparator
+
+        XCTAssertEqual(defaultStore.separatorSymbol, currentSeparator)
+
+        appState.generateNewPassphrase()
+
+        XCTAssertEqual(appState.passphrase.separator, currentSeparator)
+    }
+
+    func test_f_copying_to_pasteboard_works() {
         appState.copyPassphraseToPasteboard()
 
         let textFromPastebaord = pasteboard.pasteboardItems![0]
             .string(forType: NSPasteboard.PasteboardType(rawValue: "public.utf8-plain-text"))
 
         XCTAssertEqual(textFromPastebaord, appState.passphrase.passphrase)
+    }
+
+    func test_g_setting_do_not_show_about_window() {
+        appState.doNotShowAboutWindowOnStart = true
+        XCTAssertTrue(defaultStore.doNotShowInstructions)
+
+        appState.doNotShowAboutWindowOnStart = false
+        XCTAssertFalse(defaultStore.doNotShowInstructions)
+    }
+
+    func test_h_display_about_window_calls_function() {
+        var testBool = false
+
+        func mock() {
+            testBool = true
+        }
+
+        appState.openAboutWindow = mock
+        appState.displayAboutWindow()
+        XCTAssertTrue(testBool)
     }
 
 }
