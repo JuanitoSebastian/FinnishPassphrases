@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2807C07427BF9E9100312F77 /* StringTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2807C07327BF9E9100312F77 /* StringTests.swift */; };
+		2807C07627BFA19F00312F77 /* CharacterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2807C07527BFA19F00312F77 /* CharacterTests.swift */; };
 		280A1CFB2662356F00301A4C /* Log.swift in Sources */ = {isa = PBXBuildFile; fileRef = 280A1CFA2662356F00301A4C /* Log.swift */; };
 		280A1CFD2662357A00301A4C /* kotus-sanalista_v1.xml in Resources */ = {isa = PBXBuildFile; fileRef = 280A1CFC2662357A00301A4C /* kotus-sanalista_v1.xml */; };
 		280A1D012662359900301A4C /* PassphraseGeneratorService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 280A1CFF2662359800301A4C /* PassphraseGeneratorService.swift */; };
@@ -44,7 +46,6 @@
 		28B7FE3E2665006B007A891B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28B7FE3D2665006B007A891B /* AppDelegate.swift */; };
 		28B8602D2769DFE4008C9A17 /* Log.swift in Sources */ = {isa = PBXBuildFile; fileRef = 280A1CFA2662356F00301A4C /* Log.swift */; };
 		28DD0EA3277F5BB800B3CA60 /* AboutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28DD0EA2277F5BB800B3CA60 /* AboutView.swift */; };
-		28FBFC8526C9B187004A12A2 /* Double.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28FBFC8426C9B187004A12A2 /* Double.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -58,6 +59,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		2807C07327BF9E9100312F77 /* StringTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringTests.swift; sourceTree = "<group>"; };
+		2807C07527BFA19F00312F77 /* CharacterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterTests.swift; sourceTree = "<group>"; };
 		280A1CFA2662356F00301A4C /* Log.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Log.swift; sourceTree = "<group>"; };
 		280A1CFC2662357A00301A4C /* kotus-sanalista_v1.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = "kotus-sanalista_v1.xml"; sourceTree = "<group>"; };
 		280A1CFF2662359800301A4C /* PassphraseGeneratorService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PassphraseGeneratorService.swift; sourceTree = "<group>"; };
@@ -106,7 +109,6 @@
 		28B69F5B27296FAE00A4D080 /* ui_screenshot.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ui_screenshot.png; sourceTree = "<group>"; };
 		28B7FE3D2665006B007A891B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		28DD0EA2277F5BB800B3CA60 /* AboutView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutView.swift; sourceTree = "<group>"; };
-		28FBFC8426C9B187004A12A2 /* Double.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Double.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -169,7 +171,6 @@
 			children = (
 				280E0F2F266AB5E6001F24F9 /* String.swift */,
 				283D3E01267F3E9B005C8BD9 /* Character.swift */,
-				28FBFC8426C9B187004A12A2 /* Double.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -197,6 +198,8 @@
 		281667042664CD6D00DDCCC3 /* FinnishPassphrasesTests */ = {
 			isa = PBXGroup;
 			children = (
+				2807C07527BFA19F00312F77 /* CharacterTests.swift */,
+				2807C07327BF9E9100312F77 /* StringTests.swift */,
 				285738D0276E411700D0C35D /* AppStateTests.swift */,
 				2899C8C4276BECA600824754 /* PassphraseGeneratorServiceTests.swift */,
 				2885D399276B4BEA007E5695 /* DefaultsStoreTests.swift */,
@@ -479,10 +482,12 @@
 				281667062664CD6D00DDCCC3 /* PassphraseTests.swift in Sources */,
 				28B8602D2769DFE4008C9A17 /* Log.swift in Sources */,
 				28321010276BF7E900E2C926 /* FinnishPasswordsTests-FinnishPasswordsMocks.generated.swift in Sources */,
+				2807C07627BFA19F00312F77 /* CharacterTests.swift in Sources */,
 				285738D1276E411700D0C35D /* AppStateTests.swift in Sources */,
 				2885D39A276B4BEA007E5695 /* DefaultsStoreTests.swift in Sources */,
 				281667102664CED800DDCCC3 /* SeparatorSymbolTests.swift in Sources */,
 				2899C8C5276BECA600824754 /* PassphraseGeneratorServiceTests.swift in Sources */,
+				2807C07427BF9E9100312F77 /* StringTests.swift in Sources */,
 				280A5E622769DD3F0025ABCD /* KotusWordServiceTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -511,7 +516,6 @@
 				282874DD2662337500ADC11E /* FinnishPasswordsApp.swift in Sources */,
 				280E0F30266AB5E6001F24F9 /* String.swift in Sources */,
 				280A1CFB2662356F00301A4C /* Log.swift in Sources */,
-				28FBFC8526C9B187004A12A2 /* Double.swift in Sources */,
 				280A1D092662477F00301A4C /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
