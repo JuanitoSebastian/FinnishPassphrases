@@ -1,4 +1,4 @@
-name: Xcode - Test
+name: Build & Tests
 
 on:
   push:
