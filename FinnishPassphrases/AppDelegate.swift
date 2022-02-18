@@ -77,5 +77,6 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     func menuButtonToggle() {
         guard let menuButton = statusItem?.button else { return }
         self.popOver.show(relativeTo: menuButton.bounds, of: menuButton, preferredEdge: NSRectEdge.minY)
+        NSApp.activate(ignoringOtherApps: true)
     }
 }
