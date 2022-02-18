@@ -11,7 +11,7 @@ struct SettingsPanel: View {
 
     @EnvironmentObject var appState: AppState
     private let panelColor = Color("lighter-blue")
-    private let panelPadding = EdgeInsets(top: 20, leading: 0, bottom: 20, trailing: 0)
+    private let panelPadding = EdgeInsets(top: 40, leading: 0, bottom: 20, trailing: 0)
     private let labelFont = Font.system(size: 14, design: .default)
     private let labelColor = Color("gray")
 

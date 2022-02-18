@@ -41,7 +41,7 @@ struct ContentView: View {
                     actionAnimated: true
                 )
             }
-            .padding(20)
+            .padding(40)
         }
         .frame(width: 500, height: 250)
     }
