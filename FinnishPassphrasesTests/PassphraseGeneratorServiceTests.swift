@@ -51,7 +51,7 @@ class PassphraseGeneratorServiceTests: XCTestCase {
 
         XCTAssertEqual(passphrase.separator, .slash)
         XCTAssertEqual(passphrase.passphrase, "karpalo/kukka/tiekyltti")
-        XCTAssertEqual(passphrase.wordCapitalization, false)
+        XCTAssertEqual(passphrase.mixedCase, false)
     }
 
     func test_c_updating_passphrase_capitalization_returns_valid_passphrase() {
@@ -67,7 +67,7 @@ class PassphraseGeneratorServiceTests: XCTestCase {
 
         XCTAssertEqual(passphrase.passphrase.lowercased(), "karpalo*kukka*tiekyltti")
         XCTAssertNotEqual(passphrase.passphrase, "karpalo*kukka*tiekyltti")
-        XCTAssertEqual(passphrase.wordCapitalization, true)
+        XCTAssertEqual(passphrase.mixedCase, true)
 
         passphrase = passphraseGeneratorService.updatePassphraseWordCapitalization(
             passphrase: passphrase,
@@ -75,7 +75,7 @@ class PassphraseGeneratorServiceTests: XCTestCase {
         )
 
         XCTAssertEqual(passphrase.passphrase, "karpalo*kukka*tiekyltti")
-        XCTAssertEqual(passphrase.wordCapitalization, false)
+        XCTAssertEqual(passphrase.mixedCase, false)
     }
 
     func test_d_updating_passphrase_numofwords_equal_returns_same_passphrase() {

@@ -80,8 +80,8 @@ extension PassphraseGeneratorService {
         numOfWords: Int
     ) -> Passphrase {
         guard passphrase.numOfWords != numOfWords else { return passphrase }
-        // Best would be to write this method from scratch again
-        let shouldContainMixedCase = passphrase.wordCapitalization
+
+        let shouldContainMixedCase = passphrase.mixedCase
 
         var words = passphrase.words
         let difference = numOfWords - passphrase.numOfWords
