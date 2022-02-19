@@ -7,28 +7,17 @@
 
 import SwiftUI
 
+/// A component for choosing a number within a range.
 struct WordAmountFlicker: View {
 
     @Binding var wordCount: Int
-    private let numberRange: ClosedRange<Int>
-    private let numberFont: Font
-    private let numberColor: Color
-    private let circleStrokeColor: Color
-    private let circleSymbolColor: Color
-    private let circleSymbolFont: Font
-
-    init(
-        numberRange: ClosedRange<Int> = cPassphraseNumberOfWordsRangeInt,
-        wordCount: Binding<Int>
-    ) {
-        self.numberRange = numberRange
-        self._wordCount = wordCount
-        self.numberFont = Font.system(size: 20, design: .default)
-        self.numberColor = Color("black")
-        self.circleStrokeColor = Color("lighter-blue")
-        self.circleSymbolColor = Color("medium-blue")
-        self.circleSymbolFont = Font.system(size: 15, design: .rounded).weight(.bold)
-    }
+    let numberRange: ClosedRange<Int>
+    let numberFont: Font = Font.system(size: 20, design: .default)
+    let numberColor: Color = Color("flicker-value-text")
+    let flickerBackgroundColor: Color = Color("flicker-background")
+    let circleStrokeColor: Color = Color("settings-panel-background")
+    let circleSymbolColor: Color = Color("flicker-action-symbol")
+    let circleSymbolFont: Font = Font.system(size: 15, design: .rounded).weight(.bold)
 
     var body: some View {
         ZStack(alignment: .center) {
@@ -47,7 +36,7 @@ struct WordAmountFlicker: View {
 
     private var square: some View {
         RoundedRectangle(cornerRadius: 10)
-            .fill(Color.white)
+            .fill(flickerBackgroundColor)
             .frame(width: 40, height: 40)
     }
 
@@ -65,7 +54,7 @@ struct WordAmountFlicker: View {
         } label: {
             ZStack {
                 Circle()
-                    .fill(Color.white)
+                    .fill(flickerBackgroundColor)
                     .frame(width: 23, height: 23)
 
                 Circle()
@@ -99,7 +88,7 @@ extension WordAmountFlicker {
 #if DEBUG
 struct WordAmountFlicker_Previews: PreviewProvider {
     static var previews: some View {
-        WordAmountFlicker(wordCount: .constant(3))
+        WordAmountFlicker(wordCount: .constant(3), numberRange: cPassphraseNumberOfWordsRangeInt)
     }
 }
 #endif

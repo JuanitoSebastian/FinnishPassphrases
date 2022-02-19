@@ -11,8 +11,8 @@ struct Checkbox: View {
 
     @Binding var checked: Bool
     let description: LocalizedStringKey
-    let checkmarkColor = Color("blue")
-    let textColor = Color("gray")
+    let checkmarkColor = Color("passphrase-separator")
+    let textColor = Color("about-text-body")
     let textFont = Font.system(size: 14, design: .default).weight(.regular)
 
 }

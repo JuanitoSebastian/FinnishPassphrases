@@ -10,6 +10,7 @@ import SwiftUI
 struct ContentView: View {
 
     @ObservedObject var appState: AppState
+    private let backgroundColor = Color("backdrop")
 
     var body: some View {
         ZStack(alignment: .bottom) {
@@ -23,7 +24,7 @@ struct ContentView: View {
 
                 Spacer()
             }
-            .background(Color.white)
+            .background(backgroundColor)
 
             HStack(spacing: 10) {
                 Spacer()

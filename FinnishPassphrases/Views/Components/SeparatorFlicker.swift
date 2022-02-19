@@ -15,7 +15,9 @@ struct SeparatorFlicker: View {
     private let numberColor: Color
     private let circleStrokeColor: Color
     private let circleSymbolColor: Color
+    private let circleBackgroundColor: Color
     private let circleSymbolFont: Font
+    private let flickerBackgroundColor: Color
 
     init(
         separators: [SeparatorSymbol],
@@ -25,9 +27,11 @@ struct SeparatorFlicker: View {
         self._currentSeparator = currentSeparator
         self.index = separators.firstIndex(of: currentSeparator.wrappedValue)!
         self.numberFont = Font.system(size: 20, design: .default)
-        self.numberColor = Color("black")
-        self.circleStrokeColor = Color("lighter-blue")
-        self.circleSymbolColor = Color("medium-blue")
+        self.flickerBackgroundColor = Color("flicker-background")
+        self.numberColor = Color("flicker-value-text")
+        self.circleBackgroundColor = Color("flicker-background")
+        self.circleStrokeColor = Color("settings-panel-background")
+        self.circleSymbolColor = Color("flicker-action-symbol")
         self.circleSymbolFont = Font.system(size: 15, design: .rounded).weight(.bold)
     }
 

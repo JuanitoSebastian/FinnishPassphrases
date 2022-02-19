@@ -18,14 +18,16 @@ struct AboutView: View {
         trailing: 25
     )
 
-    let titleColor = Color("black")
-    let bodyTextColor = Color("gray")
-    let ballColor = Color("light-blue")
-    let checkboxWrapperColor = Color("lighter-blue")
+    let backdropColor = Color("about-background")
+    let titleColor = Color("about-text-heading")
+    let bodyTextColor = Color("about-text-body")
+    let ballColor = Color("about-ball")
+    let checkboxWrapperColor = Color("about-element-wrapper")
 
     var body: some View {
         ZStack {
-            background
+            Rectangle()
+                .fill(backdropColor)
 
             blurredCircle
                 .position(x: 0, y: cAboutWindowHeight)
@@ -37,13 +39,6 @@ struct AboutView: View {
                 .padding(contentPadding)
         }
         .frame(width: cAboutWindowWidth, height: cAboutWindowHeight)
-    }
-
-    private var background: some View {
-        Rectangle()
-            .fill(
-                Color.white
-            )
     }
 
     private var mainContent: some View {

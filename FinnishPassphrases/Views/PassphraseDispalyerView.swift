@@ -17,8 +17,8 @@ struct PassphraseDispalyerView: View {
     private let passphraseAreaPadding = EdgeInsets(top: 40, leading: 10, bottom: 20, trailing: 10)
 
     private let passphraseFont = Font.system(size: 18, design: .monospaced).weight(.regular)
-    private let passphraseWordColor = Color("black")
-    private let passphraseSeparatorColor = Color("blue")
+    private let passphraseWordColor = Color("passphrase-text")
+    private let passphraseSeparatorColor = Color("passphrase-separator")
 
 }
 

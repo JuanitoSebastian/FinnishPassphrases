@@ -10,15 +10,15 @@ import SwiftUI
 struct SettingsPanel: View {
 
     @EnvironmentObject var appState: AppState
-    private let panelColor = Color("lighter-blue")
+    private let panelColor = Color("settings-panel-background")
     private let panelPadding = EdgeInsets(top: 40, leading: 0, bottom: 20, trailing: 0)
     private let labelFont = Font.system(size: 14, design: .default)
-    private let labelColor = Color("gray")
+    private let labelColor = Color("settings-panel-label-text")
 
     var body: some View {
         VStack(alignment: .center, spacing: 10) {
             VStack(spacing: 6) {
-                WordAmountFlicker(wordCount: $appState.numOfWords)
+                WordAmountFlicker(wordCount: $appState.numOfWords, numberRange: cPassphraseNumberOfWordsRangeInt)
                 Text(LocalizedStringKey("wordAmountLabel"))
                     .font(labelFont)
                     .foregroundColor(labelColor)
