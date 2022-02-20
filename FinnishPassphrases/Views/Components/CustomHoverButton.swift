@@ -21,7 +21,9 @@ struct CustomHoverButton: View {
     var body: some View {
         RoundedSquareWrapper {
             Button {
-                action()
+                withAnimation(.none) {
+                    action()
+                }
             } label: {
                 HStack(spacing: 6) {
                     icon
@@ -35,7 +37,7 @@ struct CustomHoverButton: View {
                     }
                 }
             }
-            .frame(height: 20)
+            .frame(height: 16)
             .buttonStyle(PlainButtonStyle())
         }
         .onHover { hovering in
@@ -44,6 +46,7 @@ struct CustomHoverButton: View {
             }
         }
     }
+
 }
 
 #if DEBUG

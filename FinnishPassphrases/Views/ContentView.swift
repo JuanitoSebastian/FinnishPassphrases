@@ -46,12 +46,14 @@ struct ContentView: View {
                     labelText: LocalizedStringKey("copyPassphraseButton"),
                     action: appState.copyPassphraseToPasteboard
                 )
+                    .keyboardShortcut(KeyboardShortcut("c", modifiers: .command))
 
                 CustomHoverButton(
                     icon: Image(systemName: "wand.and.stars"),
                     labelText: LocalizedStringKey("generateNewPassphraseButton"),
                     action: appState.generateNewPassphrase
                 )
+                    .keyboardShortcut(KeyboardShortcut(.space, modifiers: []))
             }
             .padding(.vertical, 40)
             .padding(.horizontal, 20)
