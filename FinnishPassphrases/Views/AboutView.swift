@@ -55,16 +55,10 @@ struct AboutView: View {
                     .font(cUiAppDescriptionFont)
                     .lineSpacing(6)
             }
-            ZStack {
-                Checkbox(
-                    checked: $appState.doNotShowAboutWindowOnStart,
-                    description: LocalizedStringKey("aboutWindowCheckbox")
-                )
-                    .padding(.horizontal, 12)
-                    .padding(.vertical, 8)
+            RoundedSquareWrapper(padding: EdgeInsets(top: 8, leading: 12, bottom: 8, trailing: 12)) {
+                Toggle(LocalizedStringKey("aboutWindowCheckbox"), isOn: $appState.doNotShowAboutWindowOnStart)
+                    .toggleStyle(CustomCheckboxStyle())
             }
-            .background(checkboxWrapperColor)
-            .cornerRadius(10)
             Spacer()
         }
     }
