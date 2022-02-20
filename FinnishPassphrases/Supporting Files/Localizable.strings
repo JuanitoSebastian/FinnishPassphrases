@@ -16,3 +16,7 @@
 "wordAmountLabel" = "Words";
 "separatorLabel" = "Separator";
 "capitalizationLabel" = "Mixed case";
+"generateNewPassphraseButton" = "New";
+"copyPassphraseButton" = "Copy";
+"aboutButton" = "About";
+"quitButton" = "Quit";

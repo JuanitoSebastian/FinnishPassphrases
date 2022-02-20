@@ -28,21 +28,33 @@ struct ContentView: View {
 
             HStack(spacing: 10) {
                 Spacer()
-                IconButton(
-                    icon: Image(systemName: "info"),
+
+                CustomHoverButton(
+                    icon: Image(systemName: "xmark.square.fill"),
+                    labelText: LocalizedStringKey("quitButton"),
+                    action: appState.quitApplication
+                )
+
+                CustomHoverButton(
+                    icon: Image(systemName: "ellipsis.rectangle.fill"),
+                    labelText: LocalizedStringKey("aboutButton"),
                     action: appState.displayAboutWindow
                 )
-                IconButton(
-                    icon: Image(systemName: "square.and.arrow.up"),
+
+                CustomHoverButton(
+                    icon: Image(systemName: "doc.on.doc.fill"),
+                    labelText: LocalizedStringKey("copyPassphraseButton"),
                     action: appState.copyPassphraseToPasteboard
                 )
-                IconButton(
-                    icon: Image(systemName: "arrow.counterclockwise"),
-                    action: appState.generateNewPassphrase,
-                    actionAnimated: true
+
+                CustomHoverButton(
+                    icon: Image(systemName: "wand.and.stars"),
+                    labelText: LocalizedStringKey("generateNewPassphraseButton"),
+                    action: appState.generateNewPassphrase
                 )
             }
-            .padding(40)
+            .padding(.vertical, 40)
+            .padding(.horizontal, 20)
         }
         .frame(width: 500, height: 250)
     }

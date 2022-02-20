@@ -21,9 +21,11 @@ struct CustomToggleStyle: ToggleStyle {
 
     private let toggleLineColor = Color("toggle-line")
 
+    let toggleAnimation = Animation.easeOut(duration: 0.2)
+
     func makeBody(configuration: Configuration) -> some View {
         Button {
-            withAnimation {
+            withAnimation(toggleAnimation) {
                 configuration.isOn.toggle()
             }
         } label: {

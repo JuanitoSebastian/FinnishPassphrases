@@ -17,9 +17,7 @@ struct CustomCheckboxStyle: ToggleStyle {
 
     func makeBody(configuration: Configuration) -> some View {
         Button {
-            withAnimation {
-                configuration.isOn.toggle()
-            }
+            configuration.isOn.toggle()
         } label: {
             HStack(spacing: 8) {
                 ZStack(alignment: .center) {
