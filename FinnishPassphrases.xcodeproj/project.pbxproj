@@ -481,7 +481,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "sh Scripts/set_version.sh\n";
+			shellScript = "sh $SRCROOT/Scripts/set_version.sh\n";
 		};
 		6FFA45FDB661609BA4E84F49 /* Generate Mockingbird Mocks */ = {
 			isa = PBXShellScriptBuildPhase;
