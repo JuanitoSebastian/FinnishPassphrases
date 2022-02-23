@@ -15,36 +15,37 @@ struct CustomHoverButton: View {
     let iconColor: Color = Color("button-symbol")
     let textColor = Color("button-text")
     let labelFont = Font.system(size: 14, design: .rounded).weight(.medium)
-    let iconFont = Font.system(size: 14).weight(.medium)
-    @State var hover = false
+    let iconFont = Font.system(size: 12).weight(.medium)
+    @State var hoveringState = false
 
     var body: some View {
-        RoundedSquareWrapper {
-            Button {
-                withAnimation(.none) {
-                    action()
-                }
-            } label: {
-                HStack(spacing: 6) {
-                    icon
-                        .foregroundColor(iconColor)
-                        .font(iconFont)
+        Button {
+            withAnimation(.none) {
+                action()
+            }
+        } label: {
+            HStack(spacing: 6) {
+                icon
+                    .font(iconFont)
+                    .foregroundColor(iconColor)
 
-                    if hover {
-                        Text(labelText)
-                            .foregroundColor(textColor)
-                            .font(labelFont)
-                    }
-                }
+                Text(labelText)
+                    .foregroundColor(textColor)
+                    .font(labelFont)
             }
-            .frame(height: 16)
-            .buttonStyle(PlainButtonStyle())
+            .contentShape(Rectangle())
+            .offset(y: hoveringState ? -2 : 0)
         }
+
+        .buttonStyle(PlainButtonStyle())
         .onHover { hovering in
-            withAnimation {
-                hover = hovering
+            // Could there be a delay so the box does not close immediately
+            // when the user stops hovering?
+            withAnimation(.easeInOut(duration: 0.2)) {
+                hoveringState = hovering
             }
         }
+
     }
 
 }

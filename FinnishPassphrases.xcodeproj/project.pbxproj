@@ -24,7 +24,7 @@
 		281667102664CED800DDCCC3 /* SeparatorSymbolTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2816670F2664CED800DDCCC3 /* SeparatorSymbolTests.swift */; };
 		281667132664D26500DDCCC3 /* DefaultsStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 281667122664D26500DDCCC3 /* DefaultsStore.swift */; };
 		282874DD2662337500ADC11E /* FinnishPasswordsApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 282874DC2662337500ADC11E /* FinnishPasswordsApp.swift */; };
-		282874DF2662337500ADC11E /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 282874DE2662337500ADC11E /* ContentView.swift */; };
+		282874DF2662337500ADC11E /* PopOverContent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 282874DE2662337500ADC11E /* PopOverContent.swift */; };
 		282874E12662337800ADC11E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 282874E02662337800ADC11E /* Assets.xcassets */; };
 		282874E42662337800ADC11E /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 282874E32662337800ADC11E /* Preview Assets.xcassets */; };
 		28321010276BF7E900E2C926 /* FinnishPasswordsTests-FinnishPasswordsMocks.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2832100F276BF7E900E2C926 /* FinnishPasswordsTests-FinnishPasswordsMocks.generated.swift */; };
@@ -86,7 +86,7 @@
 		2823FBEE276D52D700D0B57B /* .mockingbird-ignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = ".mockingbird-ignore"; sourceTree = "<group>"; };
 		282874D92662337500ADC11E /* FinnishPassphrases.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FinnishPassphrases.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		282874DC2662337500ADC11E /* FinnishPasswordsApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinnishPasswordsApp.swift; sourceTree = "<group>"; };
-		282874DE2662337500ADC11E /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		282874DE2662337500ADC11E /* PopOverContent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopOverContent.swift; sourceTree = "<group>"; };
 		282874E02662337800ADC11E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		282874E32662337800ADC11E /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		2832100F276BF7E900E2C926 /* FinnishPasswordsTests-FinnishPasswordsMocks.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "FinnishPasswordsTests-FinnishPasswordsMocks.generated.swift"; path = "MockingbirdMocks/FinnishPasswordsTests-FinnishPasswordsMocks.generated.swift"; sourceTree = "<group>"; };
@@ -96,6 +96,7 @@
 		285738D0276E411700D0C35D /* AppStateTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppStateTests.swift; sourceTree = "<group>"; };
 		285D399827BE8C850052D90C /* Header.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Header.png; sourceTree = "<group>"; };
 		286D7B6027BE3E1700497B26 /* IconButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IconButton.swift; sourceTree = "<group>"; };
+		2879141127C6A6E700603D51 /* set_version.sh */ = {isa = PBXFileReference; lastKnownFileType = text.script.sh; path = set_version.sh; sourceTree = "<group>"; };
 		287C913D27C146C8005C9C58 /* RoundedSquareWrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedSquareWrapper.swift; sourceTree = "<group>"; };
 		287C913F27C2458A005C9C58 /* CustomCheckboxStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomCheckboxStyle.swift; sourceTree = "<group>"; };
 		287C914427C25F50005C9C58 /* CustomHoverButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomHoverButton.swift; sourceTree = "<group>"; };
@@ -163,7 +164,7 @@
 			children = (
 				28DD8E0026CAF8830087C842 /* Components */,
 				280A1D062662434300301A4C /* PassphraseDispalyerView.swift */,
-				282874DE2662337500ADC11E /* ContentView.swift */,
+				282874DE2662337500ADC11E /* PopOverContent.swift */,
 				28B053492791B5B700174F5E /* SettingsPanel.swift */,
 				28DD0EA2277F5BB800B3CA60 /* AboutView.swift */,
 			);
@@ -186,6 +187,7 @@
 				2815933027BF6D0900840475 /* generate_mockingbird_mocks.sh */,
 				2815933127BF6E2E00840475 /* run_xcode_tests.sh */,
 				28A24B9D27BF81A400589D12 /* lint.sh */,
+				2879141127C6A6E700603D51 /* set_version.sh */,
 			);
 			path = Scripts;
 			sourceTree = "<group>";
@@ -515,7 +517,7 @@
 				286D7B6127BE3E1700497B26 /* IconButton.swift in Sources */,
 				28B7FE3E2665006B007A891B /* AppDelegate.swift in Sources */,
 				280A1D012662359900301A4C /* PassphraseGeneratorService.swift in Sources */,
-				282874DF2662337500ADC11E /* ContentView.swift in Sources */,
+				282874DF2662337500ADC11E /* PopOverContent.swift in Sources */,
 				283D3E02267F3E9B005C8BD9 /* Character.swift in Sources */,
 				28B2F2FA279417DC00FFED56 /* CustomToggleStyle.swift in Sources */,
 				280A1D072662434300301A4C /* PassphraseDispalyerView.swift in Sources */,

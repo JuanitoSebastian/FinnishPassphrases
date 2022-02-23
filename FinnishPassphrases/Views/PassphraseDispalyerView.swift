@@ -10,55 +10,54 @@ import WrappingHStack
 
 struct PassphraseDispalyerView: View {
 
-    @Binding var passphrase: Passphrase
-    @EnvironmentObject var appState: AppState
+  @Binding var passphrase: Passphrase
+  @EnvironmentObject var appState: AppState
 
-    private let passphraseTextPadding = EdgeInsets(top: 2, leading: 2, bottom: 2, trailing: 2)
-    private let passphraseAreaPadding = EdgeInsets(top: 40, leading: 10, bottom: 20, trailing: 10)
+  private let passphraseTextPadding = EdgeInsets(top: 2, leading: 2, bottom: 2, trailing: 2)
+  private let passphraseAreaPadding = EdgeInsets(top: 40, leading: 10, bottom: 20, trailing: 10)
 
-    private let passphraseFont = Font.system(size: 18, design: .monospaced).weight(.regular)
-    private let passphraseWordColor = Color("passphrase-text")
-    private let passphraseSeparatorColor = Color("passphrase-separator")
+  private let passphraseFont = Font.system(size: 18, design: .monospaced).weight(.regular)
+  private let passphraseWordColor = Color("passphrase-text")
+  private let passphraseSeparatorColor = Color("passphrase-separator")
 
 }
 
 // MARK: - Views
 extension PassphraseDispalyerView {
 
-    var body: some View {
-        VStack(alignment: .leading) {
-            WrappingHStack(
-                0..<passphrase.numOfWords,
-                id: \.self,
-                alignment: .leading,
-                spacing: .constant(1)
-            ) {
-                Text(passphrase.words[$0])
-                    .font(passphraseFont)
-                    .foregroundColor(passphraseWordColor)
-                    .padding(passphraseTextPadding)
-                    if $0 < (passphrase.numOfWords - 1) {
-                        Text(String(passphrase.separator.symbol))
-                            .font(passphraseFont)
-                            .foregroundColor(passphraseSeparatorColor)
-                            .padding(passphraseTextPadding)
-                    }
-            }
-            .padding(passphraseAreaPadding)
-
-            Spacer()
-
+  var body: some View {
+    VStack(alignment: .leading) {
+      WrappingHStack(
+        0..<passphrase.numOfWords,
+        id: \.self,
+        alignment: .leading,
+        spacing: .constant(1)
+      ) {
+        Text(passphrase.words[$0])
+          .font(passphraseFont)
+          .foregroundColor(passphraseWordColor)
+          .padding(passphraseTextPadding)
+        if $0 < (passphrase.numOfWords - 1) {
+          Text(String(passphrase.separator.symbol))
+            .font(passphraseFont)
+            .foregroundColor(passphraseSeparatorColor)
+            .padding(passphraseTextPadding)
         }
-        .onTapGesture {
-            handleOnClick()
-        }
+      }
+      .padding(passphraseAreaPadding)
+
+      Spacer()
+
     }
-
+    .onTapGesture {
+      handleOnClick()
+    }
+  }
 }
 
 // MARK: - Functions
 extension PassphraseDispalyerView {
-    private func handleOnClick() {
-        appState.copyPassphraseToPasteboard()
-    }
+  private func handleOnClick() {
+    appState.copyPassphraseToPasteboard()
+  }
 }
