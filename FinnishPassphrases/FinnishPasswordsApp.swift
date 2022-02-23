@@ -9,10 +9,9 @@ import SwiftUI
 
 @main
 struct FinnishPasswordsApp: App {
-    // swiftlint:disable:next weak_delegate
-    @NSApplicationDelegateAdaptor(AppDelegate.self) var appDelegate
-    var body: some Scene {
-        Settings { }
-    }
-
+  // swiftlint:disable:next weak_delegate
+  @NSApplicationDelegateAdaptor(AppDelegate.self) var appDelegate
+  var body: some Scene {
+    Settings { }
+  }
 }

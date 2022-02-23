@@ -14,7 +14,6 @@ struct IconButton: View {
     let actionAnimated: Bool
     let font: Font
     let iconColor: Color
-    let iconColorHover: Color
     @State private var hover: Bool
     @State private var rotation: Double
     @State private var midAnimation: Bool
@@ -23,15 +22,13 @@ struct IconButton: View {
         icon: Image,
         action: @escaping () -> Void,
         actionAnimated: Bool = false,
-        iconColor: Color = Color("dark-blue"),
-        iconColorHover: Color = Color("black")
+        iconColor: Color = Color("icon-button-symbol")
     ) {
         self.icon = icon
         self.action = action
         self.font = Font.system(size: 14, weight: .semibold)
         self.actionAnimated = actionAnimated
         self.iconColor = iconColor
-        self.iconColorHover = iconColorHover
         self.hover = false
         self.rotation = 0
         self.midAnimation = false
@@ -48,7 +45,7 @@ extension IconButton {
         } label: {
             icon
             .font(font)
-            .foregroundColor(hover ? iconColorHover : iconColor)
+            .foregroundColor(iconColor)
             .frame(width: 30, height: 30)
             .contentShape(Circle())
         }

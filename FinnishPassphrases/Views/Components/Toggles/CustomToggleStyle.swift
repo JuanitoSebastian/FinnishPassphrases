@@ -10,60 +10,63 @@ import SwiftUI
 
 struct CustomToggleStyle: ToggleStyle {
 
-    private let movingSwitchFillColor = Color("lighter-blue")
-    private let movingSwitchStrokeColor = Color("light-blue")
+  private let flickerBackgroundColor = Color("flicker-background")
+  private let flickerBackgroundColorActive = Color("flicker-background :active")
 
-    func makeBody(configuration: Configuration) -> some View {
-        Button {
-            withAnimation {
-                configuration.isOn.toggle()
-            }
-        } label: {
-            ZStack(alignment: .center) {
-                square
+  private let toggleBackgroundColor = Color("toggle-background")
+  private let toggleBackgroundColorActive = Color("toggle-background :active")
 
-                HStack {
-                    if configuration.isOn { Spacer() }
-                    movingSwitch
-                    if !configuration.isOn { Spacer()}
-                }
-                .padding(4)
-            }
-            .frame(maxWidth: 40)
-        }
-        .buttonStyle(PlainButtonStyle())
-    }
+  private let toggleStrokeColor = Color("toggle-stroke")
+  private let toggleStrokeColorActive = Color("toggle-stroke :active")
 
-    private var square: some View {
+  private let toggleLineColor = Color("toggle-line")
+
+  let toggleAnimation = Animation.easeOut(duration: 0.2)
+
+  func makeBody(configuration: Configuration) -> some View {
+    Button {
+      withAnimation(toggleAnimation) {
+        configuration.isOn.toggle()
+      }
+    } label: {
+      ZStack(alignment: .center) {
         RoundedRectangle(cornerRadius: 10)
-            .fill(Color.white)
-            .frame(width: 40, height: 40)
-    }
+          .fill(configuration.isOn ? flickerBackgroundColorActive : flickerBackgroundColor)
+          .frame(width: 40, height: 40)
 
-    private var movingSwitch: some View {
-        ZStack(alignment: .center) {
+        HStack {
+          if configuration.isOn { Spacer() }
+
+          ZStack(alignment: .center) {
             RoundedRectangle(cornerRadius: 4)
-                .fill(movingSwitchFillColor)
-                .frame(width: 17, height: 32)
+              .fill(configuration.isOn ? toggleBackgroundColorActive : toggleBackgroundColor)
+              .frame(width: 17, height: 32)
 
             RoundedRectangle(cornerRadius: 4)
-                .stroke(movingSwitchStrokeColor, lineWidth: 2)
-                .frame(width: 15, height: 30)
+              .stroke(configuration.isOn ? toggleStrokeColorActive : toggleStrokeColor, lineWidth: 2)
+              .frame(width: 15, height: 30)
 
             RoundedRectangle(cornerRadius: 2)
-                .stroke(movingSwitchStrokeColor, lineWidth: 1)
-                .frame(width: 1, height: 18)
-        }
-    }
+              .stroke(toggleLineColor, lineWidth: 1)
+              .frame(width: 1, height: 18)
+          }
 
+          if !configuration.isOn { Spacer()}
+        }
+        .padding(4)
+      }
+      .frame(maxWidth: 40)
+    }
+    .buttonStyle(PlainButtonStyle())
+  }
 }
 
 // MARK: - Preview
 #if DEBUG
 struct CustomToggleStyle_Previews: PreviewProvider {
-    static var previews: some View {
-        Toggle("", isOn: .constant(false))
-            .toggleStyle(CustomToggleStyle())
-    }
+  static var previews: some View {
+    Toggle("", isOn: .constant(false))
+      .toggleStyle(CustomToggleStyle())
+  }
 }
 #endif

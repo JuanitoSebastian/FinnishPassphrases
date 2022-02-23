@@ -60,6 +60,12 @@ class AppState: ObservableObject {
 
 }
 
+extension AppState {
+  var appVersion: String {
+    Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String ?? ""
+  }
+}
+
 // MARK: - Functions
 extension AppState {
 

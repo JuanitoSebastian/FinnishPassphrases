@@ -24,7 +24,7 @@
 		281667102664CED800DDCCC3 /* SeparatorSymbolTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2816670F2664CED800DDCCC3 /* SeparatorSymbolTests.swift */; };
 		281667132664D26500DDCCC3 /* DefaultsStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 281667122664D26500DDCCC3 /* DefaultsStore.swift */; };
 		282874DD2662337500ADC11E /* FinnishPasswordsApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 282874DC2662337500ADC11E /* FinnishPasswordsApp.swift */; };
-		282874DF2662337500ADC11E /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 282874DE2662337500ADC11E /* ContentView.swift */; };
+		282874DF2662337500ADC11E /* PopOverContent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 282874DE2662337500ADC11E /* PopOverContent.swift */; };
 		282874E12662337800ADC11E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 282874E02662337800ADC11E /* Assets.xcassets */; };
 		282874E42662337800ADC11E /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 282874E32662337800ADC11E /* Preview Assets.xcassets */; };
 		28321010276BF7E900E2C926 /* FinnishPasswordsTests-FinnishPasswordsMocks.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2832100F276BF7E900E2C926 /* FinnishPasswordsTests-FinnishPasswordsMocks.generated.swift */; };
@@ -32,9 +32,11 @@
 		284B09E92769B969004D3DFF /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 284B09E82769B969004D3DFF /* Localizable.strings */; };
 		285738D1276E411700D0C35D /* AppStateTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 285738D0276E411700D0C35D /* AppStateTests.swift */; };
 		285CACD5277B42B600D254E3 /* WrappingHStack in Frameworks */ = {isa = PBXBuildFile; productRef = 285CACD4277B42B600D254E3 /* WrappingHStack */; };
-		285D302F26CD967500724593 /* Checkbox.swift in Sources */ = {isa = PBXBuildFile; fileRef = 285D302E26CD967500724593 /* Checkbox.swift */; };
 		285D399927BE8C850052D90C /* Header.png in Resources */ = {isa = PBXBuildFile; fileRef = 285D399827BE8C850052D90C /* Header.png */; };
 		286D7B6127BE3E1700497B26 /* IconButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 286D7B6027BE3E1700497B26 /* IconButton.swift */; };
+		287C913E27C146C8005C9C58 /* RoundedSquareWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 287C913D27C146C8005C9C58 /* RoundedSquareWrapper.swift */; };
+		287C914027C2458A005C9C58 /* CustomCheckboxStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 287C913F27C2458A005C9C58 /* CustomCheckboxStyle.swift */; };
+		287C914527C25F50005C9C58 /* CustomHoverButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 287C914427C25F50005C9C58 /* CustomHoverButton.swift */; };
 		2885D39A276B4BEA007E5695 /* DefaultsStoreTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2885D399276B4BEA007E5695 /* DefaultsStoreTests.swift */; };
 		2899C8C5276BECA600824754 /* PassphraseGeneratorServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2899C8C4276BECA600824754 /* PassphraseGeneratorServiceTests.swift */; };
 		2899C8C8276BECF300824754 /* Mockingbird in Frameworks */ = {isa = PBXBuildFile; productRef = 2899C8C7276BECF300824754 /* Mockingbird */; };
@@ -82,9 +84,9 @@
 		281667162664F50B00DDCCC3 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		281E062927953C8C00B58EE0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2823FBEE276D52D700D0B57B /* .mockingbird-ignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = ".mockingbird-ignore"; sourceTree = "<group>"; };
-		282874D92662337500ADC11E /* FinnishPassphrases.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FinnishPassphrases.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		282874D92662337500ADC11E /* Finnish Passphrases.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Finnish Passphrases.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		282874DC2662337500ADC11E /* FinnishPasswordsApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinnishPasswordsApp.swift; sourceTree = "<group>"; };
-		282874DE2662337500ADC11E /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		282874DE2662337500ADC11E /* PopOverContent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopOverContent.swift; sourceTree = "<group>"; };
 		282874E02662337800ADC11E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		282874E32662337800ADC11E /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		2832100F276BF7E900E2C926 /* FinnishPasswordsTests-FinnishPasswordsMocks.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "FinnishPasswordsTests-FinnishPasswordsMocks.generated.swift"; path = "MockingbirdMocks/FinnishPasswordsTests-FinnishPasswordsMocks.generated.swift"; sourceTree = "<group>"; };
@@ -92,9 +94,12 @@
 		283D3E01267F3E9B005C8BD9 /* Character.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Character.swift; sourceTree = "<group>"; };
 		284B09E82769B969004D3DFF /* Localizable.strings */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
 		285738D0276E411700D0C35D /* AppStateTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppStateTests.swift; sourceTree = "<group>"; };
-		285D302E26CD967500724593 /* Checkbox.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Checkbox.swift; sourceTree = "<group>"; };
 		285D399827BE8C850052D90C /* Header.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Header.png; sourceTree = "<group>"; };
 		286D7B6027BE3E1700497B26 /* IconButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IconButton.swift; sourceTree = "<group>"; };
+		2879141127C6A6E700603D51 /* set_version.sh */ = {isa = PBXFileReference; lastKnownFileType = text.script.sh; path = set_version.sh; sourceTree = "<group>"; };
+		287C913D27C146C8005C9C58 /* RoundedSquareWrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedSquareWrapper.swift; sourceTree = "<group>"; };
+		287C913F27C2458A005C9C58 /* CustomCheckboxStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomCheckboxStyle.swift; sourceTree = "<group>"; };
+		287C914427C25F50005C9C58 /* CustomHoverButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomHoverButton.swift; sourceTree = "<group>"; };
 		2885D399276B4BEA007E5695 /* DefaultsStoreTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultsStoreTests.swift; sourceTree = "<group>"; };
 		2885D39C276BBE18007E5695 /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
 		2899C8C4276BECA600824754 /* PassphraseGeneratorServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PassphraseGeneratorServiceTests.swift; sourceTree = "<group>"; };
@@ -159,7 +164,7 @@
 			children = (
 				28DD8E0026CAF8830087C842 /* Components */,
 				280A1D062662434300301A4C /* PassphraseDispalyerView.swift */,
-				282874DE2662337500ADC11E /* ContentView.swift */,
+				282874DE2662337500ADC11E /* PopOverContent.swift */,
 				28B053492791B5B700174F5E /* SettingsPanel.swift */,
 				28DD0EA2277F5BB800B3CA60 /* AboutView.swift */,
 			);
@@ -182,6 +187,7 @@
 				2815933027BF6D0900840475 /* generate_mockingbird_mocks.sh */,
 				2815933127BF6E2E00840475 /* run_xcode_tests.sh */,
 				28A24B9D27BF81A400589D12 /* lint.sh */,
+				2879141127C6A6E700603D51 /* set_version.sh */,
 			);
 			path = Scripts;
 			sourceTree = "<group>";
@@ -239,7 +245,7 @@
 		282874DA2662337500ADC11E /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				282874D92662337500ADC11E /* FinnishPassphrases.app */,
+				282874D92662337500ADC11E /* Finnish Passphrases.app */,
 				281667032664CD6D00DDCCC3 /* FinnishPassphrasesTests.xctest */,
 			);
 			name = Products;
@@ -274,6 +280,7 @@
 			isa = PBXGroup;
 			children = (
 				28B2F2F9279417DC00FFED56 /* CustomToggleStyle.swift */,
+				287C913F27C2458A005C9C58 /* CustomCheckboxStyle.swift */,
 			);
 			path = Toggles;
 			sourceTree = "<group>";
@@ -291,10 +298,11 @@
 			isa = PBXGroup;
 			children = (
 				28B2F2F82794179000FFED56 /* Toggles */,
-				285D302E26CD967500724593 /* Checkbox.swift */,
 				28B0534B2791B7AD00174F5E /* WordAmountFlicker.swift */,
 				28B0534D2791F47100174F5E /* SeparatorFlicker.swift */,
 				286D7B6027BE3E1700497B26 /* IconButton.swift */,
+				287C913D27C146C8005C9C58 /* RoundedSquareWrapper.swift */,
+				287C914427C25F50005C9C58 /* CustomHoverButton.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -337,6 +345,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 282874E92662337800ADC11E /* Build configuration list for PBXNativeTarget "FinnishPassphrases" */;
 			buildPhases = (
+				2879141227C6A76D00603D51 /* Update Version Number */,
 				281E06282794983D00B58EE0 /* SwiftLint */,
 				282874D52662337500ADC11E /* Sources */,
 				282874D62662337500ADC11E /* Frameworks */,
@@ -351,7 +360,7 @@
 				285CACD4277B42B600D254E3 /* WrappingHStack */,
 			);
 			productName = FinnishPasswords;
-			productReference = 282874D92662337500ADC11E /* FinnishPassphrases.app */;
+			productReference = 282874D92662337500ADC11E /* Finnish Passphrases.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -456,6 +465,24 @@
 			shellPath = /bin/sh;
 			shellScript = "sh Scripts/download_mockingbird.sh\n";
 		};
+		2879141227C6A76D00603D51 /* Update Version Number */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = "Update Version Number";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "sh $SRCROOT/Scripts/set_version.sh\n";
+		};
 		6FFA45FDB661609BA4E84F49 /* Generate Mockingbird Mocks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -496,8 +523,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				287C914527C25F50005C9C58 /* CustomHoverButton.swift in Sources */,
 				28B0534A2791B5B700174F5E /* SettingsPanel.swift in Sources */,
 				280A1D022662359900301A4C /* KotusWordService.swift in Sources */,
+				287C914027C2458A005C9C58 /* CustomCheckboxStyle.swift in Sources */,
 				281666FC2664C53A00DDCCC3 /* Passphrase.swift in Sources */,
 				28B0534E2791F47100174F5E /* SeparatorFlicker.swift in Sources */,
 				28DD0EA3277F5BB800B3CA60 /* AboutView.swift in Sources */,
@@ -507,8 +536,7 @@
 				286D7B6127BE3E1700497B26 /* IconButton.swift in Sources */,
 				28B7FE3E2665006B007A891B /* AppDelegate.swift in Sources */,
 				280A1D012662359900301A4C /* PassphraseGeneratorService.swift in Sources */,
-				285D302F26CD967500724593 /* Checkbox.swift in Sources */,
-				282874DF2662337500ADC11E /* ContentView.swift in Sources */,
+				282874DF2662337500ADC11E /* PopOverContent.swift in Sources */,
 				283D3E02267F3E9B005C8BD9 /* Character.swift in Sources */,
 				28B2F2FA279417DC00FFED56 /* CustomToggleStyle.swift in Sources */,
 				280A1D072662434300301A4C /* PassphraseDispalyerView.swift in Sources */,
@@ -516,6 +544,7 @@
 				282874DD2662337500ADC11E /* FinnishPasswordsApp.swift in Sources */,
 				280E0F30266AB5E6001F24F9 /* String.swift in Sources */,
 				280A1CFB2662356F00301A4C /* Log.swift in Sources */,
+				287C913E27C146C8005C9C58 /* RoundedSquareWrapper.swift in Sources */,
 				280A1D092662477F00301A4C /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -706,7 +735,7 @@
 				);
 				MACOSX_DEPLOYMENT_TARGET = 11.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.juanito.FinnishPassphrases;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = "Finnish Passphrases";
 				SWIFT_VERSION = 5.0;
 			};
 			name = Debug;
@@ -731,7 +760,7 @@
 				);
 				MACOSX_DEPLOYMENT_TARGET = 11.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.juanito.FinnishPassphrases;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = "Finnish Passphrases";
 				SWIFT_VERSION = 5.0;
 			};
 			name = Release;
