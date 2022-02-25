@@ -13,7 +13,7 @@ struct CustomCheckboxStyle: ToggleStyle {
   private let backgroundColor = Color("checkbox-background")
   private let checkmarkColor = Color("checkbox-checkmark")
   let textColor = Color("about-text-body")
-  let textFont = Font.system(size: 14, design: .default).weight(.regular)
+  let textFont = Font.system(.body, design: .rounded)
 
   func makeBody(configuration: Configuration) -> some View {
     Button {

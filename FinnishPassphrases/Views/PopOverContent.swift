@@ -68,12 +68,3 @@ extension PopOverContent {
     .frame(width: 500, height: 250)
   }
 }
-
-// MARK: - Preview
-#if DEBUG
-struct ContentView_Previews: PreviewProvider {
-  static var previews: some View {
-    PopOverContent(appState: AppState.previewShared)
-  }
-}
-#endif

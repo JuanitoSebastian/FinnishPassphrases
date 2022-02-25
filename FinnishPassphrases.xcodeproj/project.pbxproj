@@ -33,7 +33,6 @@
 		285738D1276E411700D0C35D /* AppStateTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 285738D0276E411700D0C35D /* AppStateTests.swift */; };
 		285CACD5277B42B600D254E3 /* WrappingHStack in Frameworks */ = {isa = PBXBuildFile; productRef = 285CACD4277B42B600D254E3 /* WrappingHStack */; };
 		285D399927BE8C850052D90C /* Header.png in Resources */ = {isa = PBXBuildFile; fileRef = 285D399827BE8C850052D90C /* Header.png */; };
-		286D7B6127BE3E1700497B26 /* IconButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 286D7B6027BE3E1700497B26 /* IconButton.swift */; };
 		287C913E27C146C8005C9C58 /* RoundedSquareWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 287C913D27C146C8005C9C58 /* RoundedSquareWrapper.swift */; };
 		287C914027C2458A005C9C58 /* CustomCheckboxStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 287C913F27C2458A005C9C58 /* CustomCheckboxStyle.swift */; };
 		287C914527C25F50005C9C58 /* CustomHoverButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 287C914427C25F50005C9C58 /* CustomHoverButton.swift */; };
@@ -95,7 +94,6 @@
 		284B09E82769B969004D3DFF /* Localizable.strings */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
 		285738D0276E411700D0C35D /* AppStateTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppStateTests.swift; sourceTree = "<group>"; };
 		285D399827BE8C850052D90C /* Header.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Header.png; sourceTree = "<group>"; };
-		286D7B6027BE3E1700497B26 /* IconButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IconButton.swift; sourceTree = "<group>"; };
 		2879141127C6A6E700603D51 /* set_version.sh */ = {isa = PBXFileReference; lastKnownFileType = text.script.sh; path = set_version.sh; sourceTree = "<group>"; };
 		287C913D27C146C8005C9C58 /* RoundedSquareWrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedSquareWrapper.swift; sourceTree = "<group>"; };
 		287C913F27C2458A005C9C58 /* CustomCheckboxStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomCheckboxStyle.swift; sourceTree = "<group>"; };
@@ -300,7 +298,6 @@
 				28B2F2F82794179000FFED56 /* Toggles */,
 				28B0534B2791B7AD00174F5E /* WordAmountFlicker.swift */,
 				28B0534D2791F47100174F5E /* SeparatorFlicker.swift */,
-				286D7B6027BE3E1700497B26 /* IconButton.swift */,
 				287C913D27C146C8005C9C58 /* RoundedSquareWrapper.swift */,
 				287C914427C25F50005C9C58 /* CustomHoverButton.swift */,
 			);
@@ -370,7 +367,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 1250;
-				LastUpgradeCheck = 1250;
+				LastUpgradeCheck = 1320;
 				TargetAttributes = {
 					281667022664CD6D00DDCCC3 = {
 						CreatedOnToolsVersion = 12.5;
@@ -533,7 +530,6 @@
 				281666FE2664C6B600DDCCC3 /* SeparatorSymbol.swift in Sources */,
 				28B0534C2791B7AD00174F5E /* WordAmountFlicker.swift in Sources */,
 				281667132664D26500DDCCC3 /* DefaultsStore.swift in Sources */,
-				286D7B6127BE3E1700497B26 /* IconButton.swift in Sources */,
 				28B7FE3E2665006B007A891B /* AppDelegate.swift in Sources */,
 				280A1D012662359900301A4C /* PassphraseGeneratorService.swift in Sources */,
 				282874DF2662337500ADC11E /* PopOverContent.swift in Sources */,
@@ -721,6 +717,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = "accent-color";
 				CODE_SIGN_ENTITLEMENTS = "FinnishPassphrases/Supporting Files/FinnishPassphrases.entitlements";
+				CODE_SIGN_IDENTITY = "-";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_ASSET_PATHS = "\"FinnishPassphrases/Preview Content\"";
@@ -746,6 +743,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = "accent-color";
 				CODE_SIGN_ENTITLEMENTS = "FinnishPassphrases/Supporting Files/FinnishPassphrases.entitlements";
+				CODE_SIGN_IDENTITY = "-";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_ASSET_PATHS = "\"FinnishPassphrases/Preview Content\"";
