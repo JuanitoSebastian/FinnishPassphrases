@@ -45,9 +45,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
       menuButton.action = #selector(menuButtonToggle)
     }
 
-    if !appState.doNotShowAboutWindowOnStart {
-      openAboutWindow()
-    }
+    openAboutWindow()
   }
 
   private func openAboutWindow() {
@@ -85,7 +83,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     windowToReturn.styleMask.insert(.fullSizeContentView)
     windowToReturn.titlebarAppearsTransparent = true
     windowToReturn.contentView?.wantsLayer = true
-    windowToReturn.backgroundColor = .white
+    windowToReturn.backgroundColor = NSColor(Color("about-background"))
 
     windowToReturn.makeKeyAndOrderFront(nil)
     windowToReturn.isReleasedWhenClosed = false

@@ -10,7 +10,7 @@
 
 // About Window
 "aboutWindowAppDescription" = "A simple application for generating secure Finnish Passphrases.";
-"aboutWindowWordsSource" = "Word resources provided by [Kotus](https://kaino.kotus.fi/sanat/nykysuomi/). ";
+"aboutWindowWordsSource" = "Finnish words provided by [Kotus](https://kaino.kotus.fi/sanat/nykysuomi/). ";
 "appVersion %@" = "Version %@";
 "appDevelopedBy" = "Developed by [juan.fi](https://juan.fi)";
 

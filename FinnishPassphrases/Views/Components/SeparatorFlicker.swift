@@ -52,7 +52,7 @@ struct SeparatorFlicker: View {
 
     private var square: some View {
         RoundedRectangle(cornerRadius: 10)
-            .fill(Color.white)
+            .fill(flickerBackgroundColor)
             .frame(width: 40, height: 40)
     }
 
@@ -70,7 +70,7 @@ struct SeparatorFlicker: View {
         } label: {
             ZStack {
                 Circle()
-                    .fill(Color.white)
+                    .fill(circleBackgroundColor)
                     .frame(width: 23, height: 23)
 
                 Circle()
