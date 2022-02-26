@@ -47,7 +47,6 @@ class AppStateTests: XCTestCase {
     func test_a_appstate_is_initialized_correctly() {
         XCTAssertEqual(appState.passphrase.separator, defaultStore.separatorSymbol)
         XCTAssertEqual(appState.passphrase.numOfWords, defaultStore.numberOfWordsInPassphrase)
-        XCTAssertFalse(appState.doNotShowAboutWindowOnStart)
         XCTAssertFalse(appState.capitalization)
 
         for word in appState.passphrase.words {
@@ -104,15 +103,7 @@ class AppStateTests: XCTestCase {
         XCTAssertEqual(textFromPastebaord, appState.passphrase.passphrase)
     }
 
-    func test_g_setting_do_not_show_about_window() {
-        appState.doNotShowAboutWindowOnStart = true
-        XCTAssertTrue(defaultStore.doNotShowInstructions)
-
-        appState.doNotShowAboutWindowOnStart = false
-        XCTAssertFalse(defaultStore.doNotShowInstructions)
-    }
-
-    func test_h_display_about_window_calls_function() {
+    func test_g_display_about_window_calls_function() {
         var testBool = false
 
         func mock() {

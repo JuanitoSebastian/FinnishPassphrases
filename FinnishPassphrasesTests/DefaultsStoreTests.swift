@@ -23,12 +23,10 @@ class DefaultsStoreTests: XCTestCase {
         defaultsStore.numberOfWordsInPassphrase = 8
         defaultsStore.separatorSymbol = .asterisk
         defaultsStore.wordCapitalization = true
-        defaultsStore.doNotShowInstructions = true
 
         XCTAssertEqual(defaultsStore.numberOfWordsInPassphrase, 8)
         XCTAssertEqual(defaultsStore.separatorSymbol, .asterisk)
         XCTAssertEqual(defaultsStore.wordCapitalization, true)
-        XCTAssertEqual(defaultsStore.doNotShowInstructions, true)
     }
 
 }

@@ -27,11 +27,6 @@ class AppState: ObservableObject {
       handleChangeOfNumberOfWords(numOfWords)
     }
   }
-  @Published var doNotShowAboutWindowOnStart: Bool {
-    didSet {
-      handleChangeOfDoNotShowAboutWindowOnStart(doNotShowAboutWindowOnStart)
-    }
-  }
 
   private let defaultsStore: DefaultsStore
   private let passphraseGeneratorService: PassphraseGeneratorService
@@ -48,7 +43,6 @@ class AppState: ObservableObject {
     self.capitalization = defaultsStore.wordCapitalization
     self.separator = defaultsStore.separatorSymbol
     self.numOfWords = defaultsStore.numberOfWordsInPassphrase
-    self.doNotShowAboutWindowOnStart = defaultsStore.doNotShowInstructions
     self.pasteboard = pasteboard
     self.pasteboard.declareTypes([.string], owner: nil)
     self.passphrase = passphraseGeneratorService.generatePassphrase(
@@ -132,12 +126,6 @@ extension AppState {
     passphrase = passphraseGeneratorService.updatePassphraseNumOfWords(
       passphrase: passphrase, numOfWords: numberOfWordToSet
     )
-  }
-
-  /// Saves the given value (on if the About window should be shown) to DefaultsStore
-  /// - Parameter value: Value to save to DefaultsSTore
-  private func handleChangeOfDoNotShowAboutWindowOnStart(_ value: Bool) {
-    defaultsStore.doNotShowInstructions = value
   }
 
 }
