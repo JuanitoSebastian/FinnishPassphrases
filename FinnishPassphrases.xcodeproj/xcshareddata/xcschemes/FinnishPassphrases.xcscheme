@@ -43,7 +43,7 @@
             skipped = "NO">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "281667022664CD6D00DDCCC3"
+               BlueprintIdentifier = "28395D8627CA654500B6C634"
                BuildableName = "FinnishPassphrasesTests.xctest"
                BlueprintName = "FinnishPassphrasesTests"
                ReferencedContainer = "container:FinnishPassphrases.xcodeproj">
