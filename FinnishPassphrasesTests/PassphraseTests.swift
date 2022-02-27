@@ -5,7 +5,7 @@
 //  Created by Juan Covarrubias on 31.5.2021.
 //
 
-@testable import FinnishPassphrases
+@testable import Finnish_Passphrases
 import XCTest
 
 class PassphraseTests: XCTestCase {

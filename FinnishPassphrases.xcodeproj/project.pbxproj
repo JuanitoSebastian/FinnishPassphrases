@@ -77,7 +77,7 @@
 		281667122664D26500DDCCC3 /* DefaultsStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultsStore.swift; sourceTree = "<group>"; };
 		281667162664F50B00DDCCC3 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		2823FBEE276D52D700D0B57B /* .mockingbird-ignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = ".mockingbird-ignore"; sourceTree = "<group>"; };
-		282874D92662337500ADC11E /* FinnishPassphrases.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FinnishPassphrases.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		282874D92662337500ADC11E /* Finnish Passphrases.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Finnish Passphrases.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		282874DC2662337500ADC11E /* FinnishPasswordsApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinnishPasswordsApp.swift; sourceTree = "<group>"; };
 		282874DE2662337500ADC11E /* PopOverContent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopOverContent.swift; sourceTree = "<group>"; };
 		282874E02662337800ADC11E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -227,7 +227,7 @@
 		282874DA2662337500ADC11E /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				282874D92662337500ADC11E /* FinnishPassphrases.app */,
+				282874D92662337500ADC11E /* Finnish Passphrases.app */,
 				2808822627CA683C00E66C89 /* FinnishPassphrasesTests.xctest */,
 			);
 			name = Products;
@@ -357,7 +357,7 @@
 				285CACD4277B42B600D254E3 /* WrappingHStack */,
 			);
 			productName = FinnishPasswords;
-			productReference = 282874D92662337500ADC11E /* FinnishPassphrases.app */;
+			productReference = 282874D92662337500ADC11E /* Finnish Passphrases.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -593,7 +593,7 @@
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/FinnishPassphrases.app/Contents/MacOS/FinnishPassphrases";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Finnish Passphrases.app/Contents/MacOS/Finnish Passphrases";
 			};
 			name = Debug;
 		};
@@ -619,7 +619,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/FinnishPassphrases.app/Contents/MacOS/FinnishPassphrases";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Finnish Passphrases.app/Contents/MacOS/Finnish Passphrases";
 			};
 			name = Release;
 		};
@@ -759,7 +759,7 @@
 				);
 				MACOSX_DEPLOYMENT_TARGET = 11.2;
 				PRODUCT_BUNDLE_IDENTIFIER = com.juanito.FinnishPassphrases;
-				PRODUCT_NAME = "${TARGET_NAME}";
+				PRODUCT_NAME = "Finnish Passphrases";
 				SWIFT_VERSION = 5.0;
 			};
 			name = Debug;
@@ -785,7 +785,7 @@
 				);
 				MACOSX_DEPLOYMENT_TARGET = 11.2;
 				PRODUCT_BUNDLE_IDENTIFIER = com.juanito.FinnishPassphrases;
-				PRODUCT_NAME = "${TARGET_NAME}";
+				PRODUCT_NAME = "Finnish Passphrases";
 				SWIFT_VERSION = 5.0;
 			};
 			name = Release;
