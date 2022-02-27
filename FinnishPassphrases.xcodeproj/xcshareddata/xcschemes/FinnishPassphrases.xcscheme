@@ -15,7 +15,7 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "282874D82662337500ADC11E"
-               BuildableName = "FinnishPassphrases.app"
+               BuildableName = "Finnish Passphrases.app"
                BlueprintName = "FinnishPassphrases"
                ReferencedContainer = "container:FinnishPassphrases.xcodeproj">
             </BuildableReference>
@@ -33,7 +33,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "282874D82662337500ADC11E"
-            BuildableName = "FinnishPassphrases.app"
+            BuildableName = "Finnish Passphrases.app"
             BlueprintName = "FinnishPassphrases"
             ReferencedContainer = "container:FinnishPassphrases.xcodeproj">
          </BuildableReference>
@@ -43,7 +43,7 @@
             skipped = "NO">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "28395D8627CA654500B6C634"
+               BlueprintIdentifier = "2808822527CA683C00E66C89"
                BuildableName = "FinnishPassphrasesTests.xctest"
                BlueprintName = "FinnishPassphrasesTests"
                ReferencedContainer = "container:FinnishPassphrases.xcodeproj">
@@ -66,7 +66,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "282874D82662337500ADC11E"
-            BuildableName = "FinnishPassphrases.app"
+            BuildableName = "Finnish Passphrases.app"
             BlueprintName = "FinnishPassphrases"
             ReferencedContainer = "container:FinnishPassphrases.xcodeproj">
          </BuildableReference>
@@ -90,7 +90,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "282874D82662337500ADC11E"
-            BuildableName = "FinnishPassphrases.app"
+            BuildableName = "Finnish Passphrases.app"
             BlueprintName = "FinnishPassphrases"
             ReferencedContainer = "container:FinnishPassphrases.xcodeproj">
          </BuildableReference>
