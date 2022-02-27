@@ -8,15 +8,17 @@
 import SwiftUI
 import AppKit
 
+/// A view describing the application. Displayed in the about window which is
+/// displayed when the app is first opened.
 struct AboutView: View {
 
   @ObservedObject var appState: AppState
 
   private let contentPadding: EdgeInsets = EdgeInsets(
-    top: 15,
-    leading: 25,
-    bottom: 25,
-    trailing: 25
+    top: 16,
+    leading: 24,
+    bottom: 24,
+    trailing: 24
   )
 
   let backdropColor = Color("about-background")

@@ -22,3 +22,19 @@
 "copyPassphraseButton" = "Copy";
 "aboutButton" = "About";
 "quitButton" = "Quit";
+
+// MARK: - Accessibility Labels
+"decrementWordsButtonAccessibility" = "Decrement number of words";
+"incrementWordsButtonAccessibility" = "Increment number of words";
+"currentNumberOfWordsAccessibility %lld" = "Passphrase length is %lld words";
+
+"previousSeparatorButtonAccessibility" = "Previous separator";
+"nextSeparatorButtonAccessibility" = "Next separator";
+"currentSeparatorAccessibility %@" = "Passphrase separator is %@";
+
+"mixedCaseToggleAccessibility" = "Passphrase contains mixed case words";
+
+"quitApplicationButtonAccessibility" = "Quit application";
+"aboutWindowButtonAccessibility" = "Open about window";
+"copyPassphraseButtonAccessibility" = "Copy passphrase to clipboard";
+"newPassphraseButtonAccessibility" = "Generate new passphrase";

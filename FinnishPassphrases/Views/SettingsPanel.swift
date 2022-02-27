@@ -23,6 +23,7 @@ struct SettingsPanel: View {
           .font(labelFont)
           .foregroundColor(labelColor)
       }
+
       VStack(spacing: 6) {
         SeparatorFlicker(separators: cPasswordSeparators, currentSeparator: $appState.separator)
         Text(LocalizedStringKey("separatorLabel"))
@@ -31,6 +32,7 @@ struct SettingsPanel: View {
       }
       VStack(spacing: 10) {
         Toggle("", isOn: $appState.capitalization)
+          .accessibilityLabel(LocalizedStringKey("mixedCaseToggleAccessibility"))
           .toggleStyle(CustomToggleStyle())
         Text(LocalizedStringKey("capitalizationLabel"))
           .font(labelFont)
