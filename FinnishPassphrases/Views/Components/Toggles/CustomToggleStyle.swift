@@ -20,6 +20,7 @@ struct CustomToggleStyle: ToggleStyle {
   private let toggleStrokeColorActive = Color("toggle-stroke :active")
 
   private let toggleLineColor = Color("toggle-line")
+  private let toggleLineColorActive = Color("toggle-line :active")
 
   let toggleAnimation = Animation.easeOut(duration: 0.2)
 
@@ -47,7 +48,7 @@ struct CustomToggleStyle: ToggleStyle {
               .frame(width: 15, height: 30)
 
             RoundedRectangle(cornerRadius: 2)
-              .stroke(toggleLineColor, lineWidth: 1)
+              .stroke(configuration.isOn ? toggleLineColorActive : toggleLineColor, lineWidth: 1)
               .frame(width: 1, height: 18)
           }
 
