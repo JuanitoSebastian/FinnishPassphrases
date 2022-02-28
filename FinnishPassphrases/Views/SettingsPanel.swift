@@ -22,6 +22,7 @@ struct SettingsPanel: View {
         Text(LocalizedStringKey("wordAmountLabel"))
           .font(labelFont)
           .foregroundColor(labelColor)
+          .accessibilityHidden(true)
       }
 
       VStack(spacing: 6) {
@@ -29,16 +30,18 @@ struct SettingsPanel: View {
         Text(LocalizedStringKey("separatorLabel"))
           .font(labelFont)
           .foregroundColor(labelColor)
+          .accessibilityHidden(true)
       }
       VStack(spacing: 10) {
         Toggle("", isOn: $appState.capitalization)
-          .accessibilityLabel(LocalizedStringKey("mixedCaseToggleAccessibility"))
           .toggleStyle(CustomToggleStyle())
+          .accessibilityLabel(LocalizedStringKey("mixedCaseToggleAccessibility"))
         Text(LocalizedStringKey("capitalizationLabel"))
           .font(labelFont)
           .foregroundColor(labelColor)
+          .accessibilityHidden(true)
       }
-      .padding(.top, 4)
+        .padding(.top, 4)
       Spacer()
     }
     .padding(panelPadding)

@@ -38,3 +38,5 @@
 "aboutWindowButtonAccessibility" = "Open about window";
 "copyPassphraseButtonAccessibility" = "Copy passphrase to clipboard";
 "newPassphraseButtonAccessibility" = "Generate new passphrase";
+
+"currentPassphraseString %@" = "Current passphrase is %@";
