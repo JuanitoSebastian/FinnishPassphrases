@@ -76,7 +76,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
       defer: false
     )
     windowToReturn.center()
-    windowToReturn.title = NSLocalizedString("appNameTitle", comment: "")
+    windowToReturn.title = NSLocalizedString("aboutWindowTitle", comment: "")
     windowToReturn.contentView = NSHostingView(rootView: AboutView(appState: appState))
 
     windowToReturn.titleVisibility = .hidden

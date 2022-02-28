@@ -56,6 +56,7 @@ extension AboutView {
         .resizable()
         .scaledToFit()
         .frame(width: 300)
+        .accessibilityHidden(true)
 
       Text(LocalizedStringKey("appNameTitle"))
         .font(headingFont)

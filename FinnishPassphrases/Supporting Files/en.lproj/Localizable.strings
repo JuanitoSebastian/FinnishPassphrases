@@ -9,6 +9,7 @@
 "appNameTitle" = "Finnish Passphrases";
 
 // About Window
+"aboutWindowTitle" = "Finnish Passphrases: About";
 "aboutWindowAppDescription" = "A simple application for generating secure Finnish Passphrases.";
 "aboutWindowWordsSource" = "Finnish words provided by [Kotus](https://kaino.kotus.fi/sanat/nykysuomi/). ";
 "appVersion %@" = "Version %@";
