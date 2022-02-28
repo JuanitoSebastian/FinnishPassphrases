@@ -137,9 +137,11 @@ class PassphraseGeneratorServiceTests: XCTestCase {
     passphrase = passphraseGeneratorService.updatePassphraseNumOfWords(passphrase: passphrase, numOfWords: 4)
     XCTAssertEqual(passphrase.words, Array(wordsToUse[...3]))
 
+    // Removing the last capitalized word
     passphrase = passphraseGeneratorService.updatePassphraseNumOfWords(passphrase: passphrase, numOfWords: 3)
     XCTAssertNotEqual(passphrase.words, Array(wordsToUse[...2]))
 
+    // Confirm that one of the three words left has been capitalized to keep Passphrase mixed case
     var upperCase = false
     for word in passphrase.words {
       if word.first?.isUppercase != nil && word.first!.isUppercase {
