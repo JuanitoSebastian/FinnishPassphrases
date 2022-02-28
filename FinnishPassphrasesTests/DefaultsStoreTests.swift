@@ -5,7 +5,7 @@
 //  Created by Juan Covarrubias on 15.12.2021.
 //
 
-@testable import FinnishPassphrases
+@testable import Finnish_Passphrases
 import XCTest
 
 class DefaultsStoreTests: XCTestCase {
@@ -23,12 +23,10 @@ class DefaultsStoreTests: XCTestCase {
         defaultsStore.numberOfWordsInPassphrase = 8
         defaultsStore.separatorSymbol = .asterisk
         defaultsStore.wordCapitalization = true
-        defaultsStore.doNotShowInstructions = true
 
         XCTAssertEqual(defaultsStore.numberOfWordsInPassphrase, 8)
         XCTAssertEqual(defaultsStore.separatorSymbol, .asterisk)
         XCTAssertEqual(defaultsStore.wordCapitalization, true)
-        XCTAssertEqual(defaultsStore.doNotShowInstructions, true)
     }
 
 }

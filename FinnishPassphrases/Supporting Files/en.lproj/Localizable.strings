@@ -1,0 +1,40 @@
+/* 
+  Localizable.strings
+  FinnishPasswords
+
+  Created by Juan Covarrubias on 26.10.2021.
+  
+*/
+
+"appNameTitle" = "Finnish Passphrases";
+
+// About Window
+"aboutWindowAppDescription" = "A simple application for generating secure Finnish Passphrases.";
+"aboutWindowWordsSource" = "Finnish words provided by [Kotus](https://kaino.kotus.fi/sanat/nykysuomi/). ";
+"appVersion %@" = "Version %@";
+"appDevelopedBy" = "Developed by [juan.fi](https://juan.fi)";
+
+// Menu Bar Pop-over
+"wordAmountLabel" = "Words";
+"separatorLabel" = "Separator";
+"capitalizationLabel" = "Mixed case";
+"generateNewPassphraseButton" = "New";
+"copyPassphraseButton" = "Copy";
+"aboutButton" = "About";
+"quitButton" = "Quit";
+
+// MARK: - Accessibility Labels
+"decrementWordsButtonAccessibility" = "Decrement number of words";
+"incrementWordsButtonAccessibility" = "Increment number of words";
+"currentNumberOfWordsAccessibility %lld" = "Passphrase length is %lld words";
+
+"previousSeparatorButtonAccessibility" = "Previous separator";
+"nextSeparatorButtonAccessibility" = "Next separator";
+"currentSeparatorAccessibility %@" = "Passphrase separator is %@";
+
+"mixedCaseToggleAccessibility" = "Passphrase contains mixed case words";
+
+"quitApplicationButtonAccessibility" = "Quit application";
+"aboutWindowButtonAccessibility" = "Open about window";
+"copyPassphraseButtonAccessibility" = "Copy passphrase to clipboard";
+"newPassphraseButtonAccessibility" = "Generate new passphrase";

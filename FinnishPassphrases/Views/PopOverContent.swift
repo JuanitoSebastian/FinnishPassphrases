@@ -41,18 +41,21 @@ extension PopOverContent {
           labelText: LocalizedStringKey("quitButton"),
           action: appState.quitApplication
         )
+          .accessibilityLabel(LocalizedStringKey("quitApplicationButtonAccessibility"))
 
         CustomHoverButton(
           icon: Image(systemName: "ellipsis.rectangle.fill"),
           labelText: LocalizedStringKey("aboutButton"),
           action: appState.displayAboutWindow
         )
+          .accessibilityLabel(LocalizedStringKey("aboutWindowButtonAccessibility"))
 
         CustomHoverButton(
           icon: Image(systemName: "doc.on.doc.fill"),
           labelText: LocalizedStringKey("copyPassphraseButton"),
           action: appState.copyPassphraseToPasteboard
         )
+          .accessibilityLabel(LocalizedStringKey("copyPassphraseButtonAccessibility"))
           .keyboardShortcut(KeyboardShortcut("c", modifiers: .command))
 
         CustomHoverButton(
@@ -60,6 +63,7 @@ extension PopOverContent {
           labelText: LocalizedStringKey("generateNewPassphraseButton"),
           action: appState.generateNewPassphrase
         )
+          .accessibilityLabel(LocalizedStringKey("newPassphraseButtonAccessibility"))
           .keyboardShortcut(KeyboardShortcut(.space, modifiers: []))
 
       }
@@ -68,12 +72,3 @@ extension PopOverContent {
     .frame(width: 500, height: 250)
   }
 }
-
-// MARK: - Preview
-#if DEBUG
-struct ContentView_Previews: PreviewProvider {
-  static var previews: some View {
-    PopOverContent(appState: AppState.previewShared)
-  }
-}
-#endif

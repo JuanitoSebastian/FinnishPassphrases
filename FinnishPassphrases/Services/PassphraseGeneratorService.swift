@@ -159,15 +159,6 @@ extension PassphraseGeneratorService {
     return wordsNonRadomized
   }
 
-  private func appendNewWordsToArray(
-    words: [String],
-    numOfWordsToAppend: Int
-  ) -> [String] {
-    var wordsToReturn = words
-    wordsToReturn.append(contentsOf: generateWords(numberOfWords: numOfWordsToAppend))
-    return wordsToReturn
-  }
-
   private func wordArrayContainsMixedCase(_ words: [String]) -> Bool {
     var upperCaseFound = false
     var lowerCaseFound = false

@@ -45,30 +45,18 @@ class AppDelegate: NSObject, NSApplicationDelegate {
       menuButton.action = #selector(menuButtonToggle)
     }
 
-    if !appState.doNotShowAboutWindowOnStart {
-      openAboutWindow()
-    }
+    openAboutWindow()
   }
 
   private func openAboutWindow() {
-    aboutWindow = NSWindow(
-      contentRect: NSRect(x: 0, y: 0, width: cAboutWindowWidth, height: cAboutWindowHeight),
-      styleMask: [.miniaturizable, .closable, .titled],
-      backing: .buffered,
-      defer: false
-    )
-    aboutWindow?.center()
-    aboutWindow?.title = NSLocalizedString("appNameTitle", comment: "")
-    aboutWindow?.contentView = NSHostingView(rootView: AboutView(appState: appState))
+    if let aboutWindow = aboutWindow {
+      if aboutWindow.isVisible && aboutWindow.isOnActiveSpace {
+        return
+      }
+      if aboutWindow.isVisible { aboutWindow.close() }
+    }
 
-    aboutWindow?.titleVisibility = .hidden
-    aboutWindow?.styleMask.insert(.fullSizeContentView)
-    aboutWindow?.titlebarAppearsTransparent = true
-    aboutWindow?.contentView?.wantsLayer = true
-    aboutWindow?.backgroundColor = .white
-
-    aboutWindow?.makeKeyAndOrderFront(nil)
-    aboutWindow?.isReleasedWhenClosed = false
+    aboutWindow = aboutWindowSpecs
     NSApp.activate(ignoringOtherApps: true)
   }
 
@@ -78,5 +66,27 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     appState.generateNewPassphrase()
     self.menuBarPopOver.show(relativeTo: menuButton.bounds, of: menuButton, preferredEdge: NSRectEdge.minY)
     NSApp.activate(ignoringOtherApps: true)
+  }
+
+  private var aboutWindowSpecs: NSWindow {
+    let windowToReturn = NSWindow(
+      contentRect: NSRect(x: 0, y: 0, width: 400, height: 600),
+      styleMask: [.miniaturizable, .closable, .titled],
+      backing: .buffered,
+      defer: false
+    )
+    windowToReturn.center()
+    windowToReturn.title = NSLocalizedString("appNameTitle", comment: "")
+    windowToReturn.contentView = NSHostingView(rootView: AboutView(appState: appState))
+
+    windowToReturn.titleVisibility = .hidden
+    windowToReturn.styleMask.insert(.fullSizeContentView)
+    windowToReturn.titlebarAppearsTransparent = true
+    windowToReturn.contentView?.wantsLayer = true
+    windowToReturn.backgroundColor = NSColor(Color("about-background"))
+
+    windowToReturn.makeKeyAndOrderFront(nil)
+    windowToReturn.isReleasedWhenClosed = false
+    return windowToReturn
   }
 }

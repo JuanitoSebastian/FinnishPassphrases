@@ -6,16 +6,19 @@
 //
 
 import SwiftUI
+import AppKit
 
+/// A view describing the application. Displayed in the about window which is
+/// displayed when the app is first opened.
 struct AboutView: View {
 
   @ObservedObject var appState: AppState
 
   private let contentPadding: EdgeInsets = EdgeInsets(
-    top: 15,
-    leading: 25,
-    bottom: 25,
-    trailing: 25
+    top: 16,
+    leading: 24,
+    bottom: 24,
+    trailing: 24
   )
 
   let backdropColor = Color("about-background")
@@ -24,6 +27,13 @@ struct AboutView: View {
   let ballColor = Color("about-ball")
   let checkboxWrapperColor = Color("about-element-wrapper")
 
+  let headingFont = Font.system(.largeTitle, design: .rounded).weight(.semibold)
+  let bodyFont = Font.system(.body, design: .default)
+  let captionFont = Font.system(.caption, design: .rounded)
+}
+
+// MARK: - Views
+extension AboutView {
   var body: some View {
     ZStack {
       Rectangle()
@@ -38,41 +48,45 @@ struct AboutView: View {
       mainContent
         .padding(contentPadding)
     }
-    .frame(width: cAboutWindowWidth, height: cAboutWindowHeight)
   }
 
   private var mainContent: some View {
-    VStack(alignment: .leading, spacing: 14) {
-      HStack {
-        Text(LocalizedStringKey("appNameTitle"))
-          .font(cUiTitleFont)
-          .foregroundColor(titleColor)
-        Spacer()
-      }
+    VStack(alignment: .center, spacing: 20) {
+      Image("FinnishPassphrasesIcon")
+        .resizable()
+        .scaledToFit()
+        .frame(width: 300)
+
+      Text(LocalizedStringKey("appNameTitle"))
+        .font(headingFont)
+        .foregroundColor(titleColor)
 
       HStack(spacing: 16) {
+        Spacer()
+
         Text(LocalizedStringKey("appVersion \(appState.appVersion)"))
           .foregroundColor(bodyTextColor)
-          .font(Font.system(.body, design: .rounded))
+          .font(captionFont)
 
         Text(LocalizedStringKey("appDevelopedBy"))
           .foregroundColor(bodyTextColor)
-          .font(Font.system(.body, design: .rounded))
+          .font(captionFont)
 
         Spacer()
       }
 
       Text(LocalizedStringKey("aboutWindowAppDescription"))
         .foregroundColor(bodyTextColor)
-        .font(cUiAppDescriptionFont)
+        .multilineTextAlignment(.center)
+        .font(bodyFont)
         .lineSpacing(6)
 
-      RoundedSquareWrapper(padding: EdgeInsets(top: 8, leading: 12, bottom: 8, trailing: 12)) {
-        Toggle(LocalizedStringKey("aboutWindowCheckbox"), isOn: $appState.doNotShowAboutWindowOnStart)
-          .toggleStyle(CustomCheckboxStyle())
-      }
-
       Spacer()
+
+      Text(LocalizedStringKey("aboutWindowWordsSource"))
+        .foregroundColor(bodyTextColor)
+        .font(captionFont)
+
     }
   }
 
@@ -83,12 +97,3 @@ struct AboutView: View {
       .blur(radius: 30)
   }
 }
-
-// MARK: - Preview
-#if DEBUG
-struct AboutView_Previews: PreviewProvider {
-  static var previews: some View {
-    AboutView(appState: AppState.previewShared)
-  }
-}
-#endif
