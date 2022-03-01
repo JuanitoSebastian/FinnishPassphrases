@@ -40,6 +40,7 @@
 		287C913E27C146C8005C9C58 /* RoundedSquareWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 287C913D27C146C8005C9C58 /* RoundedSquareWrapper.swift */; };
 		287C914027C2458A005C9C58 /* CustomCheckboxStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 287C913F27C2458A005C9C58 /* CustomCheckboxStyle.swift */; };
 		287C914527C25F50005C9C58 /* CustomHoverButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 287C914427C25F50005C9C58 /* CustomHoverButton.swift */; };
+		2889AC8627CE3219007EE89E /* CustomLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2889AC8527CE3219007EE89E /* CustomLabel.swift */; };
 		28B0534A2791B5B700174F5E /* SettingsPanel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28B053492791B5B700174F5E /* SettingsPanel.swift */; };
 		28B0534C2791B7AD00174F5E /* WordAmountFlicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28B0534B2791B7AD00174F5E /* WordAmountFlicker.swift */; };
 		28B0534E2791F47100174F5E /* SeparatorFlicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28B0534D2791F47100174F5E /* SeparatorFlicker.swift */; };
@@ -101,6 +102,7 @@
 		287C913F27C2458A005C9C58 /* CustomCheckboxStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomCheckboxStyle.swift; sourceTree = "<group>"; };
 		287C914427C25F50005C9C58 /* CustomHoverButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomHoverButton.swift; sourceTree = "<group>"; };
 		2885D39C276BBE18007E5695 /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
+		2889AC8527CE3219007EE89E /* CustomLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomLabel.swift; sourceTree = "<group>"; };
 		28A24B9D27BF81A400589D12 /* lint.sh */ = {isa = PBXFileReference; lastKnownFileType = text.script.sh; path = lint.sh; sourceTree = "<group>"; };
 		28B053492791B5B700174F5E /* SettingsPanel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsPanel.swift; sourceTree = "<group>"; };
 		28B0534B2791B7AD00174F5E /* WordAmountFlicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WordAmountFlicker.swift; sourceTree = "<group>"; };
@@ -300,6 +302,7 @@
 				28B0534D2791F47100174F5E /* SeparatorFlicker.swift */,
 				287C913D27C146C8005C9C58 /* RoundedSquareWrapper.swift */,
 				287C914427C25F50005C9C58 /* CustomHoverButton.swift */,
+				2889AC8527CE3219007EE89E /* CustomLabel.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -539,6 +542,7 @@
 				283D3E02267F3E9B005C8BD9 /* Character.swift in Sources */,
 				28B2F2FA279417DC00FFED56 /* CustomToggleStyle.swift in Sources */,
 				280A1D072662434300301A4C /* PassphraseDispalyerView.swift in Sources */,
+				2889AC8627CE3219007EE89E /* CustomLabel.swift in Sources */,
 				280A1D052662416300301A4C /* AppState.swift in Sources */,
 				282874DD2662337500ADC11E /* FinnishPasswordsApp.swift in Sources */,
 				280E0F30266AB5E6001F24F9 /* String.swift in Sources */,
