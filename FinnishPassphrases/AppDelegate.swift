@@ -17,12 +17,27 @@ class AppDelegate: NSObject, NSApplicationDelegate {
   private var aboutWindow: NSWindow?
 
   override init() {
-    let kotusWordService = KotusWordService()
-    kotusWordService.readFileToMemory()
+    guard let environment = ProcessInfo.processInfo.environment["env"] else {
+      // Build Environment
+      let kotusWordService = KotusWordService()
+      self.appState = AppState(
+        passphraseGeneratorService: PassphraseGeneratorService(
+          wordService: kotusWordService
+        )
+      )
+
+      self.menuBarPopOver = NSPopover()
+      super.init()
+      return
+    }
+
+    // Dev or Testing Environment
+    let testingStore = TestingStore()
     self.appState = AppState(
       passphraseGeneratorService: PassphraseGeneratorService(
-        kotusWordService: kotusWordService
-      )
+        wordService: environment == "test" ? TestingWordService() : KotusWordService()
+      ),
+      defaultsStore: testingStore
     )
 
     self.menuBarPopOver = NSPopover()

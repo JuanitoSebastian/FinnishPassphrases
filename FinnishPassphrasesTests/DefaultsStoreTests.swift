@@ -20,13 +20,13 @@ class DefaultsStoreTests: XCTestCase {
     }
 
     func test_a_editing_values_of_store_works() {
-        defaultsStore.numberOfWordsInPassphrase = 8
+        defaultsStore.numberOfWords = 8
         defaultsStore.separatorSymbol = .asterisk
-        defaultsStore.wordCapitalization = true
+        defaultsStore.mixedCase = true
 
-        XCTAssertEqual(defaultsStore.numberOfWordsInPassphrase, 8)
+        XCTAssertEqual(defaultsStore.numberOfWords, 8)
         XCTAssertEqual(defaultsStore.separatorSymbol, .asterisk)
-        XCTAssertEqual(defaultsStore.wordCapitalization, true)
+        XCTAssertEqual(defaultsStore.mixedCase, true)
     }
 
 }

@@ -8,7 +8,7 @@
 import Foundation
 
 /// A convenient wrapper for UserDefaults. The variables can be set and the change is saved automatically.
-class DefaultsStore {
+class DefaultsStore: Store {
 
   private let userDefaults: UserDefaults
 
@@ -17,7 +17,7 @@ class DefaultsStore {
     self.userDefaults = userDefaults
   }
 
-  var numberOfWordsInPassphrase: Int {
+  var numberOfWords: Int {
     get {
       let fetch = userDefaults.integer(forKey: "numberOfWordsInPassphras")
       return fetch != 0 ? fetch : 4
@@ -36,7 +36,7 @@ class DefaultsStore {
     }
   }
 
-  var wordCapitalization: Bool {
+  var mixedCase: Bool {
     get {
       return userDefaults.bool(forKey: "wordCapitalization")
     }

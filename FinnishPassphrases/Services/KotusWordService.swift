@@ -7,27 +7,22 @@
 
 import Foundation
 
-class KotusWordService {
+class KotusWordService: WordService {
 
   var xml: [String] = []
   private let startLine: Int
   private let nameOfXmlFile: String
-  private let customData: String?
 
-  init(nameOfXmlFile: String = "kotus-sanalista_v1", customData: String? = nil) {
+  init(nameOfXmlFile: String = "kotus-sanalista_v1") {
     self.nameOfXmlFile = nameOfXmlFile
-    self.customData = customData
-    self.startLine = customData == nil ? 13 : 0
+    self.startLine = 13
+    readFileToMemory()
   }
 
   func readFileToMemory() {
     do {
-      if let customData = customData {
-        self.xml = customData.components(separatedBy: .newlines)
-      } else {
-        let data = try String(contentsOf: kotusWordsUrl, encoding: .utf8)
-        self.xml = data.components(separatedBy: .newlines)
-      }
+      let data = try String(contentsOf: kotusWordsUrl, encoding: .utf8)
+      self.xml = data.components(separatedBy: .newlines)
     } catch {
       Log.e("Failed to read words from file")
     }

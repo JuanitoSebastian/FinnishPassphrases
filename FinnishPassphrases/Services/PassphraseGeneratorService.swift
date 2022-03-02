@@ -10,11 +10,11 @@ import Foundation
 /// A class that generates new Passphrase objects 🏭
 class PassphraseGeneratorService {
 
-  let kotusWordService: KotusWordService
+  let kotusWordService: WordService
 
   /// - Parameter kotusWordService: KotusWordService object to use for fetching random Finnish words
-  init(kotusWordService: KotusWordService) {
-    self.kotusWordService = kotusWordService
+  init(wordService: WordService) {
+    self.kotusWordService = wordService
   }
 }
 
