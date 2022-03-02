@@ -50,21 +50,62 @@ class BasicOperationTests: XCTestCase {
     XCTAssert(popOverContents!.passphraseArea.element.exists)
   }
 
-  func test_d_quit_button_works() throws {
-    aboutWindowContents?.closeButton.element.click()
+  func test_d_quit_button_works_as_expected() throws {
+    aboutWindowContents!.closeButton.element.click()
     menuBarIcon.element.click()
-    print(app!.state.rawValue)
     sleep(1)
 
     popOverContents!.quitButton.element.click()
     XCTAssertFalse(menuBarIcon.element.exists)
   }
 
+  func test_e_about_button_works_as_expected() throws {
+    aboutWindowContents!.closeButton.element.click()
+    XCTAssertFalse(aboutWindow!.element.isHittable)
+    menuBarIcon.element.click()
+    sleep(1)
+
+    popOverContents!.aboutButton.element.click()
+    XCTAssert(aboutWindow!.element.isHittable)
+  }
+
+  func test_f_copy_button_works_as_expected() throws {
+    aboutWindowContents!.closeButton.element.click()
+    menuBarIcon.element.click()
+    sleep(1)
+
+    popOverContents!.copyButton.element.click()
+    let currentPassphrase = getPassphraseFromElement(popOverContents!.passphraseArea)
+    let pasteboard = NSPasteboard.general
+    let pasteboardContents = pasteboard.pasteboardItems![0]
+      .string(forType: NSPasteboard.PasteboardType(rawValue: "public.utf8-plain-text"))
+    XCTAssertEqual(currentPassphrase, pasteboardContents)
+    XCTAssertEqual(currentPassphrase, getPassphraseFromElement(popOverContents!.passphraseArea))
+  }
+
+  func test_g_new_button_works_as_expected() throws {
+    aboutWindowContents!.closeButton.element.click()
+    menuBarIcon.element.click()
+    sleep(1)
+
+    let currentPassphrase = getPassphraseFromElement(popOverContents!.passphraseArea)
+    popOverContents!.newButton.element.click()
+    XCTAssertNotEqual(currentPassphrase, getPassphraseFromElement(popOverContents!.passphraseArea))
+  }
+
+  func test_h_closing_and_reopening_pop_over_generates_new_passphrase() throws {
+    aboutWindowContents!.closeButton.element.click()
+    menuBarIcon.element.click()
+    let currentPassphrase = getPassphraseFromElement(popOverContents!.passphraseArea)
+    menuBarIcon.element.click()
+    menuBarIcon.element.click()
+    XCTAssertNotEqual(currentPassphrase, getPassphraseFromElement(popOverContents!.passphraseArea))
+  }
 }
 
 extension BasicOperationTests {
   func getAboutWindow(app: XCUIApplication) -> (XCUIElementQuery, AboutWindowContents) {
-    let aboutWindow = app.descendants(matching: .window).matching(identifier: "aboutWindow")
+    let aboutWindow = app.descendants(matching: .any).matching(identifier: "aboutWindow")
     let aboutWindowContents = AboutWindowContents(
       closeButton: aboutWindow.descendants(matching: .button).matching(identifier: "_XCUI:CloseWindow"),
       text: aboutWindow.descendants(matching: .staticText)
@@ -84,6 +125,11 @@ extension BasicOperationTests {
     )
 
     return (popOver, popOverContents)
+  }
+
+  func getPassphraseFromElement(_ passphraseArea: XCUIElementQuery) -> String {
+    let labelString = passphraseArea.element.label
+    return String(labelString.suffix(labelString.count - 22))
   }
 }
 

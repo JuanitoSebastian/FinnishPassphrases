@@ -40,8 +40,6 @@
 		2866168927CF714100E44293 /* WordService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2866168827CF714000E44293 /* WordService.swift */; };
 		2866168B27CF739F00E44293 /* TestingWordService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2866168A27CF739F00E44293 /* TestingWordService.swift */; };
 		2866169D27CF8C7400E44293 /* BasicOperationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2866169C27CF8C7400E44293 /* BasicOperationTests.swift */; };
-		287C913E27C146C8005C9C58 /* RoundedSquareWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 287C913D27C146C8005C9C58 /* RoundedSquareWrapper.swift */; };
-		287C914027C2458A005C9C58 /* CustomCheckboxStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 287C913F27C2458A005C9C58 /* CustomCheckboxStyle.swift */; };
 		287C914527C25F50005C9C58 /* CustomHoverButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 287C914427C25F50005C9C58 /* CustomHoverButton.swift */; };
 		2889AC8627CE3219007EE89E /* CustomLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2889AC8527CE3219007EE89E /* CustomLabel.swift */; };
 		28B0534A2791B5B700174F5E /* SettingsPanel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28B053492791B5B700174F5E /* SettingsPanel.swift */; };
@@ -112,8 +110,6 @@
 		2866169127CF8BE100E44293 /* Finnish PassphrasesEndToEndTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Finnish PassphrasesEndToEndTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		2866169C27CF8C7400E44293 /* BasicOperationTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasicOperationTests.swift; sourceTree = "<group>"; };
 		2879141127C6A6E700603D51 /* set_version.sh */ = {isa = PBXFileReference; lastKnownFileType = text.script.sh; path = set_version.sh; sourceTree = "<group>"; };
-		287C913D27C146C8005C9C58 /* RoundedSquareWrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedSquareWrapper.swift; sourceTree = "<group>"; };
-		287C913F27C2458A005C9C58 /* CustomCheckboxStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomCheckboxStyle.swift; sourceTree = "<group>"; };
 		287C914427C25F50005C9C58 /* CustomHoverButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomHoverButton.swift; sourceTree = "<group>"; };
 		2885D39C276BBE18007E5695 /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
 		2889AC8527CE3219007EE89E /* CustomLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomLabel.swift; sourceTree = "<group>"; };
@@ -321,7 +317,6 @@
 			isa = PBXGroup;
 			children = (
 				28B2F2F9279417DC00FFED56 /* CustomToggleStyle.swift */,
-				287C913F27C2458A005C9C58 /* CustomCheckboxStyle.swift */,
 			);
 			path = Toggles;
 			sourceTree = "<group>";
@@ -341,7 +336,6 @@
 				28B2F2F82794179000FFED56 /* Toggles */,
 				28B0534B2791B7AD00174F5E /* WordAmountFlicker.swift */,
 				28B0534D2791F47100174F5E /* SeparatorFlicker.swift */,
-				287C913D27C146C8005C9C58 /* RoundedSquareWrapper.swift */,
 				287C914427C25F50005C9C58 /* CustomHoverButton.swift */,
 				2889AC8527CE3219007EE89E /* CustomLabel.swift */,
 			);
@@ -600,7 +594,6 @@
 				28B0534A2791B5B700174F5E /* SettingsPanel.swift in Sources */,
 				280A1D022662359900301A4C /* KotusWordService.swift in Sources */,
 				2866168527CF69A200E44293 /* Store.swift in Sources */,
-				287C914027C2458A005C9C58 /* CustomCheckboxStyle.swift in Sources */,
 				2866168927CF714100E44293 /* WordService.swift in Sources */,
 				281666FC2664C53A00DDCCC3 /* Passphrase.swift in Sources */,
 				28B0534E2791F47100174F5E /* SeparatorFlicker.swift in Sources */,
@@ -620,7 +613,6 @@
 				282874DD2662337500ADC11E /* FinnishPasswordsApp.swift in Sources */,
 				280E0F30266AB5E6001F24F9 /* String.swift in Sources */,
 				280A1CFB2662356F00301A4C /* Log.swift in Sources */,
-				287C913E27C146C8005C9C58 /* RoundedSquareWrapper.swift in Sources */,
 				2866168B27CF739F00E44293 /* TestingWordService.swift in Sources */,
 				280A1D092662477F00301A4C /* Constants.swift in Sources */,
 			);
