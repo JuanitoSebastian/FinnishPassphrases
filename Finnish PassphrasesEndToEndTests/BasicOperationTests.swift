@@ -53,8 +53,11 @@ class BasicOperationTests: XCTestCase {
   func test_d_quit_button_works() throws {
     aboutWindowContents?.closeButton.element.click()
     menuBarIcon.element.click()
+    print(app!.state.rawValue)
+    sleep(1)
+
     popOverContents!.quitButton.element.click()
-    XCTAssertFalse(app!.exists)
+    XCTAssertFalse(menuBarIcon.element.exists)
   }
 
 }
