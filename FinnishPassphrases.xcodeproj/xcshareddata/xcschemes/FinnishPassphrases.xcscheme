@@ -56,6 +56,16 @@
                ReferencedContainer = "container:FinnishPassphrases.xcodeproj">
             </BuildableReference>
          </TestableReference>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "2866169027CF8BE100E44293"
+               BuildableName = "Finnish PassphrasesEndToEndTests.xctest"
+               BlueprintName = "Finnish PassphrasesEndToEndTests"
+               ReferencedContainer = "container:FinnishPassphrases.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
       </Testables>
    </TestAction>
    <LaunchAction
