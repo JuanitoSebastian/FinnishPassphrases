@@ -17,32 +17,23 @@ class AppDelegate: NSObject, NSApplicationDelegate {
   private var aboutWindow: NSWindow?
 
   override init() {
-    guard let environment = ProcessInfo.processInfo.environment["env"] else {
-      // Build Environment
-      let kotusWordService = KotusWordService()
+    switch environment {
+    case "production":
+      self.appState = AppState()
+      self.menuBarPopOver = NSPopover()
+      super.init()
+    default:
+      let testingStore = TestingStore()
       self.appState = AppState(
         passphraseGeneratorService: PassphraseGeneratorService(
-          wordService: kotusWordService
-        )
+          wordService: environment == "test" ? TestingWordService() : KotusWordService()
+        ),
+        defaultsStore: testingStore
       )
 
       self.menuBarPopOver = NSPopover()
       super.init()
-      return
     }
-
-    // Dev or Testing Environment
-    let testingStore = TestingStore()
-    self.appState = AppState(
-      passphraseGeneratorService: PassphraseGeneratorService(
-        wordService: environment == "test" ? TestingWordService() : KotusWordService()
-      ),
-      defaultsStore: testingStore
-    )
-
-    self.menuBarPopOver = NSPopover()
-
-    super.init()
   }
 
   func applicationDidFinishLaunching(_ notification: Notification) {
@@ -83,6 +74,10 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     NSApp.activate(ignoringOtherApps: true)
   }
 
+}
+
+extension AppDelegate {
+
   private var aboutWindowSpecs: NSWindow {
     let windowToReturn = NSWindow(
       contentRect: NSRect(x: 0, y: 0, width: 400, height: 600),
@@ -104,4 +99,10 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     windowToReturn.isReleasedWhenClosed = false
     return windowToReturn
   }
+
+}
+
+private var environment: String {
+  guard let env = ProcessInfo.processInfo.environment["env"] else { return "production" }
+  return env
 }

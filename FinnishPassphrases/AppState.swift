@@ -34,7 +34,7 @@ class AppState: ObservableObject {
   var openAboutWindow: (() -> Void)?
 
   init(
-    passphraseGeneratorService: PassphraseGeneratorService,
+    passphraseGeneratorService: PassphraseGeneratorService = PassphraseGeneratorService(),
     defaultsStore: Store = DefaultsStore(),
     pasteboard: NSPasteboard = NSPasteboard.general
   ) {

@@ -13,7 +13,7 @@ class PassphraseGeneratorService {
   let kotusWordService: WordService
 
   /// - Parameter kotusWordService: KotusWordService object to use for fetching random Finnish words
-  init(wordService: WordService) {
+  init(wordService: WordService = KotusWordService()) {
     self.kotusWordService = wordService
   }
 }
