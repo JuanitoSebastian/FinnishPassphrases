@@ -100,7 +100,7 @@ class BasicOperationTests: XCTestCase {
     sleep(1)
     menuBarIcon.element.click()
     sleep(1)
-    menuBarIcon.element.click()
+    app.descendants(matching: .statusItem).matching(identifier: "passwords").element.click()
     sleep(1)
     XCTAssertNotEqual(currentPassphrase, getPassphraseFromElement(popOverContents!.passphraseArea))
   }
