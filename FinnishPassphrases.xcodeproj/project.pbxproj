@@ -236,6 +236,7 @@
 		282874D02662337500ADC11E = {
 			isa = PBXGroup;
 			children = (
+				286616A227D0B5B100E44293 /* Tests */,
 				2815932E27BF68F400840475 /* Scripts */,
 				283B7FE227BE9B2C00814098 /* codecov.yml */,
 				28B15791279497B8007352E9 /* .swiftlint.yml */,
@@ -244,8 +245,6 @@
 				28B69F5827294AA400A4D080 /* Documentation */,
 				281667162664F50B00DDCCC3 /* README.md */,
 				282874DB2662337500ADC11E /* FinnishPassphrases */,
-				28395D8827CA654500B6C634 /* FinnishPassphrasesTests */,
-				2866169227CF8BE100E44293 /* Finnish PassphrasesEndToEndTests */,
 				282874DA2662337500ADC11E /* Products */,
 				B0D843842F2AE73D973EF9D6 /* Generated Mocks */,
 			);
@@ -286,7 +285,25 @@
 			path = "Preview Content";
 			sourceTree = "<group>";
 		};
-		28395D8827CA654500B6C634 /* FinnishPassphrasesTests */ = {
+		2866168327CF697C00E44293 /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				2866168427CF69A200E44293 /* Store.swift */,
+				2866168827CF714000E44293 /* WordService.swift */,
+			);
+			path = Protocols;
+			sourceTree = "<group>";
+		};
+		286616A227D0B5B100E44293 /* Tests */ = {
+			isa = PBXGroup;
+			children = (
+				286616A427D0B5D500E44293 /* EndToEnd */,
+				286616A327D0B5BB00E44293 /* Unit */,
+			);
+			path = Tests;
+			sourceTree = "<group>";
+		};
+		286616A327D0B5BB00E44293 /* Unit */ = {
 			isa = PBXGroup;
 			children = (
 				284FE21D27CA6F6E004D1094 /* AppStateTests.swift */,
@@ -297,26 +314,17 @@
 				284FE21627CA6F6E004D1094 /* SeparatorSymbolTests.swift */,
 				284FE21C27CA6F6E004D1094 /* StringTests.swift */,
 			);
-			path = FinnishPassphrasesTests;
+			path = Unit;
 			sourceTree = "<group>";
 		};
-		2866168327CF697C00E44293 /* Protocols */ = {
-			isa = PBXGroup;
-			children = (
-				2866168427CF69A200E44293 /* Store.swift */,
-				2866168827CF714000E44293 /* WordService.swift */,
-			);
-			path = Protocols;
-			sourceTree = "<group>";
-		};
-		2866169227CF8BE100E44293 /* Finnish PassphrasesEndToEndTests */ = {
+		286616A427D0B5D500E44293 /* EndToEnd */ = {
 			isa = PBXGroup;
 			children = (
 				2866169E27D0951800E44293 /* GeneratingPassphrasesTests.swift */,
 				2866169C27CF8C7400E44293 /* BasicOperationTests.swift */,
 				286616A027D0954400E44293 /* TestsUtilities.swift */,
 			);
-			path = "Finnish PassphrasesEndToEndTests";
+			path = EndToEnd;
 			sourceTree = "<group>";
 		};
 		28B2F2F82794179000FFED56 /* Toggles */ = {
