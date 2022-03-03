@@ -160,13 +160,7 @@ extension PassphraseGeneratorService {
   }
 
   private func wordArrayContainsMixedCase(_ words: [String]) -> Bool {
-    var upperCaseFound = false
-    var lowerCaseFound = false
-    for word in words {
-      if word.first?.isUppercase != nil && word.first!.isUppercase { upperCaseFound = true }
-      if word.first?.isLowercase != nil && word.first!.isLowercase { lowerCaseFound = true }
-      if upperCaseFound && lowerCaseFound { return true }
-    }
-    return false
+    let stringFromArray = words.joined(separator: "")
+    return stringFromArray.range(of: cMixedCaseRegex, options: .regularExpression) != nil
   }
 }

@@ -18,3 +18,4 @@ let cInitialNumberOfWOrds: Int = 4
 let cInitialSeparatorSymbol: SeparatorSymbol = .hyphen
 let cInitialMixedCase: Bool = false
 let cTestingWords: [String] = ["ahdasrajaisesti", "ahdasrajaisuus", "ahdata", "ahde", "ahdekaunokki"]
+let cMixedCaseRegex: String = "(?=.*[a-zäöå])(?=.*[A-ZÄÖÅ])"

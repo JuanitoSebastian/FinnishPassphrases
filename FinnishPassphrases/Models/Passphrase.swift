@@ -25,11 +25,7 @@ extension Passphrase {
 
   /// The current passphrase as a string.
   var passphrase: String {
-    words.enumerated().reduce("", { concatenation, word in
-      return word.offset < (words.count - 1) ?
-      "\(concatenation)\(word.element)\(separator.symbol)" :
-      "\(concatenation)\(word.element)" // No separator symbol added after last word
-    })
+    return words.joined(separator: String(separator.symbol))
   }
 
   /// Number of words in passphrase
@@ -44,16 +40,8 @@ extension Passphrase {
 
   /// Does the Passphrase contain mixed case words?
   var mixedCase: Bool {
-    var upperCaseFound = false
-    var lowerCaseFound = false
-    for word in words {
-      if word.first?.isUppercase != nil && word.first!.isUppercase { upperCaseFound = true }
-      if word.first?.isLowercase != nil && word.first!.isLowercase { lowerCaseFound = true }
-      if upperCaseFound && lowerCaseFound { return true }
-    }
-    return false
+    return passphrase.range(of: cMixedCaseRegex, options: .regularExpression) != nil
   }
-
 }
 
 // MARK: - Equatable

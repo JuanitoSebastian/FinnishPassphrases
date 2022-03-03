@@ -13,6 +13,8 @@ class GeneratingPassphrasesTests: XCTestCase {
   var menuBarIcon: XCUIElementQuery!
   var (popOver, popOverContents): (XCUIElementQuery?, PopOverContents?)
   var (aboutWindow, aboutWindowContents): (XCUIElementQuery?, AboutWindowContents?)
+  let mixedCaseRegex = "(?=.*[a-zäöå])(?=.*[A-ZÄÖÅ])"
+  let upperCaseRegex = ".*[A-ZÄÖÅ]"
 
   override func setUpWithError() throws {
     app = XCUIApplication()
@@ -51,7 +53,21 @@ class GeneratingPassphrasesTests: XCTestCase {
     sleep(1)
 
     let currentPassphrase = getPassphraseFromElement(popOverContents!.passphraseArea)
+    XCTAssertNil(currentPassphrase.range(of: mixedCaseRegex, options: .regularExpression))
+
     popOverContents!.mixedCaseToggle.element.click()
     XCTAssertNotEqual(currentPassphrase, getPassphraseFromElement(popOverContents!.passphraseArea))
+    XCTAssertNotNil(
+      getPassphraseFromElement(popOverContents!.passphraseArea)
+        .range(of: mixedCaseRegex, options: .regularExpression)
+    )
+
+    popOverContents!.mixedCaseToggle.element.click()
+
+    XCTAssertNil(
+      getPassphraseFromElement(popOverContents!.passphraseArea)
+        .range(of: mixedCaseRegex, options: .regularExpression)
+    )
+
   }
 }
