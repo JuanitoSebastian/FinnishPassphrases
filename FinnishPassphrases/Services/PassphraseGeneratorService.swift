@@ -114,6 +114,11 @@ extension PassphraseGeneratorService {
     for _ in 0..<numberOfWords {
       words.append(generateWord(mixedCase))
     }
+
+    if mixedCase && !wordArrayContainsMixedCase(words) {
+      words = randomizeWordCase(words)
+    }
+
     return words
   }
 
