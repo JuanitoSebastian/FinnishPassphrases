@@ -97,8 +97,11 @@ class BasicOperationTests: XCTestCase {
     aboutWindowContents!.closeButton.element.click()
     menuBarIcon.element.click()
     let currentPassphrase = getPassphraseFromElement(popOverContents!.passphraseArea)
+    sleep(1)
     menuBarIcon.element.click()
+    sleep(1)
     menuBarIcon.element.click()
+    sleep(1)
     XCTAssertNotEqual(currentPassphrase, getPassphraseFromElement(popOverContents!.passphraseArea))
   }
 }
