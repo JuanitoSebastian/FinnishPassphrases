@@ -12,31 +12,17 @@ import Mockingbird
 class AppStateTests: XCTestCase {
 
   var pasteboard: NSPasteboard!
-  var defaultStore: DefaultsStore!
-  var kotusWordService: KotusWordService!
+  var defaultStore: Store!
+  var wordService: WordService!
   var passsphraseGenerator: PassphraseGeneratorService!
   var appState: AppState!
-  let correctWords = ["ahdasrajaisesti", "ahdasrajaisuus", "ahdata", "ahde", "ahdekaunokki"]
 
   override func setUp() {
-    let customData =
-      """
-      <st><s>ahdasrajaisesti</s><t><tn>99</tn></t></st>
-      <st><s>ahdasrajaisuus</s><t><tn>40</tn></t></st>
-      <st><s>ahdata</s><t><tn>73</tn><av>F</av></t></st>
-      <st><s>ahde</s><t><tn>48</tn><av>F</av></t></st>
-      <st><s>ahdekaunokki</s></st>
-      """
     self.pasteboard = NSPasteboard.general
-    let userDefaults = UserDefaults(suiteName: #file)!
-    userDefaults.removePersistentDomain(forName: #file)
-    self.defaultStore = DefaultsStore(
-      userDefaults: userDefaults
-    )
-    self.kotusWordService = KotusWordService(customData: customData)
-    kotusWordService.readFileToMemory()
+    self.defaultStore = TestingStore()
+    self.wordService = TestingWordService()
     self.passsphraseGenerator = PassphraseGeneratorService(
-      kotusWordService: kotusWordService
+      wordService: wordService
     )
     self.appState = AppState(
       passphraseGeneratorService: passsphraseGenerator,
@@ -47,17 +33,17 @@ class AppStateTests: XCTestCase {
 
   func test_a_appstate_is_initialized_correctly() {
     XCTAssertEqual(appState.passphrase.separator, defaultStore.separatorSymbol)
-    XCTAssertEqual(appState.passphrase.numOfWords, defaultStore.numberOfWordsInPassphrase)
+    XCTAssertEqual(appState.passphrase.numOfWords, defaultStore.numberOfWords)
     XCTAssertFalse(appState.capitalization)
 
     for word in appState.passphrase.words {
-      XCTAssertTrue(correctWords.contains(word))
+      XCTAssertTrue(cTestingWords.contains(word))
     }
   }
 
   func test_b_setting_number_of_words_works() {
     appState.numOfWords = 5
-    XCTAssertEqual(defaultStore.numberOfWordsInPassphrase, 5)
+    XCTAssertEqual(defaultStore.numberOfWords, 5)
     XCTAssertEqual(appState.numOfWords, 5)
     appState.generateNewPassphrase()
 
@@ -68,7 +54,7 @@ class AppStateTests: XCTestCase {
     let currentNumber = appState.numOfWords
     appState.numOfWords = currentNumber
 
-    XCTAssertEqual(defaultStore.numberOfWordsInPassphrase, currentNumber)
+    XCTAssertEqual(defaultStore.numberOfWords, currentNumber)
 
     appState.generateNewPassphrase()
 
@@ -117,10 +103,10 @@ class AppStateTests: XCTestCase {
   }
 
   func test_h_setting_capitalization_works_correctly() {
-    XCTAssertFalse(defaultStore.wordCapitalization)
+    XCTAssertFalse(defaultStore.mixedCase)
 
     appState.capitalization = true
-    XCTAssertTrue(defaultStore.wordCapitalization)
+    XCTAssertTrue(defaultStore.mixedCase)
     XCTAssertTrue(appState.capitalization)
 
     appState.generateNewPassphrase()

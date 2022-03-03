@@ -10,11 +10,11 @@ import Foundation
 /// A class that generates new Passphrase objects 🏭
 class PassphraseGeneratorService {
 
-  let kotusWordService: KotusWordService
+  let kotusWordService: WordService
 
   /// - Parameter kotusWordService: KotusWordService object to use for fetching random Finnish words
-  init(kotusWordService: KotusWordService) {
-    self.kotusWordService = kotusWordService
+  init(wordService: WordService = KotusWordService()) {
+    self.kotusWordService = wordService
   }
 }
 
@@ -114,6 +114,11 @@ extension PassphraseGeneratorService {
     for _ in 0..<numberOfWords {
       words.append(generateWord(mixedCase))
     }
+
+    if mixedCase && !wordArrayContainsMixedCase(words) {
+      words = randomizeWordCase(words)
+    }
+
     return words
   }
 
@@ -160,13 +165,7 @@ extension PassphraseGeneratorService {
   }
 
   private func wordArrayContainsMixedCase(_ words: [String]) -> Bool {
-    var upperCaseFound = false
-    var lowerCaseFound = false
-    for word in words {
-      if word.first?.isUppercase != nil && word.first!.isUppercase { upperCaseFound = true }
-      if word.first?.isLowercase != nil && word.first!.isLowercase { lowerCaseFound = true }
-      if upperCaseFound && lowerCaseFound { return true }
-    }
-    return false
+    let stringFromArray = words.joined(separator: "")
+    return stringFromArray.range(of: cMixedCaseRegex, options: .regularExpression) != nil
   }
 }

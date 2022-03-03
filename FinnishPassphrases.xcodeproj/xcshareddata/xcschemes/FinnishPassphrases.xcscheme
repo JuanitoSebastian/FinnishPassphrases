@@ -26,9 +26,17 @@
       buildConfiguration = "Debug"
       selectedDebuggerIdentifier = "Xcode.DebuggerFoundation.Debugger.LLDB"
       selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
-      shouldUseLaunchSchemeArgsEnv = "YES"
+      shouldUseLaunchSchemeArgsEnv = "NO"
+      systemAttachmentLifetime = "keepNever"
       codeCoverageEnabled = "YES"
       onlyGenerateCoverageForSpecifiedTargets = "YES">
+      <EnvironmentVariables>
+         <EnvironmentVariable
+            key = "env"
+            value = "test"
+            isEnabled = "YES">
+         </EnvironmentVariable>
+      </EnvironmentVariables>
       <CodeCoverageTargets>
          <BuildableReference
             BuildableIdentifier = "primary"
@@ -44,8 +52,18 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "2808822527CA683C00E66C89"
-               BuildableName = "FinnishPassphrasesTests.xctest"
-               BlueprintName = "FinnishPassphrasesTests"
+               BuildableName = "UnitTests.xctest"
+               BlueprintName = "UnitTests"
+               ReferencedContainer = "container:FinnishPassphrases.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "2866169027CF8BE100E44293"
+               BuildableName = "EndToEndTests.xctest"
+               BlueprintName = "EndToEndTests"
                ReferencedContainer = "container:FinnishPassphrases.xcodeproj">
             </BuildableReference>
          </TestableReference>
@@ -95,6 +113,13 @@
             ReferencedContainer = "container:FinnishPassphrases.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
+      <EnvironmentVariables>
+         <EnvironmentVariable
+            key = "env"
+            value = "build"
+            isEnabled = "YES">
+         </EnvironmentVariable>
+      </EnvironmentVariables>
    </ProfileAction>
    <AnalyzeAction
       buildConfiguration = "Debug">

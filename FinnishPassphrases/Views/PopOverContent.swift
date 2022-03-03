@@ -28,6 +28,9 @@ extension PopOverContent {
         PassphraseDispalyerView(passphrase: $appState.passphrase)
           .environmentObject(appState)
           .onDrag { NSItemProvider(object: appState.passphrase.passphrase as NSString )}
+          .accessibilityElement(children: .ignore)
+          .accessibilityLabel(LocalizedStringKey("currentPassphraseString \(appState.passphrase.passphrase)"))
+          .accessibilityIdentifier("passphraseArea")
 
         Spacer()
       }
@@ -41,6 +44,7 @@ extension PopOverContent {
           labelText: LocalizedStringKey("quitButton"),
           action: appState.quitApplication
         )
+          .accessibilityIdentifier("quitButton")
           .accessibilityLabel(LocalizedStringKey("quitApplicationButtonAccessibility"))
 
         CustomHoverButton(
@@ -48,6 +52,7 @@ extension PopOverContent {
           labelText: LocalizedStringKey("aboutButton"),
           action: appState.displayAboutWindow
         )
+          .accessibilityIdentifier("aboutButton")
           .accessibilityLabel(LocalizedStringKey("aboutWindowButtonAccessibility"))
 
         CustomHoverButton(
@@ -55,6 +60,7 @@ extension PopOverContent {
           labelText: LocalizedStringKey("copyPassphraseButton"),
           action: appState.copyPassphraseToPasteboard
         )
+          .accessibilityIdentifier("copyButton")
           .accessibilityLabel(LocalizedStringKey("copyPassphraseButtonAccessibility"))
           .keyboardShortcut(KeyboardShortcut("c", modifiers: .command))
 
@@ -63,6 +69,7 @@ extension PopOverContent {
           labelText: LocalizedStringKey("generateNewPassphraseButton"),
           action: appState.generateNewPassphrase
         )
+          .accessibilityIdentifier("newButton")
           .accessibilityLabel(LocalizedStringKey("newPassphraseButtonAccessibility"))
           .keyboardShortcut(KeyboardShortcut(.space, modifiers: []))
 

@@ -6,8 +6,8 @@ A simple menu bar application for generating secure passphrases in Finnish. Pass
 
 ## Structure
 - 🗂 **FinnishPassphrases.xcodeproj**: Xcode project
-- 🗂 **FinnishPassphrases**: Application source files
-- 🗂 **FinnishPassphrasesTests**: Unit and integration tests
+- 🗂 **FinnishPassphrases**: Application source
+- 🗂 **Tests**: Unit and EndToEnd tests
 - 🗂 **Documentation**: Project documentation
 - 🗂 **MockingbirdSupport**: Supporting files for mocking framework
 - 🗂 **Scripts**: Scripts used for building the project

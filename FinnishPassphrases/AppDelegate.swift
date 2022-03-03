@@ -17,17 +17,23 @@ class AppDelegate: NSObject, NSApplicationDelegate {
   private var aboutWindow: NSWindow?
 
   override init() {
-    let kotusWordService = KotusWordService()
-    kotusWordService.readFileToMemory()
-    self.appState = AppState(
-      passphraseGeneratorService: PassphraseGeneratorService(
-        kotusWordService: kotusWordService
+    switch environment {
+    case "production":
+      self.appState = AppState()
+      self.menuBarPopOver = NSPopover()
+      super.init()
+    default:
+      let testingStore = TestingStore()
+      self.appState = AppState(
+        passphraseGeneratorService: PassphraseGeneratorService(
+          wordService: environment == "test" ? TestingWordService() : KotusWordService()
+        ),
+        defaultsStore: testingStore
       )
-    )
 
-    self.menuBarPopOver = NSPopover()
-
-    super.init()
+      self.menuBarPopOver = NSPopover()
+      super.init()
+    }
   }
 
   func applicationDidFinishLaunching(_ notification: Notification) {
@@ -37,15 +43,20 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     menuBarPopOver.animates = true
     menuBarPopOver.contentViewController = NSViewController()
     menuBarPopOver.contentViewController?.view = NSHostingView(rootView: PopOverContent(appState: appState))
+    menuBarPopOver.contentViewController?.view.setAccessibilityIdentifier("PopOver")
 
     menuBarIcon = NSStatusBar.system.statusItem(withLength: NSStatusItem.variableLength)
 
     if let menuButton = menuBarIcon?.button {
       menuButton.image = NSImage(systemSymbolName: "key.fill", accessibilityDescription: nil)
       menuButton.action = #selector(menuButtonToggle)
+      menuButton.setAccessibilityEnabled(true)
     }
 
     openAboutWindow()
+    var accessibilityChildren = NSApp.accessibilityChildren() ?? [Any]()
+    accessibilityChildren.append(menuBarPopOver.contentViewController?.view as Any)
+    NSApp.setAccessibilityChildren(accessibilityChildren)
   }
 
   private func openAboutWindow() {
@@ -64,9 +75,14 @@ class AppDelegate: NSObject, NSApplicationDelegate {
   private func menuButtonToggle() {
     guard let menuButton = menuBarIcon?.button else { return }
     appState.generateNewPassphrase()
-    self.menuBarPopOver.show(relativeTo: menuButton.bounds, of: menuButton, preferredEdge: NSRectEdge.minY)
+    menuBarPopOver.show(relativeTo: menuButton.bounds, of: menuButton, preferredEdge: NSRectEdge.minY)
+    menuBarPopOver.contentViewController?.view.window?.makeKey()
     NSApp.activate(ignoringOtherApps: true)
   }
+
+}
+
+extension AppDelegate {
 
   private var aboutWindowSpecs: NSWindow {
     let windowToReturn = NSWindow(
@@ -76,7 +92,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
       defer: false
     )
     windowToReturn.center()
-    windowToReturn.title = NSLocalizedString("appNameTitle", comment: "")
+    windowToReturn.title = NSLocalizedString("aboutWindowTitle", comment: "")
     windowToReturn.contentView = NSHostingView(rootView: AboutView(appState: appState))
 
     windowToReturn.titleVisibility = .hidden
@@ -87,6 +103,13 @@ class AppDelegate: NSObject, NSApplicationDelegate {
 
     windowToReturn.makeKeyAndOrderFront(nil)
     windowToReturn.isReleasedWhenClosed = false
+    windowToReturn.setAccessibilityIdentifier("aboutWindow")
     return windowToReturn
   }
+
+}
+
+private var environment: String {
+  guard let env = ProcessInfo.processInfo.environment["env"] else { return "production" }
+  return env
 }

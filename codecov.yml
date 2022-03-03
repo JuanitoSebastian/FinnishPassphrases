@@ -1,4 +1,4 @@
 ignore:
-  - "FinnishPassphrases/Views"  # ignore SwiftUI views
-  - "FinnishPassphrasesTests"   # ignore tests
-  - "FinnishPassphrases/Supporting Files/Log.swift"   # ignore logger
+  - "FinnishPassphrasesTests" # ignore tests
+  - "Finnish PassphrasesEndToEndTests" # ignore tests
+  - "FinnishPassphrases/Supporting Files/Log.swift" # ignore logger

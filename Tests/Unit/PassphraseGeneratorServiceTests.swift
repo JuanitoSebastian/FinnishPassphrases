@@ -16,9 +16,9 @@ class PassphraseGeneratorServiceTests: XCTestCase {
 
   override func setUp() {
     self.kotusWordServiceMock = mock(KotusWordService.self)
-      .initialize(nameOfXmlFile: "", customData: "")
+      .initialize(nameOfXmlFile: "")
     self.passphraseGeneratorService = PassphraseGeneratorService(
-      kotusWordService: kotusWordServiceMock
+      wordService: kotusWordServiceMock
     )
   }
 

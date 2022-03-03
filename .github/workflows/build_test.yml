@@ -12,7 +12,7 @@ on:
 
 jobs:
   build:
-    name: Build and analyse default scheme using xcodebuild command
+    name: Build and run Xcode tests
     runs-on: macos-latest
     steps:
       - uses: actions/checkout@v2
@@ -20,9 +20,11 @@ jobs:
         with: 
           p12-file-base64: ${{ secrets.CERTIFICATES_P12 }}
           p12-password: ${{ secrets.CERTIFICATES_P12_PASSWORD }}
-      - name: install xcbeautify
-        run: brew install xcbeautify
-      - name: Run the xcode tests
+      - name: Setup Xcode version
+        uses: maxim-lobanov/setup-xcode@v1.4.1
+        with:
+          xcode-version: '13.2.1'
+      - name: Xcode tests
         run: sh Scripts/run_xcode_tests.sh
-      - name: Upload coverage to Codecov
+      - name: Coverage to Codecov
         uses: codecov/codecov-action@v1.2.1

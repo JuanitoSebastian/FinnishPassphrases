@@ -28,27 +28,27 @@ class AppState: ObservableObject {
     }
   }
 
-  private let defaultsStore: DefaultsStore
+  private var defaultsStore: Store
   private let passphraseGeneratorService: PassphraseGeneratorService
   private let pasteboard: NSPasteboard
   var openAboutWindow: (() -> Void)?
 
   init(
-    passphraseGeneratorService: PassphraseGeneratorService,
-    defaultsStore: DefaultsStore = DefaultsStore(),
+    passphraseGeneratorService: PassphraseGeneratorService = PassphraseGeneratorService(),
+    defaultsStore: Store = DefaultsStore(),
     pasteboard: NSPasteboard = NSPasteboard.general
   ) {
     self.defaultsStore = defaultsStore
     self.passphraseGeneratorService = passphraseGeneratorService
-    self.capitalization = defaultsStore.wordCapitalization
+    self.capitalization = defaultsStore.mixedCase
     self.separator = defaultsStore.separatorSymbol
-    self.numOfWords = defaultsStore.numberOfWordsInPassphrase
+    self.numOfWords = defaultsStore.numberOfWords
     self.pasteboard = pasteboard
     self.pasteboard.declareTypes([.string], owner: nil)
     self.passphrase = passphraseGeneratorService.generatePassphrase(
-      numOfWords: defaultsStore.numberOfWordsInPassphrase,
+      numOfWords: defaultsStore.numberOfWords,
       separatorSymbol: defaultsStore.separatorSymbol,
-      wordCapitalization: defaultsStore.wordCapitalization
+      wordCapitalization: defaultsStore.mixedCase
     )
   }
 
@@ -68,9 +68,9 @@ extension AppState {
   /// stored in DefaultsStore
   func generateNewPassphrase() {
     passphrase = passphraseGeneratorService.generatePassphrase(
-      numOfWords: defaultsStore.numberOfWordsInPassphrase,
+      numOfWords: defaultsStore.numberOfWords,
       separatorSymbol: defaultsStore.separatorSymbol,
-      wordCapitalization: defaultsStore.wordCapitalization
+      wordCapitalization: defaultsStore.mixedCase
     )
   }
 
@@ -97,7 +97,7 @@ extension AppState {
   /// This function stores the user preference of capitalization in DefaultsStore and
   /// calls the PasssphraseGeneratorService to update the passphrase
   private func handleChangeOfCapitalization(_ valueToSet: Bool) {
-    defaultsStore.wordCapitalization = valueToSet
+    defaultsStore.mixedCase = valueToSet
     passphrase = passphraseGeneratorService.updatePassphraseWordCapitalization(
       passphrase: passphrase,
       wordCapitalization: valueToSet
@@ -122,7 +122,7 @@ extension AppState {
       return
     }
 
-    defaultsStore.numberOfWordsInPassphrase = numberOfWordToSet
+    defaultsStore.numberOfWords = numberOfWordToSet
     passphrase = passphraseGeneratorService.updatePassphraseNumOfWords(
       passphrase: passphrase, numOfWords: numberOfWordToSet
     )
