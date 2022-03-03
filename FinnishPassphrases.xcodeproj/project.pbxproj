@@ -71,7 +71,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		2808822627CA683C00E66C89 /* FinnishPassphrasesTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FinnishPassphrasesTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		2808822627CA683C00E66C89 /* UnitTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = UnitTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		280A1CFA2662356F00301A4C /* Log.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Log.swift; sourceTree = "<group>"; };
 		280A1CFC2662357A00301A4C /* kotus-sanalista_v1.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = "kotus-sanalista_v1.xml"; sourceTree = "<group>"; };
 		280A1CFF2662359800301A4C /* PassphraseGeneratorService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PassphraseGeneratorService.swift; sourceTree = "<group>"; };
@@ -109,7 +109,7 @@
 		2866168627CF6BB500E44293 /* TestingStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestingStore.swift; sourceTree = "<group>"; };
 		2866168827CF714000E44293 /* WordService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WordService.swift; sourceTree = "<group>"; };
 		2866168A27CF739F00E44293 /* TestingWordService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestingWordService.swift; sourceTree = "<group>"; };
-		2866169127CF8BE100E44293 /* Finnish PassphrasesEndToEndTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Finnish PassphrasesEndToEndTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		2866169127CF8BE100E44293 /* EndToEndTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = EndToEndTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		2866169C27CF8C7400E44293 /* BasicOperationTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasicOperationTests.swift; sourceTree = "<group>"; };
 		2866169E27D0951800E44293 /* GeneratingPassphrasesTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeneratingPassphrasesTests.swift; sourceTree = "<group>"; };
 		286616A027D0954400E44293 /* TestsUtilities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestsUtilities.swift; sourceTree = "<group>"; };
@@ -236,15 +236,15 @@
 		282874D02662337500ADC11E = {
 			isa = PBXGroup;
 			children = (
-				286616A227D0B5B100E44293 /* Tests */,
+				282874DB2662337500ADC11E /* FinnishPassphrases */,
+				28B69F5827294AA400A4D080 /* Documentation */,
 				2815932E27BF68F400840475 /* Scripts */,
+				286616A227D0B5B100E44293 /* Tests */,
+				281667162664F50B00DDCCC3 /* README.md */,
 				283B7FE227BE9B2C00814098 /* codecov.yml */,
 				28B15791279497B8007352E9 /* .swiftlint.yml */,
 				2823FBEE276D52D700D0B57B /* .mockingbird-ignore */,
 				2885D39C276BBE18007E5695 /* .gitignore */,
-				28B69F5827294AA400A4D080 /* Documentation */,
-				281667162664F50B00DDCCC3 /* README.md */,
-				282874DB2662337500ADC11E /* FinnishPassphrases */,
 				282874DA2662337500ADC11E /* Products */,
 				B0D843842F2AE73D973EF9D6 /* Generated Mocks */,
 			);
@@ -254,8 +254,8 @@
 			isa = PBXGroup;
 			children = (
 				282874D92662337500ADC11E /* Finnish Passphrases.app */,
-				2808822627CA683C00E66C89 /* FinnishPassphrasesTests.xctest */,
-				2866169127CF8BE100E44293 /* Finnish PassphrasesEndToEndTests.xctest */,
+				2808822627CA683C00E66C89 /* UnitTests.xctest */,
+				2866169127CF8BE100E44293 /* EndToEndTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -367,9 +367,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		2808822527CA683C00E66C89 /* FinnishPassphrasesTests */ = {
+		2808822527CA683C00E66C89 /* UnitTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 2808822E27CA683C00E66C89 /* Build configuration list for PBXNativeTarget "FinnishPassphrasesTests" */;
+			buildConfigurationList = 2808822E27CA683C00E66C89 /* Build configuration list for PBXNativeTarget "UnitTests" */;
 			buildPhases = (
 				284FE21327CA6EB8004D1094 /* Download Mockingbird */,
 				284FE21427CA6ED9004D1094 /* Generate Mockingbird Mocks */,
@@ -382,12 +382,12 @@
 			dependencies = (
 				2808822B27CA683C00E66C89 /* PBXTargetDependency */,
 			);
-			name = FinnishPassphrasesTests;
+			name = UnitTests;
 			packageProductDependencies = (
 				284FE22827CA7149004D1094 /* Mockingbird */,
 			);
 			productName = FinnishPassphrasesTests;
-			productReference = 2808822627CA683C00E66C89 /* FinnishPassphrasesTests.xctest */;
+			productReference = 2808822627CA683C00E66C89 /* UnitTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
 		282874D82662337500ADC11E /* FinnishPassphrases */ = {
@@ -412,9 +412,9 @@
 			productReference = 282874D92662337500ADC11E /* Finnish Passphrases.app */;
 			productType = "com.apple.product-type.application";
 		};
-		2866169027CF8BE100E44293 /* Finnish PassphrasesEndToEndTests */ = {
+		2866169027CF8BE100E44293 /* EndToEndTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 2866169B27CF8BE100E44293 /* Build configuration list for PBXNativeTarget "Finnish PassphrasesEndToEndTests" */;
+			buildConfigurationList = 2866169B27CF8BE100E44293 /* Build configuration list for PBXNativeTarget "EndToEndTests" */;
 			buildPhases = (
 				2866168D27CF8BE100E44293 /* Sources */,
 				2866168E27CF8BE100E44293 /* Frameworks */,
@@ -425,9 +425,9 @@
 			dependencies = (
 				2866169827CF8BE100E44293 /* PBXTargetDependency */,
 			);
-			name = "Finnish PassphrasesEndToEndTests";
+			name = EndToEndTests;
 			productName = "Finnish PassphrasesEndToEndTests";
-			productReference = 2866169127CF8BE100E44293 /* Finnish PassphrasesEndToEndTests.xctest */;
+			productReference = 2866169127CF8BE100E44293 /* EndToEndTests.xctest */;
 			productType = "com.apple.product-type.bundle.ui-testing";
 		};
 /* End PBXNativeTarget section */
@@ -472,8 +472,8 @@
 			projectRoot = "";
 			targets = (
 				282874D82662337500ADC11E /* FinnishPassphrases */,
-				2808822527CA683C00E66C89 /* FinnishPassphrasesTests */,
-				2866169027CF8BE100E44293 /* Finnish PassphrasesEndToEndTests */,
+				2808822527CA683C00E66C89 /* UnitTests */,
+				2866169027CF8BE100E44293 /* EndToEndTests */,
 			);
 		};
 /* End PBXProject section */
@@ -941,7 +941,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		2808822E27CA683C00E66C89 /* Build configuration list for PBXNativeTarget "FinnishPassphrasesTests" */ = {
+		2808822E27CA683C00E66C89 /* Build configuration list for PBXNativeTarget "UnitTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				2808822C27CA683C00E66C89 /* Debug */,
@@ -968,7 +968,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		2866169B27CF8BE100E44293 /* Build configuration list for PBXNativeTarget "Finnish PassphrasesEndToEndTests" */ = {
+		2866169B27CF8BE100E44293 /* Build configuration list for PBXNativeTarget "EndToEndTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				2866169927CF8BE100E44293 /* Debug */,

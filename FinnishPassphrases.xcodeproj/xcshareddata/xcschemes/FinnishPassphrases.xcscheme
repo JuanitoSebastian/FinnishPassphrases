@@ -53,7 +53,7 @@
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "2808822527CA683C00E66C89"
                BuildableName = "FinnishPassphrasesTests.xctest"
-               BlueprintName = "FinnishPassphrasesTests"
+               BlueprintName = "UnitTests"
                ReferencedContainer = "container:FinnishPassphrases.xcodeproj">
             </BuildableReference>
          </TestableReference>
@@ -63,7 +63,7 @@
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "2866169027CF8BE100E44293"
                BuildableName = "Finnish PassphrasesEndToEndTests.xctest"
-               BlueprintName = "Finnish PassphrasesEndToEndTests"
+               BlueprintName = "EndToEndTests"
                ReferencedContainer = "container:FinnishPassphrases.xcodeproj">
             </BuildableReference>
          </TestableReference>
