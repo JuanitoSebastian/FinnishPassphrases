@@ -40,13 +40,16 @@ struct SeparatorFlicker: View {
       square
 
       separator
+        .accessibilityIdentifier("currentSeparator")
         .accessibilityLabel(LocalizedStringKey("currentSeparatorAccessibility \(currentSeparator.name)"))
 
       HStack {
         actionCircle(systemSymbolName: "chevron.left", action: { previous() })
+          .accessibilityIdentifier("previousSeparatorButton")
           .accessibilityLabel(LocalizedStringKey("previousSeparatorButtonAccessibility"))
         Spacer()
         actionCircle(systemSymbolName: "chevron.right", action: { next() })
+          .accessibilityIdentifier("nextSeparatorButton")
           .accessibilityLabel(LocalizedStringKey("nextSeparatorButtonAccessibility"))
       }
     }

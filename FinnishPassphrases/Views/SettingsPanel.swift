@@ -35,6 +35,7 @@ struct SettingsPanel: View {
       VStack(spacing: 10) {
         Toggle("", isOn: $appState.capitalization)
           .toggleStyle(CustomToggleStyle())
+          .accessibilityIdentifier("mixedCaseToggle")
           .accessibilityLabel(LocalizedStringKey("mixedCaseToggleAccessibility"))
         Text(LocalizedStringKey("capitalizationLabel"))
           .font(labelFont)

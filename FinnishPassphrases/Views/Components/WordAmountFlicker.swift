@@ -24,14 +24,17 @@ struct WordAmountFlicker: View {
       square
 
       number
+        .accessibilityIdentifier("currentNumberOfWords")
         .accessibilityLabel(LocalizedStringKey("currentNumberOfWordsAccessibility \(wordCount)"))
 
       HStack {
         actionCircle(systemSymbolName: "minus", action: { decrement() })
+          .accessibilityIdentifier("decrementNumberOfWordsButton")
           .accessibilityLabel(LocalizedStringKey("decrementWordsButtonAccessibility"))
           .disabled(wordCount == numberRange.lowerBound)
         Spacer()
         actionCircle(systemSymbolName: "plus", action: { increment() })
+          .accessibilityIdentifier("incrementNumberOfWordsButton")
           .accessibilityLabel(LocalizedStringKey("incrementWordsButtonAccessibility"))
           .disabled(wordCount == numberRange.upperBound)
       }

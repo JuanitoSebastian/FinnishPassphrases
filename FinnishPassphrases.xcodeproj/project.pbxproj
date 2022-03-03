@@ -40,6 +40,8 @@
 		2866168927CF714100E44293 /* WordService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2866168827CF714000E44293 /* WordService.swift */; };
 		2866168B27CF739F00E44293 /* TestingWordService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2866168A27CF739F00E44293 /* TestingWordService.swift */; };
 		2866169D27CF8C7400E44293 /* BasicOperationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2866169C27CF8C7400E44293 /* BasicOperationTests.swift */; };
+		2866169F27D0951800E44293 /* GeneratingPassphrasesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2866169E27D0951800E44293 /* GeneratingPassphrasesTests.swift */; };
+		286616A127D0954400E44293 /* TestsUtilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 286616A027D0954400E44293 /* TestsUtilities.swift */; };
 		287C914527C25F50005C9C58 /* CustomHoverButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 287C914427C25F50005C9C58 /* CustomHoverButton.swift */; };
 		2889AC8627CE3219007EE89E /* CustomLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2889AC8527CE3219007EE89E /* CustomLabel.swift */; };
 		28B0534A2791B5B700174F5E /* SettingsPanel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28B053492791B5B700174F5E /* SettingsPanel.swift */; };
@@ -109,6 +111,8 @@
 		2866168A27CF739F00E44293 /* TestingWordService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestingWordService.swift; sourceTree = "<group>"; };
 		2866169127CF8BE100E44293 /* Finnish PassphrasesEndToEndTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Finnish PassphrasesEndToEndTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		2866169C27CF8C7400E44293 /* BasicOperationTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasicOperationTests.swift; sourceTree = "<group>"; };
+		2866169E27D0951800E44293 /* GeneratingPassphrasesTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeneratingPassphrasesTests.swift; sourceTree = "<group>"; };
+		286616A027D0954400E44293 /* TestsUtilities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestsUtilities.swift; sourceTree = "<group>"; };
 		2879141127C6A6E700603D51 /* set_version.sh */ = {isa = PBXFileReference; lastKnownFileType = text.script.sh; path = set_version.sh; sourceTree = "<group>"; };
 		287C914427C25F50005C9C58 /* CustomHoverButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomHoverButton.swift; sourceTree = "<group>"; };
 		2885D39C276BBE18007E5695 /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
@@ -308,7 +312,9 @@
 		2866169227CF8BE100E44293 /* Finnish PassphrasesEndToEndTests */ = {
 			isa = PBXGroup;
 			children = (
+				2866169E27D0951800E44293 /* GeneratingPassphrasesTests.swift */,
 				2866169C27CF8C7400E44293 /* BasicOperationTests.swift */,
+				286616A027D0954400E44293 /* TestsUtilities.swift */,
 			);
 			path = "Finnish PassphrasesEndToEndTests";
 			sourceTree = "<group>";
@@ -622,6 +628,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				286616A127D0954400E44293 /* TestsUtilities.swift in Sources */,
+				2866169F27D0951800E44293 /* GeneratingPassphrasesTests.swift in Sources */,
 				2866169D27CF8C7400E44293 /* BasicOperationTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
