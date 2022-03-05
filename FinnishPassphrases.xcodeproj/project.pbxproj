@@ -88,6 +88,8 @@
 		281667122664D26500DDCCC3 /* DefaultsStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultsStore.swift; sourceTree = "<group>"; };
 		281667162664F50B00DDCCC3 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		2823FBEE276D52D700D0B57B /* .mockingbird-ignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = ".mockingbird-ignore"; sourceTree = "<group>"; };
+		2828637727D3954F00666408 /* AppStore2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = AppStore2.png; sourceTree = "<group>"; };
+		2828637827D3954F00666408 /* AppStore1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = AppStore1.png; sourceTree = "<group>"; };
 		282874D92662337500ADC11E /* Finnish Passphrases.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Finnish Passphrases.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		282874DC2662337500ADC11E /* FinnishPasswordsApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinnishPasswordsApp.swift; sourceTree = "<group>"; };
 		282874DE2662337500ADC11E /* PopOverContent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopOverContent.swift; sourceTree = "<group>"; };
@@ -338,6 +340,8 @@
 		28B69F5827294AA400A4D080 /* Documentation */ = {
 			isa = PBXGroup;
 			children = (
+				2828637827D3954F00666408 /* AppStore1.png */,
+				2828637727D3954F00666408 /* AppStore2.png */,
 				285D399827BE8C850052D90C /* Header.png */,
 				28B69F5B27296FAE00A4D080 /* ui_screenshot.png */,
 			);
@@ -857,6 +861,7 @@
 					"@executable_path/../Frameworks",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 11.2;
+				MARKETING_VERSION = 0.2;
 				PRODUCT_BUNDLE_IDENTIFIER = com.juanito.FinnishPassphrases;
 				PRODUCT_NAME = "Finnish Passphrases";
 				SWIFT_VERSION = 5.0;
@@ -883,6 +888,7 @@
 					"@executable_path/../Frameworks",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 11.2;
+				MARKETING_VERSION = 0.2;
 				PRODUCT_BUNDLE_IDENTIFIER = com.juanito.FinnishPassphrases;
 				PRODUCT_NAME = "Finnish Passphrases";
 				SWIFT_VERSION = 5.0;
