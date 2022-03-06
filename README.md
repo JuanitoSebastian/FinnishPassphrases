@@ -1,4 +1,4 @@
-![Header Image](https://raw.githubusercontent.com/JuanitoSebastian/FinnishPassphrases/development/Documentation/Header.png)
+![Header Image](https://raw.githubusercontent.com/JuanitoSebastian/FinnishPassphrases/development/Documentation/GitHubHeader.png)
 
 [![Build & Tests](https://github.com/JuanitoSebastian/FinnishPassphrases/actions/workflows/build_test.yml/badge.svg)](https://github.com/JuanitoSebastian/FinnishPassphrases/actions/workflows/build_test.yml)
 [![codecov](https://codecov.io/gh/JuanitoSebastian/FinnishPassphrases/branch/main/graph/badge.svg?token=AIWQRJR7VB)](https://codecov.io/gh/JuanitoSebastian/FinnishPassphrases)
