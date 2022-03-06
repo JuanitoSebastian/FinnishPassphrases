@@ -7,8 +7,6 @@
 
 import SwiftUI
 
-let cRoundedCornerSize = CGSize(width: 5, height: 5)
-let cPasswordSeparators: [SeparatorSymbol] = [.asterisk, .hyphen, .slash, .hash]
 let cPassphraseNumberOfWordsRange: ClosedRange<Double> = 3...10
 let cPassphraseNumberOfWordsRangeInt: ClosedRange = 3...10
 let cProbabilityOfCapitalizedString: Double = 0.5
