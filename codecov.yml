@@ -1,4 +1,3 @@
 ignore:
-  - "FinnishPassphrasesTests" # ignore tests
-  - "Finnish PassphrasesEndToEndTests" # ignore tests
+  - "Tests" # ignore tests
   - "FinnishPassphrases/Supporting Files/Log.swift" # ignore logger
