@@ -34,7 +34,6 @@
 		284FE22627CA6F6E004D1094 /* AppStateTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 284FE21D27CA6F6E004D1094 /* AppStateTests.swift */; };
 		284FE22927CA7149004D1094 /* Mockingbird in Frameworks */ = {isa = PBXBuildFile; productRef = 284FE22827CA7149004D1094 /* Mockingbird */; };
 		285CACD5277B42B600D254E3 /* WrappingHStack in Frameworks */ = {isa = PBXBuildFile; productRef = 285CACD4277B42B600D254E3 /* WrappingHStack */; };
-		285D399927BE8C850052D90C /* Header.png in Resources */ = {isa = PBXBuildFile; fileRef = 285D399827BE8C850052D90C /* Header.png */; };
 		2866168527CF69A200E44293 /* Store.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2866168427CF69A200E44293 /* Store.swift */; };
 		2866168727CF6BB500E44293 /* TestingStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2866168627CF6BB500E44293 /* TestingStore.swift */; };
 		2866168927CF714100E44293 /* WordService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2866168827CF714000E44293 /* WordService.swift */; };
@@ -89,6 +88,7 @@
 		2823FBEE276D52D700D0B57B /* .mockingbird-ignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = ".mockingbird-ignore"; sourceTree = "<group>"; };
 		2828637727D3954F00666408 /* AppStore2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = AppStore2.png; sourceTree = "<group>"; };
 		2828637827D3954F00666408 /* AppStore1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = AppStore1.png; sourceTree = "<group>"; };
+		2828637927D4BFCA00666408 /* GitHubHeader.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = GitHubHeader.png; sourceTree = "<group>"; };
 		282874D92662337500ADC11E /* Finnish Passphrases.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Finnish Passphrases.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		282874DC2662337500ADC11E /* FinnishPasswordsApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinnishPasswordsApp.swift; sourceTree = "<group>"; };
 		282874DE2662337500ADC11E /* PopOverContent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopOverContent.swift; sourceTree = "<group>"; };
@@ -105,7 +105,6 @@
 		284FE21B27CA6F6E004D1094 /* PassphraseTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PassphraseTests.swift; sourceTree = "<group>"; };
 		284FE21C27CA6F6E004D1094 /* StringTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StringTests.swift; sourceTree = "<group>"; };
 		284FE21D27CA6F6E004D1094 /* AppStateTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppStateTests.swift; sourceTree = "<group>"; };
-		285D399827BE8C850052D90C /* Header.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Header.png; sourceTree = "<group>"; };
 		2866168427CF69A200E44293 /* Store.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Store.swift; sourceTree = "<group>"; };
 		2866168627CF6BB500E44293 /* TestingStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestingStore.swift; sourceTree = "<group>"; };
 		2866168827CF714000E44293 /* WordService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WordService.swift; sourceTree = "<group>"; };
@@ -339,8 +338,8 @@
 			isa = PBXGroup;
 			children = (
 				2828637827D3954F00666408 /* AppStore1.png */,
+				2828637927D4BFCA00666408 /* GitHubHeader.png */,
 				2828637727D3954F00666408 /* AppStore2.png */,
-				285D399827BE8C850052D90C /* Header.png */,
 			);
 			path = Documentation;
 			sourceTree = "<group>";
@@ -491,7 +490,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				285D399927BE8C850052D90C /* Header.png in Resources */,
 				283183D227CA1DDC0005AE31 /* Localizable.strings in Resources */,
 				282874E42662337800ADC11E /* Preview Assets.xcassets in Resources */,
 				280A1CFD2662357A00301A4C /* kotus-sanalista_v1.xml in Resources */,
