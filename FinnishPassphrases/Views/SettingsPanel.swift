@@ -26,7 +26,7 @@ struct SettingsPanel: View {
       }
 
       VStack(spacing: 6) {
-        SeparatorFlicker(separators: cPasswordSeparators, currentSeparator: $appState.separator)
+        SeparatorFlicker(separators: SeparatorSymbol.allCases, currentSeparator: $appState.separator)
         Text(LocalizedStringKey("separatorLabel"))
           .font(labelFont)
           .foregroundColor(labelColor)

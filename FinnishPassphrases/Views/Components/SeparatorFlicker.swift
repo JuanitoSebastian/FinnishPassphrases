@@ -119,7 +119,7 @@ extension SeparatorFlicker {
 #if DEBUG
 struct SeparatorFlicker_Previews: PreviewProvider {
   static var previews: some View {
-    SeparatorFlicker(separators: cPasswordSeparators, currentSeparator: .constant(.hash))
+    SeparatorFlicker(separators: SeparatorSymbol.allCases, currentSeparator: .constant(.hash))
   }
 }
 #endif

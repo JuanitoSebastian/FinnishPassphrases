@@ -11,14 +11,12 @@ import Mockingbird
 
 class AppStateTests: XCTestCase {
 
-  var pasteboard: NSPasteboard!
   var defaultStore: Store!
   var wordService: WordService!
   var passsphraseGenerator: PassphraseGeneratorService!
   var appState: AppState!
 
   override func setUp() {
-    self.pasteboard = NSPasteboard.general
     self.defaultStore = TestingStore()
     self.wordService = TestingWordService()
     self.passsphraseGenerator = PassphraseGeneratorService(
@@ -26,8 +24,7 @@ class AppStateTests: XCTestCase {
     )
     self.appState = AppState(
       passphraseGeneratorService: passsphraseGenerator,
-      defaultsStore: defaultStore,
-      pasteboard: pasteboard
+      defaultsStore: defaultStore
     )
   }
 
@@ -84,6 +81,7 @@ class AppStateTests: XCTestCase {
   func test_f_copying_to_pasteboard_works() {
     appState.copyPassphraseToPasteboard()
 
+    let pasteboard = NSPasteboard.general
     let textFromPastebaord = pasteboard.pasteboardItems![0]
       .string(forType: NSPasteboard.PasteboardType(rawValue: "public.utf8-plain-text"))
 

@@ -30,21 +30,17 @@ class AppState: ObservableObject {
 
   private var defaultsStore: Store
   private let passphraseGeneratorService: PassphraseGeneratorService
-  private let pasteboard: NSPasteboard
   var openAboutWindow: (() -> Void)?
 
   init(
     passphraseGeneratorService: PassphraseGeneratorService = PassphraseGeneratorService(),
-    defaultsStore: Store = DefaultsStore(),
-    pasteboard: NSPasteboard = NSPasteboard.general
+    defaultsStore: Store = DefaultsStore()
   ) {
     self.defaultsStore = defaultsStore
     self.passphraseGeneratorService = passphraseGeneratorService
     self.capitalization = defaultsStore.mixedCase
     self.separator = defaultsStore.separatorSymbol
     self.numOfWords = defaultsStore.numberOfWords
-    self.pasteboard = pasteboard
-    self.pasteboard.declareTypes([.string], owner: nil)
     self.passphrase = passphraseGeneratorService.generatePassphrase(
       numOfWords: defaultsStore.numberOfWords,
       separatorSymbol: defaultsStore.separatorSymbol,
@@ -58,6 +54,12 @@ class AppState: ObservableObject {
 extension AppState {
   var appVersion: String {
     Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String ?? ""
+  }
+
+  private var pasteboard: NSPasteboard {
+    let board = NSPasteboard.general
+    board.declareTypes([.string], owner: nil)
+    return board
   }
 }
 
