@@ -1,10 +1,11 @@
-![Screenshot of the app](https://raw.githubusercontent.com/JuanitoSebastian/FinnishPassphrases/development/Documentation/AppStore1.png)
+![Header Image](https://raw.githubusercontent.com/JuanitoSebastian/FinnishPassphrases/development/Documentation/Header.png)
 
-# Finnish Passphrases
 [![Build & Tests](https://github.com/JuanitoSebastian/FinnishPassphrases/actions/workflows/build_test.yml/badge.svg)](https://github.com/JuanitoSebastian/FinnishPassphrases/actions/workflows/build_test.yml)
 [![codecov](https://codecov.io/gh/JuanitoSebastian/FinnishPassphrases/branch/main/graph/badge.svg?token=AIWQRJR7VB)](https://codecov.io/gh/JuanitoSebastian/FinnishPassphrases)
 
 A simple menu bar application for generating secure passphrases in Finnish. Passphrases are generated using a list of 90,000 words provided by the [Institute for the Languages of Finland](https://kaino.kotus.fi/sanat/nykysuomi/).
+
+![Screenshot of the app](https://raw.githubusercontent.com/JuanitoSebastian/FinnishPassphrases/development/Documentation/AppStore1.png)
 
 ## Structure
 - 🗂 **FinnishPassphrases.xcodeproj**: Xcode project
@@ -15,7 +16,7 @@ A simple menu bar application for generating secure passphrases in Finnish. Pass
 - 🗂 **Scripts**: Scripts used for building the project
 
 ## Running the application in development environment
-1. Clone the repository
+1. Download the latest [release](https://github.com/JuanitoSebastian/FinnishPassphrases/releases) or clone the repository:
 ```
 git clone https://github.com/JuanitoSebastian/FinnishPassphrases.git
 ```
