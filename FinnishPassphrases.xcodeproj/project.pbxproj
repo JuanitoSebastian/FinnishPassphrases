@@ -113,7 +113,7 @@
 		2866169C27CF8C7400E44293 /* BasicOperationTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasicOperationTests.swift; sourceTree = "<group>"; };
 		2866169E27D0951800E44293 /* GeneratingPassphrasesTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeneratingPassphrasesTests.swift; sourceTree = "<group>"; };
 		286616A027D0954400E44293 /* TestsUtilities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestsUtilities.swift; sourceTree = "<group>"; };
-		2879141127C6A6E700603D51 /* set_version.sh */ = {isa = PBXFileReference; lastKnownFileType = text.script.sh; path = set_version.sh; sourceTree = "<group>"; };
+		2879141127C6A6E700603D51 /* set_build.sh */ = {isa = PBXFileReference; lastKnownFileType = text.script.sh; path = set_build.sh; sourceTree = "<group>"; };
 		287C914427C25F50005C9C58 /* CustomHoverButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomHoverButton.swift; sourceTree = "<group>"; };
 		2885D39C276BBE18007E5695 /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
 		2889AC8527CE3219007EE89E /* CustomLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomLabel.swift; sourceTree = "<group>"; };
@@ -209,7 +209,7 @@
 				2815933027BF6D0900840475 /* generate_mockingbird_mocks.sh */,
 				2815933127BF6E2E00840475 /* run_xcode_tests.sh */,
 				28A24B9D27BF81A400589D12 /* lint.sh */,
-				2879141127C6A6E700603D51 /* set_version.sh */,
+				2879141127C6A6E700603D51 /* set_build.sh */,
 			);
 			path = Scripts;
 			sourceTree = "<group>";
@@ -394,7 +394,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 282874E92662337800ADC11E /* Build configuration list for PBXNativeTarget "FinnishPassphrases" */;
 			buildPhases = (
-				2879141227C6A76D00603D51 /* Update Version Number */,
+				286052B227D7568B00023856 /* Update Build Number */,
 				281E06282794983D00B58EE0 /* SwiftLint */,
 				282874D52662337500ADC11E /* Sources */,
 				282874D62662337500ADC11E /* Frameworks */,
@@ -562,7 +562,7 @@
 			shellPath = /bin/sh;
 			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\nsh Scripts/generate_mockingbird_mocks.sh\n";
 		};
-		2879141227C6A76D00603D51 /* Update Version Number */ = {
+		286052B227D7568B00023856 /* Update Build Number */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -571,14 +571,14 @@
 			);
 			inputPaths = (
 			);
-			name = "Update Version Number";
+			name = "Update Build Number";
 			outputFileListPaths = (
 			);
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "# do not assign the new build number if there is no changes\nDIFF=`git diff`\nif [[ $DIFF == \"\" ]]; then exit 0; fi\n\n# path to the property list where the version number should be changed\nPLIST=\"${PROJECT_DIR}/${INFOPLIST_FILE}\"\n\n# the latest tag that will be used as a short version number\nVERSION_NUMBER=`git describe | awk '{ split($0, a, \"-\"); print a[1] }'`\n\n# the number of commits in repository to be used for the build number\nNUMBER_OF_COMMITS=`git rev-list HEAD --count`\n\n# a future build number should consider its own commit\nBUILD_NUMBER=$((NUMBER_OF_COMMITS+1))\n\n/usr/libexec/PlistBuddy -c \"Set CFBundleShortVersionString $VERSION_NUMBER\" \"${PLIST}\"\n/usr/libexec/PlistBuddy -c \"Set CFBundleVersion $BUILD_NUMBER\" \"${PLIST}\"\n";
+			shellScript = "sh Scripts/set_build.sh \"${PROJECT_DIR}/${INFOPLIST_FILE}\"\n";
 		};
 /* End PBXShellScriptBuildPhase section */
 
