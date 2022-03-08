@@ -7,6 +7,7 @@
 
 import SwiftUI
 
+/// A view that contains all of the elements for settings the users passphrase preferences
 struct SettingsPanel: View {
 
   @EnvironmentObject var appState: AppState

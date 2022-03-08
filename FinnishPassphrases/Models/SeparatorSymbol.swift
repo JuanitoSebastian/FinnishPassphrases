@@ -7,6 +7,7 @@
 
 import Foundation
 
+/// A symbol that separates words in a passphrase
 enum SeparatorSymbol: Int, CaseIterable, Identifiable {
 
   case hyphen
@@ -14,6 +15,7 @@ enum SeparatorSymbol: Int, CaseIterable, Identifiable {
   case slash
   case hash
 
+  /// English name of separator
   var name: String {
     switch self {
     case .asterisk: return "Asterisk"
@@ -23,6 +25,7 @@ enum SeparatorSymbol: Int, CaseIterable, Identifiable {
     }
   }
 
+  /// Returns the separator as a character
   var symbol: Character {
     switch self {
     case .asterisk: return "*"
