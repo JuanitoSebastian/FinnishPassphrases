@@ -156,6 +156,9 @@ extension PassphraseGeneratorService {
     return wordsRanomizedCase
   }
 
+  /// Removes mixed case from an array of string
+  /// - Parameter words: A string array with mixed case
+  /// - Returns: An array of strings where all strings are lowercase
   private func removeRandomizedWordCase(_ words: [String]) -> [String] {
     var wordsNonRadomized: [String] = words
     for index in 0..<wordsNonRadomized.count where wordsNonRadomized[index].first?.isUppercase == true {
@@ -164,6 +167,9 @@ extension PassphraseGeneratorService {
     return wordsNonRadomized
   }
 
+  /// Determines if a string array contains both lowercase and uppercase string
+  /// - Parameter words: A string array to analyze
+  /// - Returns: A bool determining if the string were mixedcase
   private func wordArrayContainsMixedCase(_ words: [String]) -> Bool {
     let stringFromArray = words.joined(separator: "")
     return stringFromArray.range(of: cMixedCaseRegex, options: .regularExpression) != nil
