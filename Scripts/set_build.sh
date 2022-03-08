@@ -4,12 +4,16 @@
 #  FinnishPassphrases
 #
 #  Created by Juan Covarrubias on 23.2.2022.
-#  
+#
 
-DIFF=`git diff`
-if [[ $DIFF == "" ]]; then exit 0; fi
+git=$(sh /etc/profile; which git)
+number_of_commits=$("$git" rev-list HEAD --count)
 
-NUMBER_OF_COMMITS=`git rev-list HEAD --count`
-BUILD_NUMBER=$((NUMBER_OF_COMMITS+1))
+target_plist="$TARGET_BUILD_DIR/$INFOPLIST_PATH"
+dsym_plist="$DWARF_DSYM_FOLDER_PATH/$DWARF_DSYM_FILE_NAME/Contents/Info.plist"
 
-/usr/libexec/PlistBuddy -c "Set CFBundleVersion $BUILD_NUMBER" "${1}"
+for plist in "$target_plist" "$dsym_plist"; do
+  if [ -f "$plist" ]; then
+    /usr/libexec/PlistBuddy -c "Set :CFBundleVersion $number_of_commits" "$plist"
+  fi
+done

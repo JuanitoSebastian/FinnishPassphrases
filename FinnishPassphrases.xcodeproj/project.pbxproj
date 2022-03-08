@@ -394,11 +394,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 282874E92662337800ADC11E /* Build configuration list for PBXNativeTarget "FinnishPassphrases" */;
 			buildPhases = (
-				286052B227D7568B00023856 /* Update Build Number */,
 				281E06282794983D00B58EE0 /* SwiftLint */,
 				282874D52662337500ADC11E /* Sources */,
 				282874D62662337500ADC11E /* Frameworks */,
 				282874D72662337500ADC11E /* Resources */,
+				286052B227D7568B00023856 /* Update Build Number */,
 			);
 			buildRules = (
 			);
@@ -578,7 +578,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "sh Scripts/set_build.sh \"${PROJECT_DIR}/${INFOPLIST_FILE}\"\n";
+			shellScript = "sh Scripts/set_build.sh\n";
 		};
 /* End PBXShellScriptBuildPhase section */
 
