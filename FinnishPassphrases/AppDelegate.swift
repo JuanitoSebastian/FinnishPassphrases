@@ -16,6 +16,18 @@ class AppDelegate: NSObject, NSApplicationDelegate {
   private var menuBarIcon: NSStatusItem?
   private var aboutWindow: NSWindow?
 
+  /// Initialize the AppDelegate. Here it is determined if the app is running in either
+  /// production / testing / dev environment.
+  ///
+  /// If app is running in production AppState is initiated with the default
+  /// constructor parameters meaning that a persistent store is used for saving the users preferences
+  /// and the actual word list is loaded.
+  ///
+  /// If app is running in dev environment a mock store is used (settings are not saved)
+  /// and the actual word list is loaded.
+  ///
+  /// If app is running in testing environment a mock store is used (settings are not saved)
+  /// and a shorter test word list is loaded.
   override init() {
     switch environment {
     case "production":
@@ -36,6 +48,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     }
   }
 
+  /// Create the menu bar icon and prepare the popover. Displayes the about window.
   func applicationDidFinishLaunching(_ notification: Notification) {
     appState.openAboutWindow = openAboutWindow
 
@@ -54,11 +67,18 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     }
 
     openAboutWindow()
+
+    // This is needed for EndToEnd tests to access the PopOver elements.
     var accessibilityChildren = NSApp.accessibilityChildren() ?? [Any]()
     accessibilityChildren.append(menuBarPopOver.contentViewController?.view as Any)
     NSApp.setAccessibilityChildren(accessibilityChildren)
   }
 
+  /// Displayes the About window. If the About window is already open in the same
+  /// space (where the user currently is) nothing is done. If the window is open  in
+  /// another space, the window is closed and re-opened in the current space.
+  /// This function is passed to the AppState so that it can be called
+  /// from the popover.
   private func openAboutWindow() {
     if let aboutWindow = aboutWindow {
       if aboutWindow.isVisible && aboutWindow.isOnActiveSpace {
@@ -71,6 +91,9 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     NSApp.activate(ignoringOtherApps: true)
   }
 
+  /// The popover is displayed and activate is called. Calling activate
+  /// makes sure that the keyboard shortcuts work.
+  /// This function is called when the menu bar icon is clicked.
   @objc
   private func menuButtonToggle() {
     guard let menuButton = menuBarIcon?.button else { return }

@@ -8,10 +8,10 @@
 import SwiftUI
 import WrappingHStack
 
+/// A view that displayes a given passphrase
 struct PassphraseDispalyerView: View {
 
   @Binding var passphrase: Passphrase
-  @EnvironmentObject var appState: AppState
 
   private let passphraseTextPadding = EdgeInsets(top: 2, leading: 2, bottom: 2, trailing: 2)
   private let passphraseAreaPadding = EdgeInsets(top: 40, leading: 10, bottom: 20, trailing: 10)
@@ -49,15 +49,5 @@ extension PassphraseDispalyerView {
       Spacer()
 
     }
-    .onTapGesture {
-      handleOnClick()
-    }
-  }
-}
-
-// MARK: - Functions
-extension PassphraseDispalyerView {
-  private func handleOnClick() {
-    appState.copyPassphraseToPasteboard()
   }
 }
