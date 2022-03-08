@@ -98,6 +98,7 @@ extension AppState {
   /// This function is called whenever the UI changes the value of the capitalization variable here in the AppState.
   /// This function stores the user preference of capitalization in DefaultsStore and
   /// calls the PasssphraseGeneratorService to update the passphrase
+  /// - Parameter valueToSet: The capitalization preference to set
   private func handleChangeOfCapitalization(_ valueToSet: Bool) {
     defaultsStore.mixedCase = valueToSet
     passphrase = passphraseGeneratorService.updatePassphraseWordCapitalization(
@@ -107,6 +108,7 @@ extension AppState {
   }
 
   /// Sets the SeparatorSymbol that will be used to generate Passphrase.
+  /// - Parameter separator: The separator symbol to set
   private func handleChangeOfSeparatorSymbol(_ separator: SeparatorSymbol) {
     defaultsStore.separatorSymbol = separator
     passphrase = passphraseGeneratorService.updatePassphraseSeparatorSymbol(
