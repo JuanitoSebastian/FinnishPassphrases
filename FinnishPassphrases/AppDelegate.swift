@@ -87,7 +87,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
       if aboutWindow.isVisible { aboutWindow.close() }
     }
 
-    aboutWindow = aboutWindowSpecs
+    aboutWindow = getAboutWindow
     NSApp.activate(ignoringOtherApps: true)
   }
 
@@ -96,18 +96,29 @@ class AppDelegate: NSObject, NSApplicationDelegate {
   /// This function is called when the menu bar icon is clicked.
   @objc
   private func menuButtonToggle() {
-    guard let menuButton = menuBarIcon?.button else { return }
+    guard !menuBarPopOver.isShown else { return }
+    guard let button = menuBarIcon?.button else { return }
+
     appState.generateNewPassphrase()
-    menuBarPopOver.show(relativeTo: menuButton.bounds, of: menuButton, preferredEdge: NSRectEdge.minY)
+
+    let positioningWindow = getPositioningWindow(caller: button)
+
+    // position and show the window
+    menuBarPopOver.show(
+      relativeTo: positioningWindow.contentView!.frame,
+      of: positioningWindow.contentView!,
+      preferredEdge: NSRectEdge.minY
+    )
     menuBarPopOver.contentViewController?.view.window?.makeKey()
+    positioningWindow.contentView!.bounds = positioningWindow
+      .contentView!.bounds.offsetBy(dx: 0, dy: positioningWindow.contentView!.bounds.height)
     NSApp.activate(ignoringOtherApps: true)
   }
-
 }
 
 extension AppDelegate {
 
-  private var aboutWindowSpecs: NSWindow {
+  private var getAboutWindow: NSWindow {
     let windowToReturn = NSWindow(
       contentRect: NSRect(x: 0, y: 0, width: 400, height: 600),
       styleMask: [.miniaturizable, .closable, .titled],
@@ -130,9 +141,42 @@ extension AppDelegate {
     return windowToReturn
   }
 
+  private func getPositioningWindow(caller: NSStatusBarButton) -> NSWindow {
+    let positioningWindow = NSWindow(
+      contentRect: CGRect(x: 0, y: 0, width: 20, height: 5),
+      styleMask: .borderless,
+      backing: .buffered,
+      defer: false
+    )
+    positioningWindow.alphaValue = 0
+
+    let buttonRect: NSRect = caller.convert(caller.bounds, to: nil)
+    let screenRect: NSRect = caller.window!.convertToScreen(buttonRect)
+
+    var posX = screenRect.origin.x + (screenRect.width / 2) - 10
+    let posY = screenRect.origin.y
+
+    positioningWindow.setFrameOrigin(NSPoint(x: posX, y: posY))
+    positioningWindow.makeKeyAndOrderFront(self)
+
+    if let screenWidth = screenWidth {
+      if (screenRect.maxX + (cPopOverWidth * 0.75)) > screenWidth {
+        Log.e("PopOver overflow! Fixing positioning...")
+        let overflowAmount = (screenRect.maxX + (cPopOverWidth * 0.75)) - screenWidth
+        posX -= overflowAmount
+        positioningWindow.setFrameOrigin(NSPoint(x: posX, y: posY))
+      }
+    }
+    return positioningWindow
+  }
+
 }
 
 private var environment: String {
   guard let env = ProcessInfo.processInfo.environment["env"] else { return "production" }
   return env
+}
+
+private var screenWidth: CGFloat? {
+  NSScreen.main?.frame.maxX
 }

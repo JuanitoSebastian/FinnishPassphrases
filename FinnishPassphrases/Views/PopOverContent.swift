@@ -76,6 +76,6 @@ extension PopOverContent {
       }
       .padding(padding)
     }
-    .frame(width: 500, height: 250)
+    .frame(width: cPopOverWidth, height: cPopOverHeight)
   }
 }
