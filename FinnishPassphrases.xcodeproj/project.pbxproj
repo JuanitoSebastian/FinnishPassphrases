@@ -18,6 +18,7 @@
 		281666FC2664C53A00DDCCC3 /* Passphrase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 281666FB2664C53A00DDCCC3 /* Passphrase.swift */; };
 		281666FE2664C6B600DDCCC3 /* SeparatorSymbol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 281666FD2664C6B600DDCCC3 /* SeparatorSymbol.swift */; };
 		281667132664D26500DDCCC3 /* DefaultsStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 281667122664D26500DDCCC3 /* DefaultsStore.swift */; };
+		281B3FD727D9164400D325B9 /* Popover in Frameworks */ = {isa = PBXBuildFile; productRef = 281B3FD627D9164400D325B9 /* Popover */; };
 		2823C41427CA7222004AE20F /* FinnishPasswordsTests-FinnishPasswordsMocks.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2832100F276BF7E900E2C926 /* FinnishPasswordsTests-FinnishPasswordsMocks.generated.swift */; };
 		282874DD2662337500ADC11E /* FinnishPasswordsApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 282874DC2662337500ADC11E /* FinnishPasswordsApp.swift */; };
 		282874DF2662337500ADC11E /* PopOverContent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 282874DE2662337500ADC11E /* PopOverContent.swift */; };
@@ -139,6 +140,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				281B3FD727D9164400D325B9 /* Popover in Frameworks */,
 				285CACD5277B42B600D254E3 /* WrappingHStack in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -393,6 +395,7 @@
 			name = FinnishPassphrases;
 			packageProductDependencies = (
 				285CACD4277B42B600D254E3 /* WrappingHStack */,
+				281B3FD627D9164400D325B9 /* Popover */,
 			);
 			productName = FinnishPasswords;
 			productReference = 282874D92662337500ADC11E /* Finnish Passphrases.app */;
@@ -452,6 +455,7 @@
 			packageReferences = (
 				285CACD3277B42B600D254E3 /* XCRemoteSwiftPackageReference "WrappingHStack" */,
 				284FE22727CA7149004D1094 /* XCRemoteSwiftPackageReference "mockingbird" */,
+				281B3FD527D9164400D325B9 /* XCRemoteSwiftPackageReference "Popover" */,
 			);
 			productRefGroup = 282874DA2662337500ADC11E /* Products */;
 			projectDirPath = "";
@@ -966,6 +970,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		281B3FD527D9164400D325B9 /* XCRemoteSwiftPackageReference "Popover" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/iSapozhnik/Popover";
+			requirement = {
+				kind = upToNextMinorVersion;
+				minimumVersion = 1.1.0;
+			};
+		};
 		284FE22727CA7149004D1094 /* XCRemoteSwiftPackageReference "mockingbird" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/birdrides/mockingbird";
@@ -985,6 +997,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		281B3FD627D9164400D325B9 /* Popover */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 281B3FD527D9164400D325B9 /* XCRemoteSwiftPackageReference "Popover" */;
+			productName = Popover;
+		};
 		284FE22827CA7149004D1094 /* Mockingbird */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 284FE22727CA7149004D1094 /* XCRemoteSwiftPackageReference "mockingbird" */;
