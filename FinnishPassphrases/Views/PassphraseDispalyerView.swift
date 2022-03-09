@@ -14,7 +14,7 @@ struct PassphraseDispalyerView: View {
   @Binding var passphrase: Passphrase
 
   private let passphraseTextPadding = EdgeInsets(top: 2, leading: 2, bottom: 2, trailing: 2)
-  private let passphraseAreaPadding = EdgeInsets(top: 40, leading: 10, bottom: 20, trailing: 10)
+  private let passphraseAreaPadding = EdgeInsets(top: 15, leading: 10, bottom: 15, trailing: 10)
 
   private let passphraseFont = Font.system(size: 18, design: .monospaced).weight(.regular)
   private let passphraseWordColor = Color("passphrase-text")

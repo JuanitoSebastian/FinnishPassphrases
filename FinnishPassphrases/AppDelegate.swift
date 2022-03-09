@@ -8,6 +8,23 @@
 import Foundation
 import AppKit
 import SwiftUI
+import Popover
+
+class MyPopoverConfiguration: DefaultConfiguration {
+  override var backgroundColor: NSColor { NSColor(Color("backdrop")) }
+  override var borderColor: NSColor? { nil }
+  override var popoverToStatusItemMargin: CGFloat { 4 }
+  override var cornerRadius: CGFloat { 10 }
+}
+
+class PopoverViewController: NSViewController {
+
+  override func viewDidLoad() {
+    super.viewDidLoad()
+    view.appearance = NSAppearance(named: .aqua)
+  }
+
+}
 
 class AppDelegate: NSObject, NSApplicationDelegate {
 
@@ -15,6 +32,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
   private let menuBarPopOver: NSPopover
   private var menuBarIcon: NSStatusItem?
   private var aboutWindow: NSWindow?
+  var popover: Popover!
 
   /// Initialize the AppDelegate. Here it is determined if the app is running in either
   /// production / testing / dev environment.
@@ -51,26 +69,23 @@ class AppDelegate: NSObject, NSApplicationDelegate {
   /// Create the menu bar icon and prepare the popover. Displayes the about window.
   func applicationDidFinishLaunching(_ notification: Notification) {
     appState.openAboutWindow = openAboutWindow
+    let popoverViewController = PopoverViewController()
+    popoverViewController.view = NSHostingView(rootView: PopOverContent(appState: appState))
+    popoverViewController.view.setFrameSize(NSSize(width: cPopOverWidth, height: cPopOverHeight))
+    popoverViewController.view.setAccessibilityIdentifier("PopOver")
 
-    menuBarPopOver.behavior = .transient
-    menuBarPopOver.animates = true
-    menuBarPopOver.contentViewController = NSViewController()
-    menuBarPopOver.contentViewController?.view = NSHostingView(rootView: PopOverContent(appState: appState))
-    menuBarPopOver.contentViewController?.view.setAccessibilityIdentifier("PopOver")
+    popover = Popover(with: MyPopoverConfiguration())
 
-    menuBarIcon = NSStatusBar.system.statusItem(withLength: NSStatusItem.variableLength)
-
-    if let menuButton = menuBarIcon?.button {
-      menuButton.image = NSImage(systemSymbolName: "key.fill", accessibilityDescription: nil)
-      menuButton.action = #selector(menuButtonToggle)
-      menuButton.setAccessibilityEnabled(true)
-    }
+    popover.prepare(
+      with: NSImage(systemSymbolName: "key.fill", accessibilityDescription: nil)!,
+      contentViewController: popoverViewController
+    )
 
     openAboutWindow()
 
     // This is needed for EndToEnd tests to access the PopOver elements.
     var accessibilityChildren = NSApp.accessibilityChildren() ?? [Any]()
-    accessibilityChildren.append(menuBarPopOver.contentViewController?.view as Any)
+    accessibilityChildren.append(popoverViewController.view as Any)
     NSApp.setAccessibilityChildren(accessibilityChildren)
   }
 
@@ -88,30 +103,6 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     }
 
     aboutWindow = getAboutWindow
-    NSApp.activate(ignoringOtherApps: true)
-  }
-
-  /// The popover is displayed and activate is called. Calling activate
-  /// makes sure that the keyboard shortcuts work.
-  /// This function is called when the menu bar icon is clicked.
-  @objc
-  private func menuButtonToggle() {
-    guard !menuBarPopOver.isShown else { return }
-    guard let button = menuBarIcon?.button else { return }
-
-    appState.generateNewPassphrase()
-
-    let positioningWindow = getPositioningWindow(caller: button)
-
-    // position and show the window
-    menuBarPopOver.show(
-      relativeTo: positioningWindow.contentView!.frame,
-      of: positioningWindow.contentView!,
-      preferredEdge: NSRectEdge.minY
-    )
-    menuBarPopOver.contentViewController?.view.window?.makeKey()
-    positioningWindow.contentView!.bounds = positioningWindow
-      .contentView!.bounds.offsetBy(dx: 0, dy: positioningWindow.contentView!.bounds.height)
     NSApp.activate(ignoringOtherApps: true)
   }
 }
@@ -139,35 +130,6 @@ extension AppDelegate {
     windowToReturn.isReleasedWhenClosed = false
     windowToReturn.setAccessibilityIdentifier("aboutWindow")
     return windowToReturn
-  }
-
-  private func getPositioningWindow(caller: NSStatusBarButton) -> NSWindow {
-    let positioningWindow = NSWindow(
-      contentRect: CGRect(x: 0, y: 0, width: 20, height: 5),
-      styleMask: .borderless,
-      backing: .buffered,
-      defer: false
-    )
-    positioningWindow.alphaValue = 0
-
-    let buttonRect: NSRect = caller.convert(caller.bounds, to: nil)
-    let screenRect: NSRect = caller.window!.convertToScreen(buttonRect)
-
-    var posX = screenRect.origin.x + (screenRect.width / 2) - 10
-    let posY = screenRect.origin.y
-
-    positioningWindow.setFrameOrigin(NSPoint(x: posX, y: posY))
-    positioningWindow.makeKeyAndOrderFront(self)
-
-    if let screenWidth = screenWidth {
-      if (screenRect.maxX + (cPopOverWidth * 0.75)) > screenWidth {
-        Log.e("PopOver overflow! Fixing positioning...")
-        let overflowAmount = (screenRect.maxX + (cPopOverWidth * 0.75)) - screenWidth
-        posX -= overflowAmount
-        positioningWindow.setFrameOrigin(NSPoint(x: posX, y: posY))
-      }
-    }
-    return positioningWindow
   }
 
 }
