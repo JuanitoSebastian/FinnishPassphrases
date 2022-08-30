@@ -10,22 +10,6 @@ import AppKit
 import SwiftUI
 import Popover
 
-class MyPopoverConfiguration: DefaultConfiguration {
-  override var backgroundColor: NSColor { NSColor(Color("backdrop")) }
-  override var borderColor: NSColor? { nil }
-  override var popoverToStatusItemMargin: CGFloat { 4 }
-  override var cornerRadius: CGFloat { 10 }
-}
-
-class PopoverViewController: NSViewController {
-
-  override func viewDidLoad() {
-    super.viewDidLoad()
-    view.appearance = NSAppearance(named: .aqua)
-  }
-
-}
-
 class AppDelegate: NSObject, NSApplicationDelegate {
 
   private let appState: AppState
@@ -109,6 +93,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
 
 extension AppDelegate {
 
+  /// A NSWindow styled correctly for the About Window
   private var getAboutWindow: NSWindow {
     let windowToReturn = NSWindow(
       contentRect: NSRect(x: 0, y: 0, width: 400, height: 600),

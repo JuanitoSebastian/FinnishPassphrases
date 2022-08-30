@@ -50,6 +50,7 @@
 		28B2F2FA279417DC00FFED56 /* CustomToggleStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28B2F2F9279417DC00FFED56 /* CustomToggleStyle.swift */; };
 		28B7FE3E2665006B007A891B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28B7FE3D2665006B007A891B /* AppDelegate.swift */; };
 		28DD0EA3277F5BB800B3CA60 /* AboutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28DD0EA2277F5BB800B3CA60 /* AboutView.swift */; };
+		28EB384D28BE087000E22E03 /* PopOver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28EB384C28BE087000E22E03 /* PopOver.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -125,6 +126,7 @@
 		28B2F2F9279417DC00FFED56 /* CustomToggleStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomToggleStyle.swift; sourceTree = "<group>"; };
 		28B7FE3D2665006B007A891B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		28DD0EA2277F5BB800B3CA60 /* AboutView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutView.swift; sourceTree = "<group>"; };
+		28EB384C28BE087000E22E03 /* PopOver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopOver.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -166,6 +168,7 @@
 				280A1CFC2662357A00301A4C /* kotus-sanalista_v1.xml */,
 				280A1CFA2662356F00301A4C /* Log.swift */,
 				280A1D082662477F00301A4C /* Constants.swift */,
+				28EB384C28BE087000E22E03 /* PopOver.swift */,
 			);
 			path = "Supporting Files";
 			sourceTree = "<group>";
@@ -595,6 +598,7 @@
 				287C914527C25F50005C9C58 /* CustomHoverButton.swift in Sources */,
 				28B0534A2791B5B700174F5E /* SettingsPanel.swift in Sources */,
 				280A1D022662359900301A4C /* KotusWordService.swift in Sources */,
+				28EB384D28BE087000E22E03 /* PopOver.swift in Sources */,
 				2866168527CF69A200E44293 /* Store.swift in Sources */,
 				2866168927CF714100E44293 /* WordService.swift in Sources */,
 				281666FC2664C53A00DDCCC3 /* Passphrase.swift in Sources */,

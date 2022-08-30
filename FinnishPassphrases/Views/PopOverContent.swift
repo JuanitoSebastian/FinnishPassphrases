@@ -12,7 +12,6 @@ import SwiftUI
 struct PopOverContent: View {
 
   @ObservedObject var appState: AppState
-  @Environment(\.colorScheme) private var colorScheme
   private let backgroundColor = Color("backdrop")
   private let padding = EdgeInsets(top: 15, leading: 20, bottom: 15, trailing: 20)
 
@@ -77,8 +76,5 @@ extension PopOverContent {
       }
       .padding(padding)
     }
-    .onChange(of: colorScheme, perform: { color in
-      Log.i(NSAppearance.currentDrawing().name)
-    })
   }
 }
