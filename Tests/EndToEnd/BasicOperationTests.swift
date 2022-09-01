@@ -93,11 +93,4 @@ class BasicOperationTests: XCTestCase {
     XCTAssertNotEqual(currentPassphrase, getPassphraseFromElement(popOverContents!.passphraseArea))
   }
 
-  func test_h_closing_and_reopening_pop_over_generates_new_passphrase() throws {
-    aboutWindowContents!.closeButton.element.click()
-    let currentPassphrase = getPassphraseFromElement(popOverContents!.passphraseArea)
-    menuBarIcon.element.click()
-    sleep(1)
-    XCTAssertNotEqual(currentPassphrase, getPassphraseFromElement(popOverContents!.passphraseArea))
-  }
 }

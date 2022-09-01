@@ -12,7 +12,7 @@ struct SettingsPanel: View {
 
   @EnvironmentObject var appState: AppState
   private let panelColor = Color("settings-panel-background")
-  private let panelPadding = EdgeInsets(top: 40, leading: 0, bottom: 20, trailing: 0)
+  private let panelPadding = EdgeInsets(top: 15, leading: 0, bottom: 15, trailing: 0)
   private let labelFont = Font.system(size: 14, design: .default)
   private let labelColor = Color("settings-panel-label-text")
 
@@ -33,6 +33,7 @@ struct SettingsPanel: View {
           .foregroundColor(labelColor)
           .accessibilityHidden(true)
       }
+
       VStack(spacing: 10) {
         Toggle("", isOn: $appState.capitalization)
           .toggleStyle(CustomToggleStyle())
@@ -44,10 +45,9 @@ struct SettingsPanel: View {
           .accessibilityHidden(true)
       }
         .padding(.top, 4)
-      Spacer()
     }
     .padding(panelPadding)
-    .frame(width: 110)
+    .frame(maxWidth: 110, maxHeight: .infinity)
     .background(panelColor)
   }
 }

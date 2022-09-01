@@ -11,6 +11,15 @@
         }
       },
       {
+        "package": "Popover",
+        "repositoryURL": "https://github.com/iSapozhnik/Popover",
+        "state": {
+          "branch": null,
+          "revision": "f1f68383d8b6b773009832943c7bd9a077ac4a4e",
+          "version": "1.1.1"
+        }
+      },
+      {
         "package": "WrappingHStack",
         "repositoryURL": "https://github.com/dkk/WrappingHStack",
         "state": {

@@ -8,6 +8,7 @@
 import Foundation
 import AppKit
 import SwiftUI
+import Popover
 
 class AppDelegate: NSObject, NSApplicationDelegate {
 
@@ -15,6 +16,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
   private let menuBarPopOver: NSPopover
   private var menuBarIcon: NSStatusItem?
   private var aboutWindow: NSWindow?
+  var popover: Popover!
 
   /// Initialize the AppDelegate. Here it is determined if the app is running in either
   /// production / testing / dev environment.
@@ -51,26 +53,23 @@ class AppDelegate: NSObject, NSApplicationDelegate {
   /// Create the menu bar icon and prepare the popover. Displayes the about window.
   func applicationDidFinishLaunching(_ notification: Notification) {
     appState.openAboutWindow = openAboutWindow
+    let popoverViewController = PopoverViewController()
+    popoverViewController.view = NSHostingView(rootView: PopOverContent(appState: appState))
+    popoverViewController.view.setFrameSize(NSSize(width: cPopOverWidth, height: cPopOverHeight))
+    popoverViewController.view.setAccessibilityIdentifier("PopOver")
 
-    menuBarPopOver.behavior = .transient
-    menuBarPopOver.animates = true
-    menuBarPopOver.contentViewController = NSViewController()
-    menuBarPopOver.contentViewController?.view = NSHostingView(rootView: PopOverContent(appState: appState))
-    menuBarPopOver.contentViewController?.view.setAccessibilityIdentifier("PopOver")
+    popover = Popover(with: MyPopoverConfiguration())
 
-    menuBarIcon = NSStatusBar.system.statusItem(withLength: NSStatusItem.variableLength)
-
-    if let menuButton = menuBarIcon?.button {
-      menuButton.image = NSImage(systemSymbolName: "key.fill", accessibilityDescription: nil)
-      menuButton.action = #selector(menuButtonToggle)
-      menuButton.setAccessibilityEnabled(true)
-    }
+    popover.prepare(
+      with: NSImage(systemSymbolName: "key.fill", accessibilityDescription: nil)!,
+      contentViewController: popoverViewController
+    )
 
     openAboutWindow()
 
     // This is needed for EndToEnd tests to access the PopOver elements.
     var accessibilityChildren = NSApp.accessibilityChildren() ?? [Any]()
-    accessibilityChildren.append(menuBarPopOver.contentViewController?.view as Any)
+    accessibilityChildren.append(popoverViewController.view as Any)
     NSApp.setAccessibilityChildren(accessibilityChildren)
   }
 
@@ -87,27 +86,15 @@ class AppDelegate: NSObject, NSApplicationDelegate {
       if aboutWindow.isVisible { aboutWindow.close() }
     }
 
-    aboutWindow = aboutWindowSpecs
+    aboutWindow = getAboutWindow
     NSApp.activate(ignoringOtherApps: true)
   }
-
-  /// The popover is displayed and activate is called. Calling activate
-  /// makes sure that the keyboard shortcuts work.
-  /// This function is called when the menu bar icon is clicked.
-  @objc
-  private func menuButtonToggle() {
-    guard let menuButton = menuBarIcon?.button else { return }
-    appState.generateNewPassphrase()
-    menuBarPopOver.show(relativeTo: menuButton.bounds, of: menuButton, preferredEdge: NSRectEdge.minY)
-    menuBarPopOver.contentViewController?.view.window?.makeKey()
-    NSApp.activate(ignoringOtherApps: true)
-  }
-
 }
 
 extension AppDelegate {
 
-  private var aboutWindowSpecs: NSWindow {
+  /// A NSWindow styled correctly for the About Window
+  private var getAboutWindow: NSWindow {
     let windowToReturn = NSWindow(
       contentRect: NSRect(x: 0, y: 0, width: 400, height: 600),
       styleMask: [.miniaturizable, .closable, .titled],
@@ -135,4 +122,8 @@ extension AppDelegate {
 private var environment: String {
   guard let env = ProcessInfo.processInfo.environment["env"] else { return "production" }
   return env
+}
+
+private var screenWidth: CGFloat? {
+  NSScreen.main?.frame.maxX
 }

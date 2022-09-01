@@ -502,10 +502,6 @@ Ensure the default browser behavior of the `hidden` attribute.
   }
 }
 
-.invisible {
-  visibility: hidden;
-}
-
 .m-12 {
   margin: 3rem;
 }
@@ -540,8 +536,12 @@ Ensure the default browser behavior of the `hidden` attribute.
   width: 100%;
 }
 
-.w-32 {
-  width: 8rem;
+.w-28 {
+  width: 7rem;
+}
+
+.w-96 {
+  width: 24rem;
 }
 
 .w-72 {
@@ -550,14 +550,6 @@ Ensure the default browser behavior of the `hidden` attribute.
 
 .w-auto {
   width: auto;
-}
-
-.w-96 {
-  width: 24rem;
-}
-
-.w-28 {
-  width: 7rem;
 }
 
 .flex-row {
@@ -586,12 +578,6 @@ Ensure the default browser behavior of the `hidden` attribute.
 
 .gap-4 {
   gap: 1rem;
-}
-
-.truncate {
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
 }
 
 .rounded-md {
@@ -678,6 +664,11 @@ Ensure the default browser behavior of the `hidden` attribute.
   line-height: 1.25rem;
 }
 
+.text-4xl {
+  font-size: 2.25rem;
+  line-height: 2.5rem;
+}
+
 .font-medium {
   font-weight: 500;
 }
@@ -727,16 +718,6 @@ Ensure the default browser behavior of the `hidden` attribute.
 .drop-shadow-xl {
   --tw-drop-shadow: drop-shadow(0 20px 13px rgb(0 0 0 / 0.03)) drop-shadow(0 8px 5px rgb(0 0 0 / 0.08));
   filter: var(--tw-blur) var(--tw-brightness) var(--tw-contrast) var(--tw-grayscale) var(--tw-hue-rotate) var(--tw-invert) var(--tw-saturate) var(--tw-sepia) var(--tw-drop-shadow);
-}
-
-@media (min-width: 640px) {
-  .sm\:visible {
-    visibility: visible;
-  }
-
-  .sm\:flex-row {
-    flex-direction: row;
-  }
 }
 
 @media (min-width: 768px) {
