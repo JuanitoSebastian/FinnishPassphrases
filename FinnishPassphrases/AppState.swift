@@ -9,7 +9,7 @@ import Foundation
 import Combine
 import AppKit
 
-/// AppState is class that contains the current state of the application. UI actions always call AppState.
+/// AppState, a class that contains the current state of the application. UI actions always call AppState.
 class AppState: ObservableObject {
 
   @Published var passphrase: Passphrase
