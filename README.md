@@ -31,3 +31,4 @@ Open FinnishPassphrases.xcodeproj to access the Xcode workspace and run the test
 ## Dependencies
 - [Mockingbird](https://mockingbirdswift.com) used for mocking classes in unit tests
 - [WrappingHStack](https://github.com/dkk/WrappingHStack) used for displaying for displaying the passphrase
+- [Popover](https://github.com/iSapozhnik/Popover) menu bar popover
