@@ -1,7 +1,7 @@
 ![Header Image](https://raw.githubusercontent.com/JuanitoSebastian/FinnishPassphrases/development/docs/imgs/GitHubHeader.png)
 
 [![Build & Tests](https://github.com/JuanitoSebastian/FinnishPassphrases/actions/workflows/build_test.yml/badge.svg)](https://github.com/JuanitoSebastian/FinnishPassphrases/actions/workflows/build_test.yml)
-[![codecov](https://raw.githubusercontent.com/JuanitoSebastian/FinnishPassphrases/development/docs/imgs/AppStoreBadge.svg)](https://codecov.io/gh/JuanitoSebastian/FinnishPassphrases)
+[![codecov](https://codecov.io/gh/JuanitoSebastian/FinnishPassphrases/branch/main/graph/badge.svg?token=AIWQRJR7VB)](https://codecov.io/gh/JuanitoSebastian/FinnishPassphrases)
 
 [![Mac App Store](https://raw.githubusercontent.com/JuanitoSebastian/FinnishPassphrases/development/docs/imgs/AppStoreBadge.svg)](https://apps.apple.com/us/app/finnish-passphrases/id1612642972)
 
