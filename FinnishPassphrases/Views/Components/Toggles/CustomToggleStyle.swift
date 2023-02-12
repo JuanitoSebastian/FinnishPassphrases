@@ -58,6 +58,7 @@ struct CustomToggleStyle: ToggleStyle {
       }
       .frame(maxWidth: 40)
     }
+    .focusable(false)
     .buttonStyle(PlainButtonStyle())
   }
 }

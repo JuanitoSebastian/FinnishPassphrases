@@ -24,6 +24,7 @@ struct CustomHoverButton: View {
       .labelStyle(CustomLabelStyle())
       .offset(y: hoveringState ? -2 : 0)
     }
+    .focusable(false)
     .buttonStyle(PlainButtonStyle())
     .onHover { hovering in
       withAnimation(.easeInOut(duration: 0.2)) {

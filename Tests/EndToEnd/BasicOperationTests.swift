@@ -39,15 +39,15 @@ class BasicOperationTests: XCTestCase {
     menuBarIcon!.element.click()
     sleep(1)
 
-    XCTAssert(popOverContents!.quitButton.element.exists)
-    XCTAssert(popOverContents!.quitButton.element.isHittable)
-    XCTAssert(popOverContents!.aboutButton.element.exists)
-    XCTAssert(popOverContents!.aboutButton.element.isHittable)
-    XCTAssert(popOverContents!.copyButton.element.exists)
-    XCTAssert(popOverContents!.copyButton.element.isHittable)
-    XCTAssert(popOverContents!.newButton.element.exists)
-    XCTAssert(popOverContents!.newButton.element.isHittable)
-    XCTAssert(popOverContents!.passphraseArea.element.exists)
+    XCTAssert(popOverContents!.quitButton.exists)
+    XCTAssert(popOverContents!.quitButton.isHittable)
+    XCTAssert(popOverContents!.aboutButton.exists)
+    XCTAssert(popOverContents!.aboutButton.isHittable)
+    XCTAssert(popOverContents!.copyButton.exists)
+    XCTAssert(popOverContents!.copyButton.isHittable)
+    XCTAssert(popOverContents!.newButton.exists)
+    XCTAssert(popOverContents!.newButton.isHittable)
+    XCTAssert(popOverContents!.passphraseArea.exists)
   }
 
   func test_d_quit_button_works_as_expected() throws {
@@ -55,7 +55,7 @@ class BasicOperationTests: XCTestCase {
     menuBarIcon.element.click()
     sleep(1)
 
-    popOverContents!.quitButton.element.click()
+    popOverContents!.quitButton.click()
     XCTAssertFalse(menuBarIcon.element.exists)
   }
 
@@ -65,8 +65,8 @@ class BasicOperationTests: XCTestCase {
     menuBarIcon.element.click()
     sleep(1)
 
-    popOverContents!.aboutButton.element.click()
-    XCTAssert(aboutWindow!.element.isHittable)
+    popOverContents!.aboutButton.click()
+    XCTAssert(aboutWindowContents!.closeButton.element.isHittable)
   }
 
   func test_f_copy_button_works_as_expected() throws {
@@ -74,7 +74,7 @@ class BasicOperationTests: XCTestCase {
     menuBarIcon.element.click()
     sleep(1)
 
-    popOverContents!.copyButton.element.click()
+    popOverContents!.copyButton.click()
     let currentPassphrase = getPassphraseFromElement(popOverContents!.passphraseArea)
     let pasteboard = NSPasteboard.general
     let pasteboardContents = pasteboard.pasteboardItems![0]
@@ -89,7 +89,7 @@ class BasicOperationTests: XCTestCase {
     sleep(1)
 
     let currentPassphrase = getPassphraseFromElement(popOverContents!.passphraseArea)
-    popOverContents!.newButton.element.click()
+    popOverContents!.newButton.click()
     XCTAssertNotEqual(currentPassphrase, getPassphraseFromElement(popOverContents!.passphraseArea))
   }
 

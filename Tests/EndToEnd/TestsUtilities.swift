@@ -21,48 +21,44 @@ func getPopOverContents(app: XCUIApplication)
 -> (popOver: XCUIElementQuery, popOverContents: PopOverContents) {
   let popOver = app.descendants(matching: .other).matching(identifier: "PopOver")
   let popOverContents = PopOverContents(
-    quitButton: popOver.descendants(matching: .button).matching(identifier: "quitButton"),
-    aboutButton: popOver.descendants(matching: .button).matching(identifier: "aboutButton"),
-    copyButton: popOver.descendants(matching: .button).matching(identifier: "copyButton"),
-    newButton: popOver.descendants(matching: .button).matching(identifier: "newButton"),
-    passphraseArea: popOver.descendants(matching: .other).matching(identifier: "passphraseArea"),
-    decrementNumebrOfWordsButton: popOver.descendants(matching: .button).matching(
-      identifier: "decrementNumberOfWordsButton"
-    ),
-    incrementNumbberOfWordsButton: popOver.descendants(matching: .button).matching(
-      identifier: "incrementNumberOfWordsButton"
-    ),
-    numberOfWords: popOver.descendants(matching: .staticText).matching(identifier: "currentNumberOfWords"),
-    previousSeparatorButton: popOver.descendants(matching: .button).matching(identifier: "previousSeparatorButton"),
-    nextSeparatorButton: popOver.descendants(matching: .button).matching(identifier: "nextSeparatorButton"),
-    currentSeparator: popOver.descendants(matching: .staticText).matching(identifier: "currentSeparator"),
-    mixedCaseToggle: popOver.descendants(matching: .checkBox).matching(identifier: "mixedCaseToggle")
+    quitButton: app.buttons["quitButton"],
+    aboutButton: app.buttons["aboutButton"],
+    copyButton: app.buttons["copyButton"],
+    newButton: app.buttons["newButton"],
+    passphraseArea: app.otherElements["passphraseArea"],
+    decrementNumebrOfWordsButton: app.buttons["decrementNumberOfWordsButton"],
+    incrementNumbberOfWordsButton: app.buttons["incrementNumberOfWordsButton"],
+    numberOfWords: app.staticTexts["currentNumberOfWords"],
+    previousSeparatorButton: app.buttons["previousSeparatorButton"],
+    nextSeparatorButton: app.buttons["nextSeparatorButton"],
+    currentSeparator: app.staticTexts["currentSeparator"],
+    mixedCaseToggle: app.checkBoxes["mixedCaseToggle"]
   )
 
   return (popOver, popOverContents)
 }
 
-func getPassphraseFromElement(_ passphraseArea: XCUIElementQuery) -> String {
-  let labelString = passphraseArea.element.label
+func getPassphraseFromElement(_ passphraseArea: XCUIElement) -> String {
+  let labelString = passphraseArea.label
   return String(labelString.suffix(labelString.count - 22))
 }
 
 struct PopOverContents {
-  let quitButton: XCUIElementQuery
-  let aboutButton: XCUIElementQuery
-  let copyButton: XCUIElementQuery
-  let newButton: XCUIElementQuery
-  let passphraseArea: XCUIElementQuery
+  let quitButton: XCUIElement
+  let aboutButton: XCUIElement
+  let copyButton: XCUIElement
+  let newButton: XCUIElement
+  let passphraseArea: XCUIElement
 
-  let decrementNumebrOfWordsButton: XCUIElementQuery
-  let incrementNumbberOfWordsButton: XCUIElementQuery
-  let numberOfWords: XCUIElementQuery
+  let decrementNumebrOfWordsButton: XCUIElement
+  let incrementNumbberOfWordsButton: XCUIElement
+  let numberOfWords: XCUIElement
 
-  let previousSeparatorButton: XCUIElementQuery
-  let nextSeparatorButton: XCUIElementQuery
-  let currentSeparator: XCUIElementQuery
+  let previousSeparatorButton: XCUIElement
+  let nextSeparatorButton: XCUIElement
+  let currentSeparator: XCUIElement
 
-  let mixedCaseToggle: XCUIElementQuery
+  let mixedCaseToggle: XCUIElement
 }
 
 struct AboutWindowContents {

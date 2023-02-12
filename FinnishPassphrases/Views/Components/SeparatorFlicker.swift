@@ -89,6 +89,7 @@ struct SeparatorFlicker: View {
 
       }
     }
+    .focusable(false)
     .buttonStyle(PlainButtonStyle())
   }
 }

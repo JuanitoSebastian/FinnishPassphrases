@@ -31,7 +31,7 @@ class GeneratingPassphrasesTests: XCTestCase {
     sleep(1)
 
     let currentPassphrase = getPassphraseFromElement(popOverContents!.passphraseArea)
-    popOverContents!.incrementNumbberOfWordsButton.element.click()
+    popOverContents!.incrementNumbberOfWordsButton.click()
 
     XCTAssertTrue(currentPassphrase.count < getPassphraseFromElement(popOverContents!.passphraseArea).count)
   }
@@ -42,7 +42,7 @@ class GeneratingPassphrasesTests: XCTestCase {
     sleep(1)
 
     let currentPassphrase = getPassphraseFromElement(popOverContents!.passphraseArea)
-    popOverContents!.decrementNumebrOfWordsButton.element.click()
+    popOverContents!.decrementNumebrOfWordsButton.click()
 
     XCTAssertTrue(currentPassphrase.count > getPassphraseFromElement(popOverContents!.passphraseArea).count)
   }
@@ -55,19 +55,19 @@ class GeneratingPassphrasesTests: XCTestCase {
     let currentPassphrase = getPassphraseFromElement(popOverContents!.passphraseArea)
     XCTAssertNil(currentPassphrase.range(of: mixedCaseRegex, options: .regularExpression))
 
-    popOverContents!.mixedCaseToggle.element.click()
+    popOverContents!.mixedCaseToggle.click()
     XCTAssertNotEqual(currentPassphrase, getPassphraseFromElement(popOverContents!.passphraseArea))
     XCTAssertNotNil(
       getPassphraseFromElement(popOverContents!.passphraseArea)
         .range(of: mixedCaseRegex, options: .regularExpression)
     )
 
-    popOverContents!.mixedCaseToggle.element.click()
+    popOverContents!.mixedCaseToggle.click()
 
     XCTAssertNil(
       getPassphraseFromElement(popOverContents!.passphraseArea)
         .range(of: mixedCaseRegex, options: .regularExpression)
     )
-
   }
 }
+

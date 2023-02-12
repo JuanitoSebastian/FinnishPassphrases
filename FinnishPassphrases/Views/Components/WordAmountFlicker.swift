@@ -75,6 +75,7 @@ struct WordAmountFlicker: View {
 
       }
     }
+    .focusable(false)
     .buttonStyle(PlainButtonStyle())
   }
 }
